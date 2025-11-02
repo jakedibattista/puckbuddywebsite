@@ -62,7 +62,7 @@ export default function TermsOfService() {
       </p>
       <ul className="list-none">
         <li>Buddy LLC</li>
-        <li>[jake.a.dibattista@gmail.com]</li>
+        <li>support@buddyllc.app</li>
         <li>[240-490-0190]</li>
       </ul>
     </div>

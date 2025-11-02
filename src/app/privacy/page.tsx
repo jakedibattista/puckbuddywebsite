@@ -134,7 +134,7 @@ export default function PrivacyPolicy() {
       </p>
       <ul className="list-none">
         <li>Buddy LLC</li>
-        <li>Email: jake.a.dibattista@gmail.com</li>
+        <li>Email: support@buddyllc.app</li>
         <li>Phone: 240-490-0190</li>
       </ul>
     </div>

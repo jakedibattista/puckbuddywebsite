@@ -69,7 +69,7 @@ export default function RefundPolicy() {
         If you have questions about our subscription policy or the features of the Buddy LLC App, please contact us at:
       </p>
       <ul className="list-none">
-        <li>Email: [jake.a.dibattista@gmail.com]</li>
+        <li>Email: support@buddyllc.app</li>
       </ul>
       <p className="mt-4">
         For all issues related to billing, payments, or refund requests, you must contact Apple App Store Support directly, as they manage all financial transactions.

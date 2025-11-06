@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 
 export default function Home() {
   return (
@@ -172,7 +171,7 @@ export default function Home() {
               <div className="bg-gray-100 p-8 rounded-xl">
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Built on Real Coaching Expertise</h3>
                 <p className="text-gray-700 leading-relaxed">
-                  Puck Buddy's AI was trained and tested on over 100 videos of youth hockey with professional coach benchmarking. This ensures that every piece of feedback is grounded in proven coaching techniques and best AI practices for reliability and safety.
+                  Puck Buddy&apos;s AI was trained and tested on over 100 videos of youth hockey with professional coach benchmarking. This ensures that every piece of feedback is grounded in proven coaching techniques and best AI practices for reliability and safety.
                 </p>
               </div>
             </div>
@@ -257,7 +256,7 @@ export default function Home() {
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start">
                   <span className="text-blue-600 mr-2">✓</span>
-                  <span>Track your child's progress with detailed analytics.</span>
+                  <span>Track your child&apos;s progress with detailed analytics.</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-blue-600 mr-2">✓</span>
@@ -359,7 +358,7 @@ export default function Home() {
                 3
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Analyze</h3>
-              <p className="text-gray-600">Let our AI coach work its magic! In moments, you'll have a complete analysis.</p>
+              <p className="text-gray-600">Let our AI coach work its magic! In moments, you&apos;ll have a complete analysis.</p>
             </div>
             <div className="text-center">
               <div className="w-20 h-20 bg-blue-600 text-white rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-4">

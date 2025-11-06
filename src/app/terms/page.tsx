@@ -6,7 +6,7 @@ export default function TermsOfService() {
 
       <h2 className="text-2xl font-bold mt-6 mb-2">1. AGREEMENT TO TERMS</h2>
       <p className="mb-4">
-        These Terms of Service constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you") and Buddy Tech LLC ("we," "us," or "our"), concerning your access to and use of our [website/application/services] (collectively, the "Services"). You agree that by accessing the Services, you have read, understood, and agree to be bound by all of these Terms of Service. If you do not agree with all of these terms, then you are expressly prohibited from using the Services and you must discontinue use immediately.
+        These Terms of Service constitute a legally binding agreement made between you, whether personally or on behalf of an entity (&quot;you&quot;) and Buddy Tech LLC (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;), concerning your access to and use of our [website/application/services] (collectively, the &quot;Services&quot;). You agree that by accessing the Services, you have read, understood, and agree to be bound by all of these Terms of Service. If you do not agree with all of these terms, then you are expressly prohibited from using the Services and you must discontinue use immediately.
       </p>
 
       <h2 className="text-2xl font-bold mt-6 mb-2">2. INTELLECTUAL PROPERTY RIGHTS</h2>

@@ -39,3 +39,20 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# large video files (using Vimeo embeds instead)
+*.mp4
+*.MP4
+*.mov
+*.MOV
+*.avi
+*.AVI
+
+# backup/original image files (keep resized versions in public/)
+*.PNG
+!public/**/*.png
+
+# temporary files
+*.log
+*.tmp
+.DS_Store

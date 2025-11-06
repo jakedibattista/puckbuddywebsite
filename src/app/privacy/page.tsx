@@ -1,12 +1,12 @@
 export default function PrivacyPolicy() {
   return (
     <div className="container mx-auto p-10">
-      <h1 className="text-3xl font-bold mb-4">Privacy Policy for Buddy LLC</h1>
+      <h1 className="text-3xl font-bold mb-4">Privacy Policy for Buddy Tech LLC</h1>
       <p className="mb-4">Last Updated: October 31, 2025</p>
 
       <h2 className="text-2xl font-bold mt-6 mb-2">1. INTRODUCTION</h2>
       <p className="mb-4">
-        Buddy LLC (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) operates the Puckbuddy mobile application (the &quot;App&quot;). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our App. Please read this Privacy Policy carefully. If you do not agree with the terms of this Privacy Policy, please do not access or use the App.
+        Buddy Tech LLC (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) operates the Puckbuddy mobile application (the &quot;App&quot;). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our App. Please read this Privacy Policy carefully. If you do not agree with the terms of this Privacy Policy, please do not access or use the App.
       </p>
 
       <h2 className="text-2xl font-bold mt-6 mb-2">2. INFORMATION WE COLLECT</h2>
@@ -133,7 +133,7 @@ export default function PrivacyPolicy() {
         If you have questions or comments about this Privacy Policy, please contact us at:
       </p>
       <ul className="list-none">
-        <li>Buddy LLC</li>
+        <li>Buddy Tech LLC</li>
         <li>Email: support@buddyllc.app</li>
         <li>Phone: 240-490-0190</li>
       </ul>

@@ -1,12 +1,12 @@
 export default function TermsOfService() {
   return (
     <div className="container mx-auto p-10">
-      <h1 className="text-3xl font-bold mb-4">Terms of Service for Buddy LLC</h1>
+      <h1 className="text-3xl font-bold mb-4">Terms of Service for Buddy Tech LLC</h1>
       <p className="mb-4">Last Updated: October 4, 2025</p>
 
       <h2 className="text-2xl font-bold mt-6 mb-2">1. AGREEMENT TO TERMS</h2>
       <p className="mb-4">
-        These Terms of Service constitute a legally binding agreement made between you, whether personally or on behalf of an entity (“you”) and Buddy LLC (“we,” “us,” or “our”), concerning your access to and use of our [website/application/services] (collectively, the “Services”). You agree that by accessing the Services, you have read, understood, and agree to be bound by all of these Terms of Service. If you do not agree with all of these terms, then you are expressly prohibited from using the Services and you must discontinue use immediately.
+        These Terms of Service constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you") and Buddy Tech LLC ("we," "us," or "our"), concerning your access to and use of our [website/application/services] (collectively, the "Services"). You agree that by accessing the Services, you have read, understood, and agree to be bound by all of these Terms of Service. If you do not agree with all of these terms, then you are expressly prohibited from using the Services and you must discontinue use immediately.
       </p>
 
       <h2 className="text-2xl font-bold mt-6 mb-2">2. INTELLECTUAL PROPERTY RIGHTS</h2>
@@ -61,7 +61,7 @@ export default function TermsOfService() {
         To resolve a complaint regarding the Services or to receive further information regarding the use of the Services, please contact us at:
       </p>
       <ul className="list-none">
-        <li>Buddy LLC</li>
+        <li>Buddy Tech LLC</li>
         <li>support@buddyllc.app</li>
         <li>[240-490-0190]</li>
       </ul>

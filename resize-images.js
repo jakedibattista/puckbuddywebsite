@@ -5,18 +5,24 @@ const path = require('path');
 // Configuration: Image dimensions
 // iPhone dimensions
 const iPhoneConfigs = {
-  'chat': { width: 1242, height: 2688 },
-  'home': { width: 1242, height: 2688 },
+  'chat': { width: 1284, height: 2778 },
+  'chat2': { width: 1284, height: 2778 },
+  'home': { width: 1284, height: 2778 },
   'loading screen': { width: 1284, height: 2778 },
-  'score card': { width: 2688, height: 1242 },
+  'score card': { width: 1284, height: 2778 },
+  'scorecard2': { width: 1284, height: 2778 },
+  'coach seth': { width: 1284, height: 2778 },
 };
 
 // iPad Pro 12.9"/13" dimensions
 const iPadConfigs = {
-  'chat': { width: 2064, height: 2752 }, // portrait
-  'home': { width: 2064, height: 2752 }, // portrait
-  'loading screen': { width: 2048, height: 2732 }, // portrait
-  'score card': { width: 2752, height: 2064 }, // landscape
+  'chat': { width: 2048, height: 2732 },
+  'chat2': { width: 2048, height: 2732 },
+  'home': { width: 2048, height: 2732 },
+  'loading screen': { width: 2048, height: 2732 },
+  'score card': { width: 2048, height: 2732 },
+  'scorecard2': { width: 2048, height: 2732 },
+  'coach seth': { width: 2048, height: 2732 },
 };
 
 // Combine all configs
@@ -98,7 +104,7 @@ async function resizeImages() {
   console.log('🔍 Searching for images...\n');
   
   // First, find all original images
-  const originalImageNames = ['chat', 'home', 'loading screen', 'score card'];
+  const originalImageNames = ['chat', 'chat2', 'home', 'loading screen', 'score card', 'scorecard2', 'coach seth'];
   const foundImages = {};
   
   for (const baseName of originalImageNames) {

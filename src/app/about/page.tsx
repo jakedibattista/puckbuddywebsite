@@ -78,7 +78,7 @@ export default function About() {
                 and the limitations of YouTube tutorials or fragmented online instruction, and he knew AI could help bridge it.
               </p>
               <p className="text-lg leading-relaxed">
-                He didn't have to look far for a partner. His neighbor, "Coach" Seth, a trusted youth hockey coach in Charleston, 
+                He didn&apos;t have to look far for a partner. His neighbor, &quot;Coach&quot; Seth, a trusted youth hockey coach in Charleston, 
                 jumped at the chance to become the first AI hockey coach and infuse the system with real rink wisdom. Together, they 
                 spent months testing and refining the experience, ensuring every piece of feedback felt like it came from a coach who cares.
               </p>
@@ -89,7 +89,7 @@ export default function About() {
               </p>
               <p className="text-lg leading-relaxed">
                 Our team is passionate about sports and technology, and we listen closely to players, coaches, and parents to shape every 
-                release. We're just getting started, and we can't wait to see where this journey takes us.
+                release. We&apos;re just getting started, and we can&apos;t wait to see where this journey takes us.
               </p>
             </div>
           </div>
@@ -104,7 +104,7 @@ export default function About() {
               Get in Touch
             </h2>
             <p className="text-lg text-gray-700 mb-8">
-              Have questions, feedback, or suggestions? We'd love to hear from you!
+              Have questions, feedback, or suggestions? We&apos;d love to hear from you!
             </p>
             <div className="space-y-4">
               <p className="text-gray-600">

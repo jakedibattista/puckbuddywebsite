@@ -108,7 +108,7 @@ export default function Home() {
                 <p className="text-lg italic text-blue-50">
                   &ldquo;I wanted every kid to feel like they have a coach in the rink with them, even when they are practicing alone. Puck Buddy delivers that.&rdquo;
                 </p>
-                <p className="mt-4 text-sm uppercase tracking-wide text-blue-100">Coach Seth • Founder, Puck Buddy AI Coaching</p>
+                <p className="mt-4 text-sm uppercase tracking-wide text-blue-100">Coach Seth • Founder &amp; Puck Buddy AI Coach</p>
               </div>
               <ul className="space-y-3 text-blue-100">
                 <li className="flex items-start gap-3">

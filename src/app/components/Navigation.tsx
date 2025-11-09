@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -32,9 +33,10 @@ export default function Navigation() {
               <Link
                 key={link.id}
                 href={link.href}
-                className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors relative"
+                className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors relative group"
               >
                 {link.label}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
                 {link.badge && (
                   <span className="ml-2 text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full">
                     {link.badge}
@@ -70,27 +72,41 @@ export default function Navigation() {
         </nav>
 
         {/* Mobile Navigation Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden border-t border-gray-200 py-4">
-            <div className="flex flex-col space-y-4">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.id}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors px-2 py-1"
-                >
-                  {link.label}
-                  {link.badge && (
-                    <span className="ml-2 text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full">
-                      {link.badge}
-                    </span>
-                  )}
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.2 }}
+              className="md:hidden border-t border-gray-200 overflow-hidden"
+            >
+              <div className="flex flex-col space-y-4 py-4">
+                {navLinks.map((link, index) => (
+                  <motion.div
+                    key={link.id}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <Link
+                      href={link.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors px-2 py-1 block"
+                    >
+                      {link.label}
+                      {link.badge && (
+                        <span className="ml-2 text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full">
+                          {link.badge}
+                        </span>
+                      )}
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </header>
   );

@@ -70,14 +70,14 @@ export default function Home() {
               href="https://apps.apple.com/us/app/puck-buddy/id6752230304"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block transition-transform hover:scale-105 w-full sm:w-auto max-w-[600px] sm:max-w-[1200px]"
+              className="inline-block transition-transform hover:scale-105 w-auto max-w-[300px] sm:max-w-[600px]"
             >
               <Image
                 src="/app-store-badge.svg"
                 alt="Download on the App Store"
                 width={1200}
                 height={402}
-                className="h-auto w-full sm:w-auto"
+                className="h-auto w-auto max-w-[300px] sm:max-w-[600px]"
                 unoptimized
               />
             </a>
@@ -386,14 +386,14 @@ export default function Home() {
                 href="https://apps.apple.com/us/app/puck-buddy/id6752230304"
             target="_blank"
             rel="noopener noreferrer"
-                className="inline-block transition-transform hover:scale-105 w-full sm:w-auto max-w-[600px] sm:max-w-[1200px]"
+                className="inline-block transition-transform hover:scale-105 w-auto max-w-[300px] sm:max-w-[600px]"
               >
                 <Image
                   src="/app-store-badge.svg"
                   alt="Download on the App Store"
                   width={1200}
                   height={402}
-                  className="h-auto w-full sm:w-auto"
+                  className="h-auto w-auto max-w-[300px] sm:max-w-[600px]"
                   unoptimized
                 />
               </a>

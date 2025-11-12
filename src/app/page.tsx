@@ -213,7 +213,7 @@ export default function Home() {
               <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
               <div className="aspect-[9/19] relative bg-gray-100">
                 <Image
-                  src="/coach-seth-iphone.png"
+                  src="/coach-nov25.png"
                   alt="Coach Seth AI Chat"
                   fill
                   className="object-contain"
@@ -249,7 +249,7 @@ export default function Home() {
               <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
               <div className="aspect-[9/19] relative bg-gray-100">
                 <Image
-                  src="/score-card-iphone.png"
+                  src="/scores-nov25.png"
                   alt="Score Card Analysis"
                   fill
                   className="object-contain"

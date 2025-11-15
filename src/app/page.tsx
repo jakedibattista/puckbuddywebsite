@@ -41,12 +41,12 @@ export default function Home() {
           
           {/* Videos in Two Columns */}
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
-            {/* Open Ice Demo */}
+            {/* Chat with AI */}
             <ScrollAnimation delay={0.1} direction="left">
               <div className="space-y-4">
-              <h3 className="text-2xl font-semibold text-gray-900">Open Ice Demo</h3>
+              <h3 className="text-2xl font-semibold text-gray-900">Chat with AI</h3>
               <p className="text-gray-600">
-                Learn how you can use Puck Buddy to plan a practice, learn new drills, and get feedback on your videos.
+                Learn how you can chat with your AI coach in real-time to plan practices, learn new drills, and get personalized feedback on your videos.
               </p>
               <div className="relative aspect-video bg-gray-900 rounded-xl overflow-hidden shadow-2xl hover:shadow-3xl transition-shadow">
                 <iframe
@@ -55,27 +55,27 @@ export default function Home() {
                   frameBorder="0"
                   allow="autoplay; fullscreen; picture-in-picture"
                   allowFullScreen
-                  title="Open Ice Demo"
+                  title="Chat with AI"
                 />
               </div>
               </div>
             </ScrollAnimation>
 
-            {/* Structured Drill Demo */}
+            {/* Analyze a Snapshot */}
             <ScrollAnimation delay={0.2} direction="right">
               <div className="space-y-4">
-              <h3 className="text-2xl font-semibold text-gray-900">Structured Drill Demo</h3>
+              <h3 className="text-2xl font-semibold text-gray-900">Analyze a Snapshot</h3>
               <p className="text-gray-600">
-                See how Puck Buddy uses preset AI Coaches tailored to the needs of specific drills.
+                See how Puck Buddy analyzes your shooting technique frame by frame and provides personalized feedback.
               </p>
               <div className="relative aspect-video bg-gray-900 rounded-xl overflow-hidden shadow-2xl hover:shadow-3xl transition-shadow">
       <iframe
-                  src="https://player.vimeo.com/video/1134375915?badge=0&autopause=0&player_id=0&app_id=58479"
+                  src="https://player.vimeo.com/video/1137227151?badge=0&autopause=0&player_id=0&app_id=58479"
                   className="absolute top-0 left-0 w-full h-full"
         frameBorder="0"
                   allow="autoplay; fullscreen; picture-in-picture"
         allowFullScreen
-                  title="Structured Drill Demo"
+                  title="Analyze a Snapshot"
                 />
               </div>
               </div>

@@ -2,7 +2,7 @@ export default function RefundPolicy() {
   return (
     <div className="container mx-auto p-10">
       <h1 className="text-3xl font-bold mb-4">Refunds, Subscriptions, and Payments Policy for Buddy Tech LLC</h1>
-      <p className="mb-4">Last Updated: October 6, 2025</p>
+      <p className="mb-4">Last Updated: November 18, 2025</p>
 
       <h2 className="text-2xl font-bold mt-6 mb-2">1. General Policy</h2>
       <p className="mb-4">
@@ -69,7 +69,9 @@ export default function RefundPolicy() {
         If you have questions about our subscription policy or the features of the Buddy Tech LLC App, please contact us at:
       </p>
       <ul className="list-none">
+        <li>Buddy Tech LLC</li>
         <li>Email: support@buddyllc.app</li>
+        <li>Phone: 240-490-0190</li>
       </ul>
       <p className="mt-4">
         For all issues related to billing, payments, or refund requests, you must contact Apple App Store Support directly, as they manage all financial transactions.

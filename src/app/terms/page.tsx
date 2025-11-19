@@ -11,7 +11,7 @@ export default function TermsOfService() {
 
       <h2 className="text-2xl font-bold mt-6 mb-2">2. INTELLECTUAL PROPERTY RIGHTS</h2>
       <p className="mb-4">
-        Unless otherwise indicated, the App is our proprietary property. All source code, databases, functionality, software, designs, text, photographs, and graphics in the App (collectively, the "Content") and the trademarks and logos contained therein (the "Marks") are owned or controlled by us and are protected by copyright and trademark laws. The Content and the Marks are provided in the App "AS IS" for your information and personal use only.
+        Unless otherwise indicated, the App is our proprietary property. All source code, databases, functionality, software, designs, text, photographs, and graphics in the App (collectively, the &quot;Content&quot;) and the trademarks and logos contained therein (the &quot;Marks&quot;) are owned or controlled by us and are protected by copyright and trademark laws. The Content and the Marks are provided in the App &quot;AS IS&quot; for your information and personal use only.
       </p>
 
       <h2 className="text-2xl font-bold mt-6 mb-2">3. USER REPRESENTATIONS</h2>
@@ -28,7 +28,7 @@ export default function TermsOfService() {
         <li>Engaging in any automated use of the system, such as using scripts to send comments or messages.</li>
         <li>Harassing, annoying, intimidating, or threatening any of our employees or agents.</li>
         <li>Attempting to bypass any measures of the App designed to prevent or restrict access.</li>
-        <li>Uploading or transmitting viruses, Trojan horses, or other material that interferes with any party's uninterrupted use and enjoyment of the App.</li>
+        <li>Uploading or transmitting viruses, Trojan horses, or other material that interferes with any party&apos;s uninterrupted use and enjoyment of the App.</li>
       </ul>
 
       <h2 className="text-2xl font-bold mt-6 mb-2">5. PURCHASES AND PAYMENT</h2>

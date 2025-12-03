@@ -203,9 +203,12 @@ export default function Home() {
       <section className="py-16 lg:py-24 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollAnimation>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-12 text-center">
-              Explore the App
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 text-center">
+              Custom Coaching Feedback
             </h2>
+            <p className="text-xl text-gray-600 mb-12 text-center">
+              Pick a coach and get on demand technique analysis
+            </p>
           </ScrollAnimation>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {/* Coach Seth Chat */}
@@ -213,7 +216,7 @@ export default function Home() {
               <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
               <div className="aspect-[9/19] relative bg-gray-100">
                 <Image
-                  src="/coach-nov25.png"
+                  src="/coach-report-iphone.png"
                   alt="Coach Seth AI Chat"
                   fill
                   className="object-contain"
@@ -249,7 +252,7 @@ export default function Home() {
               <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
               <div className="aspect-[9/19] relative bg-gray-100">
                 <Image
-                  src="/scores-nov25.png"
+                  src="/scorecard-iphone.png"
                   alt="Score Card Analysis"
                   fill
                   className="object-contain"

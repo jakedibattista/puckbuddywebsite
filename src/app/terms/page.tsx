@@ -6,7 +6,7 @@ export default function TermsOfService() {
 
       <h2 className="text-2xl font-bold mt-6 mb-2">1. AGREEMENT TO TERMS</h2>
       <p className="mb-4">
-        These Terms of Service constitute a legally binding agreement made between you, whether personally or on behalf of an entity (&quot;you&quot;) and Buddy Tech LLC (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;), concerning your access to and use of the Puckbuddy mobile application (the &quot;App&quot;). You agree that by accessing the App, you have read, understood, and agree to be bound by all of these Terms of Service. If you do not agree with all of these terms, then you are expressly prohibited from using the App and you must discontinue use immediately.
+        These Terms of Service constitute a legally binding agreement made between you, whether personally or on behalf of an entity (&quot;you&quot;) and Buddy Tech LLC (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;), concerning your access to and use of the Puckbuddy mobile application (the &quot;App&quot;). The App is made available through the Apple App Store and is licensed, not sold, to you. Your license to the App is subject to your prior acceptance of either Apple&apos;s Licensed Application End User License Agreement (&quot;Standard EULA&quot;), available at <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">https://www.apple.com/legal/internet-services/itunes/dev/stdeula/</a>, or a custom end user license agreement between you and us, if one is provided. Your license to the App under Apple&apos;s Standard EULA is granted by Apple, and your license to the App under these Terms of Service is granted by us. You agree that by accessing the App, you have read, understood, and agree to be bound by all of these Terms of Service and Apple&apos;s Standard EULA. If you do not agree with all of these terms, then you are expressly prohibited from using the App and you must discontinue use immediately.
       </p>
 
       <h2 className="text-2xl font-bold mt-6 mb-2">2. INTELLECTUAL PROPERTY RIGHTS</h2>
@@ -65,25 +65,35 @@ export default function TermsOfService() {
 
       <h2 className="text-2xl font-bold mt-6 mb-2">10. TERM AND TERMINATION</h2>
       <p className="mb-4">
-        These Terms of Service shall remain in full force and effect while you use the App. WITHOUT LIMITING ANY OTHER PROVISION OF THESE TERMS, WE RESERVE THE RIGHT TO, IN OUR SOLE DISCRETION AND WITHOUT NOTICE OR LIABILITY, DENY ACCESS TO AND USE OF THE APP TO ANY PERSON FOR ANY REASON, INCLUDING FOR BREACH OF ANY REPRESENTATION OR WARRANTY CONTAINED IN THESE TERMS.
+        These Terms of Service shall remain in full force and effect while you use the App. WITHOUT LIMITING ANY OTHER PROVISION OF THESE TERMS, WE RESERVE THE RIGHT TO, IN OUR SOLE DISCRETION AND WITHOUT NOTICE OR LIABILITY, DENY ACCESS TO AND USE OF THE APP TO ANY PERSON FOR ANY REASON, INCLUDING FOR BREACH OF ANY REPRESENTATION OR WARRANTY CONTAINED IN THESE TERMS. Your rights under these Terms of Service will terminate automatically if you fail to comply with any of its terms.
       </p>
 
-      <h2 className="text-2xl font-bold mt-6 mb-2">11. GOVERNING LAW</h2>
+      <h2 className="text-2xl font-bold mt-6 mb-2">11. EXPORT RESTRICTIONS</h2>
       <p className="mb-4">
-        These Terms of Service and your use of the App are governed by and construed in accordance with the laws of Maryland, United States, without regard to its conflict of law principles.
+        You may not use or otherwise export or re-export the App except as authorized by United States law and the laws of the jurisdiction in which the App was obtained. In particular, but without limitation, the App may not be exported or re-exported (a) into any U.S.-embargoed countries or (b) to anyone on the U.S. Treasury Department&apos;s Specially Designated Nationals List or the U.S. Department of Commerce Denied Persons List or Entity List. By using the App, you represent and warrant that you are not located in any such country or on any such list. You also agree that you will not use the App for any purposes prohibited by United States law, including, without limitation, the development, design, manufacture, or production of nuclear, missile, or chemical or biological weapons.
       </p>
 
-      <h2 className="text-2xl font-bold mt-6 mb-2">12. DISCLAIMER OF WARRANTIES</h2>
+      <h2 className="text-2xl font-bold mt-6 mb-2">12. GOVERNING LAW</h2>
+      <p className="mb-4">
+        These Terms of Service and your use of the App are governed by and construed in accordance with the laws of Maryland, United States, without regard to its conflict of law principles. However, your relationship with Apple regarding the App Store and Apple&apos;s Licensed Application End User License Agreement is governed by the laws of the State of California, excluding its conflicts of law provisions, as set forth in Apple&apos;s Standard EULA. If you are a citizen of any European Union country, Switzerland, Norway, or Iceland, the governing law and forum for disputes with Apple shall be the laws and courts of your usual place of residence.
+      </p>
+
+      <h2 className="text-2xl font-bold mt-6 mb-2">13. DISCLAIMER OF WARRANTIES</h2>
       <p className="mb-4">
         THE APP IS PROVIDED ON AN AS-IS AND AS-AVAILABLE BASIS. YOU AGREE THAT YOUR USE OF THE APP WILL BE AT YOUR SOLE RISK. TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, IN CONNECTION WITH THE APP AND YOUR USE THEREOF.
       </p>
 
-      <h2 className="text-2xl font-bold mt-6 mb-2">13. LIMITATION OF LIABILITY</h2>
+      <h2 className="text-2xl font-bold mt-6 mb-2">14. LIMITATION OF LIABILITY</h2>
       <p className="mb-4">
-        IN NO EVENT WILL WE OR OUR DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY DIRECT, INDIRECT, CONSEQUENTIAL, EXEMPLARY, INCIDENTAL, SPECIAL, OR PUNITIVE DAMAGES.
+        TO THE EXTENT NOT PROHIBITED BY LAW, IN NO EVENT WILL WE OR OUR DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY DIRECT, INDIRECT, CONSEQUENTIAL, EXEMPLARY, INCIDENTAL, SPECIAL, OR PUNITIVE DAMAGES, INCLUDING WITHOUT LIMITATION, DAMAGES FOR LOSS OF PROFITS, LOSS OF DATA, BUSINESS INTERRUPTION, OR ANY OTHER COMMERCIAL DAMAGES OR LOSSES, ARISING OUT OF OR RELATED TO YOUR USE OF OR INABILITY TO USE THE APP, HOWEVER CAUSED, REGARDLESS OF THE THEORY OF LIABILITY (CONTRACT, TORT, OR OTHERWISE) AND EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. SOME JURISDICTIONS DO NOT ALLOW THE LIMITATION OF LIABILITY FOR PERSONAL INJURY, OR OF INCIDENTAL OR CONSEQUENTIAL DAMAGES, SO THIS LIMITATION MAY NOT APPLY TO YOU. In no event shall our total liability to you for all damages (other than as may be required by applicable law in cases involving personal injury) exceed the amount of fifty dollars ($50.00). The foregoing limitations will apply even if the above stated remedy fails of its essential purpose.
       </p>
 
-      <h2 className="text-2xl font-bold mt-6 mb-2">14. CONTACT US</h2>
+      <h2 className="text-2xl font-bold mt-6 mb-2">15. U.S. GOVERNMENT END USERS</h2>
+      <p className="mb-4">
+        The App and related documentation are &quot;Commercial Items&quot;, as that term is defined at 48 C.F.R. §2.101, consisting of &quot;Commercial Computer Software&quot; and &quot;Commercial Computer Software Documentation&quot;, as such terms are used in 48 C.F.R. §12.212 or 48 C.F.R. §227.7202, as applicable. Consistent with 48 C.F.R. §12.212 or 48 C.F.R. §227.7202-1 through 227.7202-4, as applicable, the Commercial Computer Software and Commercial Computer Software Documentation are being licensed to U.S. Government end users (a) only as Commercial Items and (b) with only those rights as are granted to all other end users pursuant to the terms and conditions herein. Unpublished-rights reserved under the copyright laws of the United States.
+      </p>
+
+      <h2 className="text-2xl font-bold mt-6 mb-2">16. CONTACT US</h2>
       <p className="mb-4">
         To resolve a complaint regarding the App or to receive further information regarding the use of the App, please contact us at:
       </p>

@@ -39,45 +39,26 @@ export default function Home() {
             </h2>
           </ScrollAnimation>
           
-          {/* Videos in Two Columns */}
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
-            {/* Chat with AI */}
-            <ScrollAnimation delay={0.1} direction="left">
-              <div className="space-y-4">
-              <h3 className="text-2xl font-semibold text-gray-900">Chat with AI</h3>
-              <p className="text-gray-600">
-                Learn how you can chat with your AI coach in real-time to plan practices, learn new drills, and get personalized feedback on your videos.
-              </p>
-              <div className="relative aspect-video bg-gray-900 rounded-xl overflow-hidden shadow-2xl hover:shadow-3xl transition-shadow">
-                <iframe
-                  src="https://player.vimeo.com/video/1134375832?badge=0&autopause=0&player_id=0&app_id=58479"
-                  className="absolute top-0 left-0 w-full h-full"
-                  frameBorder="0"
-                  allow="autoplay; fullscreen; picture-in-picture"
-                  allowFullScreen
-                  title="Chat with AI"
-                />
-              </div>
-              </div>
-            </ScrollAnimation>
-
-            {/* Analyze a Snapshot */}
-            <ScrollAnimation delay={0.2} direction="right">
-              <div className="space-y-4">
-              <h3 className="text-2xl font-semibold text-gray-900">Analyze a Snapshot</h3>
-              <p className="text-gray-600">
-                See how Puck Buddy analyzes your shooting technique frame by frame and provides personalized feedback.
-              </p>
-              <div className="relative aspect-video bg-gray-900 rounded-xl overflow-hidden shadow-2xl hover:shadow-3xl transition-shadow">
-      <iframe
-                  src="https://player.vimeo.com/video/1137227151?badge=0&autopause=0&player_id=0&app_id=58479"
-                  className="absolute top-0 left-0 w-full h-full"
-        frameBorder="0"
-                  allow="autoplay; fullscreen; picture-in-picture"
-        allowFullScreen
-                  title="Analyze a Snapshot"
-                />
-              </div>
+          {/* Single Comprehensive Video */}
+          <div className="max-w-4xl mx-auto">
+            <ScrollAnimation delay={0.1}>
+              <div className="space-y-6">
+                <div className="text-center space-y-4">
+                  <h3 className="text-2xl md:text-3xl font-semibold text-gray-900">Complete Puck Buddy Overview</h3>
+                  <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Watch how Puck Buddy combines video analysis, stat tracking, and real-time coaching to help you improve your game.
+                  </p>
+                </div>
+                <div className="relative aspect-video bg-gray-900 rounded-xl overflow-hidden shadow-2xl hover:shadow-3xl transition-shadow">
+                  <iframe
+                    src="https://player.vimeo.com/video/1143926214?badge=0&autopause=0&player_id=0&app_id=58479"
+                    className="absolute top-0 left-0 w-full h-full"
+                    frameBorder="0"
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    allowFullScreen
+                    title="Puck Buddy Complete Overview"
+                  />
+                </div>
               </div>
             </ScrollAnimation>
           </div>
@@ -401,6 +382,144 @@ export default function Home() {
               </ScrollAnimation>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section className="py-16 lg:py-24 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Hero Section */}
+          <ScrollAnimation>
+            <div className="max-w-3xl mx-auto text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                Unlock Your Full Potential
+              </h2>
+              <p className="text-xl text-gray-600">
+                Get AI-powered coaching to improve your game
+              </p>
+            </div>
+          </ScrollAnimation>
+
+          {/* Features Section */}
+          <ScrollAnimation delay={0.1}>
+            <div className="max-w-4xl mx-auto mb-16">
+              <div className="grid md:grid-cols-2 gap-6">
+                {[
+                  {
+                    title: "Unlimited Video Analysis",
+                    desc: "Get AI feedback on every shot you upload",
+                  },
+                  {
+                    title: "Advanced Stats Tracking",
+                    desc: "Track your progress with detailed metrics over time",
+                  },
+                  {
+                    title: "All Drill Types",
+                    desc: "Access structured drills and open ice analysis",
+                  },
+                  {
+                    title: "Audio Coaching",
+                    desc: "Listen to personalized coaching feedback",
+                  },
+                ].map((feature, index) => (
+                  <div
+                    key={index}
+                    className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                        <span className="text-white font-bold">✓</span>
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                          {feature.title}
+                        </h3>
+                        <p className="text-gray-600">{feature.desc}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </ScrollAnimation>
+
+          {/* Pricing Plans */}
+          <div className="max-w-5xl mx-auto">
+            <ScrollAnimation delay={0.2}>
+              <div className="grid md:grid-cols-2 gap-8 mb-12">
+                {/* Monthly Plan */}
+                <div className="bg-white rounded-2xl shadow-xl p-8 border-2 border-gray-200 hover:border-blue-500 transition-all duration-300">
+                  <div className="text-center mb-6">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                      Puck Buddy Monthly
+                    </h3>
+                    <p className="text-gray-600 mb-4">Monthly subscription</p>
+                    <div className="text-4xl font-bold text-gray-900 mb-2">
+                      <span id="monthly-price">[Price dynamically loaded from RevenueCat]</span>
+                    </div>
+                    <p className="text-sm text-gray-500">per month</p>
+                  </div>
+                  <a
+                    href="https://apps.apple.com/us/app/puck-buddy/id6752230304"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full bg-blue-600 text-white text-center py-4 rounded-xl font-semibold hover:bg-blue-700 transition-colors duration-300"
+                  >
+                    Upgrade & Upload Video
+                  </a>
+                </div>
+
+                {/* Annual Plan */}
+                <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl shadow-xl p-8 border-2 border-blue-500 relative hover:scale-105 transition-transform duration-300">
+                  <div className="absolute top-4 right-4 bg-yellow-400 text-gray-900 text-xs font-bold px-3 py-1 rounded-full">
+                    BEST VALUE
+                  </div>
+                  <div className="text-center mb-6">
+                    <h3 className="text-2xl font-bold text-white mb-2">
+                      Puck Buddy Annual
+                    </h3>
+                    <p className="text-blue-100 mb-2">Annual subscription</p>
+                    <div className="mb-2">
+                      <span
+                        id="annual-savings-badge"
+                        className="inline-block bg-yellow-400 text-gray-900 text-sm font-bold px-3 py-1 rounded-full mb-2"
+                      >
+                        SAVE X%
+                      </span>
+                    </div>
+                    <div className="text-4xl font-bold text-white mb-2">
+                      <span id="annual-price">[Price dynamically loaded from RevenueCat]</span>
+                    </div>
+                    <p className="text-blue-100 text-sm">
+                      <span id="annual-monthly-equivalent">Just $X.XX/mo</span>
+                    </p>
+                  </div>
+                  <a
+                    href="https://apps.apple.com/us/app/puck-buddy/id6752230304"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full bg-white text-blue-600 text-center py-4 rounded-xl font-semibold hover:bg-gray-100 transition-colors duration-300"
+                  >
+                    Upgrade & Upload Video
+                  </a>
+                </div>
+              </div>
+            </ScrollAnimation>
+          </div>
+
+          {/* Legal/Footer Text */}
+          <ScrollAnimation delay={0.3}>
+            <div className="max-w-4xl mx-auto">
+              <p className="text-xs text-gray-500 text-center leading-relaxed">
+                Payment will be charged to your Apple ID account at confirmation of purchase.
+                Subscription automatically renews unless auto-renew is turned off at least 24
+                hours before the end of the current period. Account will be charged for renewal
+                within 24 hours prior to the end of the current period. You can manage and
+                cancel your subscriptions by going to your Account Settings on the App Store
+                after purchase.
+              </p>
+            </div>
+          </ScrollAnimation>
         </div>
       </section>
 

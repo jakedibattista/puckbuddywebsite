@@ -414,8 +414,8 @@ export default function Home() {
                     desc: "Track your progress with detailed metrics over time",
                   },
                   {
-                    title: "All Drill Types",
-                    desc: "Access structured drills and open ice analysis",
+                    title: "Real Time Coaching Chat",
+                    desc: "Chat with your AI coach in real-time for instant feedback and guidance",
                   },
                   {
                     title: "Audio Coaching",
@@ -449,24 +449,16 @@ export default function Home() {
               <div className="grid md:grid-cols-2 gap-8 mb-12">
                 {/* Monthly Plan */}
                 <div className="bg-white rounded-2xl shadow-xl p-8 border-2 border-gray-200 hover:border-blue-500 transition-all duration-300">
-                  <div className="text-center mb-6">
+                  <div className="text-center">
                     <h3 className="text-2xl font-bold text-gray-900 mb-2">
                       Puck Buddy Monthly
                     </h3>
                     <p className="text-gray-600 mb-4">Monthly subscription</p>
                     <div className="text-4xl font-bold text-gray-900 mb-2">
-                      <span id="monthly-price">[Price dynamically loaded from RevenueCat]</span>
+                      $5.99
                     </div>
                     <p className="text-sm text-gray-500">per month</p>
                   </div>
-                  <a
-                    href="https://apps.apple.com/us/app/puck-buddy/id6752230304"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block w-full bg-blue-600 text-white text-center py-4 rounded-xl font-semibold hover:bg-blue-700 transition-colors duration-300"
-                  >
-                    Upgrade & Upload Video
-                  </a>
                 </div>
 
                 {/* Annual Plan */}
@@ -474,34 +466,23 @@ export default function Home() {
                   <div className="absolute top-4 right-4 bg-yellow-400 text-gray-900 text-xs font-bold px-3 py-1 rounded-full">
                     BEST VALUE
                   </div>
-                  <div className="text-center mb-6">
+                  <div className="text-center">
                     <h3 className="text-2xl font-bold text-white mb-2">
                       Puck Buddy Annual
                     </h3>
                     <p className="text-blue-100 mb-2">Annual subscription</p>
                     <div className="mb-2">
-                      <span
-                        id="annual-savings-badge"
-                        className="inline-block bg-yellow-400 text-gray-900 text-sm font-bold px-3 py-1 rounded-full mb-2"
-                      >
-                        SAVE X%
+                      <span className="inline-block bg-yellow-400 text-gray-900 text-sm font-bold px-3 py-1 rounded-full mb-2">
+                        SAVE 30%
                       </span>
                     </div>
                     <div className="text-4xl font-bold text-white mb-2">
-                      <span id="annual-price">[Price dynamically loaded from RevenueCat]</span>
+                      $49.99
                     </div>
                     <p className="text-blue-100 text-sm">
-                      <span id="annual-monthly-equivalent">Just $X.XX/mo</span>
+                      Just $4.17/mo
                     </p>
                   </div>
-                  <a
-                    href="https://apps.apple.com/us/app/puck-buddy/id6752230304"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block w-full bg-white text-blue-600 text-center py-4 rounded-xl font-semibold hover:bg-gray-100 transition-colors duration-300"
-                  >
-                    Upgrade & Upload Video
-                  </a>
                 </div>
               </div>
             </ScrollAnimation>

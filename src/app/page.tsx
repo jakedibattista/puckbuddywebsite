@@ -42,23 +42,15 @@ export default function Home() {
           {/* Single Comprehensive Video */}
           <div className="max-w-4xl mx-auto">
             <ScrollAnimation delay={0.1}>
-              <div className="space-y-6">
-                <div className="text-center space-y-4">
-                  <h3 className="text-2xl md:text-3xl font-semibold text-gray-900">Complete Puck Buddy Overview</h3>
-                  <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Watch how Puck Buddy combines video analysis, stat tracking, and real-time coaching to help you improve your game.
-                  </p>
-                </div>
-                <div className="relative aspect-video bg-gray-900 rounded-xl overflow-hidden shadow-2xl hover:shadow-3xl transition-shadow">
-                  <iframe
-                    src="https://player.vimeo.com/video/1143926214?badge=0&autopause=0&player_id=0&app_id=58479"
-                    className="absolute top-0 left-0 w-full h-full"
-                    frameBorder="0"
-                    allow="autoplay; fullscreen; picture-in-picture"
-                    allowFullScreen
-                    title="Puck Buddy Complete Overview"
-                  />
-                </div>
+              <div className="relative aspect-video bg-gray-900 rounded-xl overflow-hidden shadow-2xl hover:shadow-3xl transition-shadow">
+                <iframe
+                  src="https://player.vimeo.com/video/1143926214?badge=0&autopause=0&player_id=0&app_id=58479"
+                  className="absolute top-0 left-0 w-full h-full"
+                  frameBorder="0"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowFullScreen
+                  title="Puck Buddy Complete Overview"
+                />
               </div>
             </ScrollAnimation>
           </div>

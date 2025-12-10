@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import { Analytics } from "@vercel/analytics/next";
 import Navigation from "./components/Navigation";
 import { Analytics } from "@vercel/analytics/react";
 

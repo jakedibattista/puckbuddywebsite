@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     description: "Interactive demo of the Puck Buddy app for investors and stakeholders",
     images: [
       {
-        url: "/seth_logo.jpeg",
+        url: "/og-image.jpeg",
         width: 1200,
         height: 630,
         alt: "Puck Buddy - Interactive Demo",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Puck Buddy Demo - Interactive Prototype",
     description: "Interactive demo of the Puck Buddy app for investors and stakeholders",
-    images: ["/seth_logo.jpeg"],
+    images: ["/og-image.jpeg"],
   },
 };
 

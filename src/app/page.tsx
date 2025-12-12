@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import ScrollAnimation from "./components/ScrollAnimation";
-import InteractiveDemo from "./components/InteractiveDemo";
 import { motion } from "framer-motion";
 
 export default function Home() {
@@ -125,25 +124,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Interactive Demo Section */}
-      <section className="py-16 lg:py-24 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollAnimation>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 text-center">
-              Try It Yourself
-            </h2>
-            <p className="text-xl text-gray-600 mb-12 text-center max-w-2xl mx-auto">
-              Explore the app&apos;s key features with our interactive demo
-            </p>
-          </ScrollAnimation>
-          <ScrollAnimation delay={0.2}>
-            <InteractiveDemo />
-          </ScrollAnimation>
-        </div>
-      </section>
-
       {/* Unique Features Section */}
-      <section className="py-16 lg:py-24 bg-gray-50">
+      <section className="py-16 lg:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <ScrollAnimation>

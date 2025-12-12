@@ -11,7 +11,7 @@ export default function Navigation() {
   const navLinks = [
     { href: "/", label: "Puck Buddy", id: "puck-buddy" },
     { href: "/", label: "Soccer Buddy", badge: "Coming Soon", id: "soccer-buddy" },
-    { href: "/", label: "Track Buddy", badge: "Coming Soon", id: "track-buddy" },
+    { href: "/", label: "Golf Buddy", badge: "Coming Soon", id: "golf-buddy" },
     { href: "/", label: "Tennis Buddy", badge: "Coming Soon", id: "tennis-buddy" },
     { href: "/about", label: "About Us", id: "about-us" },
   ];

@@ -99,7 +99,7 @@ export default function TermsOfService() {
       </p>
       <ul className="list-none">
         <li>Buddy Tech LLC</li>
-        <li>Email: support@buddyllc.app</li>
+        <li>Email: jake@buddyllc.app</li>
         <li>Phone: 240-490-0190</li>
       </ul>
     </div>

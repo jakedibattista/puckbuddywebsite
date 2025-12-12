@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     description: "Get AI-powered video analysis to perfect your shot. Your personal AI shooting coach for hockey players of all levels.",
     images: [
       {
-        url: "/og-image.jpeg",
+        url: "/coach-seth-on-ice.png",
         width: 1200,
         height: 630,
         alt: "Puck Buddy - Your AI Hockey Coach",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Puck Buddy - Your AI Hockey Coach",
     description: "Get AI-powered video analysis to perfect your shot. Your personal AI shooting coach for hockey players of all levels.",
-    images: ["/og-image.jpeg"],
+    images: ["/coach-seth-on-ice.png"],
   },
 };
 
@@ -62,6 +62,9 @@ export default function RootLayout({
                 </Link>
                 <Link href="/refund" className="hover:text-gray-400">
                   Return & Refund Policy
+                </Link>
+                <Link href="/sms-terms" className="hover:text-gray-400">
+                  SMS Terms & Conditions
                 </Link>
               </div>
             </div>

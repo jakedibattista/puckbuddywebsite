@@ -9,10 +9,10 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Puck Buddy - Your AI Hockey Coach",
-  description: "Get AI-powered video analysis to perfect your shot. Your personal AI shooting coach for hockey players of all levels.",
+  description: "Get AI-powered video analysis to perfect your shot and stride. Your personal AI hockey coach for players of all levels.",
   openGraph: {
     title: "Puck Buddy - Your AI Hockey Coach",
-    description: "Get AI-powered video analysis to perfect your shot. Your personal AI shooting coach for hockey players of all levels.",
+    description: "Get AI-powered video analysis to perfect your shot and stride. Your personal AI hockey coach for players of all levels.",
     images: [
       {
         url: "/coach-seth-on-ice.png",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Puck Buddy - Your AI Hockey Coach",
-    description: "Get AI-powered video analysis to perfect your shot. Your personal AI shooting coach for hockey players of all levels.",
+    description: "Get AI-powered video analysis to perfect your shot and stride. Your personal AI hockey coach for players of all levels.",
     images: ["/coach-seth-on-ice.png"],
   },
 };

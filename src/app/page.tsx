@@ -15,7 +15,7 @@ export default function Home() {
               Your Personal AI Hockey Coach
             </h1>
             <p className="text-xl md:text-2xl mb-10 text-gray-300 leading-relaxed">
-              Stop guessing about your technique. Get AI-powered video analysis to perfect your shot, 
+              Stop guessing about your technique. Get AI-powered video analysis to perfect your shot and stride, 
               improve your power, accuracy, and form—all from your iPhone.
             </p>
             <a
@@ -148,6 +148,10 @@ export default function Home() {
                   desc: "Automatically capture every attempt in a session so you can compare trends, identify inconsistencies, and celebrate improvement.",
                 },
                 {
+                  title: "Stride Coaching & Detection",
+                  desc: "Get comprehensive stride analysis with real-time feedback on your skating technique. Improve your speed, power, and efficiency with AI-powered stride coaching.",
+                },
+                {
                   title: "Real-Time AI Coach Chat",
                   desc: "Chat with your AI coach in real-time, trained on your biomechanical data. Get instant answers to your questions, personalized training tips, and custom breakdowns of your videos.",
                 },
@@ -180,7 +184,7 @@ export default function Home() {
               Custom Coaching Feedback
             </h2>
             <p className="text-xl text-gray-600 mb-12 text-center">
-              Pick a coach and get on demand technique analysis
+              Pick a coach and get on demand analysis for shots and stride technique
             </p>
           </ScrollAnimation>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
@@ -197,7 +201,7 @@ export default function Home() {
               </div>
               <div className="p-4">
                 <h3 className="font-semibold text-gray-900">AI Coach Seth Feedback</h3>
-                <p className="text-sm text-gray-600">On demand technique analysis from the best youth hockey coach in Charleston, SC.</p>
+                <p className="text-sm text-gray-600">On demand shot and stride analysis from the best youth hockey coach in Charleston, SC.</p>
               </div>
               </div>
             </ScrollAnimation>
@@ -233,7 +237,7 @@ export default function Home() {
               </div>
               <div className="p-4">
                 <h3 className="font-semibold text-gray-900">Score Card</h3>
-                <p className="text-sm text-gray-600">Detailed analysis of your shot performance with grades in 7 biomechanical metrics.</p>
+                <p className="text-sm text-gray-600">Detailed analysis of your shot and stride performance with grades in biomechanical metrics.</p>
               </div>
               </div>
             </ScrollAnimation>
@@ -293,7 +297,7 @@ export default function Home() {
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start">
                   <span className="text-blue-600 mr-2">✓</span>
-                  <span>Get instant feedback on every shot.</span>
+                  <span>Get instant feedback on every shot and stride.</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-blue-600 mr-2">✓</span>
@@ -354,10 +358,10 @@ export default function Home() {
           </ScrollAnimation>
           <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
             {[
-              { number: "1", title: "Record", desc: "Use your iPhone to take a video of your shot." },
+              { number: "1", title: "Record", desc: "Use your iPhone to take a video of your shot or stride." },
               { number: "2", title: "Upload", desc: "Select the video from your library and upload it to the app." },
               { number: "3", title: "Analyze", desc: "Let our AI coach work its magic! In moments, you'll have a complete analysis." },
-              { number: "4", title: "Improve", desc: "Chat with a real time AI hockey coach trained on snapshot shot mechanics." },
+              { number: "4", title: "Improve", desc: "Chat with a real time AI hockey coach trained on shot mechanics and stride technique." },
             ].map((step, index) => (
               <ScrollAnimation key={index} delay={index * 0.1}>
                 <div className="text-center">
@@ -399,7 +403,7 @@ export default function Home() {
                 {[
                   {
                     title: "Unlimited Video Analysis",
-                    desc: "Get AI feedback on every shot you upload",
+                    desc: "Get AI feedback on every shot and stride you upload",
                   },
                   {
                     title: "Advanced Stats Tracking",

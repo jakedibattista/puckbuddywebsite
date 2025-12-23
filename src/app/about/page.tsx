@@ -27,7 +27,7 @@ export default function About() {
                 At Buddy Tech, we believe every athlete deserves the kind of coaching that unlocks their potential, regardless of zip code, budget, or experience. Our mission is to place pro-level feedback within reach by pairing trusted coaching knowledge with accessible AI.
               </p>
               <p className="text-lg leading-relaxed">
-                We are building more than software—we are crafting training companions that understand the nuances of each sport, celebrate progress, and keep families informed at every step. Whether you are ripping snapshots in the driveway or preparing for elite competition, Buddy Tech stands alongside you with data-driven insights and encouragement.
+                We are building more than software—we are crafting training companions that understand the nuances of each sport, celebrate progress, and keep families informed at every step. Whether you are practicing shots and strides in the driveway or preparing for elite competition, Buddy Tech stands alongside you with data-driven insights and encouragement.
               </p>
             </div>
           </div>

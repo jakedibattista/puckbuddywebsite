@@ -141,15 +141,9 @@ export default function Home() {
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
                   Try Puck Buddy Right Here
                 </h2>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  See the flow your player will use every session. Click through the home screen, stats,
-                  and feedback views to follow a rep from recording to coaching and tracking.
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  See how simple it is to go from recording a shot to receiving a detailed scorecard and coach&apos;s feedback. Tap through the demo to experience the full flow—then show your player exactly what using Puck Buddy feels like.
                 </p>
-                <div className="space-y-4 text-gray-700">
-                  <p>
-                    Experience the full flow yourself. Tap through the interactive demo to see how simple it is to go from recording a shot to receiving a detailed scorecard and coach&apos;s comments. It&apos;s the best way to show your player exactly what using Puck Buddy feels like.
-                  </p>
-                </div>
               </div>
             </ScrollAnimation>
             <ScrollAnimation delay={0.15}>

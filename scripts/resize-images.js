@@ -90,7 +90,7 @@ function findImageFile(dir, baseName) {
 }
 
 async function resizeImages() {
-  const rootDir = __dirname;
+  const rootDir = path.resolve(__dirname, '..');
   const publicDir = path.join(rootDir, 'public');
   
   // Ensure public directory exists

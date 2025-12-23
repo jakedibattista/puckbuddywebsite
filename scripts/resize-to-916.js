@@ -2,7 +2,7 @@ const sharp = require('sharp');
 const fs = require('fs');
 const path = require('path');
 
-const publicDir = path.join(__dirname, 'public');
+const publicDir = path.join(__dirname, '..', 'public');
 
 // Target dimensions for 9:16 aspect ratio
 // Using 1080x1920 as a good standard size (maintains quality, common for app stores)

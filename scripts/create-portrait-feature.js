@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 async function createPortraitFeature() {
+  const publicDir = path.join(__dirname, '..', 'public');
   const outputWidth = 1080;
   const outputHeight = 1920;
   
@@ -40,7 +41,7 @@ async function createPortraitFeature() {
   // Process each screenshot
   for (let i = 0; i < screenshots.length; i++) {
     const screenshot = screenshots[i];
-    const filePath = path.join(__dirname, 'public', screenshot.file);
+    const filePath = path.join(publicDir, screenshot.file);
     
     if (!fs.existsSync(filePath)) {
       console.warn(`Warning: ${screenshot.file} not found, skipping...`);
@@ -68,7 +69,7 @@ async function createPortraitFeature() {
   const output = await base
     .composite(composites)
     .png()
-    .toFile(path.join(__dirname, 'public', 'portrait-feature-1080x1920.png'));
+    .toFile(path.join(publicDir, 'portrait-feature-1080x1920.png'));
   
   console.log(`✅ Created portrait feature image: public/portrait-feature-1080x1920.png`);
   console.log(`   Dimensions: ${outputWidth}x${outputHeight}px (9:16 ratio)`);

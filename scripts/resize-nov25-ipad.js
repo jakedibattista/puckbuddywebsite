@@ -2,9 +2,9 @@ const sharp = require('sharp');
 const fs = require('fs');
 const path = require('path');
 
-// Target dimensions
-const targetWidth = 1242;
-const targetHeight = 2688;
+// Target dimensions for iPad
+const targetWidth = 2064;
+const targetHeight = 2752;
 
 // Images to resize
 const imagesToResize = [
@@ -14,17 +14,17 @@ const imagesToResize = [
   'Video Nov25.PNG'
 ];
 
-async function resizeNov25Images() {
-  const rootDir = path.resolve(__dirname, '..');
-  const imagesDir = path.join(rootDir, 'IMAGES');
-  const publicDir = path.join(__dirname, 'public');
+async function resizeNov25ImagesForiPad() {
+  const repoRoot = path.resolve(__dirname, '../..');
+  const imagesDir = path.join(repoRoot, 'IMAGES');
+  const publicDir = path.join(__dirname, '..', 'public');
   
   // Ensure public directory exists
   if (!fs.existsSync(publicDir)) {
     fs.mkdirSync(publicDir, { recursive: true });
   }
   
-  console.log('🔍 Resizing Nov25 images...\n');
+  console.log('🔍 Resizing Nov25 images for iPad...\n');
   
   for (const imageName of imagesToResize) {
     const inputPath = path.join(imagesDir, imageName);
@@ -35,12 +35,13 @@ async function resizeNov25Images() {
       continue;
     }
     
-    // Create output filename (lowercase, replace spaces with hyphens)
-    const outputFilename = imageName.toLowerCase().replace(/\s+/g, '-').replace('.png', '.png');
+    // Create output filename (lowercase, replace spaces with hyphens, add -ipad suffix)
+    const baseName = imageName.toLowerCase().replace(/\s+/g, '-').replace('.png', '');
+    const outputFilename = `${baseName}-ipad.png`;
     const outputPath = path.join(publicDir, outputFilename);
     
     try {
-      console.log(`📱 Resizing ${imageName} to ${targetWidth}x${targetHeight}...`);
+      console.log(`📱 Resizing ${imageName} to ${targetWidth}x${targetHeight} (iPad)...`);
       await sharp(inputPath)
         .resize(targetWidth, targetHeight, {
           fit: 'cover',
@@ -54,8 +55,14 @@ async function resizeNov25Images() {
     }
   }
   
-  console.log('✨ Done! All Nov25 images resized.');
+  console.log('✨ Done! All Nov25 images resized for iPad.');
 }
 
-resizeNov25Images().catch(console.error);
+resizeNov25ImagesForiPad().catch(console.error);
+
+
+
+
+
+
 

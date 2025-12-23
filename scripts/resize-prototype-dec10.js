@@ -9,9 +9,9 @@ const iPadWidth = 2064;
 const iPadHeight = 2752;
 
 async function resizePrototypeImages() {
-  const rootDir = path.resolve(__dirname, '..');
-  const prototypeDir = path.join(rootDir, 'prototype');
-  const publicDir = path.join(__dirname, 'public');
+  const repoRoot = path.resolve(__dirname, '../..');
+  const prototypeDir = path.join(repoRoot, 'prototype');
+  const publicDir = path.join(__dirname, '..', 'public');
   
   // Ensure public directory exists
   if (!fs.existsSync(publicDir)) {

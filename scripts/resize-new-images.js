@@ -20,7 +20,8 @@ const imagesToResize = [
 ];
 
 async function resizeNewImages() {
-  const publicDir = path.join(__dirname, 'public');
+  const rootDir = path.resolve(__dirname, '..');
+  const publicDir = path.join(rootDir, 'public');
   
   // Ensure public directory exists
   if (!fs.existsSync(publicDir)) {

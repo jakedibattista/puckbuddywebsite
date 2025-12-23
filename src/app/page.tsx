@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import ScrollAnimation from "./components/ScrollAnimation";
+import InteractiveDemo from "./components/InteractiveDemo";
 import { motion } from "framer-motion";
 
 export default function Home() {
@@ -95,83 +96,73 @@ export default function Home() {
             <ScrollAnimation direction="right">
               <div className="space-y-6">
                 <h2 className="text-4xl md:text-5xl font-bold">Meet Your Coach</h2>
-              <p className="text-lg text-blue-100 leading-relaxed">
-                Puck Buddy is built with the expertise of Coach Seth Michelson, Charleston, SC&apos;s go-to youth hockey coach. His real-world approach to teaching fundamentals, building confidence, and making practice fun informs every recommendation inside the app.
-              </p>
-              <div className="bg-white/10 border border-white/20 rounded-2xl p-6 backdrop-blur">
-                <p className="text-lg italic text-blue-50">
-                  &ldquo;I wanted every kid to feel like they have a coach in the rink with them, even when they are practicing alone. Puck Buddy delivers that.&rdquo;
+                <p className="text-lg text-blue-100 leading-relaxed">
+                  Puck Buddy is built with the help of Coach Seth Michelson, a trusted youth coach in Charleston, SC.
+                  The same drills and reminders he uses on the ice show up in the feedback your player gets in the app.
                 </p>
-                <p className="mt-4 text-sm uppercase tracking-wide text-blue-100">Coach Seth • Founder &amp; Puck Buddy AI Coach</p>
-              </div>
-              <ul className="space-y-3 text-blue-100">
-                <li className="flex items-start gap-3">
-                  <span className="mt-1 text-blue-200">✓</span>
-                  <span>Designed training systems for elite and beginner players across the east coast.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="mt-1 text-blue-200">✓</span>
-                  <span>Brings rink-tested practice plans directly into the AI playbook.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="mt-1 text-blue-200">✓</span>
-                  <span>Dedicated to making advanced analytics approachable for families and fun for players.</span>
-                </li>
-              </ul>
+                <div className="bg-white/10 border border-white/20 rounded-2xl p-6 backdrop-blur">
+                  <p className="text-lg italic text-blue-50">
+                    &ldquo;I wanted every kid to feel like they have a coach with them, even when they&apos;re shooting in the driveway.
+                    Puck Buddy makes that possible.&rdquo;
+                  </p>
+                  <p className="mt-4 text-sm uppercase tracking-wide text-blue-100">
+                    Coach Seth • Youth Hockey Coach &amp; Puck Buddy Co‑Creator
+                  </p>
+                </div>
+                <ul className="space-y-3 text-blue-100">
+                  <li className="flex items-start gap-3">
+                    <span className="mt-1 text-blue-200">✓</span>
+                    <span>Real coaching language, not generic AI tips.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="mt-1 text-blue-200">✓</span>
+                    <span>Built around fundamentals: balance, power, and repeatable mechanics.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="mt-1 text-blue-200">✓</span>
+                    <span>Designed so beginners, travel players, and parents can all understand the plan.</span>
+                  </li>
+                </ul>
               </div>
             </ScrollAnimation>
           </div>
         </div>
       </section>
 
-      {/* Unique Features Section */}
+      {/* Interactive Demo Section */}
       <section className="py-16 lg:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <ScrollAnimation>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-12 text-center">
-                What Makes Puck Buddy Unique
-              </h2>
+              <div className="space-y-6">
+                <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+                  Try Puck Buddy Right Here
+                </h2>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  See the flow your player will use every session. Click through the home screen, stats,
+                  and feedback views to follow a rep from recording to coaching and tracking.
+                </p>
+                <ul className="space-y-3 text-gray-700">
+                  <li className="flex items-start gap-2">
+                    <span className="mt-1 text-blue-600">✓</span>
+                    <span>Tap through the main screens: Home, stats, and feedback—just like in the app.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="mt-1 text-blue-600">✓</span>
+                    <span>Follow one rep end-to-end, from a shot or stride to scorecards and coach comments.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="mt-1 text-blue-600">✓</span>
+                    <span>Show your player or family what using Puck Buddy will actually feel like.</span>
+                  </li>
+                </ul>
+              </div>
             </ScrollAnimation>
-            <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
-              {[
-                {
-                  title: "Multi-Agent AI Pipeline",
-                  desc: "Our advanced multi-agent system handles data capture, analysis, and feedback generation seamlessly. Each component works together to provide comprehensive, accurate insights into your shooting technique.",
-                },
-                {
-                  title: "60-Second Turnaround",
-                  desc: "Upload a clip and get actionable insights in about a minute. Rapid processing means your player stays in the flow of practice.",
-                },
-                {
-                  title: "Multi-Shot Detection",
-                  desc: "Automatically capture every attempt in a session so you can compare trends, identify inconsistencies, and celebrate improvement.",
-                },
-                {
-                  title: "Stride Coaching & Detection",
-                  desc: "Get comprehensive stride analysis with real-time feedback on your skating technique. Improve your speed, power, and efficiency with AI-powered stride coaching.",
-                },
-                {
-                  title: "Real-Time AI Coach Chat",
-                  desc: "Chat with your AI coach in real-time, trained on your biomechanical data. Get instant answers to your questions, personalized training tips, and custom breakdowns of your videos.",
-                },
-                {
-                  title: "Safety Guardrails",
-                  desc: "Built-in content filters, moderation, and secured data storage keep every interaction safe for young athletes and give parents peace of mind.",
-                },
-                {
-                  title: "Built on Real Coaching Expertise",
-                  desc: "Puck Buddy's AI was trained and tested on over 100 videos of youth hockey with professional coach benchmarking. This ensures that every piece of feedback is grounded in proven coaching techniques and best AI practices for reliability and safety.",
-                },
-              ].map((feature, index) => (
-                <ScrollAnimation key={index} delay={index * 0.1}>
-                      <div className="bg-gray-100 p-8 rounded-xl transition-all duration-300 hover:bg-white hover:shadow-xl hover:-translate-y-1 cursor-default">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">{feature.title}</h3>
-                    <p className="text-gray-700 leading-relaxed">{feature.desc}</p>
-                  </div>
-                </ScrollAnimation>
-              ))}
-            </div>
+            <ScrollAnimation delay={0.15}>
+              <div className="max-w-md mx-auto">
+                <InteractiveDemo />
+              </div>
+            </ScrollAnimation>
           </div>
         </div>
       </section>
@@ -251,7 +242,7 @@ export default function Home() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollAnimation>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-16 text-center">
-              Built for Everyone
+              Built for Players, Parents, and Coaches
             </h2>
           </ScrollAnimation>
           <div className="grid md:grid-cols-3 gap-8 lg:gap-12 max-w-6xl mx-auto">
@@ -267,19 +258,19 @@ export default function Home() {
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start">
                   <span className="text-blue-600 mr-2">✓</span>
-                  <span>Track your child&apos;s progress with detailed analytics.</span>
+                  <span>See how often your player is working and how their form changes over time.</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-blue-600 mr-2">✓</span>
-                  <span>Understand what areas need improvement.</span>
+                  <span>Get a simple view of what&apos;s going well and what needs attention.</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-blue-600 mr-2">✓</span>
-                  <span>Support training without expensive coaching fees.</span>
+                  <span>Support training on your schedule, without always needing a private lesson.</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-blue-600 mr-2">✓</span>
-                  <span>See measurable improvements over time.</span>
+                  <span>Bring something concrete to the next practice or meeting with a coach.</span>
                 </li>
               </ul>
               </div>
@@ -297,19 +288,19 @@ export default function Home() {
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start">
                   <span className="text-blue-600 mr-2">✓</span>
-                  <span>Get instant feedback on every shot and stride.</span>
+                  <span>Get quick feedback on your shot and stride so every rep has a focus.</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-blue-600 mr-2">✓</span>
-                  <span>Chat with an AI Coach in real-time.</span>
+                  <span>Ask questions in plain language and get answers that make sense.</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-blue-600 mr-2">✓</span>
-                  <span>Learn proper technique through AI analysis.</span>
+                  <span>See what good mechanics look like, not just hear &ldquo;shoot harder.&rdquo;</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-blue-600 mr-2">✓</span>
-                  <span>Build confidence with data-driven improvements.</span>
+                  <span>Watch your scores and comments improve as you put in the work.</span>
                 </li>
               </ul>
               </div>
@@ -327,19 +318,19 @@ export default function Home() {
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start">
                   <span className="text-blue-600 mr-2">✓</span>
-                  <span>Analyze multiple players efficiently.</span>
+                  <span>Review clips and scorecards in minutes instead of watching every rep live.</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-blue-600 mr-2">✓</span>
-                  <span>Access real-time AI coaching insights.</span>
+                  <span>Use AI notes as a starting point, then layer on your own teaching.</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-blue-600 mr-2">✓</span>
-                  <span>Create data-driven training programs.</span>
+                  <span>Spot patterns across a team and build drills to match what you&apos;re seeing.</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-blue-600 mr-2">✓</span>
-                  <span>Provide objective, consistent feedback.</span>
+                  <span>Give players specific, repeatable cues instead of vague &ldquo;try harder&rdquo; feedback.</span>
                 </li>
               </ul>
               </div>

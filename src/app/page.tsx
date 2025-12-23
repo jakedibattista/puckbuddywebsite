@@ -122,7 +122,7 @@ export default function Home() {
                   </li>
                   <li className="flex gap-3">
                     <p>
-                      <strong>Clear for everyone.</strong> Whether you're a beginner, a travel player, or a parent, the guidance is clear, actionable, and easy to understand.
+                      <strong>Clear for everyone.</strong> Whether you&apos;re a beginner, a travel player, or a parent, the guidance is clear, actionable, and easy to understand.
                     </p>
                   </li>
                 </ul>
@@ -147,7 +147,7 @@ export default function Home() {
                 </p>
                 <div className="space-y-4 text-gray-700">
                   <p>
-                    Experience the full flow yourself. Tap through the interactive demo to see how simple it is to go from recording a shot to receiving a detailed scorecard and coach's comments. It's the best way to show your player exactly what using Puck Buddy feels like.
+                    Experience the full flow yourself. Tap through the interactive demo to see how simple it is to go from recording a shot to receiving a detailed scorecard and coach&apos;s comments. It&apos;s the best way to show your player exactly what using Puck Buddy feels like.
                   </p>
                 </div>
               </div>
@@ -250,7 +250,7 @@ export default function Home() {
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">For Parents</h3>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Monitor your player's consistency and watch their form evolve. You'll get a clear view of their strengths and areas for improvement, making it easy to support their training on your own schedule—perfect for when a private lesson isn't an option.
+                Monitor your player&apos;s consistency and watch their form evolve. You&apos;ll get a clear view of their strengths and areas for improvement, making it easy to support their training on your own schedule—perfect for when a private lesson isn&apos;t an option.
               </p>
               </div>
             </ScrollAnimation>
@@ -265,7 +265,7 @@ export default function Home() {
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">For Players</h3>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Get instant, focused feedback on every shot and stride. Instead of vague advice like "shoot harder," you'll see exactly what good mechanics look like and get plain-language answers to your questions. Watch your scores—and your game—improve as you put in the work.
+                Get instant, focused feedback on every shot and stride. Instead of vague advice like &ldquo;shoot harder,&rdquo; you&apos;ll see exactly what good mechanics look like and get plain-language answers to your questions. Watch your scores—and your game—improve as you put in the work.
               </p>
               </div>
             </ScrollAnimation>
@@ -280,7 +280,7 @@ export default function Home() {
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">For Coaches</h3>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Review clips and scorecards in minutes, saving you from watching every rep live. Use the AI-generated notes as a solid starting point, then layer on your own expertise. It's the perfect tool for spotting team-wide patterns and giving specific, repeatable cues that stick.
+                Review clips and scorecards in minutes, saving you from watching every rep live. Use the AI-generated notes as a solid starting point, then layer on your own expertise. It&apos;s the perfect tool for spotting team-wide patterns and giving specific, repeatable cues that stick.
               </p>
               </div>
             </ScrollAnimation>

@@ -139,10 +139,10 @@ export default function Home() {
             <ScrollAnimation>
               <div className="space-y-6">
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-                  Try Puck Buddy Right Here
+                  Take the App for a Spin
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  See how simple it is to go from recording a shot to receiving a detailed scorecard and coach&apos;s feedback. Tap through the demo to experience the full flow—then show your player exactly what using Puck Buddy feels like.
+                  Get a feel for the experience yourself. Tap through the demo to see how we take a player from a raw video to a detailed scorecard and personal coaching notes in seconds.
                 </p>
               </div>
             </ScrollAnimation>

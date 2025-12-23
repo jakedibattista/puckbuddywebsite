@@ -109,18 +109,21 @@ export default function Home() {
                     Coach Seth • Youth Hockey Coach &amp; Puck Buddy Co‑Creator
                   </p>
                 </div>
-                <ul className="space-y-3 text-blue-100">
-                  <li className="flex items-start gap-3">
-                    <span className="mt-1 text-blue-200">✓</span>
-                    <span>Real coaching language, not generic AI tips.</span>
+                <ul className="space-y-4 text-blue-100">
+                  <li className="flex gap-3">
+                    <p>
+                      <strong>Real coaching, no fluff.</strong> Coach Seth ensures every piece of feedback uses real coaching language—not generic AI tips.
+                    </p>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <span className="mt-1 text-blue-200">✓</span>
-                    <span>Built around fundamentals: balance, power, and repeatable mechanics.</span>
+                  <li className="flex gap-3">
+                    <p>
+                      <strong>Fundamentals first.</strong> The system is built around the same core principles taught on the ice: balance, power, and repeatable mechanics.
+                    </p>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <span className="mt-1 text-blue-200">✓</span>
-                    <span>Designed so beginners, travel players, and parents can all understand the plan.</span>
+                  <li className="flex gap-3">
+                    <p>
+                      <strong>Clear for everyone.</strong> Whether you're a beginner, a travel player, or a parent, the guidance is clear, actionable, and easy to understand.
+                    </p>
                   </li>
                 </ul>
               </div>
@@ -142,20 +145,11 @@ export default function Home() {
                   See the flow your player will use every session. Click through the home screen, stats,
                   and feedback views to follow a rep from recording to coaching and tracking.
                 </p>
-                <ul className="space-y-3 text-gray-700">
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1 text-blue-600">✓</span>
-                    <span>Tap through the main screens: Home, stats, and feedback—just like in the app.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1 text-blue-600">✓</span>
-                    <span>Follow one rep end-to-end, from a shot or stride to scorecards and coach comments.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1 text-blue-600">✓</span>
-                    <span>Show your player or family what using Puck Buddy will actually feel like.</span>
-                  </li>
-                </ul>
+                <div className="space-y-4 text-gray-700">
+                  <p>
+                    Experience the full flow yourself. Tap through the interactive demo to see how simple it is to go from recording a shot to receiving a detailed scorecard and coach's comments. It's the best way to show your player exactly what using Puck Buddy feels like.
+                  </p>
+                </div>
               </div>
             </ScrollAnimation>
             <ScrollAnimation delay={0.15}>
@@ -255,24 +249,9 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">For Parents</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-2">✓</span>
-                  <span>See how often your player is working and how their form changes over time.</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-2">✓</span>
-                  <span>Get a simple view of what&apos;s going well and what needs attention.</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-2">✓</span>
-                  <span>Support training on your schedule, without always needing a private lesson.</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-2">✓</span>
-                  <span>Bring something concrete to the next practice or meeting with a coach.</span>
-                </li>
-              </ul>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Monitor your player's consistency and watch their form evolve. You'll get a clear view of their strengths and areas for improvement, making it easy to support their training on your own schedule—perfect for when a private lesson isn't an option.
+              </p>
               </div>
             </ScrollAnimation>
 
@@ -285,24 +264,9 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">For Players</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-2">✓</span>
-                  <span>Get quick feedback on your shot and stride so every rep has a focus.</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-2">✓</span>
-                  <span>Ask questions in plain language and get answers that make sense.</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-2">✓</span>
-                  <span>See what good mechanics look like, not just hear &ldquo;shoot harder.&rdquo;</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-2">✓</span>
-                  <span>Watch your scores and comments improve as you put in the work.</span>
-                </li>
-              </ul>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Get instant, focused feedback on every shot and stride. Instead of vague advice like "shoot harder," you'll see exactly what good mechanics look like and get plain-language answers to your questions. Watch your scores—and your game—improve as you put in the work.
+              </p>
               </div>
             </ScrollAnimation>
 
@@ -315,24 +279,9 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">For Coaches</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-2">✓</span>
-                  <span>Review clips and scorecards in minutes instead of watching every rep live.</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-2">✓</span>
-                  <span>Use AI notes as a starting point, then layer on your own teaching.</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-2">✓</span>
-                  <span>Spot patterns across a team and build drills to match what you&apos;re seeing.</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-2">✓</span>
-                  <span>Give players specific, repeatable cues instead of vague &ldquo;try harder&rdquo; feedback.</span>
-                </li>
-              </ul>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Review clips and scorecards in minutes, saving you from watching every rep live. Use the AI-generated notes as a solid starting point, then layer on your own expertise. It's the perfect tool for spotting team-wide patterns and giving specific, repeatable cues that stick.
+              </p>
               </div>
             </ScrollAnimation>
           </div>
@@ -414,8 +363,9 @@ export default function Home() {
                     className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow"
                   >
                     <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                        <span className="text-white font-bold">✓</span>
+                      <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                         {/* Simple dot or icon instead of checkmark */}
+                         <div className="w-2.5 h-2.5 bg-blue-600 rounded-full"></div>
                       </div>
                       <div>
                         <h3 className="text-lg font-semibold text-gray-900 mb-1">

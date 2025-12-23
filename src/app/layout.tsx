@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import Image from "next/image";
 import Navigation from "./components/Navigation";
 import { Analytics } from "@vercel/analytics/react";
 
@@ -52,6 +53,15 @@ export default function RootLayout({
           <main className="flex-grow">{children}</main>
           <footer className="bg-gray-900 text-white p-4">
             <div className="container mx-auto text-center">
+              <div className="flex justify-center mb-4">
+                <Image
+                  src="/logo.svg"
+                  alt="Puck Buddy Logo"
+                  width={40}
+                  height={40}
+                  className="h-10 w-auto"
+                />
+              </div>
               <p>&copy; 2025 Buddy Tech LLC. All rights reserved.</p>
               <div className="mt-3 space-y-2">
                 <div className="flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-4 text-sm">

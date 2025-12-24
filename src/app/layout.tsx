@@ -45,45 +45,45 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/logo.svg" type="image/svg+xml" />
+        <link rel="icon" href="/seth_logo_adaptive_foreground.png" />
       </head>
       <body className={inter.className}>
         <div className="flex flex-col min-h-screen">
           <Navigation />
           <main className="flex-grow">{children}</main>
-          <footer className="bg-gray-900 text-white p-4">
+          <footer className="bg-gray-100 text-gray-900 p-4 border-t border-gray-200">
             <div className="container mx-auto text-center">
               <div className="flex justify-center mb-4">
                 <Image
-                  src="/logo.svg"
+                  src="/seth_logo_adaptive_foreground.png"
                   alt="Puck Buddy Logo"
-                  width={40}
-                  height={40}
-                  className="h-10 w-auto"
+                  width={60}
+                  height={60}
+                  className="h-12 w-auto"
                 />
               </div>
-              <p>&copy; 2025 Buddy Tech LLC. All rights reserved.</p>
+              <p className="font-medium">&copy; 2025 Buddy Tech LLC. All rights reserved.</p>
               <div className="mt-3 space-y-2">
-                <div className="flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-4 text-sm">
-                  <Link href="/terms" className="hover:text-gray-400">
+                <div className="flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-4 text-sm font-medium">
+                  <Link href="/terms" className="hover:text-blue-600">
                     Terms of Service
                   </Link>
-                  <Link href="/privacy" className="hover:text-gray-400">
+                  <Link href="/privacy" className="hover:text-blue-600">
                     Privacy Policy
                   </Link>
-                  <Link href="/refund" className="hover:text-gray-400">
+                  <Link href="/refund" className="hover:text-blue-600">
                     Return & Refund Policy
                   </Link>
-                  <Link href="/sms-terms" className="hover:text-gray-400">
+                  <Link href="/sms-terms" className="hover:text-blue-600">
                     SMS Terms & Conditions
                   </Link>
                 </div>
-                <div className="flex justify-center items-center gap-4 text-sm text-gray-300 mt-1">
+                <div className="flex justify-center items-center gap-4 text-gray-600 mt-1">
                   <a
                     href="https://www.instagram.com/the_puck_buddy/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-gray-100"
+                    className="hover:text-blue-600"
                     aria-label="Puck Buddy on Instagram"
                   >
                     <svg
@@ -99,7 +99,7 @@ export default function RootLayout({
                     href="https://www.facebook.com/profile.php?id=61584979140977#"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-gray-100"
+                    className="hover:text-blue-600"
                     aria-label="Puck Buddy on Facebook"
                   >
                     <svg
@@ -115,7 +115,7 @@ export default function RootLayout({
                     href="https://www.youtube.com/@PuckBuddyapp"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-gray-100"
+                    className="hover:text-blue-600"
                     aria-label="Puck Buddy on YouTube"
                   >
                     <svg

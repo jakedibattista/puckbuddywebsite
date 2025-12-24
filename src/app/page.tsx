@@ -78,7 +78,7 @@ export default function Home() {
       </section>
 
       {/* Meet Your Coach Section */}
-      <section className="py-16 lg:py-24 bg-blue-900 text-white">
+      <section className="py-16 lg:py-24 bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <ScrollAnimation direction="left">
@@ -226,10 +226,10 @@ export default function Home() {
 
 
       {/* Benefits Section */}
-      <section className="py-16 lg:py-24 bg-gray-50">
+      <section className="py-16 lg:py-24 bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollAnimation>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-16 text-center">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-16 text-center">
               Built for Players, Parents, and Coaches
             </h2>
           </ScrollAnimation>
@@ -393,7 +393,7 @@ export default function Home() {
                 </div>
 
                 {/* Annual Plan */}
-                <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl shadow-xl p-8 border-2 border-blue-500 relative hover:scale-105 transition-transform duration-300">
+                <div className="bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 rounded-2xl shadow-xl p-8 border-2 border-blue-500 relative hover:scale-105 transition-transform duration-300">
                   <div className="absolute top-4 right-4 bg-yellow-400 text-gray-900 text-xs font-bold px-3 py-1 rounded-full">
                     BEST VALUE
                   </div>

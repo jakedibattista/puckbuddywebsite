@@ -11,6 +11,11 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Buddy Tech",
   description: "Get AI-powered video analysis to perfect your shot and stride. Your personal AI hockey coach for players of all levels.",
+  icons: {
+    icon: "/seth_logo_adaptive_foreground.png",
+    shortcut: "/seth_logo_adaptive_foreground.png",
+    apple: "/seth_logo_adaptive_foreground.png",
+  },
   openGraph: {
     title: "Buddy Tech",
     description: "Get AI-powered video analysis to perfect your shot and stride. Your personal AI hockey coach for players of all levels.",
@@ -44,9 +49,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/seth_logo_adaptive_foreground.png" />
-      </head>
       <body className={inter.className}>
         <div className="flex flex-col min-h-screen">
           <Navigation />

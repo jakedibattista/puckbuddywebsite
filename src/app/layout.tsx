@@ -12,9 +12,9 @@ export const metadata: Metadata = {
   title: "Buddy Tech",
   description: "Get AI-powered video analysis to perfect your shot and stride. Your personal AI hockey coach for players of all levels.",
   icons: {
-    icon: "/seth_logo_adaptive_foreground.png",
-    shortcut: "/seth_logo_adaptive_foreground.png",
-    apple: "/seth_logo_adaptive_foreground.png",
+    icon: "/seth_logo.jpeg",
+    shortcut: "/seth_logo.jpeg",
+    apple: "/seth_logo.jpeg",
   },
   openGraph: {
     title: "Buddy Tech",

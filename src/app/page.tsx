@@ -82,7 +82,7 @@ export default function Home() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollAnimation>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 text-center">
-              Try the Puck Buddy demo
+              Try Puck Buddy
             </h2>
             <p className="text-lg text-gray-600 mb-10 text-center max-w-2xl mx-auto">
               Click through the app experience to see how players upload shots, view scorecards,

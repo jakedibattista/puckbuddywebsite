@@ -65,3 +65,4 @@ All scripts require the `sharp` package, which is already included in the projec
 - Scripts automatically handle path resolution from the `scripts/` directory
 - Original images are preserved; scripts create new resized versions
 
+

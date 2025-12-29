@@ -25,8 +25,8 @@ export default function Navigation() {
             href="/" 
             className="flex items-center space-x-2 text-lg font-semibold text-gray-900 hover:text-blue-600 transition-colors"
           >
-            <Image src="/seth_logo_adaptive_foreground.png" alt="Buddy Tech Logo" width={32} height={32} className="w-8 h-8" />
-            <span>Buddy Tech</span>
+            <Image src="/logo.svg" alt="Buddy Tech LLC Logo" width={32} height={32} className="w-8 h-8" />
+            <span>Buddy Tech LLC</span>
           </Link>
 
           {/* Desktop Navigation - Right Side */}

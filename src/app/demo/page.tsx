@@ -11,9 +11,9 @@ export default function DemoPage() {
         {/* Investor Hero */}
         <section className="space-y-8">
           <div className="flex items-center gap-4">
-            <div className="relative h-12 w-12 rounded-2xl overflow-hidden bg-white/5 border border-white/10">
+            <div className="relative h-12 w-12 rounded-2xl overflow-hidden border border-white/10 bg-white">
               <Image
-                src="/seth_logo_adaptive_foreground.png"
+                src="/logo.svg"
                 alt="Puck Buddy logo"
                 fill
                 className="object-contain p-1"
@@ -85,12 +85,6 @@ export default function DemoPage() {
             <h2 className="text-2xl md:text-3xl font-semibold">
               Clickable product walkthrough
             </h2>
-            <p className="text-sm md:text-base text-gray-200 max-w-xl">
-              Tap through the prototype screens to experience the end‑to‑end
-              Puck Buddy flow: from uploading a shot and selecting a coach, to
-              viewing biomechanical scorecards, coach feedback, and progress
-              tracking.
-            </p>
             <div className="mt-4">
               <InteractiveDemo />
             </div>
@@ -122,9 +116,9 @@ export default function DemoPage() {
               </ul>
             </div>
 
-            <div className="rounded-2xl border border-blue-500/40 bg-blue-900/30 p-6 backdrop-blur">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur">
               <h3 className="text-lg font-semibold mb-3">Traction & next 6–12 months</h3>
-              <ul className="space-y-2 text-sm text-blue-100">
+              <ul className="space-y-2 text-sm text-gray-200">
                 <li>• 500 installs and ~25 daily active users since soft launch (Dec 2025).</li>
                 <li>• Deepen product value for hockey: more drills, richer feedback, and better progress tracking.</li>
                 <li>• Launch a second sport using the same AI coaching infrastructure.</li>

@@ -275,12 +275,6 @@ export default function InteractiveDemo() {
           </button>
         ))}
       </div>
-
-      {/* Current Screen Label */}
-      <p className="mt-4 text-gray-500 text-sm">
-        Currently viewing: <span className="font-medium text-gray-900">{screens[currentScreen].title}</span>
-      </p>
     </div>
   );
 }
-

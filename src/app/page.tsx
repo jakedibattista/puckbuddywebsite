@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import ScrollAnimation from "./components/ScrollAnimation";
+import InteractiveDemo from "./components/InteractiveDemo";
 import { motion } from "framer-motion";
 
 export default function Home() {
@@ -73,6 +74,26 @@ export default function Home() {
             </a>
             </div>
           </ScrollAnimation>
+        </div>
+      </section>
+
+      {/* Interactive Demo Section */}
+      <section className="py-16 lg:py-24 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollAnimation>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 text-center">
+              Try the Puck Buddy demo
+            </h2>
+            <p className="text-lg text-gray-600 mb-10 text-center max-w-2xl mx-auto">
+              Click through the app experience to see how players upload shots, view scorecards,
+              and get coaching feedback.
+            </p>
+          </ScrollAnimation>
+          <div className="max-w-xl mx-auto">
+            <ScrollAnimation delay={0.1}>
+              <InteractiveDemo />
+            </ScrollAnimation>
+          </div>
         </div>
       </section>
 

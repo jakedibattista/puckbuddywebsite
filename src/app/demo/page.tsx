@@ -10,13 +10,13 @@ export default function DemoPage() {
       <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20 space-y-16">
         {/* Investor Hero */}
         <section className="space-y-8">
-          <div className="flex items-center gap-4">
-            <div className="relative h-12 w-12 rounded-2xl overflow-hidden border border-white/10 bg-white">
+          <div className="flex flex-col items-center text-center gap-4">
+            <div className="relative h-20 w-20 rounded-full overflow-hidden border border-white/10 bg-white">
               <Image
-                src="/logo.svg"
+                src="/seth_logo.jpeg"
                 alt="Puck Buddy logo"
                 fill
-                className="object-contain p-1"
+                className="object-cover"
                 priority
               />
             </div>
@@ -82,10 +82,10 @@ export default function DemoPage() {
         {/* Interactive Product Demo */}
         <section className="grid gap-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] items-start">
           <div className="space-y-4">
-            <h2 className="text-2xl md:text-3xl font-semibold">
+            <h2 className="text-2xl md:text-3xl font-semibold text-center">
               Clickable product walkthrough
             </h2>
-            <div className="mt-4">
+            <div className="mt-6 flex justify-center">
               <InteractiveDemo />
             </div>
           </div>

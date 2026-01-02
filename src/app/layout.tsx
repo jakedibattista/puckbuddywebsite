@@ -15,11 +15,12 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://buddyllc.app"),
   icons: {
     icon: [
+      { url: "/favicon-16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+      // Keep SVG as a fallback for browsers that support it well.
       { url: "/BlackLogo.svg", type: "image/svg+xml" },
     ],
-    apple: [
-      { url: "/BlackLogo.svg", type: "image/svg+xml" },
-    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   openGraph: {
     title: "Puck Buddy - Your AI Hockey Coach",
@@ -55,8 +56,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
+        <link rel="icon" href="/favicon-16.png" type="image/png" sizes="16x16" />
         <link rel="icon" href="/BlackLogo.svg" type="image/svg+xml" sizes="any" />
-        <link rel="apple-touch-icon" href="/BlackLogo.svg" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
       </head>
       <body className={inter.className}>
         <div className="flex flex-col min-h-screen">

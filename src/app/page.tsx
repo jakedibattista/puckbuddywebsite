@@ -49,11 +49,10 @@ export default function Home() {
                 transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.55, delay: 0.05, ease: [0.21, 1.11, 0.81, 0.99] }}
                 className="mt-6 text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.05] tracking-tight"
               >
-                Train with your{" "}
+                Meet Your New{" "}
                 <span className="bg-gradient-to-r from-white via-blue-100 to-emerald-100 bg-clip-text text-transparent">
-                  AI hockey coach
+                  Private Hockey Coach
                 </span>
-                .
               </motion.h1>
 
               <motion.p

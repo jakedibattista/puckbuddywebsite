@@ -346,7 +346,7 @@ export default function Home() {
                   &ldquo;After an afternoon of Puck Buddy my son is already talking about adding 10 mph to his snapshot&rdquo;
                 </p>
                 <p className="mt-4 text-sm text-gray-600">
-                  Puck Buddy User&apos;s Parent
+                  - A Proud Puck Buddy Parent
                 </p>
               </div>
             </ScrollAnimation>

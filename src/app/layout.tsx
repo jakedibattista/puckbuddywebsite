@@ -67,7 +67,7 @@ export default function RootLayout({
           <main className="flex-grow">{children}</main>
           <footer className="bg-gray-900 text-white p-4">
             <div className="container mx-auto text-center">
-              <p>&copy; 2025 Buddy Tech. All rights reserved.</p>
+              <p>&copy; 2026 Buddy Tech. All rights reserved.</p>
               <div className="flex justify-center items-center gap-4 mt-3 text-sm">
                 <Link
                   href="https://www.facebook.com/profile.php?id=61584979140977"

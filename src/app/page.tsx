@@ -614,8 +614,9 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Open Puck Buddy on the App Store (Annual subscription)"
-                  className="block bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl shadow-xl p-8 border-2 border-blue-500 relative hover:scale-105 transition-transform duration-300 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-300 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-50"
+                  className="group relative block overflow-hidden rounded-2xl border border-black/5 bg-[radial-gradient(900px_circle_at_20%_10%,rgba(37,99,235,0.18),transparent_55%),radial-gradient(700px_circle_at_90%_0%,rgba(34,197,94,0.12),transparent_55%),linear-gradient(to_bottom_right,#070A12,#0B1220,#070A12)] p-8 shadow-xl transition-transform duration-300 hover:scale-[1.02] cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-50"
                 >
+                  <div aria-hidden className="pointer-events-none absolute inset-0 opacity-[0.10] mix-blend-soft-light" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.35) 1px, transparent 0)", backgroundSize: "26px 26px" }} />
                   <div className="absolute top-4 right-4 bg-yellow-400 text-gray-900 text-xs font-bold px-3 py-1 rounded-full">
                     BEST VALUE
                   </div>
@@ -623,7 +624,7 @@ export default function Home() {
                     <h3 className="text-2xl font-bold text-white mb-2">
                       Puck Buddy Annual
                     </h3>
-                    <p className="text-blue-100 mb-2">Annual subscription</p>
+                    <p className="text-white/70 mb-2">Annual subscription</p>
                     <div className="mb-2">
                       <span className="inline-block bg-yellow-400 text-gray-900 text-sm font-bold px-3 py-1 rounded-full mb-2">
                         SAVE 30%
@@ -632,7 +633,7 @@ export default function Home() {
                     <div className="text-4xl font-bold text-white mb-2">
                       $49.99
                     </div>
-                    <p className="text-blue-100 text-sm">
+                    <p className="text-white/70 text-sm">
                       Just $4.17/mo
                     </p>
                   </div>

@@ -108,12 +108,12 @@ export default function Home() {
               <div className="absolute -inset-6 rounded-[2.25rem] bg-gradient-to-br from-blue-500/10 via-white/0 to-emerald-400/10 blur-2xl" />
               <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-[0_30px_90px_rgba(0,0,0,0.45)] backdrop-blur">
                 <div className="p-3 sm:p-4">
-                  <div className="relative aspect-[9/16] overflow-hidden rounded-[1.5rem] bg-black/30 p-2">
+                  <div className="relative aspect-[1170/2532] overflow-hidden rounded-[1.5rem] bg-white">
                     <Image
                       src="/demo-scorecard.png"
                       alt="Puck Buddy scorecard showing shot analysis with metrics and coaching feedback"
                       fill
-                      className="object-contain"
+                      className="object-cover object-center"
                       priority
                     />
                   </div>
@@ -135,9 +135,6 @@ export default function Home() {
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
                 See Puck Buddy in action
               </h2>
-              <p className="text-lg text-gray-600">
-                A quick walkthrough of the flow: upload → analyze → scorecard → coaching feedback.
-              </p>
             </div>
           </ScrollAnimation>
           

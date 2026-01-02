@@ -17,7 +17,7 @@ export default function Navigation() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-black/5 bg-white/75 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+    <header className="sticky top-0 z-50 border-b border-blue-100/50 bg-white/95 backdrop-blur-xl supports-[backdrop-filter]:bg-white/90 shadow-sm">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <nav className="flex items-center justify-between h-16">
           {/* Logo and Company Name - Left Side */}
@@ -25,8 +25,8 @@ export default function Navigation() {
             href="/" 
             className="flex items-center space-x-2 text-lg font-semibold text-gray-900 hover:text-blue-600 transition-colors"
           >
-            <Image src="/BlackLogo.svg" alt="Buddy Tech LLC Logo" width={32} height={32} className="w-8 h-8" />
-            <span>Buddy Tech LLC</span>
+            <Image src="/BlackLogo.svg" alt="Buddy Tech Logo" width={40} height={40} className="w-10 h-10 flex-shrink-0" priority />
+            <span>Buddy Tech</span>
           </Link>
 
           {/* Desktop Navigation - Right Side */}

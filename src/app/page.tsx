@@ -3,11 +3,15 @@
 import Image from "next/image";
 import ScrollAnimation from "./components/ScrollAnimation";
 import InteractiveDemo from "./components/InteractiveDemo";
-import { motion } from "framer-motion";
+import MobileStickyCTA from "./components/MobileStickyCTA";
+import { motion, useReducedMotion } from "framer-motion";
 
 export default function Home() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <div className="min-h-screen bg-white">
+      <MobileStickyCTA />
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-[radial-gradient(1200px_circle_at_20%_10%,rgba(37,99,235,0.28),transparent_55%),radial-gradient(900px_circle_at_80%_0%,rgba(34,197,94,0.18),transparent_55%),linear-gradient(to_bottom_right,#070A12,#0B1220,#070A12)] text-white py-16 sm:py-20 lg:py-28">
         {/* Background texture */}
@@ -25,19 +29,24 @@ export default function Home() {
           <div className="grid gap-10 sm:gap-12 lg:grid-cols-2 items-center">
             <div className="max-w-xl text-center lg:text-left mx-auto lg:mx-0">
               <motion.div
-                initial={{ opacity: 0, y: 12 }}
+                initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, ease: [0.21, 1.11, 0.81, 0.99] }}
+                transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.5, ease: [0.21, 1.11, 0.81, 0.99] }}
                 className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold tracking-wide text-white/90 backdrop-blur"
               >
-                <span className="inline-flex h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_0_6px_rgba(16,185,129,0.12)]" />
-                Built with Coach Seth’s real rink coaching
+                <span
+                  className={[
+                    "inline-flex h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_0_6px_rgba(16,185,129,0.12)]",
+                    shouldReduceMotion ? "" : "animate-pulse",
+                  ].join(" ")}
+                />
+                Rink-tested coaching inside
               </motion.div>
 
               <motion.h1
-                initial={{ opacity: 0, y: 18 }}
+                initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.55, delay: 0.05, ease: [0.21, 1.11, 0.81, 0.99] }}
+                transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.55, delay: 0.05, ease: [0.21, 1.11, 0.81, 0.99] }}
                 className="mt-6 text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.05] tracking-tight"
               >
                 Train with your{" "}
@@ -48,19 +57,19 @@ export default function Home() {
               </motion.h1>
 
               <motion.p
-                initial={{ opacity: 0, y: 18 }}
+                initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.55, delay: 0.12, ease: [0.21, 1.11, 0.81, 0.99] }}
-                className="mt-5 text-lg md:text-xl text-white/75 leading-relaxed"
+                transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.55, delay: 0.12, ease: [0.21, 1.11, 0.81, 0.99] }}
+                className="mt-5 text-lg md:text-xl text-white/80 leading-relaxed max-w-lg"
               >
-                Upload a shot video. Get a scorecard, coaching feedback, and a clear plan to improve power,
-                accuracy, and consistency—right from your iPhone.
+                Upload a shot video from your iPhone.{" "}
+                <span className="text-white/90 font-medium">Get instant analysis</span>—scorecards, coaching feedback, and a clear plan to improve power, accuracy, and consistency.
               </motion.p>
 
               <motion.div
-                initial={{ opacity: 0, y: 18 }}
+                initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.55, delay: 0.2, ease: [0.21, 1.11, 0.81, 0.99] }}
+                transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.55, delay: 0.2, ease: [0.21, 1.11, 0.81, 0.99] }}
                 className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4 items-center lg:items-start"
               >
                 <a
@@ -88,42 +97,23 @@ export default function Home() {
                 </a>
               </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.28, ease: [0.21, 1.11, 0.81, 0.99] }}
-                className="mt-8 flex flex-wrap justify-center lg:justify-start items-center gap-x-6 gap-y-2 text-xs text-white/60"
-              >
-                <span className="inline-flex items-center gap-2">
-                  <span className="h-1 w-1 rounded-full bg-white/40" />
-                  ~60-second turnaround
-                </span>
-                <span className="inline-flex items-center gap-2">
-                  <span className="h-1 w-1 rounded-full bg-white/40" />
-                  Progress tracking + scorecards
-                </span>
-                <span className="inline-flex items-center gap-2">
-                  <span className="h-1 w-1 rounded-full bg-white/40" />
-                  Billing handled by Apple
-                </span>
-              </motion.div>
             </div>
 
             <motion.div
-              initial={{ opacity: 0, scale: 0.98, y: 10 }}
+              initial={shouldReduceMotion ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.98, y: 10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1, ease: [0.21, 1.11, 0.81, 0.99] }}
+              transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.6, delay: 0.1, ease: [0.21, 1.11, 0.81, 0.99] }}
               className="relative mx-auto w-full max-w-[520px]"
             >
               <div className="absolute -inset-6 rounded-[2.25rem] bg-gradient-to-br from-blue-500/10 via-white/0 to-emerald-400/10 blur-2xl" />
               <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-[0_30px_90px_rgba(0,0,0,0.45)] backdrop-blur">
                 <div className="p-3 sm:p-4">
-                  <div className="relative aspect-[9/16] overflow-hidden rounded-[1.5rem] bg-black/30">
+                  <div className="relative aspect-[9/16] overflow-hidden rounded-[1.5rem] bg-black/30 p-2">
                     <Image
-                      src="/demo-home.png"
-                      alt="Puck Buddy app preview"
+                      src="/demo-scorecard.png"
+                      alt="Puck Buddy scorecard showing shot analysis with metrics and coaching feedback"
                       fill
-                      className="object-cover object-top"
+                      className="object-contain"
                       priority
                     />
                   </div>
@@ -135,7 +125,7 @@ export default function Home() {
       </section>
 
       {/* Video Showcase Section - Moved to Top */}
-      <section id="video" className="py-16 lg:py-24 bg-white scroll-mt-24">
+      <section id="video" className="py-12 sm:py-16 lg:py-24 bg-white scroll-mt-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollAnimation>
             <div className="max-w-3xl mx-auto text-center mb-12">
@@ -161,6 +151,7 @@ export default function Home() {
                   frameBorder="0"
                   allow="autoplay; fullscreen; picture-in-picture"
                   allowFullScreen
+                  loading="lazy"
                   title="Puck Buddy Complete Overview"
                 />
               </div>
@@ -189,7 +180,7 @@ export default function Home() {
       </section>
 
       {/* Interactive Demo Section */}
-      <section className="py-16 lg:py-24 bg-gradient-to-br from-gray-50 to-blue-50">
+      <section className="py-12 sm:py-16 lg:py-24 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 items-center">
             <ScrollAnimation direction="left">
@@ -198,18 +189,17 @@ export default function Home() {
                   Interactive
                 </p>
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-                  Tap through the product.
+                  Try it yourself.
                 </h2>
                 <p className="mt-4 text-lg text-gray-600 leading-relaxed">
-                  This is a clickable walkthrough of the real app experience—uploading a shot,
-                  viewing scorecards, and getting coaching feedback.
+                  Explore the real app experience—upload a shot, see your scorecard, and get coaching feedback. It&apos;s all interactive.
                 </p>
 
                 <div className="mt-8 grid gap-4 sm:grid-cols-3">
                   {[
-                    { title: "Tap hotspots", desc: "Navigate between screens." },
-                    { title: "Tap anywhere", desc: "Hints briefly appear." },
-                    { title: "Use pills", desc: "Jump to any view." },
+                    { title: "Click the hotspots", desc: "Move between screens to see the full flow." },
+                    { title: "Tap around", desc: "Try different areas to discover features." },
+                    { title: "Use the menu", desc: "Quickly switch to any screen you want to see." },
                   ].map((item) => (
                     <div
                       key={item.title}
@@ -305,7 +295,7 @@ export default function Home() {
       </section>
 
       {/* Proof / Trust Section */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="py-12 sm:py-16 lg:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto">
             <ScrollAnimation>
@@ -356,11 +346,10 @@ export default function Home() {
                   Testimonial
                 </p>
                 <p className="mt-4 text-xl md:text-2xl font-semibold text-gray-900 leading-snug">
-                  &ldquo;I wanted every kid to feel like they have a coach in the rink with them—even when they practice alone.
-                  Puck Buddy delivers that.&rdquo;
+                  &ldquo;After an afternoon of Puck Buddy my son is already talking about adding 10 mph to his snapshot&rdquo;
                 </p>
                 <p className="mt-4 text-sm text-gray-600">
-                  Coach Seth • Founder &amp; Puck Buddy AI Coach
+                  Puck Buddy User&apos;s Parent
                 </p>
               </div>
             </ScrollAnimation>
@@ -369,7 +358,7 @@ export default function Home() {
       </section>
 
       {/* Unique Features Section */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="py-12 sm:py-16 lg:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <ScrollAnimation>
@@ -414,15 +403,8 @@ export default function Home() {
               ].map((feature, index) => (
                 <ScrollAnimation key={index} delay={index * 0.1}>
                   <div className="group rounded-2xl border border-black/5 bg-gradient-to-br from-white to-gray-50 p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                    <div className="flex items-start gap-4">
-                      <div className="mt-1 h-10 w-10 rounded-xl bg-gradient-to-br from-blue-600/15 to-emerald-400/15 ring-1 ring-black/5 flex items-center justify-center">
-                        <span className="text-sm font-bold text-blue-700">{index + 1}</span>
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-bold text-gray-900 mb-2">{feature.title}</h3>
-                        <p className="text-gray-700 leading-relaxed">{feature.desc}</p>
-                      </div>
-                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{feature.title}</h3>
+                    <p className="text-gray-700 leading-relaxed">{feature.desc}</p>
                   </div>
                 </ScrollAnimation>
               ))}
@@ -436,7 +418,7 @@ export default function Home() {
 
 
       {/* Benefits Section */}
-      <section className="py-16 lg:py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-12 sm:py-16 lg:py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollAnimation>
             <div className="max-w-3xl mx-auto text-center mb-16">
@@ -541,47 +523,6 @@ export default function Home() {
               </ul>
               </div>
             </ScrollAnimation>
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works Section */}
-      <section className="py-16 lg:py-24 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollAnimation>
-            <div className="max-w-3xl mx-auto text-center mb-16">
-              <p className="text-xs font-semibold tracking-[0.22em] text-blue-700 uppercase mb-3">
-                Simple flow
-              </p>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                How it works
-              </h2>
-              <p className="text-lg text-gray-600">
-                One quick clip turns into coaching you can apply immediately.
-              </p>
-            </div>
-          </ScrollAnimation>
-          <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
-            {[
-              { number: "1", title: "Record", desc: "Use your iPhone to take a video of your shot." },
-              { number: "2", title: "Upload", desc: "Select the video from your library and upload it to the app." },
-              { number: "3", title: "Analyze", desc: "Let our AI coach work its magic! In moments, you'll have a complete analysis." },
-              { number: "4", title: "Improve", desc: "Chat with a real time AI hockey coach trained on snapshot shot mechanics." },
-            ].map((step, index) => (
-              <ScrollAnimation key={index} delay={index * 0.1}>
-                <div className="text-center rounded-2xl border border-black/5 bg-gradient-to-b from-white to-gray-50 p-6 shadow-sm hover:shadow-lg transition-shadow">
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ type: "spring", stiffness: 260 }}
-                    className="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 text-white rounded-2xl flex items-center justify-center text-2xl font-bold mx-auto mb-4 shadow-sm"
-                  >
-                    {step.number}
-                  </motion.div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">{step.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{step.desc}</p>
-                </div>
-              </ScrollAnimation>
-            ))}
           </div>
         </div>
       </section>

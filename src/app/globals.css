@@ -34,6 +34,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Add bottom padding on mobile to prevent content from being hidden behind sticky CTA */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 80px;
+  }
+}
+
 ::selection {
   background: color-mix(in oklab, var(--brand) 22%, transparent);
 }

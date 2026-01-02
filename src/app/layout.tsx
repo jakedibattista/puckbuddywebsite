@@ -13,6 +13,14 @@ export const metadata: Metadata = {
   description: "Get AI-powered video analysis to perfect your shot. Your personal AI shooting coach for hockey players of all levels.",
   // Used to resolve relative OpenGraph/Twitter URLs (set NEXT_PUBLIC_SITE_URL in Vercel).
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://buddyllc.app"),
+  icons: {
+    icon: [
+      { url: "/BlackLogo.svg", type: "image/svg+xml" },
+    ],
+    apple: [
+      { url: "/BlackLogo.svg", type: "image/svg+xml" },
+    ],
+  },
   openGraph: {
     title: "Puck Buddy - Your AI Hockey Coach",
     description: "Get AI-powered video analysis to perfect your shot. Your personal AI shooting coach for hockey players of all levels.",
@@ -47,7 +55,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/BlackLogo.svg" type="image/svg+xml" />
+        <link rel="icon" href="/BlackLogo.svg" type="image/svg+xml" sizes="any" />
+        <link rel="apple-touch-icon" href="/BlackLogo.svg" />
       </head>
       <body className={inter.className}>
         <div className="flex flex-col min-h-screen">
@@ -55,7 +64,7 @@ export default function RootLayout({
           <main className="flex-grow">{children}</main>
           <footer className="bg-gray-900 text-white p-4">
             <div className="container mx-auto text-center">
-              <p>&copy; 2025 Buddy Tech LLC. All rights reserved.</p>
+              <p>&copy; 2025 Buddy Tech. All rights reserved.</p>
               <div className="flex justify-center items-center gap-4 mt-3 text-sm">
                 <Link
                   href="https://www.facebook.com/profile.php?id=61584979140977"

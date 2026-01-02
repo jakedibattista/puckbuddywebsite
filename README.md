@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Puck Buddy marketing website (Next.js App Router).
 
 ## Getting Started
 
@@ -16,9 +16,27 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+You can start editing the homepage in `src/app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Environment variables (Vercel)
+
+- `NEXT_PUBLIC_SITE_URL`: canonical site URL (e.g. `https://buddyllc.app`). Used for correct OpenGraph/Twitter URL resolution.
+
+## Asset hygiene (what images are actually used?)
+
+All runtime assets live in `public/`.
+
+To see which `public/` files are referenced by code:
+
+```bash
+npm run assets:audit
+```
+
+To fail if any unused assets exist (useful for CI):
+
+```bash
+npm run assets:audit:fail
+```
 
 ## Learn More
 

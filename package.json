@@ -6,10 +6,16 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "assets:audit": "node scripts/audit-public-assets.mjs",
+    "assets:audit:fail": "node scripts/audit-public-assets.mjs --fail-on-unused"
+    ,
+    "assets:audit:runtime": "node scripts/audit-public-assets.mjs --scope=runtime",
+    "assets:audit:scripts": "node scripts/audit-public-assets.mjs --scope=scripts"
   },
   "dependencies": {
     "@vercel/analytics": "^1.6.1",
+    "@vercel/speed-insights": "^1.2.0",
     "framer-motion": "^12.23.24",
     "next": "15.5.7",
     "react": "19.2.1",

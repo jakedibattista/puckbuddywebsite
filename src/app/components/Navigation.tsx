@@ -17,7 +17,7 @@ export default function Navigation() {
   ];
 
   return (
-    <header className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <header className="sticky top-0 z-50 border-b border-black/5 bg-white/75 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <nav className="flex items-center justify-between h-16">
           {/* Logo and Company Name - Left Side */}
@@ -25,7 +25,7 @@ export default function Navigation() {
             href="/" 
             className="flex items-center space-x-2 text-lg font-semibold text-gray-900 hover:text-blue-600 transition-colors"
           >
-            <Image src="/logo.svg" alt="Buddy Tech LLC Logo" width={32} height={32} className="w-8 h-8" />
+            <Image src="/BlackLogo.svg" alt="Buddy Tech LLC Logo" width={32} height={32} className="w-8 h-8" />
             <span>Buddy Tech LLC</span>
           </Link>
 
@@ -46,6 +46,15 @@ export default function Navigation() {
                 )}
               </Link>
             ))}
+
+            <a
+              href="https://apps.apple.com/us/app/puck-buddy/id6752230304"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-full bg-gray-900 px-5 py-2 text-sm font-semibold text-white shadow-sm transition-all hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+            >
+              Get the app
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -83,7 +92,7 @@ export default function Navigation() {
               transition={{ duration: 0.2 }}
               className="md:hidden border-t border-gray-200 overflow-hidden"
             >
-              <div className="flex flex-col space-y-4 py-4">
+              <div className="flex flex-col space-y-2 py-4">
                 {navLinks.map((link, index) => (
                   <motion.div
                     key={link.id}
@@ -94,7 +103,7 @@ export default function Navigation() {
                     <Link
                       href={link.href}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors px-2 py-1 block"
+                      className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors px-3 py-3 rounded-xl hover:bg-gray-100 block"
                     >
                       {link.label}
                       {link.badge && (
@@ -105,6 +114,15 @@ export default function Navigation() {
                     </Link>
                   </motion.div>
                 ))}
+
+                <a
+                  href="https://apps.apple.com/us/app/puck-buddy/id6752230304"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mx-3 mt-2 inline-flex items-center justify-center rounded-full bg-gray-900 px-5 py-3 text-sm font-semibold text-white shadow-sm transition-all hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                >
+                  Get the app
+                </a>
               </div>
             </motion.div>
           )}

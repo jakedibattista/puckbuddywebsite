@@ -155,13 +155,15 @@ export default function About() {
               {/* Jake DiBattista */}
               <ScrollAnimation delay={0.1}>
                 <div className="rounded-2xl border border-black/5 bg-gradient-to-br from-white to-gray-50 p-8 shadow-sm text-center h-full">
-                  <div className="relative w-24 h-24 rounded-full overflow-hidden ring-2 ring-blue-500/20 mx-auto mb-4">
-                    <Image
-                      src="/jake-dibattista.jpg"
-                      alt="Jake DiBattista"
-                      fill
-                      className="object-cover"
-                    />
+                  <div className="relative w-24 h-24 rounded-full overflow-hidden ring-2 ring-blue-500/20 mx-auto mb-4 p-1 bg-white">
+                    <div className="relative w-full h-full rounded-full overflow-hidden">
+                      <Image
+                        src="/jake-dibattista.jpg"
+                        alt="Jake DiBattista"
+                        fill
+                        className="object-cover object-top"
+                      />
+                    </div>
                   </div>
                   <h3 className="text-xl font-bold text-gray-900">Jake DiBattista</h3>
                   <p className="text-sm font-medium text-blue-700 mb-3">CEO & Lead Engineer</p>
@@ -174,13 +176,15 @@ export default function About() {
               {/* Andrew Rowe */}
               <ScrollAnimation delay={0.2}>
                 <div className="rounded-2xl border border-black/5 bg-gradient-to-br from-white to-gray-50 p-8 shadow-sm text-center h-full">
-                  <div className="relative w-24 h-24 rounded-full overflow-hidden ring-2 ring-blue-500/20 mx-auto mb-4">
-                    <Image
-                      src="/andrew-rowe.jpg"
-                      alt="Andrew Rowe"
-                      fill
-                      className="object-cover object-top"
-                    />
+                  <div className="relative w-24 h-24 rounded-full overflow-hidden ring-2 ring-blue-500/20 mx-auto mb-4 p-1 bg-white">
+                    <div className="relative w-full h-full rounded-full overflow-hidden">
+                      <Image
+                        src="/andrew-rowe.jpg"
+                        alt="Andrew Rowe"
+                        fill
+                        className="object-cover object-top"
+                      />
+                    </div>
                   </div>
                   <h3 className="text-xl font-bold text-gray-900">Andrew Rowe</h3>
                   <p className="text-sm font-medium text-blue-700 mb-3">Chief Operating Officer</p>
@@ -193,13 +197,15 @@ export default function About() {
               {/* Coach Seth */}
               <ScrollAnimation delay={0.3}>
                 <div className="rounded-2xl border border-black/5 bg-gradient-to-br from-white to-gray-50 p-8 shadow-sm text-center h-full">
-                  <div className="relative w-24 h-24 rounded-full overflow-hidden ring-2 ring-blue-500/20 mx-auto mb-4">
-                    <Image
-                      src="/seth-michelson.jpg"
-                      alt="Coach Seth Michelson"
-                      fill
-                      className="object-cover"
-                    />
+                  <div className="relative w-24 h-24 rounded-full overflow-hidden ring-2 ring-blue-500/20 mx-auto mb-4 p-1 bg-white">
+                    <div className="relative w-full h-full rounded-full overflow-hidden">
+                      <Image
+                        src="/seth-michelson.jpg"
+                        alt="Coach Seth Michelson"
+                        fill
+                        className="object-cover object-top"
+                      />
+                    </div>
                   </div>
                   <h3 className="text-xl font-bold text-gray-900">Coach Seth Michelson</h3>
                   <p className="text-sm font-medium text-blue-700 mb-3">Co-Founder & Head of Sales</p>

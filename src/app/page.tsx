@@ -211,9 +211,7 @@ export default function Home() {
 
             <div className="mx-auto w-full max-w-xl">
               <ScrollAnimation delay={0.1} direction="right">
-                <div className="rounded-3xl border border-black/5 bg-white/35 p-4 sm:p-6 shadow-xl backdrop-blur">
-                  <InteractiveDemo />
-                </div>
+                <InteractiveDemo />
               </ScrollAnimation>
             </div>
           </div>

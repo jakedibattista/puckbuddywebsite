@@ -180,7 +180,7 @@ export default function About() {
                     />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900">Andrew Rowe</h3>
-                  <p className="text-sm font-medium text-blue-700 mb-3">COO</p>
+                  <p className="text-sm font-medium text-blue-700 mb-3">Chief Operating Officer</p>
                   <p className="text-sm text-gray-600 leading-relaxed">
                     Former pro hockey player with 15+ years across the AHL, ECHL, SHL, Swiss NL, and DEL. After a full-ride at Michigan State and starting his pro career with the Philadelphia Flyers, Andrew now channels that competitive drive into Puck Buddy—building the tool he wishes he had 25 years ago. His mission is to empower the next generation with accessible, elite-level coaching.
                   </p>

@@ -90,7 +90,7 @@ export default function DemoPage() {
           <div className="grid gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] items-start max-w-6xl mx-auto">
             {/* Demo */}
             <div className="space-y-6">
-              <div className="text-center lg:text-left">
+              <div className="text-center">
                 <p className="text-xs font-semibold tracking-[0.22em] text-blue-700 uppercase mb-3">
                   Product walkthrough
                 </p>
@@ -98,7 +98,7 @@ export default function DemoPage() {
                   Clickable demo
                 </h2>
               </div>
-              <div className="flex justify-center lg:justify-start">
+              <div className="flex justify-center">
                 <InteractiveDemo />
               </div>
             </div>

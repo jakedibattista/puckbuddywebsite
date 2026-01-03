@@ -132,42 +132,68 @@ export default function About() {
       {/* Team Section */}
       <section className="py-16 lg:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <ScrollAnimation>
               <div className="text-center mb-12">
                 <p className="text-xs font-semibold tracking-[0.22em] text-blue-700 uppercase mb-3">
                   The team
                 </p>
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                  Built by sports enthusiasts.
+                  Built by athletes and engineers.
                 </h2>
                 <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                  After winning the Google Cloud x MLB hackathon, Jake saw the gap between motivated athletes and quality coaching. He partnered with Coach Seth to build the first AI hockey coach.
+                  We&apos;re a team of builders, coaches, and former pros united by one mission: give every athlete access to the coaching they deserve.
                 </p>
               </div>
             </ScrollAnimation>
 
-            {/* Team Members - placeholder for photos/bios */}
-            <div className="grid md:grid-cols-2 gap-8">
+            {/* Team Members */}
+            <div className="grid md:grid-cols-3 gap-8">
+              {/* Jake DiBattista */}
               <ScrollAnimation delay={0.1}>
-                <div className="rounded-2xl border border-black/5 bg-gradient-to-br from-white to-gray-50 p-8 shadow-sm text-center">
-                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-blue-600/15 to-emerald-400/15 ring-1 ring-black/5 mx-auto mb-4 flex items-center justify-center">
-                    <span className="text-3xl font-bold text-blue-700">JD</span>
+                <div className="rounded-2xl border border-black/5 bg-gradient-to-br from-white to-gray-50 p-8 shadow-sm text-center h-full">
+                  <div className="relative w-24 h-24 rounded-full overflow-hidden ring-2 ring-blue-500/20 mx-auto mb-4">
+                    <Image
+                      src="/jake-dibattista.jpg"
+                      alt="Jake DiBattista"
+                      fill
+                      className="object-cover"
+                    />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900">Jake DiBattista</h3>
-                  <p className="text-sm font-medium text-blue-700 mb-3">CEO & Developer</p>
+                  <p className="text-sm font-medium text-blue-700 mb-3">CEO & Lead Engineer</p>
                   <p className="text-sm text-gray-600 leading-relaxed">
-                    Google Cloud x MLB hackathon winner. Passionate about using AI to democratize coaching and make pro-level feedback accessible to every athlete.
+                    Staff AI Engineer and Google Cloud Next 2025 keynote speaker. After winning the Vertex AI Hackathon with MLB, Jake saw the opportunity to bring elite AI coaching to youth sports. With 6+ years building AI products at scale—including generative AI systems reaching 600K+ users at Sam&apos;s Club—he&apos;s the technical force behind Puck Buddy.
                   </p>
                 </div>
               </ScrollAnimation>
 
+              {/* Andrew Rowe */}
               <ScrollAnimation delay={0.2}>
-                <div className="rounded-2xl border border-black/5 bg-gradient-to-br from-white to-gray-50 p-8 shadow-sm text-center">
-                  <div className="relative w-24 h-24 rounded-full overflow-hidden ring-1 ring-black/5 mx-auto mb-4">
+                <div className="rounded-2xl border border-black/5 bg-gradient-to-br from-white to-gray-50 p-8 shadow-sm text-center h-full">
+                  <div className="relative w-24 h-24 rounded-full overflow-hidden ring-2 ring-emerald-500/20 mx-auto mb-4">
                     <Image
-                      src="/seth_logo.jpeg"
-                      alt="Coach Seth"
+                      src="/andrew-rowe.jpg"
+                      alt="Andrew Rowe"
+                      fill
+                      className="object-cover object-top"
+                    />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900">Andrew Rowe</h3>
+                  <p className="text-sm font-medium text-emerald-700 mb-3">Co-founder & Pro Athlete Advisor</p>
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    Former pro hockey player with 15+ years across the AHL, ECHL, SHL, Swiss NL, and DEL. After a full-ride at Michigan State and starting his pro career with the Philadelphia Flyers, Andrew now channels that competitive drive into Puck Buddy—building the tool he wishes he had 25 years ago.
+                  </p>
+                </div>
+              </ScrollAnimation>
+
+              {/* Coach Seth */}
+              <ScrollAnimation delay={0.3}>
+                <div className="rounded-2xl border border-black/5 bg-gradient-to-br from-white to-gray-50 p-8 shadow-sm text-center h-full">
+                  <div className="relative w-24 h-24 rounded-full overflow-hidden ring-2 ring-blue-500/20 mx-auto mb-4">
+                    <Image
+                      src="/seth-michelson.jpg"
+                      alt="Coach Seth Michelson"
                       fill
                       className="object-cover"
                     />
@@ -175,7 +201,7 @@ export default function About() {
                   <h3 className="text-xl font-bold text-gray-900">Coach Seth Michelson</h3>
                   <p className="text-sm font-medium text-blue-700 mb-3">AI Hockey Coach & Co-founder</p>
                   <p className="text-sm text-gray-600 leading-relaxed">
-                    Charleston&apos;s go-to youth hockey coach. 20+ years of rink-tested coaching expertise now powering every recommendation inside Puck Buddy.
+                    Charleston Stingrays coach with 20+ years of rink-tested expertise. Seth infused Puck Buddy with real coaching wisdom—his mission is to make every kid feel like they have a coach with them, even when practicing alone.
                   </p>
                 </div>
               </ScrollAnimation>

@@ -91,34 +91,37 @@ export default function About() {
                 The technology
               </p>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Powered by advanced AI.
+                Built for performance and privacy.
               </h2>
             </ScrollAnimation>
             <ScrollAnimation delay={0.1}>
               <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
                 <p>
-                  Buddy Tech is powered by MediaPipe-driven, on-device pose understanding. Our pipeline detects 33 anatomical landmarks in 3D—shoulders, elbows, knees, hips, and more—to reconstruct depth, timing, and rhythm without streaming a single frame to the cloud.
+                  Puck Buddy uses a sophisticated dual-layer AI architecture. First, we use on-device MediaPipe pose estimation to track 33 anatomical landmarks in real-time. Second, those movements are analyzed by a suite of 10+ specialized Gemini coaching agents—trained on decades of elite hockey knowledge to provide instant, actionable feedback.
+                </p>
+                <p>
+                  Our tech stack is built with safety as a core requirement. We strictly follow a &quot;no-storage&quot; video policy—your training clips are processed on your device and never saved to the cloud. Our agents are specifically constrained to hockey coaching, ensuring a focused and secure environment for personal development.
                 </p>
               </div>
             </ScrollAnimation>
 
-            <div className="grid md:grid-cols-3 gap-6 mt-10">
+            <div className="grid md:grid-cols-3 gap-6 mt-12">
               {[
                 {
-                  title: "Real-time performance",
-                  desc: "Low-latency processing runs directly on the device, so athletes get feedback instantly.",
+                  title: "Privacy & Performance",
+                  desc: "Processing runs entirely on-device, meaning your videos are never stored or uploaded. This ensures instant, low-latency feedback that respects your data and privacy.",
                 },
                 {
-                  title: "Holistic awareness",
-                  desc: "Optional hand and facial landmark models layer in stick control cues, release points, and emotional context.",
+                  title: "Specialized Agents",
+                  desc: "Our suite of 10+ Gemini agents is purpose-built for hockey development. These agents provide safe, expert guidance focused exclusively on skill growth and performance.",
                 },
                 {
-                  title: "Cross-platform reach",
-                  desc: "The same model stack powers our native app and future web experiences through WebAssembly.",
+                  title: "Data-Driven Growth",
+                  desc: "We build a long-term development profile for every player. By tracking metrics over time, we create a clear, personalized plan to improve power, accuracy, and consistency.",
                 },
               ].map((item, index) => (
                 <ScrollAnimation key={item.title} delay={index * 0.1}>
-                  <div className="rounded-2xl border border-black/5 bg-white p-6 shadow-sm hover:shadow-lg transition-shadow">
+                  <div className="rounded-2xl border border-black/5 bg-white p-6 shadow-sm hover:shadow-lg transition-shadow h-full">
                     <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
                     <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
                   </div>

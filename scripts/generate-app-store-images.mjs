@@ -8,8 +8,8 @@ const outDir = path.join(publicDir, "app-store");
 
 // Configuration
 const CONFIG = {
-  width: 1290,
-  height: 2796,
+  width: 1284,
+  height: 2778,
   padding: 80, // Padding around the phone
   phoneTopMargin: 400, // Space for text at top
   frameColor: "#1a1a1a", // Dark frame color
@@ -25,11 +25,6 @@ const IMAGES = [
     id: "01_home",
     file: "jan-home.png", 
     title: ["Your Personal", "AI Hockey Coach"] 
-  },
-  { 
-    id: "02_upload",
-    file: "jan-upload.png", 
-    title: ["Analyze Any Shot", "in Seconds"] 
   },
   { 
     id: "03_scorecard",

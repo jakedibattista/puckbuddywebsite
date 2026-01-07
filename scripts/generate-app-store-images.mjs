@@ -24,27 +24,27 @@ const CONFIG = {
 const IMAGES = [
   { 
     id: "01_home",
-    file: "jan-home.png", 
+    file: "v2-home.png", 
     title: ["Your Personal", "AI Hockey Coach"] 
   },
   { 
     id: "03_scorecard",
-    file: "jan-scorecard.png", 
+    file: "v2-scorecard.png", 
     title: ["Get Instant", "AI Feedback"] 
   },
   { 
     id: "04_feedback",
-    file: "jan-coach-feedback.png", 
+    file: "v2-coach-feedback.png", 
     title: ["Detailed Mechanics", "Breakdown"] 
   },
   { 
     id: "05_chat",
-    file: "jan-chat.png", 
+    file: "v2-chat.png", 
     title: ["Chat with", "Your Coach"] 
   },
   { 
     id: "06_stats",
-    file: "jan-stats.png", 
+    file: "v2-stats.png", 
     title: ["Track Your", "Progress"] 
   },
 ];

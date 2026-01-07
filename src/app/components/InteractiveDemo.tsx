@@ -4,7 +4,16 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
-type Screen = "home" | "select-coach" | "scorecard" | "coach-report" | "stats" | "journal";
+import homeImg from "../../assets/screenshots/v2-home.png";
+import selectCoachImg from "../../assets/screenshots/v2-select-coach.png";
+import uploadImg from "../../assets/screenshots/v2-upload.png";
+import scorecardImg from "../../assets/screenshots/v2-scorecard.png";
+import coachReportImg from "../../assets/screenshots/v2-coach-feedback.png";
+import statsImg from "../../assets/screenshots/v2-stats.png";
+import journalImg from "../../assets/screenshots/v2-journal.png";
+import chatImg from "../../assets/screenshots/v2-chat.png";
+
+type Screen = "home" | "select-coach" | "upload" | "scorecard" | "coach-report" | "stats" | "journal" | "chat";
 
 interface Hotspot {
   id: string;
@@ -22,74 +31,116 @@ interface Hotspot {
 const hotspots: Hotspot[] = [
   // Home screen hotspots
   {
-    id: "analyze-video",
+    id: "practice-mode",
     screen: "home",
     target: "select-coach",
-    top: 46,      // moved down from 43.5
-    left: 7,
-    width: 86,
-    height: 5.5,
-    label: "Analyze a Video",
+    top: 50,
+    left: 5,
+    width: 90,
+    height: 9,
+    label: "Practice Mode",
+  },
+  {
+    id: "talk-to-puck-buddy",
+    screen: "home",
+    target: "chat",
+    top: 62,
+    left: 5,
+    width: 90,
+    height: 9,
+    label: "Talk to Puck Buddy",
   },
   {
     id: "stats-tab",
     screen: "home",
     target: "stats",
-    top: 92,      // moved up from 93.5
-    left: 28,     // moved right from 25
-    width: 15,
-    height: 5,
+    top: 92,
+    left: 20,
+    width: 18,
+    height: 6,
     label: "Stats",
   },
   {
-    id: "feedback-tab",
+    id: "journal-tab",
     screen: "home",
     target: "journal",
-    top: 92,      // moved up from 93.5
-    left: 53,     // moved right from 50
-    width: 15,
+    top: 92,
+    left: 42,
+    width: 18,
+    height: 6,
+    label: "Journal",
+  },
+  // Chat screen
+  {
+    id: "back-from-chat",
+    screen: "chat",
+    target: "home",
+    top: 5,
+    left: 2,
+    width: 22,
     height: 5,
-    label: "Feedback",
+    label: "Back to Home",
   },
   // Select Coach screen
   {
     id: "back-from-select-coach",
     screen: "select-coach",
     target: "home",
-    top: 7,       // moved down from 5
-    left: 3,
-    width: 20,
-    height: 4,
+    top: 7,
+    left: 2,
+    width: 22,
+    height: 5,
     label: "Back to Home",
   },
   {
-    id: "continue-to-scorecard",
+    id: "continue-to-upload",
     screen: "select-coach",
-    target: "scorecard",
-    top: 80,      // moved up from 82
-    left: 7,
-    width: 86,
-    height: 5.5,
+    target: "upload",
+    top: 83,
+    left: 5,
+    width: 90,
+    height: 6,
     label: "Continue",
+  },
+  // Upload screen
+  {
+    id: "back-from-upload",
+    screen: "upload",
+    target: "home",
+    top: 5,
+    left: 2,
+    width: 22,
+    height: 5,
+    label: "Back to Home",
+  },
+  {
+    id: "analyze-snapshot",
+    screen: "upload",
+    target: "scorecard",
+    top: 88,
+    left: 38,
+    width: 57,
+    height: 6,
+    label: "Analyze Snapshot",
   },
   // Scorecard screen
   {
     id: "back-from-scorecard",
     screen: "scorecard",
     target: "home",
-    top: 7,       // moved down from 5
-    left: 3,
-    width: 20,
-    height: 4,
+    top: 5,
+    left: 2,
+    width: 22,
+    height: 5,
     label: "Back to Home",
   },
   {
     id: "coach-feedback-tab",
     screen: "scorecard",
     target: "coach-report",
-    top: 12.5,    // moved down from 10.5
+    top: 9,
     left: 50,
-    width: 45,
+    width: 48,
     height: 5,
     label: "Coach's Feedback",
   },
@@ -98,19 +149,19 @@ const hotspots: Hotspot[] = [
     id: "back-from-coach-report",
     screen: "coach-report",
     target: "home",
-    top: 7,       // moved down from 5
-    left: 3,
-    width: 20,
-    height: 4,
+    top: 5,
+    left: 2,
+    width: 22,
+    height: 5,
     label: "Back to Home",
   },
   {
     id: "scorecard-tab",
     screen: "coach-report",
     target: "scorecard",
-    top: 12.5,    // moved down from 10.5
-    left: 5,
-    width: 45,
+    top: 9,
+    left: 2,
+    width: 48,
     height: 5,
     label: "ScoreCard",
   },
@@ -119,52 +170,54 @@ const hotspots: Hotspot[] = [
     id: "home-from-stats",
     screen: "stats",
     target: "home",
-    top: 92,      // moved up from 93.5
-    left: 7,      // moved right from 5
-    width: 15,
-    height: 5,
+    top: 92,
+    left: 2,
+    width: 18,
+    height: 6,
     label: "Home",
   },
   {
-    id: "feedback-from-stats",
+    id: "journal-from-stats",
     screen: "stats",
     target: "journal",
-    top: 92,      // moved up from 93.5
-    left: 52,     // moved right from 50
-    width: 15,
-    height: 5,
-    label: "Feedback",
+    top: 92,
+    left: 42,
+    width: 18,
+    height: 6,
+    label: "Journal",
   },
   // Journal screen hotspots
   {
     id: "home-from-journal",
     screen: "journal",
     target: "home",
-    top: 92,      // moved up from 93.5
-    left: 7,      // moved right from 5
-    width: 15,
-    height: 5,
+    top: 92,
+    left: 2,
+    width: 18,
+    height: 6,
     label: "Home",
   },
   {
     id: "stats-from-journal",
     screen: "journal",
     target: "stats",
-    top: 92,      // moved up from 93.5
-    left: 27,     // moved right from 25
-    width: 15,
-    height: 5,
+    top: 92,
+    left: 20,
+    width: 18,
+    height: 6,
     label: "Stats",
   },
 ];
 
-const screens: Record<Screen, { src: string; title: string }> = {
-  home: { src: "/demo-home.png", title: "Home" },
-  "select-coach": { src: "/demo-select-coach.png", title: "Select Coach" },
-  scorecard: { src: "/demo-scorecard.png", title: "ScoreCard" },
-  "coach-report": { src: "/demo-coach-report.png", title: "Coach's Feedback" },
-  stats: { src: "/demo-stats.png", title: "Stats" },
-  journal: { src: "/demo-journal.png", title: "Feedback Journal" },
+const screens: Record<Screen, { src: any; title: string }> = {
+  home: { src: homeImg, title: "Home" },
+  "select-coach": { src: selectCoachImg, title: "Select Coach" },
+  upload: { src: uploadImg, title: "Upload" },
+  scorecard: { src: scorecardImg, title: "ScoreCard" },
+  "coach-report": { src: coachReportImg, title: "Coach's Feedback" },
+  stats: { src: statsImg, title: "Stats" },
+  journal: { src: journalImg, title: "Journal" },
+  chat: { src: chatImg, title: "Chat" },
 };
 
 export default function InteractiveDemo() {

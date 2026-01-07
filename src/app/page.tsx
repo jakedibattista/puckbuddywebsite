@@ -6,6 +6,8 @@ import InteractiveDemo from "./components/InteractiveDemo";
 import MobileStickyCTA from "./components/MobileStickyCTA";
 import { motion, useReducedMotion } from "framer-motion";
 
+import scorecardImg from "../assets/screenshots/v2-scorecard.png";
+
 export default function Home() {
   const shouldReduceMotion = useReducedMotion();
 
@@ -109,7 +111,7 @@ export default function Home() {
                 <div className="p-3 sm:p-4">
                   <div className="relative aspect-[1170/2532] overflow-hidden rounded-[1.5rem] bg-white">
                     <Image
-                      src="/demo-scorecard.png"
+                      src={scorecardImg}
                       alt="Puck Buddy scorecard showing shot analysis with metrics and coaching feedback"
                       fill
                       className="object-cover object-center"

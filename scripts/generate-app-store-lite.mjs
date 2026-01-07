@@ -193,15 +193,15 @@ async function generateIPhoneScreen(item) {
   console.log(`Generating iPhone ${item.id}...`);
   
   const bgSvg = createBackground(IPHONE_CONFIG.width, IPHONE_CONFIG.height);
-  const textSvg = createTextSvg(IPHONE_CONFIG.width, IPHONE_CONFIG.height, item.title, 100, false);
+  // Larger text to match iPad style (scaled for iPhone dimensions)
+  const textSvg = createTextSvg(IPHONE_CONFIG.width, IPHONE_CONFIG.height, item.title, 85, false);
   
-  // Phone at ~70% of canvas height
-  const phoneHeight = Math.round(IPHONE_CONFIG.height * 0.68);
-  const phoneAsset = await preparePhone(item.file, phoneHeight, IPHONE_CONFIG);
+  // Match iPad style: larger centered phone
+  const phoneAsset = await preparePhone(item.file, 1700, IPHONE_CONFIG);
   
   const phoneMeta = await sharp(phoneAsset).metadata();
   const phoneX = (IPHONE_CONFIG.width - phoneMeta.width) / 2;
-  const phoneY = IPHONE_CONFIG.height - phoneMeta.height - 80; // Near bottom
+  const phoneY = (IPHONE_CONFIG.height - phoneMeta.height) / 2 + 150; // Centered with offset like iPad
 
   await sharp(Buffer.from(bgSvg))
     .composite([

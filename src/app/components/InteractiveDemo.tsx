@@ -4,15 +4,6 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
-import homeImg from "@/assets/app-screens/v2-home.png";
-import selectCoachImg from "@/assets/app-screens/v2-select-coach.png";
-import uploadImg from "@/assets/app-screens/v2-upload.png";
-import scorecardImg from "@/assets/app-screens/v2-scorecard.png";
-import coachReportImg from "@/assets/app-screens/v2-coach-feedback.png";
-import statsImg from "@/assets/app-screens/v2-stats.png";
-import journalImg from "@/assets/app-screens/v2-journal.png";
-import chatImg from "@/assets/app-screens/v2-chat.png";
-
 type Screen = "home" | "select-coach" | "upload" | "scorecard" | "coach-report" | "stats" | "journal" | "chat";
 
 interface Hotspot {
@@ -209,15 +200,15 @@ const hotspots: Hotspot[] = [
   },
 ];
 
-const screens: Record<Screen, { src: any; title: string }> = {
-  home: { src: homeImg, title: "Home" },
-  "select-coach": { src: selectCoachImg, title: "Select Coach" },
-  upload: { src: uploadImg, title: "Upload" },
-  scorecard: { src: scorecardImg, title: "ScoreCard" },
-  "coach-report": { src: coachReportImg, title: "Coach's Feedback" },
-  stats: { src: statsImg, title: "Stats" },
-  journal: { src: journalImg, title: "Journal" },
-  chat: { src: chatImg, title: "Chat" },
+const screens: Record<Screen, { src: string; title: string }> = {
+  home: { src: "/v2-home.png", title: "Home" },
+  "select-coach": { src: "/v2-select-coach.png", title: "Select Coach" },
+  upload: { src: "/v2-upload.png", title: "Upload" },
+  scorecard: { src: "/v2-scorecard.png", title: "ScoreCard" },
+  "coach-report": { src: "/v2-coach-feedback.png", title: "Coach's Feedback" },
+  stats: { src: "/v2-stats.png", title: "Stats" },
+  journal: { src: "/v2-journal.png", title: "Journal" },
+  chat: { src: "/v2-chat.png", title: "Chat" },
 };
 
 export default function InteractiveDemo() {
@@ -271,7 +262,6 @@ export default function InteractiveDemo() {
                 fill
                 className="object-cover object-top"
                 priority
-                unoptimized
               />
 
               {/* Hotspots */}

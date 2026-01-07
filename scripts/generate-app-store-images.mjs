@@ -15,8 +15,9 @@ const CONFIG = {
   frameColor: "#1a1a1a", // Dark frame color
   frameBorder: 20, // Thickness of bezel
   cornerRadius: 80, // Roundness of phone corners
-  textColor: "#0f172a", // Dark slate
+  textColor: "#111827", // gray-900
   accentColor: "#3b82f6", // Blue-500
+  statusBarCrop: 140, // Height of status bar to remove
 };
 
 // Screenshots to process
@@ -50,12 +51,14 @@ const IMAGES = [
 
 // Helper to generate background SVG
 function createBackgroundSvg(width, height) {
+  // Matching website "bg-gradient-to-br from-gray-50 to-blue-50"
+  // gray-50: #f9fafb, blue-50: #eff6ff
   return `
   <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
     <defs>
-      <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stop-color="#e0f2fe"/> <!-- light blue 100 -->
-        <stop offset="100%" stop-color="#ffffff"/>
+      <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#f9fafb"/> <!-- gray-50 -->
+        <stop offset="100%" stop-color="#eff6ff"/> <!-- blue-50 -->
       </linearGradient>
     </defs>
     <rect width="${width}" height="${height}" fill="url(#bgGradient)"/>
@@ -65,12 +68,15 @@ function createBackgroundSvg(width, height) {
 // Helper to generate text SVG
 function createTextSvg(width, height, lines) {
   // Simple centered text
-  const fontSize = 110;
-  const lineHeight = 130;
+  const fontSize = 100;
+  const lineHeight = 120;
   const startY = 220; // Distance from top
 
+  // Font stack matching website
+  const fontFamily = "Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif";
+
   const textLines = lines.map((line, i) => 
-    `<text x="50%" y="${startY + (i * lineHeight)}" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="${fontSize}" fill="${CONFIG.textColor}">${line}</text>`
+    `<text x="50%" y="${startY + (i * lineHeight)}" text-anchor="middle" font-family="${fontFamily}" font-weight="800" font-size="${fontSize}" fill="${CONFIG.textColor}" letter-spacing="-2">${line}</text>`
   ).join("\n");
 
   return `
@@ -113,8 +119,22 @@ async function processImage(item) {
     const screenshot = sharp(srcPath);
     const metadata = await screenshot.metadata();
     
+    // Crop status bar if configured
+    let processingBuffer = await screenshot.toBuffer();
+    
+    if (CONFIG.statusBarCrop > 0) {
+      processingBuffer = await sharp(processingBuffer)
+        .extract({ 
+          left: 0, 
+          top: CONFIG.statusBarCrop, 
+          width: metadata.width, 
+          height: metadata.height - CONFIG.statusBarCrop 
+        })
+        .toBuffer();
+    }
+    
     // Resize screenshot to target width
-    const resizedScreenshotBuffer = await screenshot
+    const resizedScreenshotBuffer = await sharp(processingBuffer)
       .resize({ width: screenshotTargetWidth })
       .toBuffer();
       

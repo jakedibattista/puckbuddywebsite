@@ -17,56 +17,78 @@ const CONFIG = {
   textColor: "#FFFFFF",
 };
 
-// We will use one main image for the split view
+// Main split view image
 const MAIN_IMAGE = { file: "v2-scorecard.png", id: "split_view" };
 
-function createPanoramaBackground(width, height) {
+// Additional standalone images
+const STANDALONE_IMAGES = [
+  { file: "v2-chat.png", id: "ipad_03_chat", title: ["CHAT WITH", "YOUR COACH"] },
+  { file: "v2-stats.png", id: "ipad_04_stats", title: ["TRACK YOUR", "PROGRESS"] },
+  { file: "v2-coach-feedback.png", id: "ipad_05_feedback", title: ["DETAILED", "FEEDBACK"] }
+];
+
+function createBackground(width, height) {
   return `
   <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
     <defs>
+      <!-- Lighter Dark Background -->
       <linearGradient id="baseGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#070A12"/>
-        <stop offset="50%" stop-color="#0B1220"/>
-        <stop offset="100%" stop-color="#070A12"/>
+        <stop offset="0%" stop-color="#1e293b"/> <!-- slate-800 -->
+        <stop offset="50%" stop-color="#0f172a"/> <!-- slate-900 -->
+        <stop offset="100%" stop-color="#1e293b"/>
       </linearGradient>
+      
+      <!-- Blue Glow -->
       <radialGradient id="blueGlow" cx="20%" cy="20%" r="60%">
-        <stop offset="0%" stop-color="rgba(37,99,235,0.2)"/>
-        <stop offset="100%" stop-color="rgba(37,99,235,0)"/>
+        <stop offset="0%" stop-color="rgba(59,130,246,0.15)"/> <!-- lighter blue -->
+        <stop offset="100%" stop-color="rgba(59,130,246,0)"/>
       </radialGradient>
+      
+      <!-- Green Glow -->
       <radialGradient id="greenGlow" cx="80%" cy="80%" r="60%">
-        <stop offset="0%" stop-color="rgba(34,197,94,0.15)"/>
+        <stop offset="0%" stop-color="rgba(34,197,94,0.1)"/>
         <stop offset="100%" stop-color="rgba(34,197,94,0)"/>
       </radialGradient>
     </defs>
+    
     <rect width="${width}" height="${height}" fill="url(#baseGrad)"/>
     <rect width="${width}" height="${height}" fill="url(#blueGlow)"/>
     <rect width="${width}" height="${height}" fill="url(#greenGlow)"/>
     
-    <!-- Connecting Element: Subtle Wave or Line behind phone -->
+    <!-- Background Texture/Line -->
     <path d="M0,${height/2} Q${width/4},${height/2 - 200} ${width/2},${height/2} T${width},${height/2}" 
-          fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="4" />
+          fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="4" />
   </svg>`;
 }
 
-function createSpanningText(width, height) {
-  // Text spans across the two screens
-  // Left Screen Center: width * 0.25
-  // Right Screen Center: width * 0.75
+function createTextSvg(width, height, lines, isSplit = false) {
   const fontSize = 160;
   const yPos = 400;
   const fontFamily = "Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif";
+
+  let content = "";
+  
+  if (isSplit) {
+    // Spanning text for split view
+    content = `
+      <text x="${width * 0.25}" y="${yPos}">MEET YOUR NEW</text>
+      <text x="${width * 0.75}" y="${yPos}">AI HOCKEY COACH</text>
+    `;
+  } else {
+    // Centered text for standalone
+    const lineHeight = 180;
+    content = lines.map((line, i) => 
+      `<text x="50%" y="${yPos + (i * lineHeight)}" text-anchor="middle">${line}</text>`
+    ).join("\n");
+  }
 
   return `
   <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
     <filter id="textShadow">
       <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.5"/>
     </filter>
-    <g filter="url(#textShadow)" font-family="${fontFamily}" font-weight="900" font-size="${fontSize}" fill="${CONFIG.textColor}" text-anchor="middle" letter-spacing="-4">
-      <!-- Left side text -->
-      <text x="${width * 0.25}" y="${yPos}">MEET YOUR NEW</text>
-      
-      <!-- Right side text -->
-      <text x="${width * 0.75}" y="${yPos}">AI HOCKEY COACH</text>
+    <g filter="url(#textShadow)" font-family="${fontFamily}" font-weight="900" font-size="${fontSize}" fill="${CONFIG.textColor}" letter-spacing="-4">
+      ${content}
     </g>
   </svg>`;
 }
@@ -79,35 +101,20 @@ function createRoundedMask(width, height, radius) {
   `);
 }
 
-async function main() {
-  await fs.mkdir(outDir, { recursive: true });
-  console.log("Generating iPad Panorama...");
-
-  // 1. Prepare Background & Text for full width
-  const bgSvg = createPanoramaBackground(CONFIG.totalWidth, CONFIG.height);
-  const textSvg = createSpanningText(CONFIG.totalWidth, CONFIG.height);
-  
-  // 2. Prepare the Phone (Large, Centered)
-  // We want the phone to be impressively large, maybe 70% of the total width?
-  // Actually, standard screenshot ratio is tall. 
-  // Let's make the phone ~1600px wide (it's usually ~1200px wide on iPhone).
-  // We'll scale it up.
-  
-  const srcPath = path.join(publicDir, MAIN_IMAGE.file);
+async function preparePhone(filePath, targetHeight) {
+  const srcPath = path.join(publicDir, filePath);
   const screenshot = sharp(srcPath);
   const meta = await screenshot.metadata();
   
-  // Crop status bar first (140px from source)
+  // Crop status bar (140px)
   const cropAmount = 140;
   const croppedBuffer = await screenshot
     .extract({ left: 0, top: cropAmount, width: meta.width, height: meta.height - cropAmount })
     .toBuffer();
     
-  // Resize to be BIG. Let's say height = 1800px.
-  // Aspect ratio is approx 1:2.16
-  const targetPhoneHeight = 1800;
+  // Resize
   const resizedBuffer = await sharp(croppedBuffer)
-    .resize({ height: targetPhoneHeight })
+    .resize({ height: targetHeight })
     .toBuffer();
     
   const phoneMeta = await sharp(resizedBuffer).metadata();
@@ -117,7 +124,7 @@ async function main() {
   const frameWidth = scWidth + (CONFIG.frameBorder * 2);
   const frameHeight = scHeight + (CONFIG.frameBorder * 2);
   
-  // Create Phone Frame
+  // Frame
   const frameSvg = `
     <svg width="${frameWidth}" height="${frameHeight}" viewBox="0 0 ${frameWidth} ${frameHeight}" xmlns="http://www.w3.org/2000/svg">
       <defs>
@@ -129,42 +136,38 @@ async function main() {
       <rect x="0" y="0" width="${frameWidth}" height="${frameHeight}" rx="${CONFIG.cornerRadius}" ry="${CONFIG.cornerRadius}" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="4"/>
     </svg>`;
 
-  // Create Masked Screenshot
+  // Mask
   const innerRadius = Math.max(0, CONFIG.cornerRadius - CONFIG.frameBorder);
   const mask = createRoundedMask(scWidth, scHeight, innerRadius);
   const maskedScreenshot = await sharp(resizedBuffer)
     .composite([{ input: mask, blend: 'dest-in' }])
     .toBuffer();
 
-  // 3. Composite everything onto large canvas
-  // Phone Position: Centered
-  const phoneX = (CONFIG.totalWidth - frameWidth) / 2;
-  const phoneY = (CONFIG.height - frameHeight) / 2 + 100; // Slightly lower to clear text
-  
-  // Create rotated/tilted effect? 
-  // Sharp rotation rotates the image box, increasing size.
-  // For simplicity and crispness, let's keep it upright but huge.
-  // Or rotate -10 deg.
-  
-  // Let's Composite the phone components first into one "Phone Asset"
-  const phoneComposite = await sharp(Buffer.from(frameSvg))
+  // Composite Phone
+  return sharp(Buffer.from(frameSvg))
     .composite([
       { input: maskedScreenshot, top: CONFIG.frameBorder, left: CONFIG.frameBorder }
     ])
     .toBuffer();
-    
-  // Now Rotate the phone asset
-  const rotatedPhone = await sharp(phoneComposite)
+}
+
+async function generatePanorama() {
+  console.log("Generating Panorama...");
+  const bgSvg = createBackground(CONFIG.totalWidth, CONFIG.height);
+  const textSvg = createTextSvg(CONFIG.totalWidth, CONFIG.height, [], true);
+  
+  // Large Phone for Panorama
+  const phoneAsset = await preparePhone(MAIN_IMAGE.file, 1800);
+  
+  // Rotate Phone
+  const rotatedPhone = await sharp(phoneAsset)
     .rotate(-10, { background: { r: 0, g: 0, b: 0, alpha: 0 } })
     .toBuffer();
     
   const rotatedMeta = await sharp(rotatedPhone).metadata();
-  
-  // Recalculate center for rotated phone
   const rotX = (CONFIG.totalWidth - rotatedMeta.width) / 2;
   const rotY = (CONFIG.height - rotatedMeta.height) / 2 + 150;
 
-  console.log("Compositing full panorama...");
   const fullPano = await sharp(Buffer.from(bgSvg))
     .composite([
       { input: Buffer.from(textSvg), top: 0, left: 0 },
@@ -172,21 +175,48 @@ async function main() {
     ])
     .toBuffer();
 
-  // 4. Slice and Save
-  console.log("Slicing into 2 images...");
-  
-  // Left Image
+  // Slice
   await sharp(fullPano)
     .extract({ left: 0, top: 0, width: CONFIG.width, height: CONFIG.height })
     .toFile(path.join(outDir, "ipad_01_split_left.png"));
     
-  // Right Image
   await sharp(fullPano)
     .extract({ left: CONFIG.width, top: 0, width: CONFIG.width, height: CONFIG.height })
     .toFile(path.join(outDir, "ipad_02_split_right.png"));
     
-  console.log("Done! Created ipad_01 and ipad_02 in public/app-store-ipad/");
+  console.log("Saved ipad_01 and ipad_02");
+}
+
+async function generateStandalone(item) {
+  console.log(`Generating ${item.id}...`);
+  const bgSvg = createBackground(CONFIG.width, CONFIG.height);
+  const textSvg = createTextSvg(CONFIG.width, CONFIG.height, item.title, false);
+  
+  // Slightly smaller phone for standalone
+  const phoneAsset = await preparePhone(item.file, 1600);
+  
+  const phoneMeta = await sharp(phoneAsset).metadata();
+  const phoneX = (CONFIG.width - phoneMeta.width) / 2;
+  const phoneY = (CONFIG.height - phoneMeta.height) / 2 + 200;
+
+  await sharp(Buffer.from(bgSvg))
+    .composite([
+      { input: Buffer.from(textSvg), top: 0, left: 0 },
+      { input: phoneAsset, top: Math.round(phoneY), left: Math.round(phoneX) }
+    ])
+    .toFile(path.join(outDir, `${item.id}.png`));
+    
+  console.log(`Saved ${item.id}.png`);
+}
+
+async function main() {
+  await fs.mkdir(outDir, { recursive: true });
+  
+  await generatePanorama();
+  
+  for (const item of STANDALONE_IMAGES) {
+    await generateStandalone(item);
+  }
 }
 
 main();
-

@@ -109,8 +109,8 @@ export default function Home() {
                 <div className="p-3 sm:p-4">
                   <div className="relative aspect-[1170/2532] overflow-hidden rounded-[1.5rem] bg-white">
                     <Image
-                      src="/jan-lite-scorecard.png"
-                      alt="Puck Buddy scorecard showing shot analysis with metrics and coaching feedback"
+                      src="/jan-lite-feedback.png"
+                      alt="Puck Buddy coaching feedback with detailed shot analysis"
                       fill
                       className="object-cover object-center"
                       priority

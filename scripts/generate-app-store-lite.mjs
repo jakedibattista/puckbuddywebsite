@@ -53,12 +53,13 @@ const IPHONE_SCREENS = [
   { file: IMAGES.journal, id: "06_journal", title: ["REVIEW YOUR", "SESSIONS"] },
 ];
 
-// iPad screens
-const IPAD_MAIN = { file: IMAGES.scorecard, id: "split_view" };
+// iPad screens - matching iPhone exactly
 const IPAD_STANDALONE = [
-  { file: IMAGES.stats, id: "ipad_03_stats", title: ["TRACK YOUR", "PROGRESS"] },
+  { file: IMAGES.home, id: "ipad_01_home", title: ["YOUR AI", "HOCKEY COACH"] },
+  { file: IMAGES.scorecard, id: "ipad_02_scorecard", title: ["INSTANT", "SCORECARDS"] },
+  { file: IMAGES.feedback, id: "ipad_03_feedback", title: ["DETAILED", "FEEDBACK"] },
   { file: IMAGES.chat, id: "ipad_04_chat", title: ["CHAT WITH", "YOUR COACH"] },
-  { file: IMAGES.feedback, id: "ipad_05_feedback", title: ["DETAILED", "FEEDBACK"] },
+  { file: IMAGES.stats, id: "ipad_05_stats", title: ["TRACK YOUR", "PROGRESS"] },
   { file: IMAGES.journal, id: "ipad_06_journal", title: ["REVIEW YOUR", "SESSIONS"] },
 ];
 
@@ -289,8 +290,7 @@ async function generateAllIPad() {
   console.log("\n📱 Generating iPad App Store Images...\n");
   await fs.mkdir(IPAD_CONFIG.outDir, { recursive: true });
   
-  await generateIPadPanorama();
-  
+  // Generate standalone images matching iPhone
   for (const item of IPAD_STANDALONE) {
     await generateIPadStandalone(item);
   }

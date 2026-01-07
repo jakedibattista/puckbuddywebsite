@@ -239,7 +239,7 @@ async function generateIPadPanorama() {
     
   const rotatedMeta = await sharp(rotatedPhone).metadata();
   const rotX = (IPAD_CONFIG.totalWidth - rotatedMeta.width) / 2;
-  const rotY = (IPAD_CONFIG.height - rotatedMeta.height) / 2 + 100;
+  const rotY = (IPAD_CONFIG.height - rotatedMeta.height) / 2 + 300;
 
   const fullPano = await sharp(Buffer.from(bgSvg))
     .composite([

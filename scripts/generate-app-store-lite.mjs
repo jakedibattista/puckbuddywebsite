@@ -43,24 +43,26 @@ const IMAGES = {
   select: "jan-lite-select.png",
 };
 
-// iPhone screens to generate
-const IPHONE_SCREENS = [
-  { file: IMAGES.home, id: "01_home", title: ["YOUR AI", "HOCKEY COACH"] },
-  { file: IMAGES.scorecard, id: "02_scorecard", title: ["INSTANT", "SCORECARDS"] },
-  { file: IMAGES.feedback, id: "03_feedback", title: ["DETAILED", "FEEDBACK"] },
-  { file: IMAGES.chat, id: "04_chat", title: ["CHAT WITH", "YOUR COACH"] },
-  { file: IMAGES.stats, id: "05_stats", title: ["TRACK YOUR", "PROGRESS"] },
-  { file: IMAGES.journal, id: "06_journal", title: ["REVIEW YOUR", "SESSIONS"] },
+
+// Panorama image (tilted phone spanning 2 images)
+const PANORAMA_IMAGE = IMAGES.scorecard;
+
+// iPhone standalone screens (starting at 03 after panorama)
+const IPHONE_STANDALONE = [
+  { file: IMAGES.home, id: "03_home", title: ["YOUR AI", "HOCKEY COACH"] },
+  { file: IMAGES.feedback, id: "04_feedback", title: ["DETAILED", "FEEDBACK"] },
+  { file: IMAGES.chat, id: "05_chat", title: ["CHAT WITH", "YOUR COACH"] },
+  { file: IMAGES.stats, id: "06_stats", title: ["TRACK YOUR", "PROGRESS"] },
+  { file: IMAGES.journal, id: "07_journal", title: ["REVIEW YOUR", "SESSIONS"] },
 ];
 
-// iPad screens - matching iPhone exactly
+// iPad standalone screens (starting at 03 after panorama)
 const IPAD_STANDALONE = [
-  { file: IMAGES.home, id: "ipad_01_home", title: ["YOUR AI", "HOCKEY COACH"] },
-  { file: IMAGES.scorecard, id: "ipad_02_scorecard", title: ["INSTANT", "SCORECARDS"] },
-  { file: IMAGES.feedback, id: "ipad_03_feedback", title: ["DETAILED", "FEEDBACK"] },
-  { file: IMAGES.chat, id: "ipad_04_chat", title: ["CHAT WITH", "YOUR COACH"] },
-  { file: IMAGES.stats, id: "ipad_05_stats", title: ["TRACK YOUR", "PROGRESS"] },
-  { file: IMAGES.journal, id: "ipad_06_journal", title: ["REVIEW YOUR", "SESSIONS"] },
+  { file: IMAGES.home, id: "ipad_03_home", title: ["YOUR AI", "HOCKEY COACH"] },
+  { file: IMAGES.feedback, id: "ipad_04_feedback", title: ["DETAILED", "FEEDBACK"] },
+  { file: IMAGES.chat, id: "ipad_05_chat", title: ["CHAT WITH", "YOUR COACH"] },
+  { file: IMAGES.stats, id: "ipad_06_stats", title: ["TRACK YOUR", "PROGRESS"] },
+  { file: IMAGES.journal, id: "ipad_07_journal", title: ["REVIEW YOUR", "SESSIONS"] },
 ];
 
 // ============================================
@@ -189,11 +191,50 @@ async function preparePhone(filePath, targetHeight, config) {
 // IPHONE GENERATION
 // ============================================
 
+// iPhone Panorama (tilted phone spanning 2 images)
+async function generateIPhonePanorama() {
+  console.log("Generating iPhone Panorama...");
+  
+  const totalWidth = IPHONE_CONFIG.width * 2;
+  const bgSvg = createBackground(totalWidth, IPHONE_CONFIG.height);
+  const textSvg = createTextSvg(totalWidth, IPHONE_CONFIG.height, [], 80, true);
+  
+  // Large tilted phone for panorama
+  const phoneAsset = await preparePhone(PANORAMA_IMAGE, 1900, IPHONE_CONFIG);
+  
+  // Rotate phone slightly
+  const rotatedPhone = await sharp(phoneAsset)
+    .rotate(-10, { background: { r: 0, g: 0, b: 0, alpha: 0 } })
+    .toBuffer();
+    
+  const rotatedMeta = await sharp(rotatedPhone).metadata();
+  const rotX = (totalWidth - rotatedMeta.width) / 2;
+  const rotY = (IPHONE_CONFIG.height - rotatedMeta.height) / 2 + 200;
+
+  const fullPano = await sharp(Buffer.from(bgSvg))
+    .composite([
+      { input: Buffer.from(textSvg), top: 0, left: 0 },
+      { input: rotatedPhone, top: Math.round(rotY), left: Math.round(rotX) }
+    ])
+    .toBuffer();
+
+  // Slice into two images
+  await sharp(fullPano)
+    .extract({ left: 0, top: 0, width: IPHONE_CONFIG.width, height: IPHONE_CONFIG.height })
+    .toFile(path.join(IPHONE_CONFIG.outDir, "01_split_left.png"));
+    
+  await sharp(fullPano)
+    .extract({ left: IPHONE_CONFIG.width, top: 0, width: IPHONE_CONFIG.width, height: IPHONE_CONFIG.height })
+    .toFile(path.join(IPHONE_CONFIG.outDir, "02_split_right.png"));
+    
+  console.log("  ✓ Saved 01_split_left.png");
+  console.log("  ✓ Saved 02_split_right.png");
+}
+
 async function generateIPhoneScreen(item) {
   console.log(`Generating iPhone ${item.id}...`);
   
   const bgSvg = createBackground(IPHONE_CONFIG.width, IPHONE_CONFIG.height);
-  // Larger text to match iPad style (scaled for iPhone dimensions)
   const textSvg = createTextSvg(IPHONE_CONFIG.width, IPHONE_CONFIG.height, item.title, 85, false);
   
   // Match iPad style: larger centered phone
@@ -201,7 +242,7 @@ async function generateIPhoneScreen(item) {
   
   const phoneMeta = await sharp(phoneAsset).metadata();
   const phoneX = (IPHONE_CONFIG.width - phoneMeta.width) / 2;
-  const phoneY = (IPHONE_CONFIG.height - phoneMeta.height) / 2 + 150; // Centered with offset like iPad
+  const phoneY = (IPHONE_CONFIG.height - phoneMeta.height) / 2 + 150;
 
   await sharp(Buffer.from(bgSvg))
     .composite([
@@ -217,7 +258,11 @@ async function generateAllIPhone() {
   console.log("\n📱 Generating iPhone App Store Images...\n");
   await fs.mkdir(IPHONE_CONFIG.outDir, { recursive: true });
   
-  for (const item of IPHONE_SCREENS) {
+  // Generate panorama first (01 & 02)
+  await generateIPhonePanorama();
+  
+  // Generate standalone screens (03+)
+  for (const item of IPHONE_STANDALONE) {
     await generateIPhoneScreen(item);
   }
 }
@@ -226,14 +271,36 @@ async function generateAllIPhone() {
 // IPAD GENERATION
 // ============================================
 
+async function generateIPadStandalone(item) {
+  console.log(`Generating iPad ${item.id}...`);
+  
+  const bgSvg = createBackground(IPAD_CONFIG.width, IPAD_CONFIG.height);
+  const textSvg = createTextSvg(IPAD_CONFIG.width, IPAD_CONFIG.height, item.title, 160, false);
+  
+  const phoneAsset = await preparePhone(item.file, 1600, IPAD_CONFIG);
+  
+  const phoneMeta = await sharp(phoneAsset).metadata();
+  const phoneX = (IPAD_CONFIG.width - phoneMeta.width) / 2;
+  const phoneY = (IPAD_CONFIG.height - phoneMeta.height) / 2 + 200;
+
+  await sharp(Buffer.from(bgSvg))
+    .composite([
+      { input: Buffer.from(textSvg), top: 0, left: 0 },
+      { input: phoneAsset, top: Math.round(phoneY), left: Math.round(phoneX) }
+    ])
+    .toFile(path.join(IPAD_CONFIG.outDir, `${item.id}.png`));
+    
+  console.log(`  ✓ Saved ${item.id}.png`);
+}
+
 async function generateIPadPanorama() {
   console.log("Generating iPad Panorama...");
   
   const bgSvg = createBackground(IPAD_CONFIG.totalWidth, IPAD_CONFIG.height);
   const textSvg = createTextSvg(IPAD_CONFIG.totalWidth, IPAD_CONFIG.height, [], 160, true);
   
-  // Larger phone for panorama (increased from 1800 to 2200)
-  const phoneAsset = await preparePhone(IPAD_MAIN.file, 2200, IPAD_CONFIG);
+  // Large tilted phone for panorama
+  const phoneAsset = await preparePhone(PANORAMA_IMAGE, 2200, IPAD_CONFIG);
   
   // Rotate phone slightly
   const rotatedPhone = await sharp(phoneAsset)
@@ -264,33 +331,14 @@ async function generateIPadPanorama() {
   console.log("  ✓ Saved ipad_02_split_right.png");
 }
 
-async function generateIPadStandalone(item) {
-  console.log(`Generating iPad ${item.id}...`);
-  
-  const bgSvg = createBackground(IPAD_CONFIG.width, IPAD_CONFIG.height);
-  const textSvg = createTextSvg(IPAD_CONFIG.width, IPAD_CONFIG.height, item.title, 160, false);
-  
-  const phoneAsset = await preparePhone(item.file, 1600, IPAD_CONFIG);
-  
-  const phoneMeta = await sharp(phoneAsset).metadata();
-  const phoneX = (IPAD_CONFIG.width - phoneMeta.width) / 2;
-  const phoneY = (IPAD_CONFIG.height - phoneMeta.height) / 2 + 200;
-
-  await sharp(Buffer.from(bgSvg))
-    .composite([
-      { input: Buffer.from(textSvg), top: 0, left: 0 },
-      { input: phoneAsset, top: Math.round(phoneY), left: Math.round(phoneX) }
-    ])
-    .toFile(path.join(IPAD_CONFIG.outDir, `${item.id}.png`));
-    
-  console.log(`  ✓ Saved ${item.id}.png`);
-}
-
 async function generateAllIPad() {
   console.log("\n📱 Generating iPad App Store Images...\n");
   await fs.mkdir(IPAD_CONFIG.outDir, { recursive: true });
   
-  // Generate standalone images matching iPhone
+  // Generate panorama first (01 & 02)
+  await generateIPadPanorama();
+  
+  // Generate standalone screens (03+)
   for (const item of IPAD_STANDALONE) {
     await generateIPadStandalone(item);
   }

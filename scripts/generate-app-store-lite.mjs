@@ -56,9 +56,10 @@ const IPHONE_SCREENS = [
 // iPad screens
 const IPAD_MAIN = { file: IMAGES.scorecard, id: "split_view" };
 const IPAD_STANDALONE = [
-  { file: IMAGES.chat, id: "ipad_03_chat", title: ["CHAT WITH", "YOUR COACH"] },
-  { file: IMAGES.stats, id: "ipad_04_stats", title: ["TRACK YOUR", "PROGRESS"] },
+  { file: IMAGES.stats, id: "ipad_03_stats", title: ["TRACK YOUR", "PROGRESS"] },
+  { file: IMAGES.chat, id: "ipad_04_chat", title: ["CHAT WITH", "YOUR COACH"] },
   { file: IMAGES.feedback, id: "ipad_05_feedback", title: ["DETAILED", "FEEDBACK"] },
+  { file: IMAGES.journal, id: "ipad_06_journal", title: ["REVIEW YOUR", "SESSIONS"] },
 ];
 
 // ============================================
@@ -98,9 +99,10 @@ function createTextSvg(width, height, lines, fontSize, isSplit = false) {
   let content = "";
   
   if (isSplit) {
+    // Center text in each half of the panorama (width/4 = center of left, 3*width/4 = center of right)
     content = `
-      <text x="${width * 0.25}" y="${yPos}">MEET YOUR NEW</text>
-      <text x="${width * 0.75}" y="${yPos}">AI HOCKEY COACH</text>
+      <text x="${width * 0.25}" y="${yPos}" text-anchor="middle">MEET YOUR NEW</text>
+      <text x="${width * 0.75}" y="${yPos}" text-anchor="middle">AI HOCKEY COACH</text>
     `;
   } else {
     const lineHeight = Math.round(fontSize * 1.15);

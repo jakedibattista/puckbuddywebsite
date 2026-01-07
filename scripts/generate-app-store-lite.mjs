@@ -229,8 +229,8 @@ async function generateIPadPanorama() {
   const bgSvg = createBackground(IPAD_CONFIG.totalWidth, IPAD_CONFIG.height);
   const textSvg = createTextSvg(IPAD_CONFIG.totalWidth, IPAD_CONFIG.height, [], 160, true);
   
-  // Large phone for panorama
-  const phoneAsset = await preparePhone(IPAD_MAIN.file, 1800, IPAD_CONFIG);
+  // Larger phone for panorama (increased from 1800 to 2200)
+  const phoneAsset = await preparePhone(IPAD_MAIN.file, 2200, IPAD_CONFIG);
   
   // Rotate phone slightly
   const rotatedPhone = await sharp(phoneAsset)
@@ -239,7 +239,7 @@ async function generateIPadPanorama() {
     
   const rotatedMeta = await sharp(rotatedPhone).metadata();
   const rotX = (IPAD_CONFIG.totalWidth - rotatedMeta.width) / 2;
-  const rotY = (IPAD_CONFIG.height - rotatedMeta.height) / 2 + 150;
+  const rotY = (IPAD_CONFIG.height - rotatedMeta.height) / 2 + 100;
 
   const fullPano = await sharp(Buffer.from(bgSvg))
     .composite([

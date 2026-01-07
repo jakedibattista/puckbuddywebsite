@@ -4,14 +4,14 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
-import homeImg from "../../assets/app-screens/v2-home.png";
-import selectCoachImg from "../../assets/app-screens/v2-select-coach.png";
-import uploadImg from "../../assets/app-screens/v2-upload.png";
-import scorecardImg from "../../assets/app-screens/v2-scorecard.png";
-import coachReportImg from "../../assets/app-screens/v2-coach-feedback.png";
-import statsImg from "../../assets/app-screens/v2-stats.png";
-import journalImg from "../../assets/app-screens/v2-journal.png";
-import chatImg from "../../assets/app-screens/v2-chat.png";
+import homeImg from "@/assets/app-screens/v2-home.png";
+import selectCoachImg from "@/assets/app-screens/v2-select-coach.png";
+import uploadImg from "@/assets/app-screens/v2-upload.png";
+import scorecardImg from "@/assets/app-screens/v2-scorecard.png";
+import coachReportImg from "@/assets/app-screens/v2-coach-feedback.png";
+import statsImg from "@/assets/app-screens/v2-stats.png";
+import journalImg from "@/assets/app-screens/v2-journal.png";
+import chatImg from "@/assets/app-screens/v2-chat.png";
 
 type Screen = "home" | "select-coach" | "upload" | "scorecard" | "coach-report" | "stats" | "journal" | "chat";
 

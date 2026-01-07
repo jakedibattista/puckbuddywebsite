@@ -6,7 +6,7 @@ import InteractiveDemo from "./components/InteractiveDemo";
 import MobileStickyCTA from "./components/MobileStickyCTA";
 import { motion, useReducedMotion } from "framer-motion";
 
-import scorecardImg from "../assets/app-screens/v2-scorecard.png";
+import scorecardImg from "@/assets/app-screens/v2-scorecard.png";
 
 export default function Home() {
   const shouldReduceMotion = useReducedMotion();

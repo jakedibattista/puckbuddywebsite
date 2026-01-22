@@ -2,7 +2,7 @@ export default function PrivacyPolicy() {
   return (
     <div className="container mx-auto p-10">
       <h1 className="text-3xl font-bold mb-4">Privacy Policy for Buddy Tech LLC</h1>
-      <p className="mb-4">Last Updated: November 18, 2025</p>
+      <p className="mb-4">Last Updated: January 22, 2026</p>
 
       <h2 className="text-2xl font-bold mt-6 mb-2">1. INTRODUCTION</h2>
       <p className="mb-4">
@@ -86,13 +86,13 @@ export default function PrivacyPolicy() {
 
       <h2 className="text-2xl font-bold mt-6 mb-2">6. DATA RETENTION AND DELETION</h2>
       <p className="mb-4">
-        <strong>Automatic Deletion of User Content:</strong> All videos and other content that you upload to the App are automatically and permanently deleted from our servers immediately after the analysis is complete. We do not retain, store, or archive your uploaded videos or content after the analysis process has finished. Only the analysis results and feedback generated from your content are stored in association with your account.
+        <strong>Video Content:</strong> We only store one video per user at a time. Videos are automatically deleted when you upload a new video or return to the home screen. We do not retain or archive your uploaded videos beyond your active session. This ensures that your personal video content is not stored on our servers longer than necessary to provide you with the analysis service.
       </p>
       <p className="mb-4">
-        <strong>Analysis Results Retention:</strong> Analysis results, including scorecards and coaching feedback provided in the App, are stored for 60 days from the date of analysis. After 60 days, these analysis results are automatically deleted from our systems. You may download or save your analysis results before they are deleted if you wish to retain them longer.
+        <strong>Analysis Results Retention:</strong> Analysis results, including scorecards and coaching feedback provided in the App, are retained for the lifetime of your account or until you delete your account. You may request deletion of your analysis history at any time by contacting us or deleting your account through the App.
       </p>
       <p className="mb-4">
-        This automatic deletion ensures that your personal video content is not stored on our servers beyond what is necessary to provide you with the analysis service. Once analysis is complete, your original uploaded content is permanently removed from our systems.
+        <strong>Account Deletion:</strong> When you delete your account, all associated data including analysis results, statistics, and any stored preferences are permanently removed from our systems.
       </p>
 
       <h2 className="text-2xl font-bold mt-6 mb-2">7. AI/ML PROCESSING DISCLOSURE</h2>
@@ -106,10 +106,21 @@ export default function PrivacyPolicy() {
         <li>Provide insights and recommendations for improvement</li>
       </ul>
       <p className="mb-4">
-        This processing occurs automatically when you upload content. The AI analysis is performed using advanced computer vision and machine learning models. Your video content is processed solely for the purpose of providing you with analysis and feedback, and as stated in Section 6, all uploaded videos are automatically deleted immediately after analysis is complete.
+        This processing occurs automatically when you upload content. The AI analysis is performed using advanced computer vision and machine learning models. Your video content is processed solely for the purpose of providing you with analysis and feedback, and as stated in Section 6, videos are automatically deleted when you upload a new video or return to the home screen.
       </p>
 
-      <h2 className="text-2xl font-bold mt-6 mb-2">8. POLICY FOR CHILDREN AND MINORS</h2>
+      <h2 className="text-2xl font-bold mt-6 mb-2">8. PUBLIC SCOREBOARD</h2>
+      <p className="mb-4">
+        The App includes an optional public scoreboard feature. If you choose to participate in the scoreboard:
+      </p>
+      <ul className="list-disc list-inside mb-4">
+        <li>Your username and shot speed statistics may be visible to other users of the App.</li>
+        <li>Participation in the scoreboard is optional and requires your affirmative consent.</li>
+        <li>You can opt out of the scoreboard at any time through your profile settings in the App.</li>
+        <li>Opting out will remove your information from the public scoreboard, though your statistics will still be stored privately in your account.</li>
+      </ul>
+
+      <h2 className="text-2xl font-bold mt-6 mb-2">9. POLICY FOR CHILDREN AND MINORS</h2>
       <p className="mb-4">
         The App is available to users of all ages, including minors under the age of 18. We take the privacy of minors seriously:
       </p>
@@ -117,14 +128,14 @@ export default function PrivacyPolicy() {
         <li>We do not knowingly collect personal information from children under the age of 13 without parental consent.</li>
         <li>For users under 18, we recommend parental or guardian supervision when using the App.</li>
         <li>Parents or guardians may contact us to review, modify, or delete any personal information we have collected from their child.</li>
-        <li>All data processing practices described in this Privacy Policy apply equally to minors, including automatic deletion of uploaded videos and 60-day retention of analysis results.</li>
+        <li>All data processing practices described in this Privacy Policy apply equally to minors, including automatic deletion of uploaded videos and retention of analysis results as described in Section 6.</li>
         <li>If we learn that we have collected personal information from a child under age 13 without verification of parental consent, we will delete that information as quickly as possible.</li>
       </ul>
       <p className="mb-4">
         If you are a parent or guardian and become aware that your child has provided us with personal information without your consent, please contact us using the contact information provided below.
       </p>
 
-      <h2 className="text-2xl font-bold mt-6 mb-2">9. YOUR PRIVACY RIGHTS</h2>
+      <h2 className="text-2xl font-bold mt-6 mb-2">10. YOUR PRIVACY RIGHTS</h2>
       <p className="mb-4">
         Depending on your location, you may have the following rights regarding your personal information:
       </p>
@@ -140,12 +151,12 @@ export default function PrivacyPolicy() {
         If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us using the contact information provided below.
       </p>
 
-      <h2 className="text-2xl font-bold mt-6 mb-2">10. CONTROLS FOR DO-NOT-TRACK FEATURES</h2>
+      <h2 className="text-2xl font-bold mt-6 mb-2">11. CONTROLS FOR DO-NOT-TRACK FEATURES</h2>
       <p className="mb-4">
         Most web browsers and some mobile operating systems and mobile applications include a Do-Not-Track (&quot;DNT&quot;) feature or setting you can activate to signal your privacy preference not to have data about your online browsing activities monitored and collected. At this stage, no uniform technology standard for recognizing and implementing DNT signals has been finalized. As such, we do not currently respond to DNT browser signals or any other mechanism that automatically communicates your choice not to be tracked online.
       </p>
 
-      <h2 className="text-2xl font-bold mt-6 mb-2">11. OPTIONS REGARDING YOUR INFORMATION</h2>
+      <h2 className="text-2xl font-bold mt-6 mb-2">12. OPTIONS REGARDING YOUR INFORMATION</h2>
       <p className="mb-4">
         You may at any time review or change your information by:
       </p>
@@ -158,17 +169,17 @@ export default function PrivacyPolicy() {
         Upon your request to terminate your account, we will deactivate or delete your account and information from our active databases. However, some information may be retained in our files to prevent fraud, troubleshoot problems, assist with any investigations, enforce our Terms of Service, and/or comply with legal requirements.
       </p>
 
-      <h2 className="text-2xl font-bold mt-6 mb-2">12. CALIFORNIA PRIVACY RIGHTS</h2>
+      <h2 className="text-2xl font-bold mt-6 mb-2">13. CALIFORNIA PRIVACY RIGHTS</h2>
       <p className="mb-4">
         California Civil Code Section 1798.83, also known as the &quot;Shine The Light&quot; law, permits our users who are California residents to request and obtain from us, once a year and free of charge, information about categories of personal information (if any) we disclosed to third parties for direct marketing purposes and the names and addresses of all third parties with which we shared personal information in the immediately preceding calendar year. If you are a California resident and would like to make such a request, please submit your request in writing to us using the contact information provided below.
       </p>
 
-      <h2 className="text-2xl font-bold mt-6 mb-2">13. CHANGES TO THIS PRIVACY POLICY</h2>
+      <h2 className="text-2xl font-bold mt-6 mb-2">14. CHANGES TO THIS PRIVACY POLICY</h2>
       <p className="mb-4">
         We may update this Privacy Policy from time to time in order to reflect changes to our practices or for other operational, legal, or regulatory reasons. We will notify you of any changes by posting the new Privacy Policy on this page and updating the &quot;Last Updated&quot; date. You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.
       </p>
 
-      <h2 className="text-2xl font-bold mt-6 mb-2">14. CONTACT US</h2>
+      <h2 className="text-2xl font-bold mt-6 mb-2">15. CONTACT US</h2>
       <p className="mb-4">
         If you have questions or comments about this Privacy Policy, please contact us at:
       </p>

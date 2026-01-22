@@ -2,7 +2,7 @@ export default function TermsOfService() {
   return (
     <div className="container mx-auto p-10">
       <h1 className="text-3xl font-bold mb-4">Terms of Service for Buddy Tech LLC</h1>
-      <p className="mb-4">Last Updated: November 18, 2025</p>
+      <p className="mb-4">Last Updated: January 22, 2026</p>
 
       <h2 className="text-2xl font-bold mt-6 mb-2">1. AGREEMENT TO TERMS</h2>
       <p className="mb-4">
@@ -38,7 +38,7 @@ export default function TermsOfService() {
 
       <h2 className="text-2xl font-bold mt-6 mb-2">6. USER-GENERATED CONTENT AND OWNERSHIP</h2>
       <p className="mb-4">
-        You retain full ownership of all videos and content that you upload to the App. By uploading content, you grant us a limited, non-exclusive license to use, process, and analyze your content solely for the purpose of providing you with analysis and feedback through the App. All uploaded videos and content are automatically and permanently deleted from our servers immediately after analysis is complete. We do not retain, store, or archive your uploaded videos or content after the analysis process has finished.
+        You retain full ownership of all videos and content that you upload to the App. By uploading content, you grant us a limited, non-exclusive license to use, process, and analyze your content solely for the purpose of providing you with analysis and feedback through the App. We only store one video per user at a time. Videos are automatically deleted when you upload a new video or return to the home screen. We do not retain or archive your uploaded videos beyond your active session.
       </p>
 
       <h2 className="text-2xl font-bold mt-6 mb-2">7. AGE RESTRICTIONS</h2>

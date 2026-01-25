@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     description: "Get AI-powered video analysis to perfect your shot. Your personal AI shooting coach for hockey players of all levels.",
     images: [
       {
-        url: "/tilted-logo.jpeg",
+        url: "/pngtilted.png",
         width: 256,
         height: 256,
         alt: "Puck Buddy - Your AI Hockey Coach",
@@ -58,7 +58,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
         <link rel="icon" href="/favicon-16.png" type="image/png" sizes="16x16" />
-        <link rel="icon" href="/BlackLogo.svg" type="image/svg+xml" sizes="any" />
+        <link rel="icon" href="/pngtilted.png" type="image/png" sizes="any" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
       </head>
       <body className={inter.className}>

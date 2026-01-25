@@ -25,7 +25,7 @@ export default function Navigation() {
             href="/" 
             className="flex items-center space-x-2 text-lg font-semibold text-gray-900 hover:text-blue-600 transition-colors"
           >
-            <Image src="/BlackLogo.svg" alt="Buddy Tech Logo" width={40} height={40} className="w-10 h-10 flex-shrink-0" priority />
+            <Image src="/tilted-logo.jpeg" alt="Buddy Tech Logo" width={40} height={40} className="w-10 h-10 flex-shrink-0" priority />
             <span>Buddy Tech</span>
           </Link>
 

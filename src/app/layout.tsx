@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     description: "Get AI-powered video analysis to perfect your shot. Your personal AI shooting coach for hockey players of all levels.",
     images: [
       {
-        url: "/BlackLogo.png",
+        url: "/tilted-logo.jpeg",
         width: 256,
         height: 256,
         alt: "Puck Buddy - Your AI Hockey Coach",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Puck Buddy - Your AI Hockey Coach",
     description: "Get AI-powered video analysis to perfect your shot. Your personal AI shooting coach for hockey players of all levels.",
-    images: ["/BlackLogo.png"],
+    images: ["/tilted-logo.jpeg"],
   },
 };
 

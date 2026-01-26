@@ -27,9 +27,9 @@ export const metadata: Metadata = {
     description: "Get AI-powered video analysis to perfect your shot. Your personal AI shooting coach for hockey players of all levels.",
     images: [
       {
-        url: "/pngtilted.png",
-        width: 256,
-        height: 256,
+        url: "/og-image-white.png",
+        width: 313,
+        height: 313,
         alt: "Puck Buddy - Your AI Hockey Coach",
       },
     ],
@@ -56,10 +56,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/pngtilted.png?v=3" type="image/png" sizes="32x32" />
-        <link rel="icon" href="/pngtilted.png?v=3" type="image/png" sizes="16x16" />
-        <link rel="icon" href="/pngtilted.png?v=3" type="image/png" sizes="any" />
-        <link rel="apple-touch-icon" href="/pngtilted.png?v=3" sizes="180x180" />
+        <link rel="icon" href="/pngtilted.png?v=4" type="image/png" sizes="32x32" />
+        <link rel="icon" href="/pngtilted.png?v=4" type="image/png" sizes="16x16" />
+        <link rel="icon" href="/pngtilted.png?v=4" type="image/png" sizes="any" />
+        <link rel="apple-touch-icon" href="/pngtilted.png?v=4" sizes="180x180" />
       </head>
       <body className={inter.className}>
         <div className="flex flex-col min-h-screen">

@@ -48,6 +48,9 @@ next-env.d.ts
 *.avi
 *.AVI
 
+# Exception: hero section videos (small, optimized for web)
+!public/*header.mp4
+
 # backup/original image files (keep resized versions in public/)
 *.PNG
 !public/**/*.png

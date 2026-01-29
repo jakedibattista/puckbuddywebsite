@@ -4,6 +4,7 @@ import Image from "next/image";
 import ScrollAnimation from "./components/ScrollAnimation";
 import InteractiveDemo from "./components/InteractiveDemo";
 import MobileStickyCTA from "./components/MobileStickyCTA";
+import HeroVideoCarousel from "./components/HeroVideoCarousel";
 import { motion, useReducedMotion } from "framer-motion";
 
 export default function Home() {
@@ -107,15 +108,7 @@ export default function Home() {
               <div className="absolute -inset-6 rounded-[2.25rem] bg-gradient-to-br from-blue-500/10 via-white/0 to-emerald-400/10 blur-2xl" />
               <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-[0_30px_90px_rgba(0,0,0,0.45)] backdrop-blur">
                 <div className="p-3 sm:p-4">
-                  <div className="relative aspect-[1170/2532] overflow-hidden rounded-[1.5rem] bg-white">
-                    <Image
-                      src="/jan-lite-feedback.png"
-                      alt="Puck Buddy coaching feedback with detailed shot analysis"
-                      fill
-                      className="object-cover object-center"
-                      priority
-                    />
-                  </div>
+                  <HeroVideoCarousel />
                 </div>
               </div>
             </motion.div>
@@ -406,10 +399,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* App Screenshots Section */}
-      {/* App Screenshots Section removed per request */}
-
 
       {/* Benefits Section */}
       <section className="py-12 sm:py-16 lg:py-24 bg-gradient-to-b from-gray-50 to-white">

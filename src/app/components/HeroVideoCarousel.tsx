@@ -47,12 +47,19 @@ export default function HeroVideoCarousel() {
 
   return (
     <div className="relative aspect-[1170/2532] overflow-hidden rounded-[1.5rem] bg-gray-900">
+      {/* Video is scaled up and shifted to crop the status bar (top ~5%) */}
       <video
         ref={videoRef}
         key={VIDEOS[currentIndex].src}
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
+        className={`absolute w-full transition-opacity duration-300 ${
           isTransitioning ? "opacity-0" : "opacity-100"
         }`}
+        style={{
+          height: "105%",
+          top: "-5%",
+          left: 0,
+          objectFit: "cover",
+        }}
         autoPlay
         muted
         playsInline

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
-type Screen = "home" | "select-coach" | "upload" | "scorecard" | "coach-report" | "stats" | "journal" | "chat";
+type Screen = "home" | "select-coach" | "upload" | "scorecard" | "coach-report" | "stats" | "scoreboard" | "journal" | "chat" | "past-results";
 
 interface Hotspot {
   id: string;
@@ -19,6 +19,7 @@ interface Hotspot {
 }
 
 // Define clickable areas on each screen (percentages)
+// New nav bar order: Home (0-20%), Stats (20-40%), Scoreboard (40-60%), Journal (60-80%), Profile (80-100%)
 const hotspots: Hotspot[] = [
   // Home screen hotspots
   {
@@ -42,22 +43,43 @@ const hotspots: Hotspot[] = [
     label: "Talk to Puck Buddy",
   },
   {
-    id: "stats-tab",
+    id: "training-history",
+    screen: "home",
+    target: "past-results",
+    top: 74,
+    left: 5,
+    width: 90,
+    height: 9,
+    label: "Training History",
+  },
+  // Home bottom nav
+  {
+    id: "stats-tab-home",
     screen: "home",
     target: "stats",
-    top: 89,
-    left: 11,
-    width: 18,
+    top: 92,
+    left: 20,
+    width: 20,
     height: 6,
     label: "Stats",
   },
   {
-    id: "journal-tab",
+    id: "scoreboard-tab-home",
+    screen: "home",
+    target: "scoreboard",
+    top: 92,
+    left: 40,
+    width: 20,
+    height: 6,
+    label: "Scoreboard",
+  },
+  {
+    id: "journal-tab-home",
     screen: "home",
     target: "journal",
-    top: 89,
-    left: 33,
-    width: 18,
+    top: 92,
+    left: 60,
+    width: 20,
     height: 6,
     label: "Journal",
   },
@@ -156,35 +178,76 @@ const hotspots: Hotspot[] = [
     height: 5,
     label: "ScoreCard",
   },
-  // Stats screen hotspots
+  // Stats screen hotspots (bottom nav)
   {
     id: "home-from-stats",
     screen: "stats",
     target: "home",
     top: 92,
-    left: 2,
-    width: 18,
+    left: 0,
+    width: 20,
     height: 6,
     label: "Home",
+  },
+  {
+    id: "scoreboard-from-stats",
+    screen: "stats",
+    target: "scoreboard",
+    top: 92,
+    left: 40,
+    width: 20,
+    height: 6,
+    label: "Scoreboard",
   },
   {
     id: "journal-from-stats",
     screen: "stats",
     target: "journal",
-    top: 91,
-    left: 51,
-    width: 18,
+    top: 92,
+    left: 60,
+    width: 20,
     height: 6,
     label: "Journal",
   },
-  // Journal screen hotspots
+  // Scoreboard screen hotspots (bottom nav)
+  {
+    id: "home-from-scoreboard",
+    screen: "scoreboard",
+    target: "home",
+    top: 92,
+    left: 0,
+    width: 20,
+    height: 6,
+    label: "Home",
+  },
+  {
+    id: "stats-from-scoreboard",
+    screen: "scoreboard",
+    target: "stats",
+    top: 92,
+    left: 20,
+    width: 20,
+    height: 6,
+    label: "Stats",
+  },
+  {
+    id: "journal-from-scoreboard",
+    screen: "scoreboard",
+    target: "journal",
+    top: 92,
+    left: 60,
+    width: 20,
+    height: 6,
+    label: "Journal",
+  },
+  // Journal screen hotspots (bottom nav)
   {
     id: "home-from-journal",
     screen: "journal",
     target: "home",
     top: 92,
-    left: 2,
-    width: 18,
+    left: 0,
+    width: 20,
     height: 6,
     label: "Home",
   },
@@ -192,23 +255,46 @@ const hotspots: Hotspot[] = [
     id: "stats-from-journal",
     screen: "journal",
     target: "stats",
-    top: 91,
-    left: 29,
-    width: 18,
+    top: 92,
+    left: 20,
+    width: 20,
     height: 6,
     label: "Stats",
+  },
+  {
+    id: "scoreboard-from-journal",
+    screen: "scoreboard",
+    target: "scoreboard",
+    top: 92,
+    left: 40,
+    width: 20,
+    height: 6,
+    label: "Scoreboard",
+  },
+  // Past Results screen
+  {
+    id: "back-from-past-results",
+    screen: "past-results",
+    target: "home",
+    top: 3,
+    left: 2,
+    width: 22,
+    height: 5,
+    label: "Back to Home",
   },
 ];
 
 const screens: Record<Screen, { src: string; title: string }> = {
-  home: { src: "/v2-home.png", title: "Home" },
+  home: { src: "/home1.5.png", title: "Home" },
   "select-coach": { src: "/v2-select-coach.png", title: "Select Coach" },
   upload: { src: "/v2-upload.png", title: "Upload" },
   scorecard: { src: "/v2-scorecard.png", title: "ScoreCard" },
   "coach-report": { src: "/v2-coach-feedback.png", title: "Coach's Feedback" },
-  stats: { src: "/v2-stats.png", title: "Stats" },
-  journal: { src: "/v2-journal.png", title: "Journal" },
+  stats: { src: "/stats1.5.png", title: "Stats" },
+  scoreboard: { src: "/scoreboard1.5.png", title: "Scoreboard" },
+  journal: { src: "/journal1.5.png", title: "Journal" },
   chat: { src: "/v2-chat.png", title: "Chat" },
+  "past-results": { src: "/past results1.5.png", title: "Past Results" },
 };
 
 export default function InteractiveDemo() {

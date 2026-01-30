@@ -32,15 +32,16 @@ const IPAD_CONFIG = {
   textColor: "#FFFFFF",
 };
 
-// Image mappings using jan-lite photos
+// Image mappings using v1.5 screenshots
 const IMAGES = {
-  home: "jan-lite-home.png",
+  home: "homewhite1.5.png",
   scorecard: "jan-lite-scorecard.png",
   feedback: "jan-lite-feedback.png",
   chat: "jan-lite-chat.png",
-  stats: "jan-lite-stats.png",
-  journal: "jan-lite-journal.png",
+  stats: "stats1.5.png",
+  journal: "journal1.5.png",
   select: "jan-lite-select.png",
+  challenge: "scoreboard1.5.png",
 };
 
 
@@ -51,18 +52,20 @@ const PANORAMA_IMAGE = IMAGES.scorecard;
 const IPHONE_STANDALONE = [
   { file: IMAGES.home, id: "03_home", title: ["YOUR AI", "HOCKEY COACH"] },
   { file: IMAGES.feedback, id: "04_feedback", title: ["DETAILED", "FEEDBACK"] },
-  { file: IMAGES.chat, id: "05_chat", title: ["CHAT WITH", "YOUR COACH"] },
+  { file: IMAGES.chat, id: "05_chat", title: ["CHAT WITH A", "HOCKEY EXPERT"] },
   { file: IMAGES.stats, id: "06_stats", title: ["TRACK YOUR", "PROGRESS"] },
   { file: IMAGES.journal, id: "07_journal", title: ["REVIEW YOUR", "SESSIONS"] },
+  { file: IMAGES.challenge, id: "08_challenge", title: ["COMPETE WITH", "FRIENDS"] },
 ];
 
 // iPad standalone screens (starting at 03 after panorama)
 const IPAD_STANDALONE = [
   { file: IMAGES.home, id: "ipad_03_home", title: ["YOUR AI", "HOCKEY COACH"] },
   { file: IMAGES.feedback, id: "ipad_04_feedback", title: ["DETAILED", "FEEDBACK"] },
-  { file: IMAGES.chat, id: "ipad_05_chat", title: ["CHAT WITH", "YOUR COACH"] },
+  { file: IMAGES.chat, id: "ipad_05_chat", title: ["CHAT WITH A", "HOCKEY EXPERT"] },
   { file: IMAGES.stats, id: "ipad_06_stats", title: ["TRACK YOUR", "PROGRESS"] },
   { file: IMAGES.journal, id: "ipad_07_journal", title: ["REVIEW YOUR", "SESSIONS"] },
+  { file: IMAGES.challenge, id: "ipad_08_challenge", title: ["COMPETE WITH", "FRIENDS"] },
 ];
 
 // ============================================

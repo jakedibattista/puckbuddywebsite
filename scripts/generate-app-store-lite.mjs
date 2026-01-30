@@ -51,7 +51,7 @@ const PANORAMA_IMAGE = IMAGES.scorecard;
 // iPhone standalone screens (starting at 03 after panorama)
 const IPHONE_STANDALONE = [
   { file: IMAGES.home, id: "03_home", title: ["YOUR PRACTICE", "COMPANION"] },
-  { file: IMAGES.feedback, id: "04_feedback", title: ["DETAILED", "FEEDBACK"] },
+  { file: IMAGES.feedback, id: "04_feedback", title: ["GET DETAILED", "FEEDBACK"] },
   { file: IMAGES.chat, id: "05_chat", title: ["CHAT WITH A", "HOCKEY EXPERT"] },
   { file: IMAGES.stats, id: "06_stats", title: ["TRACK YOUR", "PROGRESS"] },
   { file: IMAGES.journal, id: "07_journal", title: ["REVIEW YOUR", "SESSIONS"] },
@@ -61,7 +61,7 @@ const IPHONE_STANDALONE = [
 // iPad standalone screens (starting at 03 after panorama)
 const IPAD_STANDALONE = [
   { file: IMAGES.home, id: "ipad_03_home", title: ["YOUR PRACTICE", "COMPANION"] },
-  { file: IMAGES.feedback, id: "ipad_04_feedback", title: ["DETAILED", "FEEDBACK"] },
+  { file: IMAGES.feedback, id: "ipad_04_feedback", title: ["GET DETAILED", "FEEDBACK"] },
   { file: IMAGES.chat, id: "ipad_05_chat", title: ["CHAT WITH A", "HOCKEY EXPERT"] },
   { file: IMAGES.stats, id: "ipad_06_stats", title: ["TRACK YOUR", "PROGRESS"] },
   { file: IMAGES.journal, id: "ipad_07_journal", title: ["REVIEW YOUR", "SESSIONS"] },

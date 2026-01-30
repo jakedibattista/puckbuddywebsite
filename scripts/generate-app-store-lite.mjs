@@ -32,16 +32,16 @@ const IPAD_CONFIG = {
   textColor: "#FFFFFF",
 };
 
-// Image mappings using v1.5 screenshots
+// Image mappings using v1.5 white screenshots
 const IMAGES = {
   home: "homewhite1.5.png",
   scorecard: "jan-lite-scorecard.png",
   feedback: "jan-lite-feedback.png",
   chat: "jan-lite-chat.png",
-  stats: "stats1.5.png",
-  journal: "journal1.5.png",
+  stats: "statswhite1.5.png",
+  journal: "journalwhite1.5.png",
   select: "jan-lite-select.png",
-  challenge: "scoreboard1.5.png",
+  challenge: "scoreboardwhite1.5.png",
 };
 
 

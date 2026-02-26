@@ -2,7 +2,7 @@ export default function PrivacyPolicy() {
   return (
     <div className="container mx-auto p-10">
       <h1 className="text-3xl font-bold mb-4">Privacy Policy for Buddy Tech LLC</h1>
-      <p className="mb-4">Last Updated: January 22, 2026</p>
+      <p className="mb-4">Last Updated: February 26, 2026</p>
 
       <h2 className="text-2xl font-bold mt-6 mb-2">1. INTRODUCTION</h2>
       <p className="mb-4">
@@ -14,29 +14,34 @@ export default function PrivacyPolicy() {
         We may collect information about you in a variety of ways. The information we may collect via the App includes:
       </p>
       
-      <h3 className="text-xl font-bold mt-4 mb-2">Personal Data</h3>
+      <h3 className="text-xl font-bold mt-4 mb-2">Personal & Health/Fitness Data</h3>
       <p className="mb-4">
-        Personally identifiable information, such as your name, email address, and demographic information that you voluntarily give to us when you register with the App or when you choose to participate in various activities related to the App.
+        Personally identifiable information, such as your name, email address, and specific Health &amp; Fitness data that you voluntarily give to us when you register with the App. This includes demographic information and physical attributes critical to our analysis, such as your height, weight, birthdate, skill level, and shooting side.
       </p>
 
-      <h3 className="text-xl font-bold mt-4 mb-2">Device Data</h3>
+      <h3 className="text-xl font-bold mt-4 mb-2">Device & Diagnostics Data</h3>
       <p className="mb-4">
-        Device information such as your mobile device ID number, model, and manufacturer, version of your operating system, phone number, country, location, and any other data you choose to provide.
+        Device information such as your mobile device ID number, model, and manufacturer, version of your operating system, phone number, country, and location. We also collect diagnostic and crash data (including your user ID and email) to help us troubleshoot and improve the App&apos;s stability.
       </p>
 
-      <h3 className="text-xl font-bold mt-4 mb-2">Usage Data</h3>
+      <h3 className="text-xl font-bold mt-4 mb-2">Usage & Analytics Data</h3>
       <p className="mb-4">
-        Information our servers automatically collect when you access the App, such as your IP address, your browser type, your operating system, your access times, and the pages you have viewed directly before and after accessing the App.
+        Information our servers automatically collect when you access the App, such as your IP address, your browser type, your operating system, your access times, and the pages you have viewed. We also collect specific analytics events linked to your user ID (such as drill selections and job completions) to understand how you interact with the App.
       </p>
 
-      <h3 className="text-xl font-bold mt-4 mb-2">User Uploaded Content</h3>
+      <h3 className="text-xl font-bold mt-4 mb-2">User Uploaded Content & Chat Data</h3>
       <p className="mb-4">
-        When you use the App, you may upload videos and other content for analysis. This includes video recordings of your hockey activities that you choose to upload through the App.
+        When you use the App, you may upload videos and other content for analysis. This includes video recordings of your hockey activities. In addition, we collect conversational data from chat sessions (such as interactions with OpenIce and StatsChat) about your performance. This data is transmitted to our backend for processing to provide personalized feedback.
+      </p>
+
+      <h3 className="text-xl font-bold mt-4 mb-2">Push Notification Tokens</h3>
+      <p className="mb-4">
+        To send you updates and alerts regarding your video analysis and account, we collect and store push notification tokens securely in our databases.
       </p>
 
       <h3 className="text-xl font-bold mt-4 mb-2">Payment Data</h3>
       <p className="mb-4">
-        We may collect data necessary to process your payment if you make purchases, such as your payment instrument number (such as a credit card number), and the security code associated with your payment instrument. All payment data is stored by Apple App Store. You may find their privacy policy link(s) here: <a href="https://www.apple.com/privacy/" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Apple Privacy Policy</a>.
+        We may collect data necessary to process your payment if you make purchases. While the initial transaction is processed by the Apple App Store, we use RevenueCat to manage subscription purchases, subscription history, renewal status, and product IDs. RevenueCat securely stores this information and syncs it with our databases to manage your access to premium features.
       </p>
 
       <h2 className="text-2xl font-bold mt-6 mb-2">3. HOW WE USE YOUR INFORMATION</h2>
@@ -71,12 +76,19 @@ export default function PrivacyPolicy() {
 
       <h3 className="text-xl font-bold mt-4 mb-2">Third-Party Service Providers</h3>
       <p className="mb-4">
-        We may share your information with third parties that perform services for us or on our behalf, including payment processing, data analysis, email delivery, hosting services, customer service, and marketing assistance.
+        We may share your information with third parties that perform services for us or on our behalf. Specifically, we utilize the following third-party SDKs and services:
       </p>
+      <ul className="list-disc list-inside mb-4">
+        <li><strong>Sentry:</strong> Collects crash logs and diagnostic data linked to your user ID and email to help us identify and fix bugs.</li>
+        <li><strong>RevenueCat:</strong> Manages subscription purchases, history, and user entitlements.</li>
+        <li><strong>Google Firebase:</strong> Used for data storage (Firestore, Cloud Storage), analytics tracking (Firebase Analytics), and user authentication.</li>
+        <li><strong>Mailchimp:</strong> Used for email marketing and communications, such as updates triggered by your video milestones.</li>
+        <li><strong>Google Gemini API:</strong> Processes your uploaded video content and conversational chat data to provide AI-powered coaching analysis.</li>
+      </ul>
 
-      <h3 className="text-xl font-bold mt-4 mb-2">Apple App Store</h3>
+      <h3 className="text-xl font-bold mt-4 mb-2">Apple App Store & Google Play Store</h3>
       <p className="mb-4">
-        The App is made available via the Apple App Store. When you download and use the App, Apple may collect certain information from you, including personal information. Please review Apple&apos;s Privacy Policy to better understand their practices.
+        The App is made available via the Apple App Store and Google Play Store. When you download and use the App, Apple or Google may collect certain information from you, including personal information. Please review their Privacy Policies to better understand their practices.
       </p>
 
       <h2 className="text-2xl font-bold mt-6 mb-2">5. SECURITY OF YOUR INFORMATION</h2>
@@ -86,18 +98,18 @@ export default function PrivacyPolicy() {
 
       <h2 className="text-2xl font-bold mt-6 mb-2">6. DATA RETENTION AND DELETION</h2>
       <p className="mb-4">
-        <strong>Video Content:</strong> We only store one video per user at a time. Videos are automatically deleted when you upload a new video or return to the home screen. We do not retain or archive your uploaded videos beyond your active session. This ensures that your personal video content is not stored on our servers longer than necessary to provide you with the analysis service.
+        <strong>Video Content:</strong> When you upload a video for analysis, the raw video file is stored securely in our cloud storage. After processing is complete (typically within one hour), the video file is permanently deleted by our automated workers. The temporary processing document associated with the job is retained for 7 days before being automatically purged. A lightweight, text-based result summary of the analysis is retained permanently in your user profile to track your progress over time.
       </p>
       <p className="mb-4">
-        <strong>Analysis Results Retention:</strong> Analysis results, including scorecards and coaching feedback provided in the App, are retained for the lifetime of your account or until you delete your account. You may request deletion of your analysis history at any time by contacting us or deleting your account through the App.
+        <strong>Analysis Results Retention:</strong> Analysis results, including scorecards, chat logs, and coaching feedback provided in the App, are retained for the lifetime of your account or until you delete your account. You may request deletion of your analysis history at any time by contacting us or deleting your account through the App.
       </p>
       <p className="mb-4">
-        <strong>Account Deletion:</strong> When you delete your account, all associated data including analysis results, statistics, and any stored preferences are permanently removed from our systems.
+        <strong>Account Deletion:</strong> When you delete your account, all associated data including analysis results, statistics, chat history, and any stored preferences are permanently removed from our systems.
       </p>
 
       <h2 className="text-2xl font-bold mt-6 mb-2">7. AI/ML PROCESSING DISCLOSURE</h2>
       <p className="mb-4">
-        The App uses artificial intelligence and machine learning technologies to analyze your uploaded videos and provide feedback. When you upload a video, our AI systems process the video content to:
+        The App uses artificial intelligence and machine learning technologies to analyze your uploaded videos and provide feedback. When you upload a video, our AI systems—specifically powered by the <strong>Google Gemini API</strong>—process the video content to:
       </p>
       <ul className="list-disc list-inside mb-4">
         <li>Detect and analyze your hockey shooting technique and form</li>
@@ -106,7 +118,7 @@ export default function PrivacyPolicy() {
         <li>Provide insights and recommendations for improvement</li>
       </ul>
       <p className="mb-4">
-        This processing occurs automatically when you upload content. The AI analysis is performed using advanced computer vision and machine learning models. Your video content is processed solely for the purpose of providing you with analysis and feedback, and as stated in Section 6, videos are automatically deleted when you upload a new video or return to the home screen.
+        This processing occurs automatically when you upload content. Your video content is processed solely for the purpose of providing you with analysis and feedback. As stated in Section 6, the raw video files are automatically deleted shortly after processing is complete.
       </p>
 
       <h2 className="text-2xl font-bold mt-6 mb-2">8. PUBLIC SCOREBOARD</h2>
@@ -191,4 +203,3 @@ export default function PrivacyPolicy() {
     </div>
   );
 }
-

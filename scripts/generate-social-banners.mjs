@@ -3,7 +3,7 @@ import path from "node:path";
 import sharp from "sharp";
 
 const projectRoot = path.resolve(process.cwd());
-const outDir = path.join(projectRoot, "public", "social");
+const outDir = path.join(projectRoot, "marketing-assets", "social");
 
 function heroBackgroundSvg(width, height) {
   // Background inspired by the homepage hero.

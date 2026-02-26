@@ -13,7 +13,7 @@ const publicDir = path.join(projectRoot, "public");
 const IPHONE_CONFIG = {
   width: 1284,
   height: 2778,
-  outDir: path.join(publicDir, "app-store-iphone-lite"),
+  outDir: path.join(projectRoot, "marketing-assets", "app-store-iphone-lite"),
   frameColor: "#000000",
   frameBorder: 20,
   cornerRadius: 70,
@@ -25,7 +25,7 @@ const IPAD_CONFIG = {
   width: 2048,
   height: 2732,
   totalWidth: 4096,
-  outDir: path.join(publicDir, "app-store-ipad-lite"),
+  outDir: path.join(projectRoot, "marketing-assets", "app-store-ipad-lite"),
   frameColor: "#000000",
   frameBorder: 30,
   cornerRadius: 100,

@@ -63,7 +63,6 @@ function main() {
     ...walk(path.join(projectRoot, "scripts")),
     path.join(projectRoot, "package.json"),
     path.join(projectRoot, "README.md"),
-    path.join(projectRoot, "CLEANUP.md"),
   ];
 
   const candidateTextFiles = (scope === "runtime"

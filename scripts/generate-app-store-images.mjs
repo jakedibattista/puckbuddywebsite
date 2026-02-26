@@ -4,7 +4,7 @@ import sharp from "sharp";
 
 const projectRoot = path.resolve(process.cwd());
 const publicDir = path.join(projectRoot, "public");
-const outDir = path.join(publicDir, "app-store");
+const outDir = path.join(projectRoot, "marketing-assets", "app-store");
 
 // Configuration
 const CONFIG = {

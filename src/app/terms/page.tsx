@@ -2,7 +2,7 @@ export default function TermsOfService() {
   return (
     <div className="container mx-auto p-10">
       <h1 className="text-3xl font-bold mb-4">Terms of Service for Buddy Tech LLC</h1>
-      <p className="mb-4">Last Updated: January 22, 2026</p>
+      <p className="mb-4">Last Updated: February 26, 2026</p>
 
       <h2 className="text-2xl font-bold mt-6 mb-2">1. AGREEMENT TO TERMS</h2>
       <p className="mb-4">
@@ -31,14 +31,17 @@ export default function TermsOfService() {
         <li>Uploading or transmitting viruses, Trojan horses, or other material that interferes with any party&apos;s uninterrupted use and enjoyment of the App.</li>
       </ul>
 
-      <h2 className="text-2xl font-bold mt-6 mb-2">5. PURCHASES AND PAYMENT</h2>
+      <h2 className="text-2xl font-bold mt-6 mb-2">5. PURCHASES, SUBSCRIPTIONS, AND PAYMENT</h2>
       <p className="mb-4">
-        We accept payment via the Apple App Store. You agree to provide current, complete, and accurate purchase and account information for all purchases made via the App. You further agree to promptly update account and payment information. All sales are subject to our Return & Refund Policy.
+        We use third-party payment processors, including the Apple App Store (for iOS purchases) and RevenueCat, to handle payments, manage subscription states, process renewals, and manage billing events. You agree to provide current, complete, and accurate purchase and account information for all purchases made via the App.
+      </p>
+      <p className="mb-4">
+        <strong>Subscriptions:</strong> The App offers premium features through recurring auto-renewing subscriptions. By subscribing, you agree to pay the subscription fees stated at the time of purchase. Subscriptions automatically renew unless canceled at least 24 hours before the end of the current billing period. You may cancel or manage your subscription, including any free trial periods, through your Apple ID account settings. All sales and subscriptions are subject to our Return & Refund Policy.
       </p>
 
       <h2 className="text-2xl font-bold mt-6 mb-2">6. USER-GENERATED CONTENT AND OWNERSHIP</h2>
       <p className="mb-4">
-        You retain full ownership of all videos and content that you upload to the App. By uploading content, you grant us a limited, non-exclusive license to use, process, and analyze your content solely for the purpose of providing you with analysis and feedback through the App. We only store one video per user at a time. Videos are automatically deleted when you upload a new video or return to the home screen. We do not retain or archive your uploaded videos beyond your active session.
+        You retain full ownership of all videos and content that you upload to the App. By uploading content, you grant us a limited, non-exclusive license to use, process, and analyze your content solely for the purpose of providing you with analysis and feedback through the App. The raw video files you upload are automatically deleted by our backend workers shortly after processing is complete. The temporary processing job data is retained for 7 days. Your resulting coaching feedback, statistics, and analysis history are retained for the lifetime of your account to allow you to track your progress.
       </p>
 
       <h2 className="text-2xl font-bold mt-6 mb-2">7. AGE RESTRICTIONS</h2>
@@ -48,7 +51,7 @@ export default function TermsOfService() {
 
       <h2 className="text-2xl font-bold mt-6 mb-2">8. AI/ML ANALYSIS DISCLAIMER</h2>
       <p className="mb-4">
-        The App uses artificial intelligence and machine learning technologies to analyze your hockey videos and provide feedback. While we strive to provide accurate and helpful analysis, you acknowledge and agree that:
+        The App uses artificial intelligence and machine learning technologies, powered by the Google Gemini API, to analyze your hockey videos and provide feedback. While we strive to provide accurate and helpful analysis, you acknowledge and agree that:
       </p>
       <ul className="list-disc list-inside mb-4">
         <li>The AI analysis is provided for informational and educational purposes only and is not a substitute for professional coaching or medical advice.</li>
@@ -58,42 +61,47 @@ export default function TermsOfService() {
         <li>You should consult with qualified coaches, trainers, or medical professionals for professional advice regarding your hockey training and technique.</li>
       </ul>
 
-      <h2 className="text-2xl font-bold mt-6 mb-2">9. MODIFICATIONS TO TERMS</h2>
+      <h2 className="text-2xl font-bold mt-6 mb-2">9. THIRD-PARTY SERVICES</h2>
+      <p className="mb-4">
+        The App relies on third-party services to operate its features. By using the App, you acknowledge and agree that your data (including video content and analytics) may be transmitted to and processed by providers such as Google Firebase (for backend infrastructure and analytics), Sentry (for crash reporting), Mailchimp (for email communications), RevenueCat (for subscription management), and Google Gemini (for AI video analysis). Your use of the App is also subject to the terms and privacy policies of these third-party providers.
+      </p>
+
+      <h2 className="text-2xl font-bold mt-6 mb-2">10. MODIFICATIONS TO TERMS</h2>
       <p className="mb-4">
         We reserve the right to modify these Terms of Service at any time. When we make changes, we will notify you by email sent to the email address associated with your registered account. Your continued use of the App after such modifications constitutes your acceptance of the updated Terms of Service. If you do not agree to the modified terms, you must discontinue use of the App immediately.
       </p>
 
-      <h2 className="text-2xl font-bold mt-6 mb-2">10. TERM AND TERMINATION</h2>
+      <h2 className="text-2xl font-bold mt-6 mb-2">11. TERM AND TERMINATION</h2>
       <p className="mb-4">
         These Terms of Service shall remain in full force and effect while you use the App. WITHOUT LIMITING ANY OTHER PROVISION OF THESE TERMS, WE RESERVE THE RIGHT TO, IN OUR SOLE DISCRETION AND WITHOUT NOTICE OR LIABILITY, DENY ACCESS TO AND USE OF THE APP TO ANY PERSON FOR ANY REASON, INCLUDING FOR BREACH OF ANY REPRESENTATION OR WARRANTY CONTAINED IN THESE TERMS. Your rights under these Terms of Service will terminate automatically if you fail to comply with any of its terms.
       </p>
 
-      <h2 className="text-2xl font-bold mt-6 mb-2">11. EXPORT RESTRICTIONS</h2>
+      <h2 className="text-2xl font-bold mt-6 mb-2">12. EXPORT RESTRICTIONS</h2>
       <p className="mb-4">
         You may not use or otherwise export or re-export the App except as authorized by United States law and the laws of the jurisdiction in which the App was obtained. In particular, but without limitation, the App may not be exported or re-exported (a) into any U.S.-embargoed countries or (b) to anyone on the U.S. Treasury Department&apos;s Specially Designated Nationals List or the U.S. Department of Commerce Denied Persons List or Entity List. By using the App, you represent and warrant that you are not located in any such country or on any such list. You also agree that you will not use the App for any purposes prohibited by United States law, including, without limitation, the development, design, manufacture, or production of nuclear, missile, or chemical or biological weapons.
       </p>
 
-      <h2 className="text-2xl font-bold mt-6 mb-2">12. GOVERNING LAW</h2>
+      <h2 className="text-2xl font-bold mt-6 mb-2">13. GOVERNING LAW</h2>
       <p className="mb-4">
         These Terms of Service and your use of the App are governed by and construed in accordance with the laws of Maryland, United States, without regard to its conflict of law principles. However, your relationship with Apple regarding the App Store and Apple&apos;s Licensed Application End User License Agreement is governed by the laws of the State of California, excluding its conflicts of law provisions, as set forth in Apple&apos;s Standard EULA. If you are a citizen of any European Union country, Switzerland, Norway, or Iceland, the governing law and forum for disputes with Apple shall be the laws and courts of your usual place of residence.
       </p>
 
-      <h2 className="text-2xl font-bold mt-6 mb-2">13. DISCLAIMER OF WARRANTIES</h2>
+      <h2 className="text-2xl font-bold mt-6 mb-2">14. DISCLAIMER OF WARRANTIES</h2>
       <p className="mb-4">
         THE APP IS PROVIDED ON AN AS-IS AND AS-AVAILABLE BASIS. YOU AGREE THAT YOUR USE OF THE APP WILL BE AT YOUR SOLE RISK. TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, IN CONNECTION WITH THE APP AND YOUR USE THEREOF.
       </p>
 
-      <h2 className="text-2xl font-bold mt-6 mb-2">14. LIMITATION OF LIABILITY</h2>
+      <h2 className="text-2xl font-bold mt-6 mb-2">15. LIMITATION OF LIABILITY</h2>
       <p className="mb-4">
         TO THE EXTENT NOT PROHIBITED BY LAW, IN NO EVENT WILL WE OR OUR DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY DIRECT, INDIRECT, CONSEQUENTIAL, EXEMPLARY, INCIDENTAL, SPECIAL, OR PUNITIVE DAMAGES, INCLUDING WITHOUT LIMITATION, DAMAGES FOR LOSS OF PROFITS, LOSS OF DATA, BUSINESS INTERRUPTION, OR ANY OTHER COMMERCIAL DAMAGES OR LOSSES, ARISING OUT OF OR RELATED TO YOUR USE OF OR INABILITY TO USE THE APP, HOWEVER CAUSED, REGARDLESS OF THE THEORY OF LIABILITY (CONTRACT, TORT, OR OTHERWISE) AND EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. SOME JURISDICTIONS DO NOT ALLOW THE LIMITATION OF LIABILITY FOR PERSONAL INJURY, OR OF INCIDENTAL OR CONSEQUENTIAL DAMAGES, SO THIS LIMITATION MAY NOT APPLY TO YOU. In no event shall our total liability to you for all damages (other than as may be required by applicable law in cases involving personal injury) exceed the amount of fifty dollars ($50.00). The foregoing limitations will apply even if the above stated remedy fails of its essential purpose.
       </p>
 
-      <h2 className="text-2xl font-bold mt-6 mb-2">15. U.S. GOVERNMENT END USERS</h2>
+      <h2 className="text-2xl font-bold mt-6 mb-2">16. U.S. GOVERNMENT END USERS</h2>
       <p className="mb-4">
         The App and related documentation are &quot;Commercial Items&quot;, as that term is defined at 48 C.F.R. §2.101, consisting of &quot;Commercial Computer Software&quot; and &quot;Commercial Computer Software Documentation&quot;, as such terms are used in 48 C.F.R. §12.212 or 48 C.F.R. §227.7202, as applicable. Consistent with 48 C.F.R. §12.212 or 48 C.F.R. §227.7202-1 through 227.7202-4, as applicable, the Commercial Computer Software and Commercial Computer Software Documentation are being licensed to U.S. Government end users (a) only as Commercial Items and (b) with only those rights as are granted to all other end users pursuant to the terms and conditions herein. Unpublished-rights reserved under the copyright laws of the United States.
       </p>
 
-      <h2 className="text-2xl font-bold mt-6 mb-2">16. CONTACT US</h2>
+      <h2 className="text-2xl font-bold mt-6 mb-2">17. CONTACT US</h2>
       <p className="mb-4">
         To resolve a complaint regarding the App or to receive further information regarding the use of the App, please contact us at:
       </p>

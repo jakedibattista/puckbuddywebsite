@@ -2,7 +2,7 @@ export default function RefundPolicy() {
   return (
     <div className="container mx-auto p-10">
       <h1 className="text-3xl font-bold mb-4">Refunds, Subscriptions, and Payments Policy for Buddy Tech LLC</h1>
-      <p className="mb-4">Last Updated: November 18, 2025</p>
+      <p className="mb-4">Last Updated: February 26, 2026</p>
 
       <h2 className="text-2xl font-bold mt-6 mb-2">1. General Policy</h2>
       <p className="mb-4">
@@ -32,11 +32,11 @@ export default function RefundPolicy() {
 
       <h2 className="text-2xl font-bold mt-6 mb-2">3. Monthly Subscription Terms</h2>
       <p className="mb-4">
-        If you do not request and receive a refund from Apple within the 10-day window, your account will be automatically enrolled in a recurring monthly subscription.
+        You may actively choose to enroll in a recurring monthly subscription to access premium features through the App. The subscription terms are as follows:
       </p>
       <ul className="list-disc list-inside mb-4">
         <li><strong>Subscription Fee:</strong> You will be charged $10.00 USD (plus any applicable taxes) on a monthly basis.</li>
-        <li><strong>Billing Cycle:</strong> Your first monthly charge will occur 30 days after your initial purchase date. Subsequent charges will recur approximately every 30 days thereafter.</li>
+        <li><strong>Billing Cycle:</strong> Subscriptions automatically renew approximately every 30 days. You will be charged unless you cancel at least 24 hours before the end of the current period.</li>
         <li><strong>Payment Method:</strong> All subscription payments are managed and charged by Apple through the payment method associated with your Apple ID.</li>
       </ul>
 

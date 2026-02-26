@@ -219,6 +219,38 @@ export default function About() {
         </div>
       </section>
 
+      {/* Meet The Founders Section */}
+      <section className="py-16 lg:py-24 bg-gradient-to-b from-gray-50 to-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <ScrollAnimation>
+              <div className="text-center mb-10">
+                <p className="text-xs font-semibold tracking-[0.22em] text-blue-700 uppercase mb-3">
+                  In their own words
+                </p>
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                  Meet The Founders
+                </h2>
+                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                  Hear directly from Jake, Andrew, and Coach Seth about why they built Puck Buddy and what drives them every day.
+                </p>
+              </div>
+            </ScrollAnimation>
+            <ScrollAnimation delay={0.1}>
+              <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl border border-black/5" style={{ paddingBottom: "56.25%" }}>
+                <iframe
+                  className="absolute inset-0 w-full h-full"
+                  src="https://www.youtube.com/embed/CQbRXDDy_Zo"
+                  title="Meet The Founders of Puck Buddy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
+            </ScrollAnimation>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section className="relative overflow-hidden py-16 lg:py-24 bg-[radial-gradient(1200px_circle_at_20%_10%,rgba(37,99,235,0.25),transparent_55%),radial-gradient(900px_circle_at_80%_0%,rgba(34,197,94,0.16),transparent_55%),linear-gradient(to_bottom_right,#070A12,#0B1220,#070A12)] text-white">
         <div

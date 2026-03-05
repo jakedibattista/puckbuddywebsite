@@ -71,7 +71,7 @@ export default function About() {
             <ScrollAnimation delay={0.1}>
               <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
                 <p>
-                  At Buddy Tech, we believe every athlete deserves the kind of coaching that unlocks their potential—regardless of zip code, budget, or experience. Our mission is to place pro-level feedback within reach by pairing trusted coaching knowledge with accessible AI.
+                  At Buddy Tech, we believe every athlete deserves the kind of coaching that unlocks their potential, regardless of zip code, budget, or experience. Our mission is to place pro-level feedback within reach by pairing trusted coaching knowledge with accessible AI.
                 </p>
                 <p>
                   We&apos;re building more than software. We&apos;re crafting training companions that understand the nuances of each sport, celebrate progress, and keep families informed at every step. Whether you&apos;re practicing shots in the driveway or preparing for elite competition, Buddy Tech stands alongside you with data-driven insights and encouragement.
@@ -97,10 +97,10 @@ export default function About() {
             <ScrollAnimation delay={0.1}>
               <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
                 <p>
-                  Puck Buddy uses a sophisticated dual-layer AI architecture. First, we use on-device MediaPipe pose estimation to track 33 anatomical landmarks in real-time. Second, those movements are analyzed by a suite of 10+ specialized Gemini coaching agents—trained on decades of elite hockey knowledge to provide instant, actionable feedback.
+                  Puck Buddy uses a sophisticated dual-layer AI architecture. First, we use on-device MediaPipe pose estimation to track 33 anatomical landmarks in real-time. Second, those movements are analyzed by a suite of 10+ specialized Gemini coaching agents, trained on decades of elite hockey knowledge to provide instant, actionable feedback.
                 </p>
                 <p>
-                  Our tech stack is built with safety as a core requirement. We strictly follow a &quot;no-storage&quot; video policy—your training clips are processed on your device and never saved to the cloud. Our agents are specifically constrained to hockey coaching, ensuring a focused and secure environment for personal development.
+                  Our tech stack is built with safety as a core requirement. We strictly follow a &quot;no-storage&quot; video policy. Your training clips are processed on your device and never saved to the cloud. Our agents are specifically constrained to hockey coaching, ensuring a focused and secure environment for personal development.
                 </p>
               </div>
             </ScrollAnimation>
@@ -168,7 +168,7 @@ export default function About() {
                   <h3 className="text-xl font-bold text-gray-900">Jake DiBattista</h3>
                   <p className="text-sm font-medium text-blue-700 mb-3">CEO & Lead Engineer</p>
                   <p className="text-sm text-gray-600 leading-relaxed">
-                    Staff AI Engineer and Google Cloud Next 2025 keynote speaker. After winning the Vertex AI Hackathon with MLB, Jake saw the opportunity to bring elite AI coaching to youth sports. With 6+ years building AI products at scale—including generative AI systems reaching 600K+ users—he&apos;s the technical force behind Puck Buddy.
+                    Staff AI Engineer and Google Cloud Next 2025 keynote speaker. After winning the Vertex AI Hackathon with MLB, Jake saw the opportunity to bring elite AI coaching to youth sports. With 6+ years building AI products at scale, including generative AI systems reaching 600K+ users, he&apos;s the technical force behind Puck Buddy.
                   </p>
                 </div>
               </ScrollAnimation>
@@ -189,7 +189,7 @@ export default function About() {
                   <h3 className="text-xl font-bold text-gray-900">Andrew Rowe</h3>
                   <p className="text-sm font-medium text-blue-700 mb-3">Chief Operating Officer</p>
                   <p className="text-sm text-gray-600 leading-relaxed">
-                    Former pro hockey player with 15+ years across the AHL, ECHL, SHL, Swiss NL, and DEL. After a full-ride at Michigan State and starting his pro career with the Philadelphia Flyers, Andrew now channels that competitive drive into Puck Buddy—building the tool he wishes he had 25 years ago. His mission is to empower the next generation with accessible, elite-level coaching.
+                    Former pro hockey player with 15+ years across the AHL, ECHL, SHL, Swiss NL, and DEL. After a full-ride at Michigan State and starting his pro career with the Philadelphia Flyers, Andrew now channels that competitive drive into Puck Buddy, building the tool he wishes he had 25 years ago. His mission is to empower the next generation with accessible, elite-level coaching.
                   </p>
                 </div>
               </ScrollAnimation>
@@ -210,7 +210,7 @@ export default function About() {
                   <h3 className="text-xl font-bold text-gray-900">Coach Seth Michelson</h3>
                   <p className="text-sm font-medium text-blue-700 mb-3">Co-Founder & Head of Sales</p>
                   <p className="text-sm text-gray-600 leading-relaxed">
-                    Charleston Stingrays coach with 20+ years of rink-tested expertise. Seth infused Puck Buddy with real coaching wisdom—his mission is to make every kid feel like they have a coach with them, even when practicing alone. He brings that same passion to building partnerships with rinks, clubs, and coaches across the country.
+                    Charleston Stingrays coach with 20+ years of rink-tested expertise. Seth infused Puck Buddy with real coaching wisdom. His mission is to make every kid feel like they have a coach with them, even when practicing alone. He brings that same passion to building partnerships with rinks, clubs, and coaches across the country.
                   </p>
                 </div>
               </ScrollAnimation>

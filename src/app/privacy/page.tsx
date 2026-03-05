@@ -109,7 +109,7 @@ export default function PrivacyPolicy() {
 
       <h2 className="text-2xl font-bold mt-6 mb-2">7. AI/ML PROCESSING DISCLOSURE</h2>
       <p className="mb-4">
-        The App uses artificial intelligence and machine learning technologies to analyze your uploaded videos and provide feedback. When you upload a video, our AI systems—specifically powered by the <strong>Google Gemini API</strong>—process the video content to:
+        The App uses artificial intelligence and machine learning technologies to analyze your uploaded videos and provide feedback. When you upload a video, our AI systems, specifically powered by the <strong>Google Gemini API</strong>, process the video content:
       </p>
       <ul className="list-disc list-inside mb-4">
         <li>Detect and analyze your hockey shooting technique and form</li>

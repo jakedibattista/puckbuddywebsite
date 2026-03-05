@@ -29,21 +29,6 @@ export default function Home() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 sm:gap-12 lg:grid-cols-2 items-center">
             <div className="max-w-xl text-center lg:text-left mx-auto lg:mx-0">
-              <motion.div
-                initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.5, ease: [0.21, 1.11, 0.81, 0.99] }}
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold tracking-wide text-white/90 backdrop-blur"
-              >
-                <span
-                  className={[
-                    "inline-flex h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_0_6px_rgba(16,185,129,0.12)]",
-                    shouldReduceMotion ? "" : "animate-pulse",
-                  ].join(" ")}
-                />
-                Rink-tested coaching inside
-              </motion.div>
-
               <motion.h1
                 initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -63,7 +48,7 @@ export default function Home() {
                 className="mt-5 text-lg md:text-xl text-white/80 leading-relaxed max-w-lg"
               >
                 Upload a shot video from your iPhone.{" "}
-                <span className="text-white/90 font-medium">Get instant analysis</span>—scorecards, coaching feedback, and a clear plan to improve power, accuracy, and consistency.
+                <span className="text-white/90 font-medium">Get instant analysis</span>: scorecards, coaching feedback, and a clear plan to improve power, accuracy, and consistency.
               </motion.p>
 
               <motion.div
@@ -181,7 +166,7 @@ export default function Home() {
                   Try it yourself.
                 </h2>
                 <p className="mt-4 text-lg text-gray-600 leading-relaxed">
-                  Explore the real app experience—upload a shot, see your scorecard, and get coaching feedback. It&apos;s all interactive.
+                  Explore the real app experience. Upload a shot, see your scorecard, and get coaching feedback. It&apos;s all interactive.
                 </p>
 
                 <div className="mt-8 grid gap-4 sm:grid-cols-3">
@@ -243,14 +228,14 @@ export default function Home() {
                 </p>
                 <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Built with a real coach.</h2>
                 <p className="text-lg text-white/75 leading-relaxed">
-                  Puck Buddy is built with the expertise of Coach Seth Michelson—Charleston, SC&apos;s go-to youth
+                  Puck Buddy is built with the expertise of Coach Seth Michelson, Charleston, SC&apos;s go-to youth
                   hockey coach. His rink-tested approach to fundamentals, confidence, and fun informs every
                   recommendation inside the app.
                 </p>
 
                 <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur">
                   <p className="text-lg italic text-white/90 leading-relaxed">
-                    &ldquo;I wanted every kid to feel like they have a coach in the rink with them—even when they
+                    &ldquo;I wanted every kid to feel like they have a coach in the rink with them, even when they
                     practice alone. Puck Buddy delivers that.&rdquo;
                   </p>
                   <p className="mt-4 text-xs font-semibold tracking-[0.22em] text-white/65 uppercase">
@@ -262,7 +247,7 @@ export default function Home() {
                   {[
                     "Coaching that’s simple, actionable, and kid-friendly.",
                     "Scorecards + feedback that turn reps into improvement.",
-                    "A consistent voice and plan—without scheduling 1:1 sessions.",
+                    "A consistent voice and plan, without scheduling 1:1 sessions.",
                   ].map((text) => (
                     <div
                       key={text}
@@ -294,7 +279,7 @@ export default function Home() {
                   Built for performance. Tested in the real world.
                 </h2>
                 <p className="text-lg text-gray-600">
-                  We’re early—but we’re not guessing. The product is grounded in real coaching and validated by real reps.
+                  We’re early, but we’re not guessing. The product is grounded in real coaching and validated by real reps.
                 </p>
               </div>
             </ScrollAnimation>
@@ -304,7 +289,7 @@ export default function Home() {
                 {
                   value: "5,000+",
                   label: "Videos analyzed",
-                  desc: "Feedback generated from real player reps—not generic advice.",
+                  desc: "Feedback generated from real player reps, not generic advice.",
                 },
                 {
                   value: "20 years",
@@ -357,7 +342,7 @@ export default function Home() {
                   Built to create real improvement.
                 </h2>
                 <p className="text-lg text-gray-600">
-                  Not generic tips—structured feedback designed to help players understand what to change and how.
+                  Not generic tips. Structured feedback designed to help players understand what to change and how.
                 </p>
               </div>
             </ScrollAnimation>
@@ -369,11 +354,11 @@ export default function Home() {
                 },
                 {
                   title: "60-Second Turnaround",
-                  desc: "Quick feedback keeps players in the flow—review, adjust, and take the next rep with intent.",
+                  desc: "Quick feedback keeps players in the flow. Review, adjust, and take the next rep with intent.",
                 },
                 {
                   title: "Multi-Shot Detection",
-                  desc: "Compare attempts over time and spot trends—consistency is a skill you can actually track.",
+                  desc: "Compare attempts over time and spot trends. Consistency is a skill you can actually track.",
                 },
                 {
                   title: "Real-Time AI Coach Chat",
@@ -385,7 +370,7 @@ export default function Home() {
                 },
                 {
                   title: "Built on Real Coaching Expertise",
-                  desc: "Grounded in real rink teaching—so feedback stays practical, not theoretical.",
+                  desc: "Grounded in real rink teaching, so feedback stays practical, not theoretical.",
                 },
               ].map((feature, index) => (
                 <ScrollAnimation key={index} delay={index * 0.1}>
@@ -668,7 +653,7 @@ export default function Home() {
             </ScrollAnimation>
             <ScrollAnimation delay={0.1}>
               <p className="text-lg md:text-xl mb-8 text-white/75 leading-relaxed">
-                Download Puck Buddy and turn reps into measurable improvement—power, accuracy, and consistency.
+                Download Puck Buddy and turn reps into measurable improvement: power, accuracy, and consistency.
               </p>
             </ScrollAnimation>
             <ScrollAnimation delay={0.2}>

@@ -109,7 +109,7 @@ export default function DemoPage() {
                 <h3 className="text-lg font-bold text-gray-900 mb-3">Vision & positioning</h3>
                 <p className="text-sm text-gray-700 mb-3">
                   <span className="font-semibold text-gray-900">
-                    Vision — The Center for AI Sports Coaching:
+                    Vision: The Center for AI Sports Coaching:
                   </span>{" "}
                   build a category-defining platform for youth skill development,
                   starting with hockey and expanding to additional sports.

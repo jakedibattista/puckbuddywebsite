@@ -10,9 +10,8 @@ export default function Navigation() {
 
   const navLinks = [
     { href: "/", label: "Puck Buddy", id: "puck-buddy" },
-    { href: "/", label: "Soccer Buddy", badge: "Coming Soon", id: "soccer-buddy" },
-    { href: "/", label: "Golf Buddy", badge: "Coming Soon", id: "golf-buddy" },
-    { href: "/", label: "Tennis Buddy", badge: "Coming Soon", id: "tennis-buddy" },
+    { href: "/lacrosse", label: "Lax Buddy", badge: "New", id: "lax-buddy" },
+    { href: "/partner", label: "Partner with Us", id: "partner" },
     { href: "/about", label: "About Us", id: "about-us" },
   ];
 
@@ -40,7 +39,7 @@ export default function Navigation() {
                 {link.label}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
                 {link.badge && (
-                  <span className="ml-2 text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full">
+                  <span className={`ml-2 text-xs px-2 py-0.5 rounded-full font-semibold ${link.badge === "New" ? "bg-green-100 text-green-700" : "bg-gray-100 text-gray-500"}`}>
                     {link.badge}
                   </span>
                 )}
@@ -53,7 +52,7 @@ export default function Navigation() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-full bg-gray-900 px-5 py-2 text-sm font-semibold text-white shadow-sm transition-all hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
             >
-              Get the app
+              Get Puck Buddy
             </a>
           </div>
 
@@ -107,7 +106,7 @@ export default function Navigation() {
                     >
                       {link.label}
                       {link.badge && (
-                        <span className="ml-2 text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full">
+                        <span className={`ml-2 text-xs px-2 py-0.5 rounded-full font-semibold ${link.badge === "New" ? "bg-green-100 text-green-700" : "bg-gray-100 text-gray-500"}`}>
                           {link.badge}
                         </span>
                       )}
@@ -121,7 +120,7 @@ export default function Navigation() {
                   rel="noopener noreferrer"
                   className="mx-3 mt-2 inline-flex items-center justify-center rounded-full bg-gray-900 px-5 py-3 text-sm font-semibold text-white shadow-sm transition-all hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                 >
-                  Get the app
+                  Get Puck Buddy
                 </a>
               </div>
             </motion.div>

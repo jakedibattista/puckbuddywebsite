@@ -149,10 +149,7 @@ export default function Home() {
                   Try it now
                 </h2>
                 <p className="mt-4 text-lg text-gray-600 leading-relaxed">
-                  Tap the phone screen to move through the app and see what happens next
-                </p>
-                <p className="mt-3 text-lg text-gray-600 leading-relaxed">
-                  Tap buttons and cards inside the phone to open new screens, or use the menu under the phone to jump anywhere you want to go
+                  Tap the phone screen to move through the app, open new screens, and use the menu under the phone to jump anywhere you want to go.
                 </p>
               </div>
             </ScrollAnimation>

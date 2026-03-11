@@ -6,7 +6,6 @@ import InteractiveDemo from "./components/InteractiveDemo";
 import MobileStickyCTA from "./components/MobileStickyCTA";
 import HeroVideoCarousel from "./components/HeroVideoCarousel";
 import { motion, useReducedMotion } from "framer-motion";
-import playStoreBadge from "../../play store.png";
 
 export default function Home() {
   const shouldReduceMotion = useReducedMotion();
@@ -458,16 +457,24 @@ export default function Home() {
                     unoptimized
                   />
                 </a>
-                <div className="relative inline-flex h-[54px] w-[180px] items-center justify-center overflow-hidden rounded-[10px] sm:h-[60px] sm:w-[200px]">
-                  <Image
-                    src={playStoreBadge}
-                    alt="Get it on Google Play"
-                    width={960}
-                    height={284}
-                    className="h-full w-full object-contain"
-                    unoptimized
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center bg-slate-900/55 backdrop-blur-[2px]">
+                <div className="relative inline-flex h-[54px] w-[180px] items-center justify-center overflow-hidden rounded-[10px] border border-white/20 bg-black shadow-[0_6px_18px_rgba(0,0,0,0.25)] sm:h-[60px] sm:w-[200px]">
+                  <div className="flex items-center gap-2 px-3 sm:px-4">
+                    <svg className="h-7 w-7 flex-shrink-0" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M3 2.6a1 1 0 0 1 1.5-.86l10.74 6.14L12.2 10.9 3 2.6Z" fill="#34A853" />
+                      <path d="M3 2.6v18.8a1 1 0 0 0 1.5.86l10.74-6.14-3.04-3.03L3 21.4Z" fill="#4285F4" />
+                      <path d="m21 10.82-3.77-2.15-3.67 3.66 3.67 3.66L21 13.84c1.33-.76 1.33-2.26 0-3.02Z" fill="#FBBC04" />
+                      <path d="m13.56 12.33-1.36 1.36 3.04 3.03 1.99-1.13-3.67-3.26Z" fill="#EA4335" />
+                    </svg>
+                    <div className="text-left leading-none text-white">
+                      <div className="text-[9px] font-medium uppercase tracking-[0.18em] text-white/80 sm:text-[10px]">
+                        Get it on
+                      </div>
+                      <div className="mt-1 text-lg font-semibold sm:text-[20px]">
+                        Google Play
+                      </div>
+                    </div>
+                  </div>
+                  <div className="absolute inset-0 flex items-center justify-center bg-slate-900/58 backdrop-blur-[2px]">
                     <span className="rounded-full border border-white/20 bg-black/35 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-white/90">
                       Coming soon
                     </span>

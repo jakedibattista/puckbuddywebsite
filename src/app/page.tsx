@@ -110,7 +110,7 @@ export default function Home() {
                 Product demo
               </p>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                See Puck Buddy in action
+                What is Puck Buddy
               </h2>
             </div>
           </ScrollAnimation>
@@ -120,13 +120,13 @@ export default function Home() {
             <ScrollAnimation delay={0.1}>
               <div className="relative aspect-video bg-gray-900 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/10 hover:shadow-3xl transition-shadow">
                 <iframe
-                  src="https://player.vimeo.com/video/1143926214?badge=0&autopause=0&player_id=0&app_id=58479"
+                  src="https://www.youtube.com/embed/opgk_89J5XM"
                   className="absolute top-0 left-0 w-full h-full"
                   frameBorder="0"
-                  allow="autoplay; fullscreen; picture-in-picture"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
                   loading="lazy"
-                  title="Puck Buddy Complete Overview"
+                  title="What is Puck Buddy"
                 />
               </div>
             </ScrollAnimation>
@@ -223,43 +223,32 @@ export default function Home() {
             </ScrollAnimation>
             <ScrollAnimation direction="right">
               <div className="space-y-6">
-                <p className="text-xs font-semibold tracking-[0.22em] text-blue-200/90 uppercase">
-                  Coaching meets AI
+                <p className="text-sm font-medium text-blue-200/90">
+                  Built with real hockey expertise
                 </p>
                 <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Built with a real coach.</h2>
                 <p className="text-lg text-white/75 leading-relaxed">
                   Puck Buddy is built with the expertise of Coach Seth Michelson, Charleston, SC&apos;s go-to youth
-                  hockey coach. His rink-tested approach to fundamentals, confidence, and fun informs every
-                  recommendation inside the app.
+                  hockey coach, and cofounder Andrew Rowe, who brings 15+ years of professional hockey experience.
+                  Their combined experience shaped how the model was trained, what it looks for in a rep, and how it
+                  turns analysis into feedback that players can actually use.
                 </p>
-
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur">
-                  <p className="text-lg italic text-white/90 leading-relaxed">
-                    &ldquo;I wanted every kid to feel like they have a coach in the rink with them, even when they
-                    practice alone. Puck Buddy delivers that.&rdquo;
-                  </p>
-                  <p className="mt-4 text-xs font-semibold tracking-[0.22em] text-white/65 uppercase">
-                    Coach Seth • Founder &amp; Puck Buddy AI Coach
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                  <p className="text-base text-white/85 leading-relaxed">
+                    The goal is simple: make the feedback feel like real coaching. Clear fundamentals, practical
+                    corrections, and the right next step after each shot.
                   </p>
                 </div>
 
-                <div className="grid gap-3">
+                <ul className="list-disc space-y-3 pl-5 text-base text-white/75 marker:text-white/45">
                   {[
-                    "Coaching that’s simple, actionable, and kid-friendly.",
-                    "Scorecards + feedback that turn reps into improvement.",
-                    "A consistent voice and plan, without scheduling 1:1 sessions.",
+                    "Feedback that stays simple, actionable, and kid-friendly.",
+                    "Scorecards that connect reps to real improvement.",
+                    "A consistent coaching voice without scheduling 1:1 sessions.",
                   ].map((text) => (
-                    <div
-                      key={text}
-                      className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 backdrop-blur"
-                    >
-                      <span className="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-emerald-400/15 text-emerald-200 ring-1 ring-emerald-300/20">
-                        ✓
-                      </span>
-                      <p className="text-sm text-white/75">{text}</p>
-                    </div>
+                    <li key={text}>{text}</li>
                   ))}
-                </div>
+                </ul>
               </div>
             </ScrollAnimation>
           </div>

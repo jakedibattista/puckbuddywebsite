@@ -61,7 +61,7 @@ export default function About() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <ScrollAnimation>
-              <p className="text-xs font-semibold tracking-[0.22em] text-blue-700 uppercase mb-3">
+              <p className="text-sm sm:text-base font-semibold tracking-[0.28em] text-blue-700 uppercase mb-3">
                 Our mission
               </p>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
@@ -87,7 +87,7 @@ export default function About() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <ScrollAnimation>
-              <p className="text-xs font-semibold tracking-[0.22em] text-blue-700 uppercase mb-3">
+              <p className="text-sm sm:text-base font-semibold tracking-[0.28em] text-blue-700 uppercase mb-3">
                 The technology
               </p>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
@@ -138,7 +138,7 @@ export default function About() {
           <div className="max-w-5xl mx-auto">
             <ScrollAnimation>
               <div className="text-center mb-12">
-                <p className="text-xs font-semibold tracking-[0.22em] text-blue-700 uppercase mb-3">
+                <p className="text-sm sm:text-base font-semibold tracking-[0.28em] text-blue-700 uppercase mb-3">
                   The team
                 </p>
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -225,7 +225,7 @@ export default function About() {
           <div className="max-w-4xl mx-auto">
             <ScrollAnimation>
               <div className="text-center mb-10">
-                <p className="text-xs font-semibold tracking-[0.22em] text-blue-700 uppercase mb-3">
+                <p className="text-sm sm:text-base font-semibold tracking-[0.28em] text-blue-700 uppercase mb-3">
                   In their own words
                 </p>
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">

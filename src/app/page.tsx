@@ -6,6 +6,7 @@ import InteractiveDemo from "./components/InteractiveDemo";
 import MobileStickyCTA from "./components/MobileStickyCTA";
 import HeroVideoCarousel from "./components/HeroVideoCarousel";
 import { motion, useReducedMotion } from "framer-motion";
+import playStoreBadge from "../../play store.png";
 
 export default function Home() {
   const shouldReduceMotion = useReducedMotion();
@@ -61,21 +62,21 @@ export default function Home() {
                   href="https://apps.apple.com/us/app/puck-buddy/id6752230304"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex w-fit transition-transform hover:scale-[1.02] active:scale-[0.99] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070A12]"
+                  className="inline-flex h-[64px] w-[220px] items-center justify-center transition-transform hover:scale-[1.02] active:scale-[0.99] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070A12] sm:h-[72px] sm:w-[240px]"
                 >
                   <Image
                     src="/app-store-badge.svg"
                     alt="Download on the App Store"
                     width={900}
                     height={300}
-                    className="h-auto w-[220px] sm:w-[240px]"
+                    className="h-full w-full object-contain"
                     unoptimized
                     priority
                   />
                 </a>
                 <a
                   href="#video"
-                  className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white/90 backdrop-blur transition-all hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070A12]"
+                  className="inline-flex h-[64px] w-[220px] items-center justify-center rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white/90 backdrop-blur transition-all hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070A12] sm:h-[72px] sm:w-[240px]"
                 >
                   Watch the demo
                   <span className="ml-2 text-white/60">→</span>
@@ -88,7 +89,7 @@ export default function Home() {
               initial={shouldReduceMotion ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.98, y: 10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.6, delay: 0.1, ease: [0.21, 1.11, 0.81, 0.99] }}
-              className="relative mx-auto w-full max-w-[520px]"
+              className="relative mx-auto w-full max-w-[390px]"
             >
               <div className="absolute -inset-6 rounded-[2.25rem] bg-gradient-to-br from-blue-500/10 via-white/0 to-emerald-400/10 blur-2xl" />
               <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-[0_30px_90px_rgba(0,0,0,0.45)] backdrop-blur">
@@ -104,52 +105,35 @@ export default function Home() {
       {/* Video Showcase Section - Moved to Top */}
       <section id="video" className="py-12 sm:py-16 lg:py-24 bg-white scroll-mt-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollAnimation>
-            <div className="max-w-3xl mx-auto text-center mb-12">
-              <p className="text-xs font-semibold tracking-[0.22em] text-blue-700 uppercase mb-3">
-                Product demo
-              </p>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                What is Puck Buddy
-              </h2>
-            </div>
-          </ScrollAnimation>
-          
-          {/* Single Comprehensive Video */}
-          <div className="max-w-4xl mx-auto">
-            <ScrollAnimation delay={0.1}>
-              <div className="relative aspect-video bg-gray-900 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/10 hover:shadow-3xl transition-shadow">
-                <iframe
-                  src="https://www.youtube.com/embed/opgk_89J5XM"
-                  className="absolute top-0 left-0 w-full h-full"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                  loading="lazy"
-                  title="What is Puck Buddy"
-                />
+          <div className="mx-auto max-w-5xl rounded-[2rem] border border-black/5 bg-gradient-to-br from-gray-50 to-white px-5 py-8 shadow-xl sm:px-8 sm:py-10 lg:px-10 lg:py-12">
+            <ScrollAnimation>
+              <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-12">
+                <p className="text-sm sm:text-base font-semibold tracking-[0.28em] text-blue-700 uppercase mb-3">
+                  Product demo
+                </p>
+                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                  What is Puck Buddy
+                </h2>
               </div>
             </ScrollAnimation>
-          </div>
-          <ScrollAnimation delay={0.3}>
-            <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="https://apps.apple.com/us/app/puck-buddy/id6752230304"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block transition-transform hover:scale-105 w-auto max-w-[300px] sm:max-w-[600px]"
-            >
-              <Image
-                src="/app-store-badge.svg"
-                alt="Download on the App Store"
-                width={1200}
-                height={402}
-                className="h-auto w-auto max-w-[300px] sm:max-w-[600px]"
-                unoptimized
-              />
-            </a>
+
+            {/* Single Comprehensive Video */}
+            <div className="max-w-4xl mx-auto">
+              <ScrollAnimation delay={0.1}>
+                <div className="relative aspect-video bg-gray-900 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/10 hover:shadow-3xl transition-shadow">
+                  <iframe
+                    src="https://www.youtube.com/embed/opgk_89J5XM"
+                    className="absolute top-0 left-0 w-full h-full"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    loading="lazy"
+                    title="What is Puck Buddy"
+                  />
+                </div>
+              </ScrollAnimation>
             </div>
-          </ScrollAnimation>
+          </div>
         </div>
       </section>
 
@@ -159,35 +143,22 @@ export default function Home() {
           <div className="grid gap-12 lg:grid-cols-2 items-center">
             <ScrollAnimation direction="left">
               <div className="max-w-xl">
-                <p className="text-xs font-semibold tracking-[0.22em] text-blue-700 uppercase mb-3">
+                <p className="text-sm sm:text-base font-semibold tracking-[0.28em] text-blue-700 uppercase mb-3">
                   Interactive
                 </p>
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-                  Try it yourself.
+                  Try it now
                 </h2>
                 <p className="mt-4 text-lg text-gray-600 leading-relaxed">
-                  Explore the real app experience. Upload a shot, see your scorecard, and get coaching feedback. It&apos;s all interactive.
+                  Tap the phone screen to move through the app and see what happens next
                 </p>
-
-                <div className="mt-8 grid gap-4 sm:grid-cols-3">
-                  {[
-                    { title: "Click the hotspots", desc: "Move between screens to see the full flow." },
-                    { title: "Tap around", desc: "Try different areas to discover features." },
-                    { title: "Use the menu", desc: "Quickly switch to any screen you want to see." },
-                  ].map((item) => (
-                    <div
-                      key={item.title}
-                      className="rounded-2xl border border-black/5 bg-white/70 p-5 shadow-sm backdrop-blur"
-                    >
-                      <p className="text-sm font-semibold text-gray-900">{item.title}</p>
-                      <p className="mt-1 text-sm text-gray-600">{item.desc}</p>
-                    </div>
-                  ))}
-                </div>
+                <p className="mt-3 text-lg text-gray-600 leading-relaxed">
+                  Tap buttons and cards inside the phone to open new screens, or use the menu under the phone to jump anywhere you want to go
+                </p>
               </div>
             </ScrollAnimation>
 
-            <div className="mx-auto w-full max-w-xl">
+            <div className="mx-auto w-full max-w-[390px]">
               <ScrollAnimation delay={0.1} direction="right">
                 <InteractiveDemo />
               </ScrollAnimation>
@@ -223,32 +194,16 @@ export default function Home() {
             </ScrollAnimation>
             <ScrollAnimation direction="right">
               <div className="space-y-6">
-                <p className="text-sm font-medium text-blue-200/90">
-                  Built with real hockey expertise
-                </p>
-                <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Built with a real coach.</h2>
+                <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Built with Real Coaches and Players</h2>
                 <p className="text-lg text-white/75 leading-relaxed">
                   Puck Buddy is built with the expertise of Coach Seth Michelson, Charleston, SC&apos;s go-to youth
                   hockey coach, and cofounder Andrew Rowe, who brings 15+ years of professional hockey experience.
                   Their combined experience shaped how the model was trained, what it looks for in a rep, and how it
                   turns analysis into feedback that players can actually use.
                 </p>
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                  <p className="text-base text-white/85 leading-relaxed">
-                    The goal is simple: make the feedback feel like real coaching. Clear fundamentals, practical
-                    corrections, and the right next step after each shot.
-                  </p>
-                </div>
-
-                <ul className="list-disc space-y-3 pl-5 text-base text-white/75 marker:text-white/45">
-                  {[
-                    "Feedback that stays simple, actionable, and kid-friendly.",
-                    "Scorecards that connect reps to real improvement.",
-                    "A consistent coaching voice without scheduling 1:1 sessions.",
-                  ].map((text) => (
-                    <li key={text}>{text}</li>
-                  ))}
-                </ul>
+                <p className="text-lg text-white/70 leading-relaxed">
+                  The result is feedback that feels clear, practical, and grounded in real coaching.
+                </p>
               </div>
             </ScrollAnimation>
           </div>
@@ -256,16 +211,16 @@ export default function Home() {
       </section>
 
       {/* Proof / Trust Section */}
-      <section className="py-12 sm:py-16 lg:py-24 bg-white">
+      <section className="py-12 sm:py-16 lg:py-24 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto">
             <ScrollAnimation>
               <div className="max-w-3xl mx-auto text-center mb-12">
-                <p className="text-xs font-semibold tracking-[0.22em] text-blue-700 uppercase mb-3">
+                <p className="text-sm sm:text-base font-semibold tracking-[0.28em] text-blue-700 uppercase mb-3">
                   Proof
                 </p>
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                  Built for performance. Tested in the real world.
+                  Built for performance, tested in the real world
                 </h2>
                 <p className="text-lg text-gray-600">
                   We’re early, but we’re not guessing. The product is grounded in real coaching and validated by real reps.
@@ -283,7 +238,7 @@ export default function Home() {
                 {
                   value: "20 years",
                   label: "Coaching + AI experience",
-                  desc: "Rink-tested coaching meets modern AI systems and UX.",
+                  desc: "Rink-tested coaching meets smart AI and an app that is easy to use.",
                 },
                 {
                   value: "~60 sec",
@@ -303,14 +258,14 @@ export default function Home() {
 
             <ScrollAnimation delay={0.35}>
               <div className="mt-10 rounded-3xl border border-black/5 bg-gradient-to-br from-gray-50 to-white p-8 shadow-sm">
-                <p className="text-sm font-semibold tracking-[0.22em] text-blue-700 uppercase">
+                <p className="text-sm sm:text-base font-semibold tracking-[0.28em] text-blue-700 uppercase">
                   Testimonial
                 </p>
                 <p className="mt-4 text-xl md:text-2xl font-semibold text-gray-900 leading-snug">
-                  &ldquo;After an afternoon of Puck Buddy my son is already talking about adding 10 mph to his snapshot&rdquo;
+                  &ldquo;After an afternoon using PuckBuddy my son is already talking about adding 10 mph to his snapshot&rdquo;
                 </p>
                 <p className="mt-4 text-sm text-gray-600">
-                  - A Proud Puck Buddy Parent
+                  - Current user
                 </p>
               </div>
             </ScrollAnimation>
@@ -324,15 +279,12 @@ export default function Home() {
           <div className="max-w-4xl mx-auto">
             <ScrollAnimation>
               <div className="max-w-3xl mx-auto text-center mb-12">
-                <p className="text-xs font-semibold tracking-[0.22em] text-blue-700 uppercase mb-3">
+                <p className="text-sm sm:text-base font-semibold tracking-[0.28em] text-blue-700 uppercase mb-3">
                   Why it works
                 </p>
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                  Built to create real improvement.
+                  Built to create real improvement
                 </h2>
-                <p className="text-lg text-gray-600">
-                  Not generic tips. Structured feedback designed to help players understand what to change and how.
-                </p>
               </div>
             </ScrollAnimation>
             <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
@@ -374,190 +326,34 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section className="py-12 sm:py-16 lg:py-24 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollAnimation>
-            <div className="max-w-3xl mx-auto text-center mb-16">
-              <p className="text-xs font-semibold tracking-[0.22em] text-blue-700 uppercase mb-3">
-                Built for real life
-              </p>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                Everyone wins.
-              </h2>
-              <p className="text-lg text-gray-600">
-                A player-first experience that also gives parents and coaches the clarity they’ve been missing.
-              </p>
-            </div>
-          </ScrollAnimation>
-          <div className="grid md:grid-cols-3 gap-8 lg:gap-12 max-w-6xl mx-auto">
-            {/* Parents */}
-            <ScrollAnimation delay={0.1} direction="left">
-              <div className="bg-white p-8 rounded-2xl border border-black/5 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">For Parents</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-2">✓</span>
-                  <span>Track your child&apos;s progress with detailed analytics.</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-2">✓</span>
-                  <span>Understand what areas need improvement.</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-2">✓</span>
-                  <span>Support training without expensive coaching fees.</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-2">✓</span>
-                  <span>See measurable improvements over time.</span>
-                </li>
-              </ul>
-              </div>
-            </ScrollAnimation>
-
-            {/* Kids */}
-            <ScrollAnimation delay={0.2}>
-              <div className="bg-white p-8 rounded-2xl border border-black/5 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">For Players</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-2">✓</span>
-                  <span>Get instant feedback on every shot.</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-2">✓</span>
-                  <span>Chat with an AI Coach in real-time.</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-2">✓</span>
-                  <span>Learn proper technique through AI analysis.</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-2">✓</span>
-                  <span>Build confidence with data-driven improvements.</span>
-                </li>
-              </ul>
-              </div>
-            </ScrollAnimation>
-
-            {/* Coaches */}
-            <ScrollAnimation delay={0.3} direction="right">
-              <div className="bg-white p-8 rounded-2xl border border-black/5 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">For Coaches</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-2">✓</span>
-                  <span>Analyze multiple players efficiently.</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-2">✓</span>
-                  <span>Access real-time AI coaching insights.</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-2">✓</span>
-                  <span>Create data-driven training programs.</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-2">✓</span>
-                  <span>Provide objective, consistent feedback.</span>
-                </li>
-              </ul>
-              </div>
-            </ScrollAnimation>
-          </div>
-        </div>
-      </section>
-
       {/* Pricing Section */}
       <section className="py-16 lg:py-24 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* Hero Section */}
           <ScrollAnimation>
-            <div className="max-w-3xl mx-auto text-center mb-16">
-              <p className="text-xs font-semibold tracking-[0.22em] text-blue-700 uppercase mb-3">
+            <div className="max-w-3xl mx-auto text-center mb-12">
+              <p className="text-sm sm:text-base font-semibold tracking-[0.28em] text-blue-700 uppercase mb-3">
                 Pricing
               </p>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                Simple pricing. Real coaching value.
+                Simple pricing, real coaching value
               </h2>
-              <p className="text-lg text-gray-600">
-                Subscriptions are managed by Apple. Cancel anytime.
-              </p>
-            </div>
-          </ScrollAnimation>
-
-          {/* Features Section */}
-          <ScrollAnimation delay={0.1}>
-            <div className="max-w-4xl mx-auto mb-16">
-              <div className="grid md:grid-cols-2 gap-6">
-                {[
-                  {
-                    title: "Unlimited Video Analysis",
-                    desc: "Get AI feedback on every shot you upload",
-                  },
-                  {
-                    title: "Advanced Stats Tracking",
-                    desc: "Track your progress with detailed metrics over time",
-                  },
-                  {
-                    title: "Real Time Coaching Chat",
-                    desc: "Chat with your AI coach in real-time for instant feedback and guidance",
-                  },
-                  {
-                    title: "Audio Coaching",
-                    desc: "Listen to personalized coaching feedback",
-                  },
-                ].map((feature, index) => (
-                  <div
-                    key={index}
-                    className="bg-white/80 p-6 rounded-2xl border border-black/5 shadow-sm hover:shadow-lg transition-shadow backdrop-blur"
-                  >
-                    <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                        <span className="text-white font-bold">✓</span>
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-semibold text-gray-900 mb-1">
-                          {feature.title}
-                        </h3>
-                        <p className="text-gray-600">{feature.desc}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
             </div>
           </ScrollAnimation>
 
           {/* Pricing Plans */}
-          <div className="max-w-5xl mx-auto">
-            <ScrollAnimation delay={0.2}>
-              <div className="grid md:grid-cols-2 gap-8 mb-12">
+          <div className="max-w-6xl mx-auto">
+            <ScrollAnimation delay={0.1}>
+              <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 items-stretch">
                 {/* Monthly Plan */}
                 <a
                   href="https://apps.apple.com/us/app/puck-buddy/id6752230304"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Open Puck Buddy on the App Store (Monthly subscription)"
-                  className="block bg-white rounded-2xl shadow-xl p-8 border-2 border-gray-200 hover:border-blue-500 transition-all duration-300 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-50"
+                  className="block h-full bg-white rounded-2xl shadow-xl p-8 border-2 border-gray-200 hover:border-blue-500 transition-all duration-300 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-50"
                 >
-                  <div className="text-center">
+                  <div className="flex h-full flex-col justify-center text-center">
                     <h3 className="text-2xl font-bold text-gray-900 mb-2">
                       Puck Buddy Monthly
                     </h3>
@@ -575,47 +371,47 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Open Puck Buddy on the App Store (Annual subscription)"
-                  className="group relative block overflow-hidden rounded-2xl border border-black/5 bg-[radial-gradient(900px_circle_at_20%_10%,rgba(37,99,235,0.18),transparent_55%),radial-gradient(700px_circle_at_90%_0%,rgba(34,197,94,0.12),transparent_55%),linear-gradient(to_bottom_right,#070A12,#0B1220,#070A12)] p-8 shadow-xl transition-transform duration-300 hover:scale-[1.02] cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-50"
+                  className="block h-full rounded-2xl border-2 border-gray-200 bg-white p-8 shadow-xl transition-all duration-300 hover:border-blue-500 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-50"
                 >
-                  <div aria-hidden className="pointer-events-none absolute inset-0 opacity-[0.10] mix-blend-soft-light" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.35) 1px, transparent 0)", backgroundSize: "26px 26px" }} />
-                  <div className="absolute top-4 right-4 bg-yellow-400 text-gray-900 text-xs font-bold px-3 py-1 rounded-full">
-                    BEST VALUE
-                  </div>
-                  <div className="text-center">
-                    <h3 className="text-2xl font-bold text-white mb-2">
+                  <div className="flex h-full flex-col justify-center text-center">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
                       Puck Buddy Annual
                     </h3>
-                    <p className="text-white/70 mb-2">Annual subscription</p>
+                    <p className="text-gray-600 mb-2">Annual subscription</p>
                     <div className="mb-2">
                       <span className="inline-block bg-yellow-400 text-gray-900 text-sm font-bold px-3 py-1 rounded-full mb-2">
                         SAVE 30%
                       </span>
                     </div>
-                    <div className="text-4xl font-bold text-white mb-2">
+                    <div className="text-4xl font-bold text-gray-900 mb-2">
                       $49.99
                     </div>
-                    <p className="text-white/70 text-sm">
+                    <p className="text-gray-500 text-sm">
                       Just $4.17/mo
                     </p>
+                  </div>
+                </a>
+
+                <a
+                  href="/partner#contact"
+                  aria-label="Open the contact form for team pricing"
+                  className="block h-full rounded-2xl border-2 border-gray-200 bg-white p-8 shadow-xl transition-all duration-300 hover:border-blue-500 hover:shadow-2xl cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-50 md:col-span-2 md:mx-auto md:w-full md:max-w-[420px] xl:col-span-1 xl:max-w-none"
+                >
+                  <div className="flex h-full flex-col justify-center text-center">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                      Team Plan
+                    </h3>
+                    <p className="text-gray-600 mb-4">For clubs, teams, and organizations</p>
+                    <div className="text-4xl font-bold text-gray-900 mb-2">
+                      Custom
+                    </div>
+                    <p className="text-sm text-gray-500">Contact us for pricing</p>
                   </div>
                 </a>
               </div>
             </ScrollAnimation>
           </div>
 
-          {/* Legal/Footer Text */}
-          <ScrollAnimation delay={0.3}>
-            <div className="max-w-4xl mx-auto">
-              <p className="text-xs text-gray-500 text-center leading-relaxed">
-                Payment will be charged to your Apple ID account at confirmation of purchase.
-                Subscription automatically renews unless auto-renew is turned off at least 24
-                hours before the end of the current period. Account will be charged for renewal
-                within 24 hours prior to the end of the current period. You can manage and
-                cancel your subscriptions by going to your Account Settings on the App Store
-                after purchase.
-              </p>
-            </div>
-          </ScrollAnimation>
         </div>
       </section>
 
@@ -633,7 +429,7 @@ export default function Home() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <ScrollAnimation>
-              <p className="text-xs font-semibold tracking-[0.22em] text-white/70 uppercase mb-3">
+              <p className="text-sm sm:text-base font-semibold tracking-[0.28em] text-white/70 uppercase mb-3">
                 Get started
               </p>
               <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
@@ -647,21 +443,36 @@ export default function Home() {
             </ScrollAnimation>
             <ScrollAnimation delay={0.2}>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href="https://apps.apple.com/us/app/puck-buddy/id6752230304"
-            target="_blank"
-            rel="noopener noreferrer"
-                className="inline-block transition-transform hover:scale-105 w-auto max-w-[300px] sm:max-w-[600px] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070A12]"
-              >
-                <Image
-                  src="/app-store-badge.svg"
-                  alt="Download on the App Store"
-                  width={1200}
-                  height={402}
-                  className="h-auto w-auto max-w-[300px] sm:max-w-[600px]"
-                  unoptimized
-                />
-              </a>
+                <a
+                  href="https://apps.apple.com/us/app/puck-buddy/id6752230304"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-[54px] w-[180px] items-center justify-center transition-transform hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070A12] sm:h-[60px] sm:w-[200px]"
+                >
+                  <Image
+                    src="/app-store-badge.svg"
+                    alt="Download on the App Store"
+                    width={1200}
+                    height={402}
+                    className="h-full w-full object-contain"
+                    unoptimized
+                  />
+                </a>
+                <div className="relative inline-flex h-[54px] w-[180px] items-center justify-center overflow-hidden rounded-[10px] sm:h-[60px] sm:w-[200px]">
+                  <Image
+                    src={playStoreBadge}
+                    alt="Get it on Google Play"
+                    width={960}
+                    height={284}
+                    className="h-full w-full object-contain"
+                    unoptimized
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center bg-slate-900/55 backdrop-blur-[2px]">
+                    <span className="rounded-full border border-white/20 bg-black/35 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-white/90">
+                      Coming soon
+                    </span>
+                  </div>
+                </div>
               </div>
             </ScrollAnimation>
         </div>

@@ -234,7 +234,7 @@ export default function PartnerPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollAnimation>
             <div className="max-w-2xl mx-auto text-center mb-16">
-              <p className="text-xs font-semibold tracking-[0.22em] text-gray-500 uppercase mb-3">
+              <p className="text-sm sm:text-base font-semibold tracking-[0.28em] text-gray-500 uppercase mb-3">
                 Our offerings
               </p>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -251,18 +251,13 @@ export default function PartnerPage() {
             {/* API Card */}
             <ScrollAnimation delay={0}>
               <div className="flex flex-col h-full rounded-3xl border border-black/5 bg-gradient-to-b from-white to-gray-50 p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gray-100 text-gray-700 mb-5">
-                  <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                  </svg>
-                </div>
-                <p className="text-xs font-semibold tracking-[0.18em] text-gray-400 uppercase mb-2">For Platforms &amp; Tech Companies</p>
+                <p className="text-sm font-semibold tracking-[0.28em] text-gray-400 uppercase mb-2">For Platforms &amp; Tech Companies</p>
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">API Integration</h3>
                 <p className="text-sm font-semibold text-gray-500 italic mb-4">Plug our AI analysis engine into your existing product.</p>
                 <p className="text-gray-600 leading-relaxed text-sm mb-6">
                   Our backend exposes a clean REST API for video ingestion, multi-agent AI analysis, and structured coaching output. Add AI video coaching without building the model stack from scratch.
                 </p>
-                <ul className="space-y-2.5 mb-8 flex-grow">
+                <ul className="mb-8 flex-grow list-disc space-y-2.5 pl-5">
                   {[
                     "Video upload & processing endpoints",
                     "Structured JSON scorecards & coaching feedback",
@@ -271,8 +266,7 @@ export default function PartnerPage() {
                     "Webhooks for async result delivery",
                     "Sandbox environment for testing",
                   ].map((f) => (
-                    <li key={f} className="flex items-start gap-2.5 text-sm text-gray-700">
-                      <span className="mt-0.5 inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-gray-100 text-gray-600 text-xs font-bold">✓</span>
+                    <li key={f} className="text-sm text-gray-700">
                       {f}
                     </li>
                   ))}
@@ -289,18 +283,13 @@ export default function PartnerPage() {
             {/* Custom Dev Card */}
             <ScrollAnimation delay={0.1}>
               <div className="flex flex-col h-full rounded-3xl border border-black/5 bg-gradient-to-b from-white to-gray-50 p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gray-100 text-gray-700 mb-5">
-                  <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                  </svg>
-                </div>
-                <p className="text-xs font-semibold tracking-[0.18em] text-gray-400 uppercase mb-2">For Coaches &amp; Influencers</p>
+                <p className="text-sm font-semibold tracking-[0.28em] text-gray-400 uppercase mb-2">For Coaches &amp; Influencers</p>
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">Custom Development</h3>
                 <p className="text-sm font-semibold text-gray-500 italic mb-4">We build your branded AI coaching experience.</p>
                 <p className="text-gray-600 leading-relaxed text-sm mb-6">
                   Have an audience and a sport you love? We partner with coaches and creators to build custom AI coaching apps under your brand. You bring the expertise and we build the tech.
                 </p>
-                <ul className="space-y-2.5 mb-8 flex-grow">
+                <ul className="mb-8 flex-grow list-disc space-y-2.5 pl-5">
                   {[
                     "White-label AI coaching app built for your brand",
                     "Your coaching philosophy baked into every rep",
@@ -309,8 +298,7 @@ export default function PartnerPage() {
                     "Ongoing model tuning as you grow",
                     "Revenue share model available",
                   ].map((f) => (
-                    <li key={f} className="flex items-start gap-2.5 text-sm text-gray-700">
-                      <span className="mt-0.5 inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-gray-100 text-gray-600 text-xs font-bold">✓</span>
+                    <li key={f} className="text-sm text-gray-700">
                       {f}
                     </li>
                   ))}
@@ -330,18 +318,13 @@ export default function PartnerPage() {
             {/* Partner Card */}
             <ScrollAnimation delay={0.2}>
               <div className="flex flex-col h-full rounded-3xl border border-black/5 bg-gradient-to-b from-white to-gray-50 p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gray-100 text-gray-700 mb-5">
-                  <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                  </svg>
-                </div>
-                <p className="text-xs font-semibold tracking-[0.18em] text-gray-400 uppercase mb-2">For Teams, Leagues &amp; Programs</p>
+                <p className="text-sm font-semibold tracking-[0.28em] text-gray-400 uppercase mb-2">For Teams, Leagues &amp; Programs</p>
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">Partner Program</h3>
                 <p className="text-sm font-semibold text-gray-500 italic mb-4">Give your athletes access to their own AI coach.</p>
                 <p className="text-gray-600 leading-relaxed text-sm mb-6">
                   Get a custom promo code for your team, league, or training program. Every athlete gets full Puck Buddy access at a group rate with no per-seat setup required.
                 </p>
-                <ul className="space-y-2.5 mb-8 flex-grow">
+                <ul className="mb-8 flex-grow list-disc space-y-2.5 pl-5">
                   {[
                     "Custom promo code for your organization",
                     "Group discounts for teams of any size",
@@ -350,8 +333,7 @@ export default function PartnerPage() {
                     "White-glove onboarding support",
                     "Flexible billing: pay per athlete or team-wide",
                   ].map((f) => (
-                    <li key={f} className="flex items-start gap-2.5 text-sm text-gray-700">
-                      <span className="mt-0.5 inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-gray-100 text-gray-600 text-xs font-bold">✓</span>
+                    <li key={f} className="text-sm text-gray-700">
                       {f}
                     </li>
                   ))}
@@ -375,7 +357,7 @@ export default function PartnerPage() {
             <div className="grid gap-12 lg:grid-cols-2 items-center">
               <ScrollAnimation direction="left">
                 <div>
-                  <p className="text-xs font-semibold tracking-[0.22em] text-gray-500 uppercase mb-3">
+                  <p className="text-sm sm:text-base font-semibold tracking-[0.28em] text-gray-500 uppercase mb-3">
                     API integration
                   </p>
                   <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -430,68 +412,13 @@ export default function PartnerPage() {
         </div>
       </section>
 
-      {/* Custom Dev Deep Dive */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-5xl mx-auto">
-            <div className="grid gap-12 lg:grid-cols-2 items-center">
-              <ScrollAnimation direction="left" className="order-2 lg:order-1">
-                <div className="grid gap-4 sm:grid-cols-2">
-                  {[
-                    { step: "01", title: "Discovery call", desc: "We learn about your sport, audience, and coaching philosophy." },
-                    { step: "02", title: "Model design", desc: "We define the drills, metrics, and AI agents specific to your use case." },
-                    { step: "03", title: "Build & test", desc: "We build the app and analysis pipeline with your brand, your voice." },
-                    { step: "04", title: "Launch & grow", desc: "We handle the tech. You focus on your athletes and your audience." },
-                  ].map((s) => (
-                    <div key={s.step} className="rounded-2xl border border-black/5 bg-gray-50 p-5">
-                      <p className="text-2xl font-black text-gray-900 mb-2">{s.step}</p>
-                      <p className="text-sm font-bold text-gray-900 mb-1">{s.title}</p>
-                      <p className="text-xs text-gray-600 leading-relaxed">{s.desc}</p>
-                    </div>
-                  ))}
-                </div>
-              </ScrollAnimation>
-
-              <ScrollAnimation direction="right" className="order-1 lg:order-2">
-                <div>
-                  <p className="text-xs font-semibold tracking-[0.22em] text-gray-500 uppercase mb-3">
-                    Custom development
-                  </p>
-                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                    Your name. Your coaching. Your app.
-                  </h2>
-                  <p className="text-gray-600 leading-relaxed mb-4">
-                    We built Puck Buddy with Coach Seth, and we can do the same for you.
-                    If you have an audience that trusts you, we can turn your expertise
-                    into an AI-powered app that scales your coaching to thousands of athletes.
-                  </p>
-                  <p className="text-gray-600 leading-relaxed mb-6">
-                    No technical background required. You bring the knowledge. We build the tech.
-                    Revenue share models available.
-                  </p>
-                  {/* Calendly — direct booking, bypasses contact form */}
-                  <a
-                    href={CALENDLY_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center rounded-full bg-gray-900 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all hover:bg-gray-700 focus:outline-none"
-                  >
-                    Book a discovery call
-                  </a>
-                </div>
-              </ScrollAnimation>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Partner Program Deep Dive */}
       <section className="py-16 sm:py-20 lg:py-24 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto">
             <ScrollAnimation>
               <div className="max-w-2xl mb-12">
-                <p className="text-xs font-semibold tracking-[0.22em] text-gray-500 uppercase mb-3">
+                <p className="text-sm sm:text-base font-semibold tracking-[0.28em] text-gray-500 uppercase mb-3">
                   Partner program
                 </p>
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -542,7 +469,7 @@ export default function PartnerPage() {
           <div className="max-w-2xl mx-auto">
             <ScrollAnimation>
               <div className="text-center mb-10">
-                <p className="text-xs font-semibold tracking-[0.22em] text-gray-500 uppercase mb-3">
+                <p className="text-sm sm:text-base font-semibold tracking-[0.28em] text-gray-500 uppercase mb-3">
                   Get in touch
                 </p>
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">

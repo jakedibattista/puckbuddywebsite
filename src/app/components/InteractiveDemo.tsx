@@ -319,7 +319,7 @@ export default function InteractiveDemo() {
     <div className="flex flex-col items-center">
 
       {/* Phone Frame Container */}
-      <div className="relative w-full max-w-[320px] md:max-w-[375px]">
+      <div className="relative w-full max-w-[280px] md:max-w-[320px]">
         {/* iPhone Frame - Hidden on very small screens */}
         <div className="hidden sm:block absolute inset-0 -m-3 md:-m-4 bg-gray-900 rounded-[3rem] md:rounded-[3.5rem] shadow-2xl pointer-events-none" />
         <div className="hidden sm:block absolute inset-0 -m-2 md:-m-3 bg-gray-800 rounded-[2.5rem] md:rounded-[3rem] pointer-events-none" />

@@ -17,8 +17,6 @@ export default function LacrossePage() {
       ctaLabel: "Try Lax Buddy →",
       accent: "from-green-500/20 via-emerald-400/10 to-transparent",
       ring: "ring-green-400/20",
-      badge: "Goalie Coach",
-      badgeColor: "bg-green-600 text-white ring-green-700/30",
       features: [
         "AI-powered goalie mechanics analysis",
         "Wall ball rep counter",
@@ -36,8 +34,6 @@ export default function LacrossePage() {
       ctaLabel: "Try Scout →",
       accent: "from-blue-500/20 via-indigo-400/10 to-transparent",
       ring: "ring-blue-400/20",
-      badge: "Recruiting Platform",
-      badgeColor: "bg-blue-600 text-white ring-blue-700/30",
       features: [
         "AI drill analysis (wall ball, 20-yard dash, 5-10-5)",
         "Auto-generated scouting & coaching reports",
@@ -92,7 +88,7 @@ export default function LacrossePage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollAnimation>
             <div className="max-w-3xl mx-auto text-center mb-14">
-              <p className="text-xs font-semibold tracking-[0.22em] text-green-700 uppercase mb-3">
+              <p className="text-sm sm:text-base font-semibold tracking-[0.28em] text-green-700 uppercase mb-3">
                 Examples of Our Work
               </p>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -112,11 +108,6 @@ export default function LacrossePage() {
                   <div className={`absolute -inset-px rounded-3xl bg-gradient-to-br ${product.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />
 
                   <div className="relative">
-                    {/* Badge */}
-                    <span className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold ring-1 ${product.badgeColor} mb-4`}>
-                      {product.badge}
-                    </span>
-
                     <h2 className="text-3xl font-bold text-gray-900">{product.name}</h2>
                     <p className="text-sm font-semibold text-gray-500 mt-1 mb-4 tracking-wide uppercase">
                       {product.tagline}
@@ -124,12 +115,9 @@ export default function LacrossePage() {
                     <p className="text-gray-600 leading-relaxed mb-6">{product.description}</p>
 
                     {/* Feature list */}
-                    <ul className="space-y-2 mb-8">
+                    <ul className="mb-8 list-disc space-y-2 pl-5">
                       {product.features.map((f) => (
-                        <li key={f} className="flex items-start gap-2 text-sm text-gray-700">
-                          <span className="mt-0.5 inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-green-100 text-green-600 text-xs font-bold">
-                            ✓
-                          </span>
+                        <li key={f} className="text-sm text-gray-700">
                           {f}
                         </li>
                       ))}
@@ -156,7 +144,7 @@ export default function LacrossePage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollAnimation>
             <div className="max-w-3xl mx-auto text-center mb-12">
-              <p className="text-xs font-semibold tracking-[0.22em] text-green-700 uppercase mb-3">
+              <p className="text-sm sm:text-base font-semibold tracking-[0.28em] text-green-700 uppercase mb-3">
                 See it in action
               </p>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -192,7 +180,7 @@ export default function LacrossePage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollAnimation>
             <div className="max-w-3xl mx-auto text-center mb-16">
-              <p className="text-xs font-semibold tracking-[0.22em] text-green-700 uppercase mb-3">
+              <p className="text-sm sm:text-base font-semibold tracking-[0.28em] text-green-700 uppercase mb-3">
                 Under the hood
               </p>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -257,7 +245,7 @@ export default function LacrossePage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <ScrollAnimation>
-              <p className="text-xs font-semibold tracking-[0.22em] text-white/70 uppercase mb-3">
+              <p className="text-sm sm:text-base font-semibold tracking-[0.28em] text-white/70 uppercase mb-3">
                 Get started
               </p>
               <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">

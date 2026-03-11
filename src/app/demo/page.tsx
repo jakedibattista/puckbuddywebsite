@@ -128,8 +128,7 @@ export default function DemoPage() {
                   <li className="flex items-start gap-2">
                     <span className="text-blue-600 mt-0.5">•</span>
                     <span>
-                      Bridges the gap between short-form video tools and expensive 1:1 coaching
-                      with always-on, personalized feedback.
+                      Delivers always-on, personalized feedback without the cost of a private lesson.
                     </span>
                   </li>
                 </ul>

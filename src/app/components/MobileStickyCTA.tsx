@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 
 export default function MobileStickyCTA() {
@@ -33,16 +32,8 @@ export default function MobileStickyCTA() {
               href="https://apps.apple.com/us/app/puck-buddy/id6752230304"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 rounded-xl bg-gray-900 px-4 py-2.5 transition-all active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+              className="flex items-center justify-center rounded-xl bg-gray-900 px-4 py-2.5 transition-all active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
             >
-              <Image
-                src="/app-store-badge.svg"
-                alt="Download on the App Store"
-                width={120}
-                height={40}
-                className="h-6 w-auto"
-                unoptimized
-              />
               <span className="text-sm font-semibold text-white">Get the app</span>
             </a>
           </div>

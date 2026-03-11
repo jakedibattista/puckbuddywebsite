@@ -47,7 +47,7 @@ export default function HeroVideoCarousel() {
 
   return (
     <div className="relative aspect-[1170/2532] overflow-hidden rounded-[1.5rem] bg-gray-900">
-      {/* Video is scaled up and shifted to crop the status bar (top ~5%) */}
+      {/* Shift the video upward so the top app chrome stays out of frame. */}
       <video
         ref={videoRef}
         key={VIDEOS[currentIndex].src}
@@ -55,8 +55,8 @@ export default function HeroVideoCarousel() {
           isTransitioning ? "opacity-0" : "opacity-100"
         }`}
         style={{
-          height: "105%",
-          top: "-5%",
+          height: "112%",
+          top: "-12%",
           left: 0,
           objectFit: "cover",
         }}

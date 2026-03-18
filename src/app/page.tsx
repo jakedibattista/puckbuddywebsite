@@ -14,7 +14,7 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       <MobileStickyCTA />
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-[radial-gradient(1200px_circle_at_20%_10%,rgba(37,99,235,0.28),transparent_55%),radial-gradient(900px_circle_at_80%_0%,rgba(34,197,94,0.18),transparent_55%),linear-gradient(to_bottom_right,#070A12,#0B1220,#070A12)] text-white py-16 sm:py-20 lg:py-28">
+      <section className="relative overflow-hidden bg-[radial-gradient(1200px_circle_at_20%_10%,rgba(37,99,235,0.28),transparent_55%),radial-gradient(900px_circle_at_80%_0%,rgba(34,197,94,0.18),transparent_55%),linear-gradient(to_bottom_right,#070A12,#0B1220,#070A12)] text-white py-16 sm:py-20 lg:py-24">
         {/* Background texture */}
         <div
           aria-hidden
@@ -27,13 +27,13 @@ export default function Home() {
         />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-10 sm:gap-12 lg:grid-cols-2 items-center">
+          <div className="grid gap-12 sm:gap-14 lg:grid-cols-[1.05fr_0.95fr] items-center">
             <div className="max-w-xl text-center lg:text-left mx-auto lg:mx-0">
               <motion.h1
                 initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.55, delay: 0.05, ease: [0.21, 1.11, 0.81, 0.99] }}
-                className="mt-6 text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.05] tracking-tight"
+                className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.05] tracking-tight"
               >
                 Meet Your New{" "}
                 <span className="bg-gradient-to-r from-white via-blue-100 to-emerald-100 bg-clip-text text-transparent">
@@ -45,55 +45,74 @@ export default function Home() {
                 initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.55, delay: 0.12, ease: [0.21, 1.11, 0.81, 0.99] }}
-                className="mt-5 text-lg md:text-xl text-white/80 leading-relaxed max-w-lg"
+                className="mt-5 text-lg md:text-xl text-white/80 leading-relaxed"
               >
-                Upload a shot video from your iPhone.{" "}
-                <span className="text-white/90 font-medium">Get instant analysis</span>: scorecards, coaching feedback, and a clear plan to improve power, accuracy, and consistency.
+                Upload a shooting video and get{" "}
+                <span className="text-white font-medium">AI-powered video analysis</span>{" "}
+                using computer vision to break down mechanics, score key parts of your
+                shot, and deliver clear coaching feedback to improve power, accuracy,
+                and consistency.
               </motion.p>
-
-              <motion.div
-                initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.55, delay: 0.2, ease: [0.21, 1.11, 0.81, 0.99] }}
-                className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4 items-center lg:items-start"
-              >
-                <a
-                  href="https://apps.apple.com/us/app/puck-buddy/id6752230304"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex h-[64px] w-[220px] items-center justify-center transition-transform hover:scale-[1.02] active:scale-[0.99] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070A12] sm:h-[72px] sm:w-[240px]"
-                >
-                  <Image
-                    src="/app-store-badge.svg"
-                    alt="Download on the App Store"
-                    width={900}
-                    height={300}
-                    className="h-full w-full object-contain"
-                    unoptimized
-                    priority
-                  />
-                </a>
-                <a
-                  href="#video"
-                  className="inline-flex h-[64px] w-[220px] items-center justify-center rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white/90 backdrop-blur transition-all hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070A12] sm:h-[72px] sm:w-[240px]"
-                >
-                  Watch the demo
-                  <span className="ml-2 text-white/60">→</span>
-                </a>
-              </motion.div>
-
             </div>
 
             <motion.div
               initial={shouldReduceMotion ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.98, y: 10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.6, delay: 0.1, ease: [0.21, 1.11, 0.81, 0.99] }}
-              className="relative mx-auto w-full max-w-[390px]"
+              className="relative mx-auto flex w-full max-w-[430px] flex-col items-center"
             >
+              <a
+                href="#video"
+                className="mb-5 inline-flex h-[56px] w-[220px] items-center justify-center rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white/90 backdrop-blur transition-all hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070A12] sm:mb-6 sm:h-[60px] sm:w-[240px]"
+              >
+                Watch the demo
+                <span className="ml-2 text-white/60">→</span>
+              </a>
               <div className="absolute -inset-6 rounded-[2.25rem] bg-gradient-to-br from-blue-500/10 via-white/0 to-emerald-400/10 blur-2xl" />
-              <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-[0_30px_90px_rgba(0,0,0,0.45)] backdrop-blur">
+              <div className="relative z-10 w-full overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-[0_30px_90px_rgba(0,0,0,0.45)] backdrop-blur">
                 <div className="p-3 sm:p-4">
                   <HeroVideoCarousel />
+                </div>
+              </div>
+              <div className="mt-5 flex flex-col items-center justify-center gap-4 sm:mt-6 sm:flex-row">
+                <a
+                  href="https://apps.apple.com/us/app/puck-buddy/id6752230304"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-[54px] w-[180px] items-center justify-center transition-transform hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070A12] sm:h-[60px] sm:w-[200px]"
+                >
+                  <Image
+                    src="/app-store-badge.svg"
+                    alt="Download on the App Store"
+                    width={1200}
+                    height={402}
+                    className="h-full w-full object-contain"
+                    unoptimized
+                    priority
+                  />
+                </a>
+                <div className="relative inline-flex h-[54px] w-[180px] items-center justify-center overflow-hidden rounded-[10px] border border-white/20 bg-black shadow-[0_6px_18px_rgba(0,0,0,0.25)] sm:h-[60px] sm:w-[200px]">
+                  <div className="flex items-center gap-2 px-3 sm:px-4">
+                    <svg className="h-7 w-7 flex-shrink-0" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M3 2.6a1 1 0 0 1 1.5-.86l10.74 6.14L12.2 10.9 3 2.6Z" fill="#34A853" />
+                      <path d="M3 2.6v18.8a1 1 0 0 0 1.5.86l10.74-6.14-3.04-3.03L3 21.4Z" fill="#4285F4" />
+                      <path d="m21 10.82-3.77-2.15-3.67 3.66 3.67 3.66L21 13.84c1.33-.76 1.33-2.26 0-3.02Z" fill="#FBBC04" />
+                      <path d="m13.56 12.33-1.36 1.36 3.04 3.03 1.99-1.13-3.67-3.26Z" fill="#EA4335" />
+                    </svg>
+                    <div className="text-left leading-none text-white">
+                      <div className="text-[9px] font-medium uppercase tracking-[0.18em] text-white/80 sm:text-[10px]">
+                        Get it on
+                      </div>
+                      <div className="mt-1 text-lg font-semibold sm:text-[20px]">
+                        Google Play
+                      </div>
+                    </div>
+                  </div>
+                  <div className="absolute inset-0 flex items-center justify-center bg-slate-900/58 backdrop-blur-[2px]">
+                    <span className="rounded-full border border-white/20 bg-black/35 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-white/90">
+                      Coming soon
+                    </span>
+                  </div>
                 </div>
               </div>
             </motion.div>

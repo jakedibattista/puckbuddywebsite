@@ -46,19 +46,17 @@ export default function HeroVideoCarousel() {
   }, [currentIndex]);
 
   return (
-    <div className="relative aspect-[1170/2532] overflow-hidden rounded-[1.5rem] bg-gray-900">
-      {/* Shift the video upward so the top app chrome stays out of frame. */}
+    <div className="relative aspect-[1170/2228] overflow-hidden rounded-[1.5rem] bg-gray-900">
+      {/* Shift the video upward by aligning it to the bottom of a shorter container, so the top app chrome stays out of frame. */}
       <video
         ref={videoRef}
         key={VIDEOS[currentIndex].src}
-        className={`absolute w-full transition-opacity duration-300 ${
+        className={`absolute inset-0 w-full h-full transition-opacity duration-300 ${
           isTransitioning ? "opacity-0" : "opacity-100"
         }`}
         style={{
-          height: "112%",
-          top: "-12%",
-          left: 0,
           objectFit: "cover",
+          objectPosition: "center bottom",
         }}
         autoPlay
         muted

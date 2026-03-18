@@ -27,8 +27,8 @@ export default function Home() {
         />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-12 sm:gap-14 lg:grid-cols-[1.05fr_0.95fr] items-center">
-            <div className="max-w-xl text-center lg:text-left mx-auto lg:mx-0">
+          <div className="grid gap-12 sm:gap-14 xl:grid-cols-[1.05fr_0.95fr] items-center">
+            <div className="max-w-xl text-center xl:text-left mx-auto xl:mx-0">
               <motion.h1
                 initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}

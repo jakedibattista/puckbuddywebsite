@@ -27,8 +27,8 @@ export default function Home() {
         />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-12 sm:gap-14 xl:grid-cols-[1.05fr_0.95fr] items-center">
-            <div className="max-w-xl text-center xl:text-left mx-auto xl:mx-0">
+          <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
+            <div className="max-w-3xl">
               <motion.h1
                 initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -59,7 +59,7 @@ export default function Home() {
               initial={shouldReduceMotion ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.98, y: 10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.6, delay: 0.1, ease: [0.21, 1.11, 0.81, 0.99] }}
-              className="relative mx-auto flex w-full max-w-[430px] flex-col items-center"
+              className="relative mt-8 flex w-full max-w-[430px] flex-col items-center sm:mt-10"
             >
               <a
                 href="#video"

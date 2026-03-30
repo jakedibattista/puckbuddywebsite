@@ -2,7 +2,7 @@ export default function TermsOfService() {
   return (
     <div className="container mx-auto p-10">
       <h1 className="text-3xl font-bold mb-4">Terms of Service for Buddy Tech LLC</h1>
-      <p className="mb-4">Last Updated: February 26, 2026</p>
+      <p className="mb-4">Last Updated: March 30, 2026</p>
 
       <h2 className="text-2xl font-bold mt-6 mb-2">1. AGREEMENT TO TERMS</h2>
       <p className="mb-4">
@@ -47,6 +47,9 @@ export default function TermsOfService() {
       <h2 className="text-2xl font-bold mt-6 mb-2">7. AGE RESTRICTIONS</h2>
       <p className="mb-4">
         The App is available to users of all ages. However, users under the age of 18 should have parental or guardian supervision when using the App. By using the App, you represent that you have the legal capacity to enter into these Terms of Service, or if you are a minor, that you have obtained parental or guardian consent to use the App.
+      </p>
+      <p className="mb-4">
+        The App includes a team feature that allows players to join a team using an invite code. Joining a team shares your performance data (including drill scores, session counts, and hockey profile information) with adult coaches and organization administrators associated with that team. For minor users, parental or guardian supervision and consent is expected before joining a team. Users under the age of 13 must have verified parental consent before joining a team or sharing any data with coaches. Parents or guardians may remove their child from a team at any time.
       </p>
 
       <h2 className="text-2xl font-bold mt-6 mb-2">8. AI/ML ANALYSIS DISCLAIMER</h2>

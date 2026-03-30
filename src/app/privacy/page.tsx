@@ -2,7 +2,7 @@ export default function PrivacyPolicy() {
   return (
     <div className="container mx-auto p-10">
       <h1 className="text-3xl font-bold mb-4">Privacy Policy for Buddy Tech LLC</h1>
-      <p className="mb-4">Last Updated: February 26, 2026</p>
+      <p className="mb-4">Last Updated: March 30, 2026</p>
 
       <h2 className="text-2xl font-bold mt-6 mb-2">1. INTRODUCTION</h2>
       <p className="mb-4">
@@ -86,6 +86,11 @@ export default function PrivacyPolicy() {
         <li><strong>Google Gemini API:</strong> Processes your uploaded video content and conversational chat data to provide AI-powered coaching analysis.</li>
       </ul>
 
+      <h3 className="text-xl font-bold mt-4 mb-2">Coaches & Organization Administrators</h3>
+      <p className="mb-4">
+        When you join a team using an invite code, certain information from your account is shared with authorized coaches and organization administrators for that team. The specific data shared is described in Section 8A (&quot;Coach &amp; Organization Data Sharing&quot;) below. This sharing is voluntary and can be controlled or revoked at any time.
+      </p>
+
       <h3 className="text-xl font-bold mt-4 mb-2">Apple App Store & Google Play Store</h3>
       <p className="mb-4">
         The App is made available via the Apple App Store and Google Play Store. When you download and use the App, Apple or Google may collect certain information from you, including personal information. Please review their Privacy Policies to better understand their practices.
@@ -132,6 +137,29 @@ export default function PrivacyPolicy() {
         <li>Opting out will remove your information from the public scoreboard, though your statistics will still be stored privately in your account.</li>
       </ul>
 
+      <h2 className="text-2xl font-bold mt-6 mb-2">8A. COACH & ORGANIZATION DATA SHARING</h2>
+      <p className="mb-4">
+        The App allows you to join a team within an organization by entering an invite code provided by a coach or organization administrator. When you join a team, certain information from your account is shared with the authorized coaches and administrators of that organization. The information shared includes:
+      </p>
+      <ul className="list-disc list-inside mb-4">
+        <li>Your username and display name</li>
+        <li>Your profile picture</li>
+        <li>Your hockey level, shooting side, and age group</li>
+        <li>Your drill scores, session counts, and rep counts across all drills you have completed</li>
+      </ul>
+      <p className="mb-4">
+        This sharing is entirely voluntary. You must actively join a team by entering an invite code to begin sharing your data with coaches. No data is shared with any coach or organization unless you take this action.
+      </p>
+      <p className="mb-4">
+        You may control what is visible to coaches at any time through the &quot;Coach Sharing&quot; settings in your profile. These settings allow you to toggle the visibility of your statistics and profile information independently. You may also leave a team at any time, which immediately stops sharing your data with that team&apos;s coaches and administrators.
+      </p>
+      <p className="mb-4">
+        Coaches and organization administrators have read-only access to your data. They cannot modify your profile, statistics, or account information. Opting out of coach sharing or leaving a team does not delete your private data — your stats, history, and account information remain in your account and are unaffected.
+      </p>
+      <p className="mb-4">
+        This coach sharing feature follows the same opt-in model as the Public Scoreboard described in Section 8: participation requires your affirmative action, you can opt out or adjust visibility at any time, and your underlying data remains private in your account regardless of your sharing preferences.
+      </p>
+
       <h2 className="text-2xl font-bold mt-6 mb-2">9. POLICY FOR CHILDREN AND MINORS</h2>
       <p className="mb-4">
         The App is available to users of all ages, including minors under the age of 18. We take the privacy of minors seriously:
@@ -143,8 +171,20 @@ export default function PrivacyPolicy() {
         <li>All data processing practices described in this Privacy Policy apply equally to minors, including automatic deletion of uploaded videos and retention of analysis results as described in Section 6.</li>
         <li>If we learn that we have collected personal information from a child under age 13 without verification of parental consent, we will delete that information as quickly as possible.</li>
       </ul>
+
+      <h3 className="text-xl font-bold mt-4 mb-2">Minors and Coach/Organization Data Sharing</h3>
       <p className="mb-4">
-        If you are a parent or guardian and become aware that your child has provided us with personal information without your consent, please contact us using the contact information provided below.
+        When a user under the age of 13 joins a team (as described in Section 8A), parental or guardian consent is required before any data is shared with coaches or organization administrators. This consent is obtained through the same parental consent flow used during account registration for under-13 users.
+      </p>
+      <p className="mb-4">
+        For minor users who have joined a team, the coach dashboard will not display the player&apos;s email address or other directly identifying personal information. Coaches will only see the player&apos;s username, performance statistics, and hockey profile information (hockey level, shooting side, age group).
+      </p>
+      <p className="mb-4">
+        Parents or guardians may revoke their child&apos;s team membership at any time by removing the child from the team through the App or by contacting us. Revoking team membership immediately stops sharing the child&apos;s data with coaches and organization administrators.
+      </p>
+
+      <p className="mb-4">
+        If you are a parent or guardian and become aware that your child has provided us with personal information without your consent, or has joined a team without your knowledge, please contact us using the contact information provided below.
       </p>
 
       <h2 className="text-2xl font-bold mt-6 mb-2">10. YOUR PRIVACY RIGHTS</h2>

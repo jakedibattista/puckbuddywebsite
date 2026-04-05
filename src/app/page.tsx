@@ -295,10 +295,10 @@ export default function Home() {
             <ScrollAnimation direction="left">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl ring-1 ring-black/5">
                 <Image
-                  src="/coach-seth-point.png"
-                  alt="Coaches and kids learning hockey at a Puck Buddy Clinic."
-                  width={768}
-                  height={1133}
+                  src="/pb-booth.png"
+                  alt="Puck Buddy booth at a hockey clinic."
+                  width={1024}
+                  height={768}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -319,7 +319,7 @@ export default function Home() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
                   <a
-                    href="https://events.puckbuddy.ai"
+                    href="https://anc.apm.activecommunities.com/carolinaicepalace/activity/search/detail/10427?onlineSiteId=0&from_original_cui=true"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center rounded-full bg-blue-700 px-7 py-3.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-blue-800"

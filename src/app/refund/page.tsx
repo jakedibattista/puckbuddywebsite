@@ -35,7 +35,7 @@ export default function RefundPolicy() {
         You may actively choose to enroll in a recurring monthly subscription to access premium features through the App. The subscription terms are as follows:
       </p>
       <ul className="list-disc list-inside mb-4">
-        <li><strong>Subscription Fee:</strong> You will be charged $10.00 USD (plus any applicable taxes) on a monthly basis.</li>
+        <li><strong>Subscription Fee:</strong> You will be charged $8.99 USD (plus any applicable taxes) on a monthly basis.</li>
         <li><strong>Billing Cycle:</strong> Subscriptions automatically renew approximately every 30 days. You will be charged unless you cancel at least 24 hours before the end of the current period.</li>
         <li><strong>Payment Method:</strong> All subscription payments are managed and charged by Apple through the payment method associated with your Apple ID.</li>
       </ul>

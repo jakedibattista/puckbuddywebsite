@@ -288,55 +288,55 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Unique Features Section */}
+      {/* Clinics Section */}
       <section className="py-12 sm:py-16 lg:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <ScrollAnimation>
-              <div className="max-w-3xl mx-auto text-center mb-12">
-                <p className="text-sm sm:text-base font-semibold tracking-[0.28em] text-blue-700 uppercase mb-3">
-                  Why it works
-                </p>
-                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                  Built to create real improvement
-                </h2>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <ScrollAnimation direction="left">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl ring-1 ring-black/5">
+                <Image
+                  src="/coach-seth-point.png"
+                  alt="Coaches and kids learning hockey at a Puck Buddy Clinic."
+                  width={768}
+                  height={1133}
+                  className="w-full h-full object-cover"
+                />
               </div>
             </ScrollAnimation>
-            <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
-              {[
-                {
-                  title: "Multi-Agent AI Pipeline",
-                  desc: "A purpose-built pipeline that turns video into scorecards and coaching feedback with clear next steps.",
-                },
-                {
-                  title: "60-Second Turnaround",
-                  desc: "Quick feedback keeps players in the flow. Review, adjust, and take the next rep with intent.",
-                },
-                {
-                  title: "Multi-Shot Detection",
-                  desc: "Compare attempts over time and spot trends. Consistency is a skill you can actually track.",
-                },
-                {
-                  title: "Real-Time AI Coach Chat",
-                  desc: "Ask questions right after a rep and get guidance that’s tied to what your player just did.",
-                },
-                {
-                  title: "Safety Guardrails",
-                  desc: "Family-first guardrails so parents can feel confident about how the experience behaves.",
-                },
-                {
-                  title: "Built on Real Coaching Expertise",
-                  desc: "Grounded in real rink teaching, so feedback stays practical, not theoretical.",
-                },
-              ].map((feature, index) => (
-                <ScrollAnimation key={index} delay={index * 0.1}>
-                  <div className="group rounded-2xl border border-black/5 bg-gradient-to-br from-white to-gray-50 p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{feature.title}</h3>
-                    <p className="text-gray-700 leading-relaxed">{feature.desc}</p>
-                  </div>
-                </ScrollAnimation>
-              ))}
-            </div>
+            <ScrollAnimation direction="right">
+              <div className="space-y-6">
+                <div>
+                  <p className="text-sm sm:text-base font-semibold tracking-[0.28em] text-blue-700 uppercase mb-3">
+                    Puck Buddy Clinics
+                  </p>
+                  <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+                    Bring the power of AI to your clinic
+                  </h2>
+                </div>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  We partner with coaches and events to run Puck Buddy shooting and stride clinics,
+                  teaching players and coaches how to use AI in practice to drive real improvement.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                  <a
+                    href="https://events.puckbuddy.ai"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center rounded-full bg-blue-700 px-7 py-3.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-blue-800"
+                  >
+                    Join our next clinic
+                  </a>
+                  <a
+                    href="https://calendly.com/jake-buddyllc/30min"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center rounded-full border border-gray-200 bg-white px-7 py-3.5 text-sm font-semibold text-gray-900 shadow-sm transition-all hover:bg-gray-50"
+                  >
+                    Contact the team
+                  </a>
+                </div>
+              </div>
+            </ScrollAnimation>
           </div>
         </div>
       </section>
@@ -374,7 +374,7 @@ export default function Home() {
                     </h3>
                     <p className="text-gray-600 mb-4">Monthly subscription</p>
                     <div className="text-4xl font-bold text-gray-900 mb-2">
-                      $5.99
+                      $8.99
                     </div>
                     <p className="text-sm text-gray-500">per month</p>
                   </div>
@@ -395,14 +395,14 @@ export default function Home() {
                     <p className="text-gray-600 mb-2">Annual subscription</p>
                     <div className="mb-2">
                       <span className="inline-block bg-yellow-400 text-gray-900 text-sm font-bold px-3 py-1 rounded-full mb-2">
-                        SAVE 30%
+                        SAVE 25%
                       </span>
                     </div>
                     <div className="text-4xl font-bold text-gray-900 mb-2">
-                      $49.99
+                      $79.99
                     </div>
                     <p className="text-gray-500 text-sm">
-                      Just $4.17/mo
+                      Just $6.67/mo
                     </p>
                   </div>
                 </a>

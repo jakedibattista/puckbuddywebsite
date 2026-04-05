@@ -310,12 +310,13 @@ export default function Home() {
                     Puck Buddy Clinics
                   </p>
                   <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-                    Bring the power of AI to your clinic
+                    Bring the power of AI to your rink
                   </h2>
                 </div>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  We partner with coaches and events to run Puck Buddy shooting and stride clinics,
-                  teaching players and coaches how to use AI in practice to drive real improvement.
+                  We host Puck Buddy shooting and stride clinics at rinks and events, 
+                  helping players and coaches turn every rep into measurable progress 
+                  using the same AI tools the pros use.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
                   <a

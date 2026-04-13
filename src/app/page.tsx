@@ -63,18 +63,21 @@ export default function Home() {
             >
               <a
                 href="#video"
-                className="mb-5 inline-flex h-[56px] w-[220px] items-center justify-center rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white/90 backdrop-blur transition-all hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070A12] sm:mb-6 sm:h-[60px] sm:w-[240px]"
+                className="relative z-20 mb-5 inline-flex h-[56px] w-[220px] items-center justify-center rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white/90 backdrop-blur transition-all hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070A12] sm:mb-6 sm:h-[60px] sm:w-[240px]"
               >
                 Watch the demo
                 <span className="ml-2 text-white/60">→</span>
               </a>
-              <div className="absolute -inset-6 rounded-[2.25rem] bg-gradient-to-br from-blue-500/10 via-white/0 to-emerald-400/10 blur-2xl" />
+              <div
+                aria-hidden
+                className="pointer-events-none absolute -inset-6 rounded-[2.25rem] bg-gradient-to-br from-blue-500/10 via-white/0 to-emerald-400/10 blur-2xl"
+              />
               <div className="relative z-10 w-full overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-[0_30px_90px_rgba(0,0,0,0.45)] backdrop-blur">
                 <div className="p-3 sm:p-4">
                   <HeroVideoCarousel />
                 </div>
               </div>
-              <div className="mt-5 flex flex-col items-center justify-center gap-4 sm:mt-6 sm:flex-row">
+              <div className="relative z-20 mt-5 flex flex-col items-center justify-center gap-4 sm:mt-6 sm:flex-row">
                 <a
                   href="https://apps.apple.com/us/app/puck-buddy/id6752230304"
                   target="_blank"

@@ -91,7 +91,12 @@ export default function Home() {
                     priority
                   />
                 </a>
-                <div className="relative inline-flex h-[54px] w-[180px] items-center justify-center overflow-hidden rounded-[10px] border border-white/20 bg-black shadow-[0_6px_18px_rgba(0,0,0,0.25)] sm:h-[60px] sm:w-[200px]">
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.buddyllc.puckbuddyandroid&hl=en_US"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-[54px] w-[180px] items-center justify-center overflow-hidden rounded-[10px] border border-white/20 bg-black shadow-[0_6px_18px_rgba(0,0,0,0.25)] transition-transform hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070A12] sm:h-[60px] sm:w-[200px]"
+                >
                   <div className="flex items-center gap-2 px-3 sm:px-4">
                     <svg className="h-7 w-7 flex-shrink-0" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                       <path d="M3 2.6a1 1 0 0 1 1.5-.86l10.74 6.14L12.2 10.9 3 2.6Z" fill="#34A853" />
@@ -108,12 +113,7 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                  <div className="absolute inset-0 flex items-center justify-center bg-slate-900/58 backdrop-blur-[2px]">
-                    <span className="rounded-full border border-white/20 bg-black/35 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-white/90">
-                      Coming soon
-                    </span>
-                  </div>
-                </div>
+                </a>
               </div>
             </motion.div>
           </div>
@@ -474,7 +474,12 @@ export default function Home() {
                     unoptimized
                   />
                 </a>
-                <div className="relative inline-flex h-[54px] w-[180px] items-center justify-center overflow-hidden rounded-[10px] border border-white/20 bg-black shadow-[0_6px_18px_rgba(0,0,0,0.25)] sm:h-[60px] sm:w-[200px]">
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.buddyllc.puckbuddyandroid&hl=en_US"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-[54px] w-[180px] items-center justify-center overflow-hidden rounded-[10px] border border-white/20 bg-black shadow-[0_6px_18px_rgba(0,0,0,0.25)] transition-transform hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070A12] sm:h-[60px] sm:w-[200px]"
+                >
                   <div className="flex items-center gap-2 px-3 sm:px-4">
                     <svg className="h-7 w-7 flex-shrink-0" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                       <path d="M3 2.6a1 1 0 0 1 1.5-.86l10.74 6.14L12.2 10.9 3 2.6Z" fill="#34A853" />
@@ -491,12 +496,7 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                  <div className="absolute inset-0 flex items-center justify-center bg-slate-900/58 backdrop-blur-[2px]">
-                    <span className="rounded-full border border-white/20 bg-black/35 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-white/90">
-                      Coming soon
-                    </span>
-                  </div>
-                </div>
+                </a>
               </div>
             </ScrollAnimation>
         </div>

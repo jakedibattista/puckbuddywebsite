@@ -4,9 +4,11 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { useAppStoreUrl } from "../hooks/useAppStoreUrl";
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const storeUrl = useAppStoreUrl();
 
   const navLinks = [
     { href: "/", label: "Puck Buddy", id: "puck-buddy" },
@@ -47,7 +49,7 @@ export default function Navigation() {
             ))}
 
             <a
-              href="https://apps.apple.com/us/app/puck-buddy/id6752230304"
+              href={storeUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-full bg-gray-900 px-5 py-2 text-sm font-semibold text-white shadow-sm transition-all hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
@@ -115,7 +117,7 @@ export default function Navigation() {
                 ))}
 
                 <a
-                  href="https://apps.apple.com/us/app/puck-buddy/id6752230304"
+                  href={storeUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mx-3 mt-2 inline-flex items-center justify-center rounded-full bg-gray-900 px-5 py-3 text-sm font-semibold text-white shadow-sm transition-all hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"

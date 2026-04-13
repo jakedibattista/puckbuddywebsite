@@ -2,10 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { useAppStoreUrl } from "../hooks/useAppStoreUrl";
 
 export default function MobileStickyCTA() {
   const [isVisible, setIsVisible] = useState(false);
   const shouldReduceMotion = useReducedMotion();
+  const storeUrl = useAppStoreUrl();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,7 +31,7 @@ export default function MobileStickyCTA() {
         >
           <div className="border-t border-black/10 bg-white/80 backdrop-blur-xl supports-[backdrop-filter]:bg-white/70 px-4 py-3 shadow-[0_-4px_24px_rgba(0,0,0,0.08)]">
             <a
-              href="https://apps.apple.com/us/app/puck-buddy/id6752230304"
+              href={storeUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center rounded-xl bg-gray-900 px-4 py-2.5 transition-all active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"

@@ -9,36 +9,37 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Puck Buddy - Your AI Hockey Coach",
-  description: "Get AI-powered video analysis to perfect your shot. Your personal AI shooting coach for hockey players of all levels.",
-  // Used to resolve relative OpenGraph/Twitter URLs (set NEXT_PUBLIC_SITE_URL in Vercel).
+  title: "Buddy Tech — Computer Vision & AI Agents for Sports",
+  description:
+    "Buddy Tech builds custom computer vision models and AI agents for any sport. Modern, affordable tools to coach, scout, and watch games — used by Puck Buddy (hockey) and Lax Buddy (lacrosse).",
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://buddyllc.app"),
   icons: {
     icon: [
       { url: "/favicon-16.png", sizes: "16x16", type: "image/png" },
       { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
-      // Keep SVG as a fallback for browsers that support it well.
       { url: "/BlackLogo.svg", type: "image/svg+xml" },
     ],
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   openGraph: {
-    title: "Puck Buddy - Your AI Hockey Coach",
-    description: "Get AI-powered video analysis to perfect your shot. Your personal AI shooting coach for hockey players of all levels.",
+    title: "Buddy Tech — Computer Vision & AI Agents for Sports",
+    description:
+      "Custom computer vision models and AI agents, built for any sport. Coach, scout, and watch games with the same tools the pros use.",
     images: [
       {
         url: "/og-image-white.png",
         width: 313,
         height: 313,
-        alt: "Puck Buddy - Your AI Hockey Coach",
+        alt: "Buddy Tech — Computer Vision & AI Agents for Sports",
       },
     ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Puck Buddy - Your AI Hockey Coach",
-    description: "Get AI-powered video analysis to perfect your shot. Your personal AI shooting coach for hockey players of all levels.",
+    title: "Buddy Tech — Computer Vision & AI Agents for Sports",
+    description:
+      "Custom computer vision models and AI agents, built for any sport. Coach, scout, and watch games with the same tools the pros use.",
     images: ["/og-image-white.png"],
   },
 };

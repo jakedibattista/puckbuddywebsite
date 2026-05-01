@@ -331,12 +331,12 @@ export default function PuckBuddyPage() {
                     Join our next clinic
                   </a>
                   <a
-                    href="https://calendly.com/jake-buddyllc/30min"
+                    href="https://puck-buddy-merch.myshopify.com/collections/puck-buddy-clinics"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center rounded-full border border-gray-200 bg-white px-7 py-3.5 text-sm font-semibold text-gray-900 shadow-sm transition-all hover:bg-gray-50"
                   >
-                    Contact the team
+                    See all clinics
                   </a>
                 </div>
               </div>

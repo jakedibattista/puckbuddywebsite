@@ -328,7 +328,7 @@ export default function PuckBuddyPage() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center rounded-full bg-blue-700 px-7 py-3.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-blue-800"
                   >
-                    Join our next clinic
+                    Join our summer camp
                   </a>
                   <a
                     href="https://puck-buddy-merch.myshopify.com/collections/puck-buddy-clinics"

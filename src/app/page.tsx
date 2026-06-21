@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Instrument_Serif } from "next/font/google";
 import ScrollAnimation from "./components/ScrollAnimation";
+import MobileStickyCTA from "./components/MobileStickyCTA";
+import HomeHeroVisual from "./components/HomeHeroVisual";
 
 const editorialSerif = Instrument_Serif({
   subsets: ["latin"],
@@ -15,9 +17,9 @@ const editorialSerif = Instrument_Serif({
 });
 
 const ROTATING_PHRASES = [
-  "But how we practice, train, and compete hasn't.",
+  "Upload a video. Get AI coaching feedback in about a minute.",
   "The pros have used computer vision for over a decade.",
-  "Now you can too.",
+  "Now any player with a phone can too.",
 ];
 
 const PHRASE_INTERVAL_MS = 3500;
@@ -36,6 +38,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-white">
+      <MobileStickyCTA scrollThreshold={480} />
       {/* ───────────────────────── Hero ───────────────────────── */}
       <section className="relative overflow-hidden bg-[radial-gradient(1200px_circle_at_20%_10%,rgba(37,99,235,0.30),transparent_55%),radial-gradient(900px_circle_at_80%_0%,rgba(34,197,94,0.20),transparent_55%),linear-gradient(to_bottom_right,#070A12,#0B1220,#070A12)] text-white py-24 sm:py-32 lg:py-40">
         <div
@@ -49,7 +52,8 @@ export default function Home() {
         />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-5xl text-center">
+          <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1fr_minmax(280px,400px)] lg:gap-16 xl:grid-cols-2">
+            <div className="text-center lg:text-left">
             <motion.p
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
@@ -63,15 +67,13 @@ export default function Home() {
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.6, delay: 0.05, ease: [0.21, 1.11, 0.81, 0.99] }}
-              className="text-5xl font-bold leading-[1.02] tracking-[-0.035em] sm:text-6xl md:text-7xl lg:text-[5.5rem]"
+              className="text-5xl font-bold leading-[1.02] tracking-[-0.035em] text-balance sm:text-6xl md:text-7xl lg:text-[4.25rem] xl:text-[5.5rem]"
             >
-              The business of youth sports is{" "}
-              <span className="bg-gradient-to-r from-white via-blue-100 to-emerald-100 bg-clip-text text-transparent">
-                rapidly changing.
-              </span>
+              AI coaching for youth sports,{" "}
+              <span className="text-emerald-200">from your phone.</span>
             </motion.h1>
 
-            <div className={`${editorialSerif.className} mt-10 flex h-[5rem] items-start justify-center sm:mt-12 sm:h-[5.5rem] md:h-[6rem]`}>
+            <div className={`${editorialSerif.className} mt-10 flex h-[5rem] items-start justify-center lg:justify-start sm:mt-12 sm:h-[5.5rem] md:h-[6rem]`}>
               <AnimatePresence mode="wait">
                 <motion.p
                   key={phraseIndex}
@@ -79,13 +81,50 @@ export default function Home() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: -14 }}
                   transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.55, ease: [0.21, 1.11, 0.81, 0.99] }}
-                  className="text-2xl italic leading-snug text-white/80 sm:text-3xl md:text-4xl"
+                  className="text-2xl italic leading-snug text-white/80 text-balance sm:text-3xl md:text-4xl lg:text-3xl xl:text-4xl"
                 >
                   {ROTATING_PHRASES[phraseIndex]}
                 </motion.p>
               </AnimatePresence>
             </div>
 
+            <motion.div
+              initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.55, delay: 0.18, ease: [0.21, 1.11, 0.81, 0.99] }}
+              className="mt-10 flex flex-col items-center justify-center gap-4 sm:mt-12 sm:flex-row lg:justify-start"
+            >
+              <Link
+                href="/puckbuddy"
+                className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-gray-900 shadow-sm transition-all hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070A12]"
+              >
+                Meet Puck Buddy
+              </Link>
+              <Link
+                href="/lacrosse"
+                className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-8 py-3.5 text-sm font-semibold text-white/90 backdrop-blur transition-all hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070A12]"
+              >
+                Explore Lax Buddy
+              </Link>
+            </motion.div>
+
+            <motion.p
+              initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.5, delay: 0.28 }}
+              className="mt-6 text-sm text-white/55"
+            >
+              Coaches and orgs —{" "}
+              <Link
+                href="/partner"
+                className="font-medium text-white/80 underline underline-offset-2 transition-colors hover:text-white"
+              >
+                partner with us
+              </Link>
+            </motion.p>
+            </div>
+
+            <HomeHeroVisual />
           </div>
         </div>
       </section>
@@ -95,9 +134,6 @@ export default function Home() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
             <ScrollAnimation>
-              <p className="mb-6 text-xs font-semibold uppercase tracking-[0.32em] text-blue-700 sm:text-sm">
-                Why now
-              </p>
               <h2 className="text-3xl font-bold leading-[1.08] tracking-[-0.03em] text-gray-900 sm:text-4xl md:text-5xl lg:text-[2.75rem]">
                 With AI, any phone now has the power to become a{" "}
                 <span className={`${editorialSerif.className} font-normal italic text-gray-500`}>
@@ -132,9 +168,6 @@ export default function Home() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollAnimation>
             <div className="mx-auto max-w-3xl text-center">
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.32em] text-white/60 sm:text-sm">
-                What we&apos;re building
-              </p>
               <h2 className="text-4xl font-bold leading-[1.05] tracking-[-0.03em] sm:text-5xl md:text-6xl">
                 Custom models and agents,{" "}
                 <span className={`${editorialSerif.className} font-normal italic text-white/70`}>

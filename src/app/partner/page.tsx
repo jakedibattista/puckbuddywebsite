@@ -192,9 +192,7 @@ export default function PartnerPage() {
             className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.05] tracking-tight max-w-4xl mx-auto"
           >
             Bring AI coaching to{" "}
-            <span className="bg-gradient-to-r from-blue-300 via-indigo-200 to-purple-200 bg-clip-text text-transparent">
-              your platform or program
-            </span>
+            <span className="text-blue-200">your platform or program</span>
           </motion.h1>
 
           <motion.p
@@ -215,7 +213,7 @@ export default function PartnerPage() {
           >
             <a
               href="#offerings"
-              className="inline-flex items-center justify-center rounded-full bg-white text-gray-900 px-7 py-3 text-sm font-semibold shadow-sm transition-all hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+              className="inline-flex items-center justify-center rounded-full bg-white text-gray-900 px-7 py-3 text-sm font-semibold shadow-sm transition-all hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
             >
               See our offerings
             </a>

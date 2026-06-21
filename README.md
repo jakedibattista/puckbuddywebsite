@@ -20,7 +20,7 @@ You can start editing the homepage in `src/app/page.tsx`. The page auto-updates 
 
 ## Environment variables (Vercel)
 
-- `NEXT_PUBLIC_SITE_URL`: canonical site URL (e.g. `https://buddyllc.app`). Used for correct OpenGraph/Twitter URL resolution.
+- `NEXT_PUBLIC_SITE_URL`: canonical site URL (e.g. `https://buddysports.app`). Used for correct OpenGraph/Twitter URL resolution.
 
 ## Asset hygiene (what images are actually used?)
 

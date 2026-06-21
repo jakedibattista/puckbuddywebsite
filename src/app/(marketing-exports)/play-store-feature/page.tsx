@@ -8,10 +8,10 @@ export default function PlayStoreFeature() {
       <div 
         id="feature-graphic"
         className="relative overflow-hidden shrink-0"
-        style={{ width: "1024px", height: "500px", backgroundColor: "#0f172a" }}
+        style={{ width: "1024px", height: "500px", backgroundColor: "#0b1220" }}
       >
         {/* Background gradient & glows */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1e293b] to-[#0f172a]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0b1220] to-[#0b1220]" />
         <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[120%] bg-blue-500/20 blur-[100px] rounded-full mix-blend-screen" />
         <div className="absolute bottom-[-20%] right-[-10%] w-[60%] h-[120%] bg-emerald-500/20 blur-[100px] rounded-full mix-blend-screen" />
 
@@ -26,8 +26,8 @@ export default function PlayStoreFeature() {
               unoptimized
             />
             {/* Fade left edge into the background */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a] via-[#0f172a]/50 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-[#0f172a]/30" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0b1220] via-[#0b1220]/50 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0b1220] via-transparent to-[#0b1220]/30" />
           </div>
         </div>
 
@@ -37,7 +37,7 @@ export default function PlayStoreFeature() {
             <h1 className="text-[5rem] leading-[0.9] font-black text-white italic tracking-tighter uppercase drop-shadow-2xl mb-4">
               PUCK BUDDY.
             </h1>
-            <p className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400 uppercase tracking-widest drop-shadow-md mb-8">
+            <p className="text-3xl font-bold text-emerald-300 uppercase tracking-widest drop-shadow-md mb-8">
               Your AI Hockey Coach
             </p>
             

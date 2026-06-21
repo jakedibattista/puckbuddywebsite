@@ -8,8 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "assets:audit": "node scripts/audit-public-assets.mjs",
-    "assets:audit:fail": "node scripts/audit-public-assets.mjs --fail-on-unused"
-    ,
+    "assets:audit:fail": "node scripts/audit-public-assets.mjs --fail-on-unused",
     "assets:audit:runtime": "node scripts/audit-public-assets.mjs --scope=runtime",
     "assets:audit:scripts": "node scripts/audit-public-assets.mjs --scope=scripts"
   },
@@ -17,6 +16,7 @@
     "@vercel/analytics": "^1.6.1",
     "@vercel/speed-insights": "^1.2.0",
     "framer-motion": "^12.23.24",
+    "geist": "^1.7.2",
     "next": "15.5.7",
     "react": "19.2.1",
     "react-dom": "19.2.1"

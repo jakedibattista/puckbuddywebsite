@@ -38,9 +38,7 @@ export default function DemoPage() {
               className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight mb-6"
             >
               Puck Buddy:{" "}
-              <span className="bg-gradient-to-r from-white via-blue-100 to-emerald-100 bg-clip-text text-transparent">
-                AI video coaching
-              </span>{" "}
+              <span className="text-emerald-200">AI video coaching</span>{" "}
               for youth hockey.
             </motion.h1>
 

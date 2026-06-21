@@ -49,7 +49,7 @@ body {
 .glass {
   background: color-mix(in oklab, white 78%, transparent);
   border: 1px solid color-mix(in oklab, black 6%, transparent);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 10px 30px color-mix(in oklab, var(--foreground) 6%, transparent);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }

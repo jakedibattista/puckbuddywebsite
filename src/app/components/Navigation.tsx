@@ -13,6 +13,13 @@ type NavLink = {
   submenu?: { href: string; label: string }[];
 };
 
+function getBadgeClassName(badge: string) {
+  if (badge === "New") {
+    return "ml-2 text-xs px-2 py-0.5 rounded-full font-semibold bg-green-100 text-green-800";
+  }
+  return "ml-2 text-xs px-2 py-0.5 rounded-full font-semibold bg-gray-100 text-gray-600";
+}
+
 const navLinks: NavLink[] = [
   {
     id: "puck-buddy",
@@ -90,7 +97,7 @@ export default function Navigation() {
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
                   {link.badge && (
                     <span
-                      className={`ml-2 text-xs px-2 py-0.5 rounded-full font-semibold ${link.badge === "New" ? "bg-green-100 text-green-700" : "bg-gray-100 text-gray-500"}`}
+                      className={getBadgeClassName(link.badge)}
                     >
                       {link.badge}
                     </span>
@@ -151,7 +158,7 @@ export default function Navigation() {
                       {link.label}
                       {link.badge && (
                         <span
-                          className={`ml-2 text-xs px-2 py-0.5 rounded-full font-semibold ${link.badge === "New" ? "bg-green-100 text-green-700" : "bg-gray-100 text-gray-500"}`}
+                          className={getBadgeClassName(link.badge)}
                         >
                           {link.badge}
                         </span>

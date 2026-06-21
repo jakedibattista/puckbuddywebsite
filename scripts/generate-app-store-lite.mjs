@@ -32,16 +32,21 @@ const IPAD_CONFIG = {
   textColor: "#FFFFFF",
 };
 
-// Image mappings using v1.5 white screenshots
+function publicImage(file, cropTop = 140) {
+  return { srcPath: path.join(publicDir, file), cropTop };
+}
+
+// Image mappings. New 1.9 screenshots already start below the device status bar,
+// so they should not use the legacy top crop.
 const IMAGES = {
-  home: "homewhite1.5.png",
-  scorecard: "jan-lite-scorecard.png",
-  feedback: "jan-lite-feedback.png",
-  chat: "jan-lite-chat.png",
-  stats: "statswhite1.5.png",
-  journal: "journalwhite1.5.png",
-  select: "jan-lite-select.png",
-  challenge: "scoreboardwhite1.5.png",
+  home: publicImage("home1.9.png", 0),
+  scorecard: publicImage("scorecard1.9.png", 0),
+  feedback: publicImage("v2-coach-feedback.png"),
+  chat: publicImage("v2-chat.png"),
+  stats: publicImage("stats1.5.png"),
+  journal: publicImage("journal1.9.png", 0),
+  select: publicImage("v2-select-coach.png"),
+  challenge: publicImage("scoreboard1.9.png", 0),
 };
 
 
@@ -141,15 +146,16 @@ function createRoundedMask(width, height, radius) {
 // ============================================
 
 async function preparePhone(filePath, targetHeight, config) {
-  const srcPath = path.join(publicDir, filePath);
+  const { srcPath, cropTop } =
+    typeof filePath === "string" ? publicImage(filePath) : filePath;
   const screenshot = sharp(srcPath);
   const meta = await screenshot.metadata();
   
-  // Crop status bar (140px from original)
-  const cropAmount = 140;
-  const croppedBuffer = await screenshot
-    .extract({ left: 0, top: cropAmount, width: meta.width, height: meta.height - cropAmount })
-    .toBuffer();
+  const croppedBuffer = cropTop > 0
+    ? await screenshot
+      .extract({ left: 0, top: cropTop, width: meta.width, height: meta.height - cropTop })
+      .toBuffer()
+    : await screenshot.toBuffer();
     
   // Resize to target height
   const resizedBuffer = await sharp(croppedBuffer)

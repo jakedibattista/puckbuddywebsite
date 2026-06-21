@@ -1,7 +1,12 @@
 "use client";
 
 import ScrollAnimation from "../components/ScrollAnimation";
+import MobileStickyCTA from "../components/MobileStickyCTA";
+import ExternalProductLink from "../components/ExternalProductLink";
 import { motion, useReducedMotion } from "framer-motion";
+
+const LAX_BUDDY_URL = "https://lax-buddy-358616086489.us-east1.run.app/";
+const SCOUT_URL = "https://scout-three-peach.vercel.app/";
 
 export default function LacrossePage() {
   const shouldReduceMotion = useReducedMotion();
@@ -13,8 +18,9 @@ export default function LacrossePage() {
       tagline: "Goalie AI Coach",
       description:
         "Upload your goalie footage and get instant AI-powered mechanics analysis. Lax Buddy breaks down your form, tracks your reps, and delivers actionable feedback, like a goalie coach on demand.",
-      href: "https://lax-buddy-358616086489.us-east1.run.app/",
-      ctaLabel: "Try Lax Buddy →",
+      href: LAX_BUDDY_URL,
+      ctaLabel: "Try Lax Buddy",
+      badge: "Beta",
       accent: "from-green-500/20 via-emerald-400/10 to-transparent",
       ring: "ring-green-400/20",
       features: [
@@ -30,8 +36,9 @@ export default function LacrossePage() {
       tagline: "Modern Scouting Platform",
       description:
         "Two workflows, one platform. Athletes build a living profile with AI scouting reports. Scouts run natural language searches to find hidden talent fast. No spreadsheets, no guesswork.",
-      href: "https://scout-three-peach.vercel.app/",
-      ctaLabel: "Try Scout →",
+      href: SCOUT_URL,
+      ctaLabel: "Try Scout",
+      badge: "Beta",
       accent: "from-blue-500/20 via-indigo-400/10 to-transparent",
       ring: "ring-blue-400/20",
       features: [
@@ -45,6 +52,12 @@ export default function LacrossePage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <MobileStickyCTA
+        href={LAX_BUDDY_URL}
+        label="Try Lax Buddy"
+        external
+        scrollThreshold={480}
+      />
       {/* Hero */}
       <section className="relative overflow-hidden bg-[radial-gradient(1200px_circle_at_20%_10%,rgba(16,185,129,0.28),transparent_55%),radial-gradient(900px_circle_at_80%_0%,rgba(37,99,235,0.18),transparent_55%),linear-gradient(to_bottom_right,#070A12,#0B1220,#070A12)] text-white py-20 sm:py-24 lg:py-32">
         <div
@@ -65,9 +78,7 @@ export default function LacrossePage() {
             className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.05] tracking-tight max-w-4xl mx-auto"
           >
             AI coaching for{" "}
-            <span className="bg-gradient-to-r from-green-300 via-emerald-200 to-blue-200 bg-clip-text text-transparent">
-              lacrosse players & scouts
-            </span>
+            <span className="text-emerald-200">lacrosse players & scouts</span>
           </motion.h1>
 
           <motion.p
@@ -80,17 +91,36 @@ export default function LacrossePage() {
             that understand goalie mechanics, count reps, and evaluate athletes at a level
             that wasn&apos;t possible even two years ago. This is what that looks like in practice.
           </motion.p>
+
+          <motion.div
+            initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.55, delay: 0.2, ease: [0.21, 1.11, 0.81, 0.99] }}
+            className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
+          >
+            <ExternalProductLink
+              href={LAX_BUDDY_URL}
+              className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-8 py-3.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-emerald-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070A12]"
+              suffix="Beta web app · Opens in new tab"
+              suffixClassName="text-white/50"
+            >
+              Try Lax Buddy
+            </ExternalProductLink>
+            <a
+              href="#products"
+              className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-8 py-3.5 text-sm font-semibold text-white/90 backdrop-blur transition-all hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070A12]"
+            >
+              See both products
+            </a>
+          </motion.div>
         </div>
       </section>
 
       {/* Products */}
-      <section className="py-16 sm:py-20 lg:py-28 bg-white">
+      <section id="products" className="scroll-mt-24 py-16 sm:py-20 lg:py-28 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollAnimation>
             <div className="max-w-3xl mx-auto text-center mb-14">
-              <p className="text-sm sm:text-base font-semibold tracking-[0.28em] text-green-700 uppercase mb-3">
-                Examples of Our Work
-              </p>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
                 Computer vision, applied.
               </h2>
@@ -108,7 +138,12 @@ export default function LacrossePage() {
                   <div className={`absolute -inset-px rounded-3xl bg-gradient-to-br ${product.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />
 
                   <div className="relative">
-                    <h2 className="text-3xl font-bold text-gray-900">{product.name}</h2>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <h2 className="text-3xl font-bold text-gray-900">{product.name}</h2>
+                      <span className="rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-semibold text-green-800">
+                        {product.badge}
+                      </span>
+                    </div>
                     <p className="text-sm font-semibold text-gray-500 mt-1 mb-4 tracking-wide uppercase">
                       {product.tagline}
                     </p>
@@ -123,14 +158,12 @@ export default function LacrossePage() {
                       ))}
                     </ul>
 
-                    <a
+                    <ExternalProductLink
                       href={product.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
                       className="mt-auto inline-flex items-center justify-center rounded-full bg-gray-900 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all hover:bg-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
                     >
                       {product.ctaLabel}
-                    </a>
+                    </ExternalProductLink>
                   </div>
                 </div>
               </ScrollAnimation>
@@ -144,9 +177,6 @@ export default function LacrossePage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollAnimation>
             <div className="max-w-3xl mx-auto text-center mb-12">
-              <p className="text-sm sm:text-base font-semibold tracking-[0.28em] text-green-700 uppercase mb-3">
-                See it in action
-              </p>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
                 Watch the Scout demo
               </h2>
@@ -180,9 +210,6 @@ export default function LacrossePage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollAnimation>
             <div className="max-w-3xl mx-auto text-center mb-16">
-              <p className="text-sm sm:text-base font-semibold tracking-[0.28em] text-green-700 uppercase mb-3">
-                Under the hood
-              </p>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
                 Powered by AI, built for the field
               </h2>
@@ -245,9 +272,6 @@ export default function LacrossePage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <ScrollAnimation>
-              <p className="text-sm sm:text-base font-semibold tracking-[0.28em] text-white/70 uppercase mb-3">
-                Get started
-              </p>
               <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
                 Try our lacrosse tools today.
               </h2>
@@ -257,22 +281,22 @@ export default function LacrossePage() {
             </ScrollAnimation>
             <ScrollAnimation delay={0.1}>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a
-                  href="https://lax-buddy-358616086489.us-east1.run.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <ExternalProductLink
+                  href={LAX_BUDDY_URL}
                   className="inline-flex items-center justify-center rounded-full bg-green-500 px-8 py-3.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-green-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070A12]"
+                  suffix="Beta web app · Opens in new tab"
+                  suffixClassName="text-white/50"
                 >
-                  Try Lax Buddy: Your AI Goalie Evaluator
-                </a>
-                <a
-                  href="https://scout-three-peach.vercel.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  Try Lax Buddy
+                </ExternalProductLink>
+                <ExternalProductLink
+                  href={SCOUT_URL}
                   className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-8 py-3.5 text-sm font-semibold text-white/90 backdrop-blur transition-all hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070A12]"
+                  suffix="Beta web app · Opens in new tab"
+                  suffixClassName="text-white/50"
                 >
-                  Explore Scout →
-                </a>
+                  Explore Scout
+                </ExternalProductLink>
               </div>
             </ScrollAnimation>
           </div>

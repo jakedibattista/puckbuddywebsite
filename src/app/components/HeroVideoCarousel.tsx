@@ -1,28 +1,54 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
+import Image from "next/image";
+import { useReducedMotion } from "framer-motion";
 
 const VIDEOS = [
-  { src: "/scorecard header.mp4", alt: "Scorecard feature showcase" },
-  { src: "/coach header.mp4", alt: "Coach feedback feature showcase" },
-  { src: "/past header.mp4", alt: "Past shots history feature showcase" },
-  { src: "/chat header.mp4", alt: "AI chat feature showcase" },
-];
+  {
+    src: "/scorecard header.mp4",
+    alt: "Scorecard feature showcase",
+    poster: "/v2-scorecard.png",
+  },
+  {
+    src: "/coach header.mp4",
+    alt: "Coach feedback feature showcase",
+    poster: "/v2-coach-feedback.png",
+  },
+  {
+    src: "/past header.mp4",
+    alt: "Past shots history feature showcase",
+    poster: "/journal1.5.png",
+  },
+  {
+    src: "/chat header.mp4",
+    alt: "AI chat feature showcase",
+    poster: "/v2-chat.png",
+  },
+] as const;
 
 export default function HeroVideoCarousel() {
+  const shouldReduceMotion = useReducedMotion();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const goToNext = useCallback(() => {
+  const goToIndex = useCallback((index: number) => {
+    if (index === currentIndex) return;
     setIsTransitioning(true);
     setTimeout(() => {
-      setCurrentIndex((prev) => (prev + 1) % VIDEOS.length);
+      setCurrentIndex(index);
       setIsTransitioning(false);
     }, 300);
-  }, []);
+  }, [currentIndex]);
+
+  const goToNext = useCallback(() => {
+    goToIndex((currentIndex + 1) % VIDEOS.length);
+  }, [currentIndex, goToIndex]);
 
   useEffect(() => {
+    if (shouldReduceMotion) return;
+
     const video = videoRef.current;
     if (!video) return;
 
@@ -32,26 +58,47 @@ export default function HeroVideoCarousel() {
 
     video.addEventListener("ended", handleEnded);
     return () => video.removeEventListener("ended", handleEnded);
-  }, [currentIndex, goToNext]);
+  }, [currentIndex, goToNext, shouldReduceMotion]);
 
-  // Reset video when index changes
   useEffect(() => {
+    if (shouldReduceMotion) return;
+
     const video = videoRef.current;
-    if (video) {
-      video.load();
-      video.play().catch(() => {
-        // Autoplay may be blocked, that's okay
-      });
-    }
-  }, [currentIndex]);
+    if (!video) return;
+
+    video.load();
+    video.play().catch(() => {
+      // Autoplay may be blocked
+    });
+  }, [currentIndex, shouldReduceMotion]);
+
+  const current = VIDEOS[currentIndex];
+
+  if (shouldReduceMotion) {
+    return (
+      <div className="relative aspect-[1170/2228] overflow-hidden rounded-[1.5rem] bg-gray-900">
+        <Image
+          src={current.poster}
+          alt={current.alt}
+          fill
+          className="object-cover object-bottom"
+          sizes="(min-width: 768px) 430px, 90vw"
+          priority
+        />
+      </div>
+    );
+  }
 
   return (
-    <div className="relative aspect-[1170/2228] overflow-hidden rounded-[1.5rem] bg-gray-900">
-      {/* Shift the video upward by aligning it to the bottom of a shorter container, so the top app chrome stays out of frame. */}
+    <div
+      className="relative aspect-[1170/2228] overflow-hidden rounded-[1.5rem] bg-gray-900"
+      aria-roledescription="carousel"
+      aria-label="Puck Buddy app feature previews"
+    >
       <video
         ref={videoRef}
-        key={VIDEOS[currentIndex].src}
-        className={`absolute inset-0 w-full h-full transition-opacity duration-300 ${
+        key={current.src}
+        className={`absolute inset-0 h-full w-full transition-opacity duration-300 ${
           isTransitioning ? "opacity-0" : "opacity-100"
         }`}
         style={{
@@ -61,31 +108,34 @@ export default function HeroVideoCarousel() {
         autoPlay
         muted
         playsInline
-        preload="auto"
+        preload={currentIndex === 0 ? "auto" : "metadata"}
+        poster={current.poster}
+        aria-label={current.alt}
       >
-        <source src={VIDEOS[currentIndex].src} type="video/mp4" />
+        <source src={current.src} type="video/mp4" />
       </video>
-      
-      {/* Video indicator dots */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-        {VIDEOS.map((_, index) => (
+
+      <div
+        className="sr-only"
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        Showing {currentIndex + 1} of {VIDEOS.length}: {current.alt}
+      </div>
+
+      <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-2">
+        {VIDEOS.map((video, index) => (
           <button
-            key={index}
-            onClick={() => {
-              if (index !== currentIndex) {
-                setIsTransitioning(true);
-                setTimeout(() => {
-                  setCurrentIndex(index);
-                  setIsTransitioning(false);
-                }, 300);
-              }
-            }}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+            key={video.src}
+            type="button"
+            onClick={() => goToIndex(index)}
+            className={`h-2 rounded-full transition-all duration-300 ${
               index === currentIndex
-                ? "bg-white w-6"
-                : "bg-white/50 hover:bg-white/75"
+                ? "w-6 bg-white"
+                : "w-2 bg-white/50 hover:bg-white/75"
             }`}
-            aria-label={`Go to video ${index + 1}`}
+            aria-label={`Show ${video.alt}`}
+            aria-current={index === currentIndex ? "true" : undefined}
           />
         ))}
       </div>

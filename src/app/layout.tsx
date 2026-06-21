@@ -1,18 +1,17 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 import Link from "next/link";
 import Navigation from "./components/Navigation";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export const metadata: Metadata = {
   title: "Buddy Tech — Computer Vision & AI Agents for Sports",
   description:
     "Buddy Tech builds custom computer vision models and AI agents for any sport. Modern, affordable tools to coach, scout, and watch games — used by Puck Buddy (hockey) and Lax Buddy (lacrosse).",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://buddyllc.app"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://buddysports.app"),
   icons: {
     icon: [
       { url: "/favicon-16.png", sizes: "16x16", type: "image/png" },
@@ -25,14 +24,6 @@ export const metadata: Metadata = {
     title: "Buddy Tech — Computer Vision & AI Agents for Sports",
     description:
       "Custom computer vision models and AI agents, built for any sport. Coach, scout, and watch games with the same tools the pros use.",
-    images: [
-      {
-        url: "/og-image-white.png",
-        width: 313,
-        height: 313,
-        alt: "Buddy Tech — Computer Vision & AI Agents for Sports",
-      },
-    ],
     type: "website",
   },
   twitter: {
@@ -40,7 +31,6 @@ export const metadata: Metadata = {
     title: "Buddy Tech — Computer Vision & AI Agents for Sports",
     description:
       "Custom computer vision models and AI agents, built for any sport. Coach, scout, and watch games with the same tools the pros use.",
-    images: ["/og-image-white.png"],
   },
 };
 
@@ -55,14 +45,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <head>
         <link rel="icon" href="/pngtilted.png?v=4" type="image/png" sizes="32x32" />
         <link rel="icon" href="/pngtilted.png?v=4" type="image/png" sizes="16x16" />
         <link rel="icon" href="/pngtilted.png?v=4" type="image/png" sizes="any" />
         <link rel="apple-touch-icon" href="/pngtilted.png?v=4" sizes="180x180" />
       </head>
-      <body className={inter.className}>
+      <body className={`${GeistSans.className} font-sans antialiased`}>
         <div className="flex flex-col min-h-screen">
           <Navigation />
           <main className="flex-grow">{children}</main>
@@ -134,6 +124,58 @@ export default function RootLayout({
                     <path fillRule="evenodd" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" clipRule="evenodd" />
                   </svg>
                 </Link>
+              </div>
+
+              <div className="max-w-2xl mx-auto mb-8 text-left">
+                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/50 mb-4">
+                  Quick answers
+                </p>
+                <dl className="space-y-4 text-sm text-white/70">
+                  <div>
+                    <dt className="font-semibold text-white/90">
+                      <Link href="/puckbuddy#how-it-works" className="hover:text-white transition-colors">
+                        How does Puck Buddy analyze my shot?
+                      </Link>
+                    </dt>
+                    <dd className="mt-1">
+                      Upload a shooting video and our computer vision model breaks down your mechanics, scores key movements, and returns coaching feedback in about a minute.{" "}
+                      <Link href="/puckbuddy#how-it-works" className="underline underline-offset-2 hover:text-white">
+                        See how it works
+                      </Link>
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="font-semibold text-white/90">
+                      <Link href="/puckbuddy#get-app" className="hover:text-white transition-colors">
+                        What do I need to get started?
+                      </Link>
+                    </dt>
+                    <dd className="mt-1">
+                      A smartphone and a clear view of the player shooting. Film from the side or a slight angle so the full body and stick are visible.{" "}
+                      <Link href="/puckbuddy#get-app" className="underline underline-offset-2 hover:text-white">
+                        Get the app
+                      </Link>
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="font-semibold text-white/90">
+                      <Link href="/lacrosse" className="hover:text-white transition-colors">
+                        Is Puck Buddy only for hockey?
+                      </Link>
+                    </dt>
+                    <dd className="mt-1">
+                      Puck Buddy is built for hockey today. We&apos;re expanding to other sports — see{" "}
+                      <Link href="/lacrosse" className="underline underline-offset-2 hover:text-white">
+                        Lax Buddy
+                      </Link>{" "}
+                      and our{" "}
+                      <Link href="/partner" className="underline underline-offset-2 hover:text-white">
+                        partner program
+                      </Link>{" "}
+                      for what&apos;s next.
+                    </dd>
+                  </div>
+                </dl>
               </div>
               
               <p className="text-white/60 text-sm mb-4">&copy; 2026 Buddy Tech. All rights reserved.</p>

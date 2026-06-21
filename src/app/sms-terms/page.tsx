@@ -10,7 +10,7 @@ export default function SMSTerms() {
         <p className="mb-2">Laurel MD US 20723-1061</p>
         <p className="mb-2">Email: <a href="mailto:jake@buddyllc.app" className="text-blue-500 hover:underline">jake@buddyllc.app</a></p>
         <p className="mb-2">Phone: <a href="tel:2404900190" className="text-blue-500 hover:underline">240-490-0190</a></p>
-        <p className="mb-2">Privacy Policy: <a href="https://buddyllc.app/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">https://buddyllc.app/privacy</a></p>
+        <p className="mb-2">Privacy Policy: <a href="https://buddysports.app/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">https://buddysports.app/privacy</a></p>
       </div>
 
       <h2 className="text-2xl font-bold mt-6 mb-2">General</h2>
@@ -52,7 +52,7 @@ export default function SMSTerms() {
 
       <h2 className="text-2xl font-bold mt-6 mb-2">Privacy</h2>
       <p className="mb-4">
-        If you have any questions about your data or our privacy practices, please visit our <a href="https://buddyllc.app/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Privacy Policy</a>.
+        If you have any questions about your data or our privacy practices, please visit our <a href="https://buddysports.app/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Privacy Policy</a>.
       </p>
 
       <h2 className="text-2xl font-bold mt-6 mb-2">Messaging Terms Changes</h2>

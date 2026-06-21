@@ -54,7 +54,7 @@ export default function YouTubeBanner() {
             <h1 className="text-[8rem] leading-[0.85] font-black text-white italic tracking-tighter uppercase drop-shadow-2xl mb-6">
               PUCK BUDDY.
             </h1>
-            <p className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400 uppercase tracking-widest drop-shadow-md mb-12">
+            <p className="text-4xl font-bold text-emerald-300 uppercase tracking-widest drop-shadow-md mb-12">
               Your AI Hockey Coach
             </p>
           </div>

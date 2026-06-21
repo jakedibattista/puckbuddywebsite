@@ -5,6 +5,9 @@ import ScrollAnimation from "../components/ScrollAnimation";
 import InteractiveDemo from "../components/InteractiveDemo";
 import MobileStickyCTA from "../components/MobileStickyCTA";
 import HeroVideoCarousel from "../components/HeroVideoCarousel";
+import SmartAppLink from "../components/SmartAppLink";
+import HowItWorks from "../components/HowItWorks";
+import { APP_STORE_URL, PLAY_STORE_URL } from "../hooks/useAppStoreUrl";
 import { motion, useReducedMotion } from "framer-motion";
 
 export default function PuckBuddyPage() {
@@ -36,9 +39,7 @@ export default function PuckBuddyPage() {
                 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.05] tracking-tight"
               >
                 Meet Your New{" "}
-                <span className="bg-gradient-to-r from-white via-blue-100 to-emerald-100 bg-clip-text text-transparent">
-                  Private Hockey Coach
-                </span>
+                <span className="text-emerald-200">Private Hockey Coach</span>
               </motion.h1>
 
               <motion.p
@@ -79,7 +80,7 @@ export default function PuckBuddyPage() {
               </div>
               <div className="relative z-20 mt-5 flex flex-col items-center justify-center gap-4 sm:mt-6 sm:flex-row">
                 <a
-                  href="https://apps.apple.com/us/app/puck-buddy/id6752230304"
+                  href={APP_STORE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex h-[54px] w-[180px] items-center justify-center transition-transform hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070A12] sm:h-[60px] sm:w-[200px]"
@@ -95,7 +96,7 @@ export default function PuckBuddyPage() {
                   />
                 </a>
                 <a
-                  href="https://play.google.com/store/apps/details?id=com.buddyllc.puckbuddyandroid&hl=en_US"
+                  href={PLAY_STORE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex h-[54px] w-[180px] items-center justify-center overflow-hidden rounded-[10px] border border-white/20 bg-black shadow-[0_6px_18px_rgba(0,0,0,0.25)] transition-transform hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070A12] sm:h-[60px] sm:w-[200px]"
@@ -123,15 +124,14 @@ export default function PuckBuddyPage() {
         </div>
       </section>
 
+      <HowItWorks />
+
       {/* Video Showcase Section - Moved to Top */}
       <section id="video" className="py-12 sm:py-16 lg:py-24 bg-white scroll-mt-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-5xl rounded-[2rem] border border-black/5 bg-gradient-to-br from-gray-50 to-white px-5 py-8 shadow-xl sm:px-8 sm:py-10 lg:px-10 lg:py-12">
             <ScrollAnimation>
               <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-12">
-                <p className="text-sm sm:text-base font-semibold tracking-[0.28em] text-blue-700 uppercase mb-3">
-                  Product demo
-                </p>
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
                   What is Puck Buddy
                 </h2>
@@ -164,9 +164,6 @@ export default function PuckBuddyPage() {
           <div className="grid gap-12 lg:grid-cols-2 items-center">
             <ScrollAnimation direction="left">
               <div className="max-w-xl">
-                <p className="text-sm sm:text-base font-semibold tracking-[0.28em] text-blue-700 uppercase mb-3">
-                  Interactive
-                </p>
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
                   Try it now
                 </h2>
@@ -234,9 +231,6 @@ export default function PuckBuddyPage() {
           <div className="max-w-5xl mx-auto">
             <ScrollAnimation>
               <div className="max-w-3xl mx-auto text-center mb-12">
-                <p className="text-sm sm:text-base font-semibold tracking-[0.28em] text-blue-700 uppercase mb-3">
-                  Proof
-                </p>
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
                   Built for performance, tested in the real world
                 </h2>
@@ -276,9 +270,6 @@ export default function PuckBuddyPage() {
 
             <ScrollAnimation delay={0.35}>
               <div className="mt-10 rounded-3xl border border-black/5 bg-gradient-to-br from-gray-50 to-white p-8 shadow-sm">
-                <p className="text-sm sm:text-base font-semibold tracking-[0.28em] text-blue-700 uppercase">
-                  Testimonial
-                </p>
                 <p className="mt-4 text-xl md:text-2xl font-semibold text-gray-900 leading-snug">
                   &ldquo;After an afternoon using PuckBuddy my son is already talking about adding 10 mph to his snapshot&rdquo;
                 </p>
@@ -309,9 +300,6 @@ export default function PuckBuddyPage() {
             <ScrollAnimation direction="right">
               <div className="space-y-6">
                 <div>
-                  <p className="text-sm sm:text-base font-semibold tracking-[0.28em] text-blue-700 uppercase mb-3">
-                    Puck Buddy Clinics
-                  </p>
                   <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
                     Bring the power of AI to your rink
                   </h2>
@@ -351,9 +339,6 @@ export default function PuckBuddyPage() {
           {/* Hero Section */}
           <ScrollAnimation>
             <div className="max-w-3xl mx-auto text-center mb-12">
-              <p className="text-sm sm:text-base font-semibold tracking-[0.28em] text-blue-700 uppercase mb-3">
-                Pricing
-              </p>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
                 Simple pricing, real coaching value
               </h2>
@@ -365,11 +350,8 @@ export default function PuckBuddyPage() {
             <ScrollAnimation delay={0.1}>
               <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 items-stretch">
                 {/* Monthly Plan */}
-                <a
-                  href="https://apps.apple.com/us/app/puck-buddy/id6752230304"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Open Puck Buddy on the App Store (Monthly subscription)"
+                <SmartAppLink
+                  context="Monthly subscription"
                   className="block h-full bg-white rounded-2xl shadow-xl p-8 border-2 border-gray-200 hover:border-blue-500 transition-all duration-300 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-50"
                 >
                   <div className="flex h-full flex-col justify-center text-center">
@@ -382,14 +364,11 @@ export default function PuckBuddyPage() {
                     </div>
                     <p className="text-sm text-gray-500">per month</p>
                   </div>
-                </a>
+                </SmartAppLink>
 
                 {/* Annual Plan */}
-                <a
-                  href="https://apps.apple.com/us/app/puck-buddy/id6752230304"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Open Puck Buddy on the App Store (Annual subscription)"
+                <SmartAppLink
+                  context="Annual subscription"
                   className="block h-full rounded-2xl border-2 border-gray-200 bg-white p-8 shadow-xl transition-all duration-300 hover:border-blue-500 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-50"
                 >
                   <div className="flex h-full flex-col justify-center text-center">
@@ -398,7 +377,7 @@ export default function PuckBuddyPage() {
                     </h3>
                     <p className="text-gray-600 mb-2">Annual subscription</p>
                     <div className="mb-2">
-                      <span className="inline-block bg-yellow-400 text-gray-900 text-sm font-bold px-3 py-1 rounded-full mb-2">
+                      <span className="inline-block bg-yellow-400 text-yellow-950 text-sm font-bold px-3 py-1 rounded-full mb-2">
                         SAVE 25%
                       </span>
                     </div>
@@ -409,7 +388,7 @@ export default function PuckBuddyPage() {
                       Just $6.67/mo
                     </p>
                   </div>
-                </a>
+                </SmartAppLink>
 
                 <a
                   href="/partner#contact"
@@ -448,9 +427,6 @@ export default function PuckBuddyPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <ScrollAnimation>
-              <p className="text-sm sm:text-base font-semibold tracking-[0.28em] text-white/70 uppercase mb-3">
-                Get started
-              </p>
               <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
                 Start training with your AI coach.
               </h2>
@@ -463,7 +439,7 @@ export default function PuckBuddyPage() {
             <ScrollAnimation delay={0.2}>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
-                  href="https://apps.apple.com/us/app/puck-buddy/id6752230304"
+                  href={APP_STORE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex h-[54px] w-[180px] items-center justify-center transition-transform hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070A12] sm:h-[60px] sm:w-[200px]"
@@ -478,7 +454,7 @@ export default function PuckBuddyPage() {
                   />
                 </a>
                 <a
-                  href="https://play.google.com/store/apps/details?id=com.buddyllc.puckbuddyandroid&hl=en_US"
+                  href={PLAY_STORE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex h-[54px] w-[180px] items-center justify-center overflow-hidden rounded-[10px] border border-white/20 bg-black shadow-[0_6px_18px_rgba(0,0,0,0.25)] transition-transform hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070A12] sm:h-[60px] sm:w-[200px]"

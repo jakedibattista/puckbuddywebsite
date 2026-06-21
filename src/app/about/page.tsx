@@ -3,8 +3,24 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import ScrollAnimation from "../components/ScrollAnimation";
+import SmartAppLink from "../components/SmartAppLink";
+import { useAppStoreDestination } from "../hooks/useAppStoreUrl";
 
 export default function About() {
+  const downloadDestination = useAppStoreDestination();
+  const downloadLabel =
+    downloadDestination.platform === "android"
+      ? "Google Play"
+      : downloadDestination.platform === "ios"
+        ? "App Store"
+        : "Download";
+  const downloadLinkText =
+    downloadDestination.platform === "android"
+      ? "View Puck Buddy on Google Play"
+      : downloadDestination.platform === "ios"
+        ? "View Puck Buddy on the App Store"
+        : "Get Puck Buddy for iOS or Android";
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section - matches homepage */}
@@ -39,9 +55,7 @@ export default function About() {
               className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.05] tracking-tight mb-6"
             >
               About{" "}
-              <span className="bg-gradient-to-r from-white via-blue-100 to-emerald-100 bg-clip-text text-transparent">
-                Buddy Tech
-              </span>
+              <span className="text-emerald-200">Buddy Tech</span>
             </motion.h1>
 
             <motion.p
@@ -281,15 +295,13 @@ export default function About() {
                   </a>
                 </p>
                 <p>
-                  <span className="font-semibold text-white">App Store:</span>{" "}
-                  <a
-                    href="https://apps.apple.com/us/app/puck-buddy/id6752230304"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <span className="font-semibold text-white">{downloadLabel}:</span>{" "}
+                  <SmartAppLink
+                    context="contact section"
                     className="underline hover:text-white transition-colors"
                   >
-                    View Puck Buddy on the App Store
-                  </a>
+                    {downloadLinkText}
+                  </SmartAppLink>
                 </p>
               </div>
             </ScrollAnimation>

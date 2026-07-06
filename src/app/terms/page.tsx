@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Terms of Service",
+  description: "Terms of Service for the Puck Buddy app by Buddy Tech LLC.",
+  alternates: { canonical: "/terms" },
+};
+
 export default function TermsOfService() {
   return (
     <div className="container mx-auto p-10">

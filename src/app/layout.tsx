@@ -7,30 +7,27 @@ import Navigation from "./components/Navigation";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
+const homeTitle = "Puck Buddy — Film a Hockey Shot, Get AI Coaching in 60 Seconds";
+const homeDescription =
+  "Puck Buddy turns any phone into an AI hockey coach. Film a shot, get scored mechanics and clear coaching feedback in about a minute. 4.7★ on the App Store. By Buddy Tech — AI coaching for youth sports.";
+
 export const metadata: Metadata = {
-  title: "Buddy Tech — Computer Vision & AI Agents for Sports",
-  description:
-    "Buddy Tech builds custom computer vision models and AI agents for any sport. Modern, affordable tools to coach, scout, and watch games — used by Puck Buddy (hockey) and Lax Buddy (lacrosse).",
+  title: homeTitle,
+  description: homeDescription,
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://buddysports.app"),
   icons: {
-    icon: [
-      { url: "/favicon-16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
-      { url: "/BlackLogo.svg", type: "image/svg+xml" },
-    ],
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    icon: [{ url: "/pngtilted.png?v=4", type: "image/png" }],
+    apple: [{ url: "/pngtilted.png?v=4", sizes: "180x180", type: "image/png" }],
   },
   openGraph: {
-    title: "Buddy Tech — Computer Vision & AI Agents for Sports",
-    description:
-      "Custom computer vision models and AI agents, built for any sport. Coach, scout, and watch games with the same tools the pros use.",
+    title: homeTitle,
+    description: homeDescription,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Buddy Tech — Computer Vision & AI Agents for Sports",
-    description:
-      "Custom computer vision models and AI agents, built for any sport. Coach, scout, and watch games with the same tools the pros use.",
+    title: homeTitle,
+    description: homeDescription,
   },
 };
 
@@ -46,12 +43,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
-      <head>
-        <link rel="icon" href="/pngtilted.png?v=4" type="image/png" sizes="32x32" />
-        <link rel="icon" href="/pngtilted.png?v=4" type="image/png" sizes="16x16" />
-        <link rel="icon" href="/pngtilted.png?v=4" type="image/png" sizes="any" />
-        <link rel="apple-touch-icon" href="/pngtilted.png?v=4" sizes="180x180" />
-      </head>
       <body className={`${GeistSans.className} font-sans antialiased`}>
         <div className="flex flex-col min-h-screen">
           <Navigation />
@@ -189,6 +180,9 @@ export default function RootLayout({
                 </Link>
                 <Link href="/refund" className="hover:text-white transition-colors duration-200">
                   Return & Refund Policy
+                </Link>
+                <Link href="/sms-terms" className="hover:text-white transition-colors duration-200">
+                  SMS Terms
                 </Link>
               </div>
             </div>

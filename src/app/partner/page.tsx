@@ -3,11 +3,17 @@
 import { useState, useRef } from "react";
 import ScrollAnimation from "../components/ScrollAnimation";
 import { motion, useReducedMotion } from "framer-motion";
+import { track } from "@vercel/analytics";
+import { CALENDLY_URL, CONTACT_EMAIL, APP_STORE_RATING } from "../lib/constants";
 
 type Tier = "api" | "custom" | "partner";
 
-const CALENDLY_URL = "https://calendly.com/jake-buddyllc/30min";
-const CONTACT_EMAIL = "jake@buddyllc.app";
+const PROOF_POINTS = [
+  { value: "Live in both stores", label: "Puck Buddy ships on iOS and Android today" },
+  { value: `${APP_STORE_RATING}★ rated`, label: "Real users, real App Store reviews" },
+  { value: "5,000+ videos", label: "Analyzed by the same engine you'd build on" },
+  { value: "Days, not months", label: "From kickoff to working integration" },
+] as const;
 
 const tierLabels: Record<Tier, string> = {
   api: "API Integration",
@@ -24,6 +30,7 @@ function ContactForm({ tier, setTier }: { tier: Tier; setTier: (t: Tier) => void
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    track("partner_lead_submit", { tier });
     const subject = encodeURIComponent(`[${tierLabels[tier]}] Inquiry from ${name}`);
     const body = encodeURIComponent(
       `Name: ${name}\nEmail: ${email}\nOrganization: ${org}\nInterest: ${tierLabels[tier]}\n\n${message}`
@@ -212,17 +219,36 @@ export default function PartnerPage() {
             className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <a
-              href="#offerings"
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => track("partner_cta_click", { cta: "calendly", location: "partner_hero" })}
               className="inline-flex items-center justify-center rounded-full bg-white text-gray-900 px-7 py-3 text-sm font-semibold shadow-sm transition-all hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+            >
+              Book a 30-min call
+            </a>
+            <a
+              href="#offerings"
+              className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-7 py-3 text-sm font-semibold text-white/90 backdrop-blur transition-all hover:bg-white/10"
             >
               See our offerings
             </a>
-            <button
-              onClick={() => openContact("api")}
-              className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-7 py-3 text-sm font-semibold text-white/90 backdrop-blur transition-all hover:bg-white/10"
-            >
-              Contact us
-            </button>
+          </motion.div>
+
+          <motion.div
+            initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.55, delay: 0.3, ease: [0.21, 1.11, 0.81, 0.99] }}
+            className="mx-auto mt-14 grid max-w-4xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 md:grid-cols-4"
+          >
+            {PROOF_POINTS.map((point) => (
+              <div key={point.value} className="bg-[#0B1220]/90 px-4 py-5 text-center">
+                <p className="text-base font-bold tracking-tight text-white sm:text-lg">
+                  {point.value}
+                </p>
+                <p className="mt-1 text-xs leading-relaxed text-white/55">{point.label}</p>
+              </div>
+            ))}
           </motion.div>
         </div>
       </section>
@@ -306,6 +332,7 @@ export default function PartnerPage() {
                   href={CALENDLY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => track("partner_cta_click", { cta: "calendly", location: "custom_dev_card" })}
                   className="mt-auto inline-flex items-center justify-center rounded-full bg-gray-900 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all hover:bg-gray-700 focus:outline-none"
                 >
                   Book a discovery call
@@ -445,6 +472,22 @@ export default function PartnerPage() {
               ))}
             </div>
 
+            <ScrollAnimation delay={0.15}>
+              <figure className="mb-10 rounded-3xl border border-black/5 bg-white p-8 shadow-sm">
+                <p className="text-amber-500" aria-hidden>
+                  ★★★★★
+                </p>
+                <blockquote className="mt-4 text-xl md:text-2xl font-semibold text-gray-900 leading-snug">
+                  &ldquo;This tool has been great for our academy. It helps give
+                  every kid personalized coaching and improve on and off the
+                  ice.&rdquo;
+                </blockquote>
+                <figcaption className="mt-4 text-sm text-gray-600">
+                  <span className="font-semibold text-gray-900">Ryan B.</span> · Hockey director
+                </figcaption>
+              </figure>
+            </ScrollAnimation>
+
             <ScrollAnimation delay={0.2}>
               <button
                 onClick={() => openContact("partner")}
@@ -475,6 +518,19 @@ export default function PartnerPage() {
                 </h2>
                 <p className="text-lg text-gray-600">
                   Tell us what you&apos;re building or what you need. We respond within one business day.
+                </p>
+                <p className="mt-3 text-sm text-gray-500">
+                  Prefer to talk it through?{" "}
+                  <a
+                    href={CALENDLY_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => track("partner_cta_click", { cta: "calendly", location: "contact_section" })}
+                    className="font-medium text-blue-700 underline underline-offset-2 hover:text-blue-800"
+                  >
+                    Book a 30-minute call
+                  </a>{" "}
+                  instead.
                 </p>
               </div>
             </ScrollAnimation>

@@ -62,11 +62,6 @@ export function useAppStoreDestination() {
   return destination;
 }
 
-/** @deprecated Prefer useAppStoreDestination for href + external + platform. */
-export function useAppStoreUrl() {
-  return useAppStoreDestination().href;
-}
-
 export function appStoreLinkProps(destination: AppStoreDestination) {
   return destination.external
     ? { target: "_blank" as const, rel: "noopener noreferrer" as const }

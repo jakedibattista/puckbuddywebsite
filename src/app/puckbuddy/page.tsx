@@ -7,7 +7,8 @@ import MobileStickyCTA from "../components/MobileStickyCTA";
 import HeroVideoCarousel from "../components/HeroVideoCarousel";
 import SmartAppLink from "../components/SmartAppLink";
 import HowItWorks from "../components/HowItWorks";
-import { APP_STORE_URL, PLAY_STORE_URL } from "../hooks/useAppStoreUrl";
+import StoreBadges from "../components/StoreBadges";
+import RatingBadge from "../components/RatingBadge";
 import { motion, useReducedMotion } from "framer-motion";
 
 export default function PuckBuddyPage() {
@@ -32,6 +33,14 @@ export default function PuckBuddyPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
             <div className="max-w-3xl">
+              <motion.div
+                initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.5, ease: [0.21, 1.11, 0.81, 0.99] }}
+                className="mb-6 flex justify-center"
+              >
+                <RatingBadge theme="dark" />
+              </motion.div>
               <motion.h1
                 initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -78,47 +87,12 @@ export default function PuckBuddyPage() {
                   <HeroVideoCarousel />
                 </div>
               </div>
-              <div className="relative z-20 mt-5 flex flex-col items-center justify-center gap-4 sm:mt-6 sm:flex-row">
-                <a
-                  href={APP_STORE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex h-[54px] w-[180px] items-center justify-center transition-transform hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070A12] sm:h-[60px] sm:w-[200px]"
-                >
-                  <Image
-                    src="/app-store-badge.svg"
-                    alt="Download on the App Store"
-                    width={1200}
-                    height={402}
-                    className="h-full w-full object-contain"
-                    unoptimized
-                    priority
-                  />
-                </a>
-                <a
-                  href={PLAY_STORE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex h-[54px] w-[180px] items-center justify-center overflow-hidden rounded-[10px] border border-white/20 bg-black shadow-[0_6px_18px_rgba(0,0,0,0.25)] transition-transform hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070A12] sm:h-[60px] sm:w-[200px]"
-                >
-                  <div className="flex items-center gap-2 px-3 sm:px-4">
-                    <svg className="h-7 w-7 flex-shrink-0" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                      <path d="M3 2.6a1 1 0 0 1 1.5-.86l10.74 6.14L12.2 10.9 3 2.6Z" fill="#34A853" />
-                      <path d="M3 2.6v18.8a1 1 0 0 0 1.5.86l10.74-6.14-3.04-3.03L3 21.4Z" fill="#4285F4" />
-                      <path d="m21 10.82-3.77-2.15-3.67 3.66 3.67 3.66L21 13.84c1.33-.76 1.33-2.26 0-3.02Z" fill="#FBBC04" />
-                      <path d="m13.56 12.33-1.36 1.36 3.04 3.03 1.99-1.13-3.67-3.26Z" fill="#EA4335" />
-                    </svg>
-                    <div className="text-left leading-none text-white">
-                      <div className="text-[9px] font-medium uppercase tracking-[0.18em] text-white/80 sm:text-[10px]">
-                        Get it on
-                      </div>
-                      <div className="mt-1 text-lg font-semibold sm:text-[20px]">
-                        Google Play
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
+              <StoreBadges
+                location="puckbuddy_hero"
+                theme="dark"
+                priority
+                className="relative z-20 mt-5 sm:mt-6"
+              />
             </motion.div>
           </div>
         </div>
@@ -268,16 +242,44 @@ export default function PuckBuddyPage() {
               ))}
             </div>
 
-            <ScrollAnimation delay={0.35}>
-              <div className="mt-10 rounded-3xl border border-black/5 bg-gradient-to-br from-gray-50 to-white p-8 shadow-sm">
-                <p className="mt-4 text-xl md:text-2xl font-semibold text-gray-900 leading-snug">
-                  &ldquo;After an afternoon using PuckBuddy my son is already talking about adding 10 mph to his snapshot&rdquo;
-                </p>
-                <p className="mt-4 text-sm text-gray-600">
-                  - Current user
-                </p>
-              </div>
-            </ScrollAnimation>
+            <div className="mt-10 grid gap-6 md:grid-cols-3">
+              {[
+                {
+                  quote:
+                    "My shot was good, but it told me exactly what to improve. I worked on it, and now my shot is so much faster than before. One of the best training apps out there.",
+                  name: "Ryan C.",
+                  role: "Puck Buddy player",
+                },
+                {
+                  quote:
+                    "I've been using Puck Buddy with my son and it's been a great addition to his hockey education.",
+                  name: "Michael P.",
+                  role: "Hockey parent",
+                },
+                {
+                  quote:
+                    "This tool has been great for our academy. It helps give every kid personalized coaching and improve on and off the ice.",
+                  name: "Ryan B.",
+                  role: "Hockey director",
+                },
+              ].map((testimonial, index) => (
+                <ScrollAnimation key={testimonial.name} delay={0.3 + index * 0.08}>
+                  <figure className="flex h-full flex-col rounded-3xl border border-black/5 bg-gradient-to-br from-gray-50 to-white p-7 shadow-sm">
+                    <p className="text-amber-500" aria-hidden>
+                      ★★★★★
+                    </p>
+                    <blockquote className="mt-4 flex-grow text-base font-medium leading-relaxed text-gray-900">
+                      &ldquo;{testimonial.quote}&rdquo;
+                    </blockquote>
+                    <figcaption className="mt-4 text-sm text-gray-600">
+                      <span className="font-semibold text-gray-900">{testimonial.name}</span>
+                      {" · "}
+                      {testimonial.role}
+                    </figcaption>
+                  </figure>
+                </ScrollAnimation>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -342,6 +344,10 @@ export default function PuckBuddyPage() {
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
                 Simple pricing, real coaching value
               </h2>
+              <p className="text-lg text-gray-600">
+                Less than one private lesson per month, for a coach that&apos;s there
+                every single rep.
+              </p>
             </div>
           </ScrollAnimation>
 
@@ -349,28 +355,14 @@ export default function PuckBuddyPage() {
           <div className="max-w-6xl mx-auto">
             <ScrollAnimation delay={0.1}>
               <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 items-stretch">
-                {/* Monthly Plan */}
-                <SmartAppLink
-                  context="Monthly subscription"
-                  className="block h-full bg-white rounded-2xl shadow-xl p-8 border-2 border-gray-200 hover:border-blue-500 transition-all duration-300 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-50"
-                >
-                  <div className="flex h-full flex-col justify-center text-center">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                      Puck Buddy Monthly
-                    </h3>
-                    <p className="text-gray-600 mb-4">Monthly subscription</p>
-                    <div className="text-4xl font-bold text-gray-900 mb-2">
-                      $8.99
-                    </div>
-                    <p className="text-sm text-gray-500">per month</p>
-                  </div>
-                </SmartAppLink>
-
-                {/* Annual Plan */}
+                {/* Annual Plan — best value, listed first */}
                 <SmartAppLink
                   context="Annual subscription"
-                  className="block h-full rounded-2xl border-2 border-gray-200 bg-white p-8 shadow-xl transition-all duration-300 hover:border-blue-500 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-50"
+                  className="relative block h-full rounded-2xl border-2 border-blue-600 bg-white p-8 shadow-xl transition-all duration-300 hover:shadow-2xl cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-50"
                 >
+                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-blue-600 px-4 py-1 text-xs font-bold uppercase tracking-wide text-white shadow-sm">
+                    Best value
+                  </span>
                   <div className="flex h-full flex-col justify-center text-center">
                     <h3 className="text-2xl font-bold text-gray-900 mb-2">
                       Puck Buddy Annual
@@ -387,6 +379,23 @@ export default function PuckBuddyPage() {
                     <p className="text-gray-500 text-sm">
                       Just $6.67/mo
                     </p>
+                  </div>
+                </SmartAppLink>
+
+                {/* Monthly Plan */}
+                <SmartAppLink
+                  context="Monthly subscription"
+                  className="block h-full bg-white rounded-2xl shadow-xl p-8 border-2 border-gray-200 hover:border-blue-500 transition-all duration-300 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-50"
+                >
+                  <div className="flex h-full flex-col justify-center text-center">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                      Puck Buddy Monthly
+                    </h3>
+                    <p className="text-gray-600 mb-4">Monthly subscription</p>
+                    <div className="text-4xl font-bold text-gray-900 mb-2">
+                      $8.99
+                    </div>
+                    <p className="text-sm text-gray-500">per month</p>
                   </div>
                 </SmartAppLink>
 
@@ -407,6 +416,15 @@ export default function PuckBuddyPage() {
                   </div>
                 </a>
               </div>
+            </ScrollAnimation>
+
+            <ScrollAnimation delay={0.2}>
+              <p className="mt-8 text-center text-sm text-gray-500">
+                Billed through the App Store or Google Play · Cancel anytime ·{" "}
+                <a href="/refund" className="underline underline-offset-2 hover:text-gray-700">
+                  10-day refund window
+                </a>
+              </p>
             </ScrollAnimation>
           </div>
 
@@ -437,46 +455,10 @@ export default function PuckBuddyPage() {
               </p>
             </ScrollAnimation>
             <ScrollAnimation delay={0.2}>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a
-                  href={APP_STORE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex h-[54px] w-[180px] items-center justify-center transition-transform hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070A12] sm:h-[60px] sm:w-[200px]"
-                >
-                  <Image
-                    src="/app-store-badge.svg"
-                    alt="Download on the App Store"
-                    width={1200}
-                    height={402}
-                    className="h-full w-full object-contain"
-                    unoptimized
-                  />
-                </a>
-                <a
-                  href={PLAY_STORE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex h-[54px] w-[180px] items-center justify-center overflow-hidden rounded-[10px] border border-white/20 bg-black shadow-[0_6px_18px_rgba(0,0,0,0.25)] transition-transform hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070A12] sm:h-[60px] sm:w-[200px]"
-                >
-                  <div className="flex items-center gap-2 px-3 sm:px-4">
-                    <svg className="h-7 w-7 flex-shrink-0" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                      <path d="M3 2.6a1 1 0 0 1 1.5-.86l10.74 6.14L12.2 10.9 3 2.6Z" fill="#34A853" />
-                      <path d="M3 2.6v18.8a1 1 0 0 0 1.5.86l10.74-6.14-3.04-3.03L3 21.4Z" fill="#4285F4" />
-                      <path d="m21 10.82-3.77-2.15-3.67 3.66 3.67 3.66L21 13.84c1.33-.76 1.33-2.26 0-3.02Z" fill="#FBBC04" />
-                      <path d="m13.56 12.33-1.36 1.36 3.04 3.03 1.99-1.13-3.67-3.26Z" fill="#EA4335" />
-                    </svg>
-                    <div className="text-left leading-none text-white">
-                      <div className="text-[9px] font-medium uppercase tracking-[0.18em] text-white/80 sm:text-[10px]">
-                        Get it on
-                      </div>
-                      <div className="mt-1 text-lg font-semibold sm:text-[20px]">
-                        Google Play
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
+              <StoreBadges location="puckbuddy_final_cta" theme="dark" />
+              <p className="mt-5 text-sm text-white/55">
+                Plans from $6.67/mo · Cancel anytime
+              </p>
             </ScrollAnimation>
         </div>
       </div>

@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description: "How Buddy Tech LLC collects, uses, and protects your data in the Puck Buddy app.",
+  alternates: { canonical: "/privacy" },
+};
+
 export default function PrivacyPolicy() {
   return (
     <div className="container mx-auto p-10">

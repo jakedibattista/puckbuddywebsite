@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
 export const alt =
-  "Buddy Tech — AI coaching for youth sports, from your phone.";
+  "Puck Buddy — Film a hockey shot, get AI coaching in 60 seconds.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -46,18 +46,18 @@ export default async function OpenGraphImage() {
           </div>
           <div
             style={{
-              fontSize: 58,
+              fontSize: 56,
               fontWeight: 700,
               lineHeight: 1.05,
               letterSpacing: "-0.03em",
               maxWidth: 620,
             }}
           >
-            AI coaching for youth sports,
+            Film the shot.
           </div>
           <div
             style={{
-              fontSize: 58,
+              fontSize: 56,
               fontWeight: 700,
               lineHeight: 1.05,
               letterSpacing: "-0.03em",
@@ -65,10 +65,10 @@ export default async function OpenGraphImage() {
               maxWidth: 620,
             }}
           >
-            from your phone.
+            Get pro-level coaching in 60 seconds.
           </div>
           <div style={{ marginTop: 28, fontSize: 22, opacity: 0.65, maxWidth: 520, lineHeight: 1.4 }}>
-            Computer vision coaching for hockey, lacrosse, and more.
+            Puck Buddy — the AI hockey coach. Rated 4.7 on the App Store.
           </div>
           <div style={{ marginTop: 36, fontSize: 18, opacity: 0.45 }}>
             buddysports.app

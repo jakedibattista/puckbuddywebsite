@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import SmartAppLink from "./SmartAppLink";
 
 type NavLink = {
   id: string;
@@ -105,6 +106,12 @@ export default function Navigation() {
                 </Link>
               ),
             )}
+            <SmartAppLink
+              context="navigation"
+              className="inline-flex items-center justify-center rounded-full bg-gray-900 px-5 py-2 text-sm font-semibold text-white shadow-sm transition-all hover:bg-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
+            >
+              Get the app
+            </SmartAppLink>
           </div>
 
           {/* Mobile Menu Button */}
@@ -176,6 +183,20 @@ export default function Navigation() {
                     ))}
                   </motion.div>
                 ))}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: navLinks.length * 0.08 }}
+                  className="px-3 pt-2"
+                >
+                  <SmartAppLink
+                    context="mobile navigation"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center justify-center rounded-full bg-gray-900 px-5 py-3 text-sm font-semibold text-white shadow-sm transition-all active:scale-[0.98]"
+                  >
+                    Get the app
+                  </SmartAppLink>
+                </motion.div>
               </div>
             </motion.div>
           )}

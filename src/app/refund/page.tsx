@@ -1,3 +1,12 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Return & Refund Policy",
+  description:
+    "Refund, subscription, and payment terms for Puck Buddy on the Apple App Store and Google Play.",
+  alternates: { canonical: "/refund" },
+};
+
 export default function RefundPolicy() {
   return (
     <div className="container mx-auto p-10">
@@ -6,7 +15,7 @@ export default function RefundPolicy() {
 
       <h2 className="text-2xl font-bold mt-6 mb-2">1. General Policy</h2>
       <p className="mb-4">
-        This policy outlines the terms related to refunds, payments, and subscriptions for the Buddy Tech LLC mobile application (the &quot;App&quot;) downloaded from the Apple App Store. All financial transactions are processed through Apple and are subject to their terms and conditions.
+        This policy outlines the terms related to refunds, payments, and subscriptions for the Buddy Tech LLC mobile application (the &quot;App&quot;) downloaded from the Apple App Store or Google Play. All financial transactions are processed through Apple or Google and are subject to their respective terms and conditions.
       </p>
 
       <h2 className="text-2xl font-bold mt-6 mb-2">2. Refund Policy</h2>
@@ -15,19 +24,23 @@ export default function RefundPolicy() {
       </p>
       <h3 className="text-xl font-bold mt-4 mb-2">How to Request a Refund:</h3>
       <p className="mb-4">
-        All purchases and refund requests for the Buddy Tech LLC App are processed directly through the Apple App Store. We do not have the ability to issue refunds directly.
+        All purchases and refund requests for the Buddy Tech LLC App are processed directly through the store you purchased from. We do not have the ability to issue refunds directly.
       </p>
-      <p className="mb-4">
-        To request a refund within the 10-day window, you must do so through your Apple ID purchase history.
-      </p>
+      <h4 className="text-lg font-bold mt-4 mb-2">Purchases made through the Apple App Store:</h4>
       <ul className="list-disc list-inside mb-4">
         <li>Visit Apple&apos;s problem reports page: <a href="https://reportaproblem.apple.com/" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">reportaproblem.apple.com</a></li>
         <li>Sign in with your Apple ID and password.</li>
         <li>Find the Buddy Tech LLC purchase and tap or click &quot;Report&quot; or &quot;Report a Problem.&quot;</li>
         <li>Follow the on-screen prompts to describe the issue and submit your request.</li>
       </ul>
+      <h4 className="text-lg font-bold mt-4 mb-2">Purchases made through Google Play:</h4>
+      <ul className="list-disc list-inside mb-4">
+        <li>Visit Google Play&apos;s refund page: <a href="https://support.google.com/googleplay/answer/2479637" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">support.google.com/googleplay</a></li>
+        <li>Sign in with the Google account used for the purchase.</li>
+        <li>Select the Puck Buddy purchase and follow the prompts to request a refund.</li>
+      </ul>
       <p className="mb-4">
-        Please note that all refund requests are subject to Apple&apos;s terms and conditions, and final approval is at Apple&apos;s sole discretion.
+        Please note that all refund requests are subject to Apple&apos;s or Google&apos;s terms and conditions, and final approval is at their sole discretion.
       </p>
 
       <h2 className="text-2xl font-bold mt-6 mb-2">3. Monthly Subscription Terms</h2>
@@ -37,12 +50,12 @@ export default function RefundPolicy() {
       <ul className="list-disc list-inside mb-4">
         <li><strong>Subscription Fee:</strong> You will be charged $8.99 USD (plus any applicable taxes) on a monthly basis.</li>
         <li><strong>Billing Cycle:</strong> Subscriptions automatically renew approximately every 30 days. You will be charged unless you cancel at least 24 hours before the end of the current period.</li>
-        <li><strong>Payment Method:</strong> All subscription payments are managed and charged by Apple through the payment method associated with your Apple ID.</li>
+        <li><strong>Payment Method:</strong> All subscription payments are managed and charged by Apple or Google through the payment method associated with your Apple ID or Google account.</li>
       </ul>
 
       <h2 className="text-2xl font-bold mt-6 mb-2">4. Managing or Cancelling Your Subscription</h2>
       <p className="mb-4">
-        You are in full control of your subscription and can cancel it at any time. All subscription management is handled through your Apple account settings.
+        You are in full control of your subscription and can cancel it at any time. All subscription management is handled through your Apple or Google account settings.
       </p>
       <p className="mb-4">
         To avoid being charged for the next billing cycle, you must cancel your subscription at least 24 hours before the end of the current billing period.
@@ -54,6 +67,13 @@ export default function RefundPolicy() {
         <li>Tap &quot;Subscriptions.&quot;</li>
         <li>Find and tap the Buddy Tech LLC subscription.</li>
         <li>Tap &quot;Cancel Subscription.&quot;</li>
+      </ul>
+      <h3 className="text-xl font-bold mt-4 mb-2">How to Cancel on an Android Device:</h3>
+      <ul className="list-disc list-inside mb-4">
+        <li>Open the Google Play Store app.</li>
+        <li>Tap your profile icon, then &quot;Payments &amp; subscriptions.&quot;</li>
+        <li>Tap &quot;Subscriptions&quot; and select Puck Buddy.</li>
+        <li>Tap &quot;Cancel subscription.&quot;</li>
       </ul>
       <p className="mb-4">
         If you cancel, you will retain access to the App&apos;s premium features until the end of your current paid period, after which your access will be discontinued.
@@ -74,7 +94,7 @@ export default function RefundPolicy() {
         <li>Phone: 240-490-0190</li>
       </ul>
       <p className="mt-4">
-        For all issues related to billing, payments, or refund requests, you must contact Apple App Store Support directly, as they manage all financial transactions.
+        For all issues related to billing, payments, or refund requests, you must contact Apple App Store Support or Google Play Support directly, as they manage all financial transactions.
       </p>
     </div>
   );

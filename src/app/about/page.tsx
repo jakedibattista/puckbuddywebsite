@@ -114,7 +114,7 @@ export default function About() {
                   Puck Buddy uses a sophisticated dual-layer AI architecture. First, we use on-device MediaPipe pose estimation to track 33 anatomical landmarks in real-time. Second, those movements are analyzed by a suite of 10+ specialized Gemini coaching agents, trained on decades of elite hockey knowledge to provide instant, actionable feedback.
                 </p>
                 <p>
-                  Our tech stack is built with safety as a core requirement. We strictly follow a &quot;no-storage&quot; video policy. Your training clips are processed on your device and never saved to the cloud. Our agents are specifically constrained to hockey coaching, ensuring a focused and secure environment for personal development.
+                  Our tech stack is built with safety as a core requirement. Pose tracking runs on your device, and videos you upload for analysis are used only to generate your feedback — raw video is deleted after processing and never sold or shared. Our agents are specifically constrained to hockey coaching, ensuring a focused and secure environment for personal development.
                 </p>
               </div>
             </ScrollAnimation>
@@ -123,7 +123,7 @@ export default function About() {
               {[
                 {
                   title: "Privacy & Performance",
-                  desc: "Processing runs entirely on-device, meaning your videos are never stored or uploaded. This ensures instant, low-latency feedback that respects your data and privacy.",
+                  desc: "Pose tracking runs on-device, and uploaded videos are deleted after analysis. Your training footage is used to coach you — never sold, shared, or kept longer than needed.",
                 },
                 {
                   title: "Specialized Agents",
@@ -290,8 +290,8 @@ export default function About() {
               <div className="space-y-4 text-white/80">
                 <p>
                   <span className="font-semibold text-white">Email:</span>{" "}
-                  <a href="mailto:Jake@buddyllc.app" className="underline hover:text-white transition-colors">
-                    Jake@buddyllc.app
+                  <a href="mailto:jake@buddyllc.app" className="underline hover:text-white transition-colors">
+                    jake@buddyllc.app
                   </a>
                 </p>
                 <p>

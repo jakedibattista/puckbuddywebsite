@@ -417,15 +417,6 @@ export default function PuckBuddyPage() {
                 </a>
               </div>
             </ScrollAnimation>
-
-            <ScrollAnimation delay={0.2}>
-              <p className="mt-8 text-center text-sm text-gray-500">
-                Billed through the App Store or Google Play · Cancel anytime ·{" "}
-                <a href="/refund" className="underline underline-offset-2 hover:text-gray-700">
-                  10-day refund window
-                </a>
-              </p>
-            </ScrollAnimation>
           </div>
 
         </div>
@@ -456,9 +447,6 @@ export default function PuckBuddyPage() {
             </ScrollAnimation>
             <ScrollAnimation delay={0.2}>
               <StoreBadges location="puckbuddy_final_cta" theme="dark" />
-              <p className="mt-5 text-sm text-white/55">
-                Plans from $6.67/mo · Cancel anytime
-              </p>
             </ScrollAnimation>
         </div>
       </div>

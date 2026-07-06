@@ -402,9 +402,6 @@ export default function Home() {
             </ScrollAnimation>
             <ScrollAnimation delay={0.2}>
               <StoreBadges location="home_final_cta" theme="light" className="mt-8" />
-              <p className="mt-5 text-sm text-gray-500">
-                Plans from $6.67/mo · Cancel anytime · 10-day refund window
-              </p>
             </ScrollAnimation>
           </div>
         </div>

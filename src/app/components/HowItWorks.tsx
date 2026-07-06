@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import ScrollAnimation from "./ScrollAnimation";
-import SmartAppLink from "./SmartAppLink";
 import StoreBadges from "./StoreBadges";
 
 const STEPS = [
@@ -76,12 +75,6 @@ export default function HowItWorks() {
               Download Puck Buddy free and upload your first shooting video today.
             </p>
             <StoreBadges location="how_it_works" theme="light" className="mt-6" />
-            <SmartAppLink
-              context="download options"
-              className="mt-4 text-sm font-medium text-blue-700 underline-offset-2 hover:underline"
-            >
-              Not sure which store? We&apos;ll pick the right one for your device
-            </SmartAppLink>
           </div>
         </ScrollAnimation>
       </div>

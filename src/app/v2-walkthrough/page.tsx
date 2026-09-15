@@ -51,7 +51,7 @@ export default function WalkthroughPage() {
   const [currentIdx, setCurrentIdx] = useState(0);
   const [currentVideoIdx, setCurrentVideoIdx] = useState(0); // Tracks sequential video index on current slide
   const [isPlaying, setIsPlaying] = useState(true);
-  const [isMuted, setIsMuted] = useState(true);
+  const [isMuted] = useState(true);
 
   const [isEditing, setIsEditing] = useState(false);
   const [editTitle, setEditTitle] = useState("");

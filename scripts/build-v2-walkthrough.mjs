@@ -64,14 +64,6 @@ function createHeaderTextSvg(width) {
   </svg>`;
 }
 
-function createRoundedMask(width, height, radius) {
-  return Buffer.from(`
-    <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
-      <rect x="0" y="0" width="${width}" height="${height}" rx="${radius}" ry="${radius}" fill="white"/>
-    </svg>
-  `);
-}
-
 function createPhoneFrameSvg(frameWidth, frameHeight, config) {
   const { cornerRadius, frameColor, frameBorder } = config;
   const innerW = frameWidth - frameBorder * 2;

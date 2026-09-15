@@ -69,17 +69,22 @@ To fail if any unused assets exist (useful for CI):
 npm run assets:audit:fail
 ```
 
-## Learn More
+## Regression tests
 
-To learn more about Next.js, take a look at the following resources:
+- `npm test`: store destination routing, hydration-safe initial links, click analytics, partner inquiry encoding and required fields.
+- `npm run test:coverage`: whole-source coverage, including currently untested scripts.
+- `npm run test:browser`: local Chrome smoke tests for download choices, partner form navigation and Android hydration. Requires installed Google Chrome. The runner starts its own server on port 3417 and blocks external network requests; it does not submit or send inquiries.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The partner form opens an email draft; it does not send email or confirm delivery.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Workspace layout and maintenance
 
-## Deploy on Vercel
+This Git repository starts at `puckbuddy-website/` inside the local `Puckbuddy-Vercel/` workspace. The parent directory is not a Git repository and is not Vercel's source root. Parent folders such as `IMAGES/`, `prototype/`, `videos/` and `Download-on-the-App-Store/` are local marketing source archives. They are not published by pushing this repository.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `src/app/`: routes, components, hooks and library code.
+- `public/`: runtime assets plus inputs used by the marketing-generation scripts.
+- `scripts/`: asset audits and marketing asset generation; `requirements.txt` supplies Pillow for Python scripts. Puppeteer is a dev dependency of this repository, so scripts no longer depend on parent-workspace packages. If browser download was skipped during install, run `npx puppeteer browsers install chrome` before generating assets.
+- `test/`: unit and browser tests.
+- Root configuration: Next.js, TypeScript, ESLint, PostCSS, Vitest and Playwright. Keep these discoverable by their tools.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[Repository hygiene review](docs/repository-hygiene.md) records dependency checks, retained assets and deployment boundaries.

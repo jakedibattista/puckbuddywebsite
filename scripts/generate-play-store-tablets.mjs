@@ -4,7 +4,6 @@ import fs from 'node:fs/promises';
 import { spawn } from 'node:child_process';
 
 const projectRoot = path.resolve(process.cwd());
-const publicDir = path.join(projectRoot, "public");
 const url = 'http://localhost:3000/play-store-screenshots-export';
 
 async function waitForServer(url) {
@@ -12,7 +11,7 @@ async function waitForServer(url) {
     try {
       const res = await fetch(url);
       if (res.ok) return true;
-    } catch (e) {
+    } catch {
       // server not ready yet
     }
     await new Promise(r => setTimeout(r, 1000));

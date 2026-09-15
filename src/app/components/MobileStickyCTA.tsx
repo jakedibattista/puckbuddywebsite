@@ -35,6 +35,7 @@ export default function MobileStickyCTA({
       setIsVisible(window.scrollY > scrollThreshold);
     };
 
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [scrollThreshold]);

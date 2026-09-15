@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useSyncExternalStore } from "react";
 
 export const APP_STORE_URL =
   "https://apps.apple.com/us/app/puck-buddy/id6752230304";
@@ -57,9 +57,17 @@ function readDestination(): AppStoreDestination {
   return resolveAppStoreDestination(navigator.userAgent, navigator.maxTouchPoints ?? 0);
 }
 
-export function useAppStoreDestination() {
-  const [destination] = useState(readDestination);
-  return destination;
+const subscribeToPlatform = () => () => {};
+const readPlatform = () => readDestination().platform;
+const serverPlatform = (): AppStorePlatform => "chooser";
+
+export function useAppStoreDestination(): AppStoreDestination {
+  // Server HTML and initial hydration both use the chooser. React reads the
+  // browser platform immediately afterward without a hydration mismatch.
+  const platform = useSyncExternalStore(subscribeToPlatform, readPlatform, serverPlatform);
+  if (platform === "android") return { href: PLAY_STORE_URL, external: true, platform };
+  if (platform === "ios") return { href: APP_STORE_URL, external: true, platform };
+  return { href: PUCKBUDDY_DOWNLOAD_PATH, external: false, platform };
 }
 
 export function appStoreLinkProps(destination: AppStoreDestination) {

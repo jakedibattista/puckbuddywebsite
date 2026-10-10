@@ -17,3 +17,7 @@ The subsequent dependency check found an applicable Next App Router denial-of-se
 - The final development-only transitive refresh was followed by a clean install, unit tests, lint and build. Browser and production-route checks ran on the same runtime dependency versions before that refresh.
 
 No hosted deployment or production visual acceptance is claimed. Merge and hosted release checks must use this lockfile and a supported Node runtime.
+
+## Hosted preview receipt
+
+Vercel successfully built source `ffd7bad` as preview deployment `9KECHVpRuKga4haVFXsZ13L24kHz` for PR #2. Anonymous requests redirect to Vercel login, so that readback is not a hosted-page smoke pass. Local production-route/browser evidence above remains the application acceptance evidence. Subsequent documentation-only commits do not change the tested runtime source. No production promotion occurred.

@@ -13,7 +13,7 @@ const image = async file => `data:image/png;base64,${(await fs.readFile(file)).t
 const logo = await image(path.resolve('public/logo-1024.png'));
 const screens = [
   ['01-results', 'results.png', 'Review every rep.', 'AI scorecards for shooting, skating and goalie drills.'],
-  ['02-feedback', 'feedback.png', 'Turn feedback<br>into practice.', 'Read coaching notes. Listen on your current result.'],
+  ['02-feedback-v2', 'feedback.png', 'Turn feedback<br>into practice.', 'Read your coaching notes and plan what to work on next.'],
   ['03-progress', 'stats.png', 'Build a<br>practice habit.', 'Track results, trends and earned badges over time.'],
   ['04-games', 'games.png', 'Make practice<br>a game.', 'Try shot-speed estimates and timed skating challenges.'],
 ];

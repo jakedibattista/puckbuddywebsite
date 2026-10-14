@@ -160,7 +160,7 @@ export default function PrivacyPolicy() {
         This sharing is entirely voluntary. You must actively join a team by entering an invite code to begin sharing your data with coaches. No data is shared with any coach or organization unless you take this action.
       </p>
       <p className="mb-4">
-        You may control what is visible to coaches at any time through the &quot;Coach Sharing&quot; settings in your profile. These settings allow you to toggle the visibility of your statistics and profile information independently. You may also leave a team at any time, which immediately stops sharing your data with that team&apos;s coaches and administrators.
+        You may control detailed player-page and journal visibility through the &quot;Coach Sharing&quot; settings in your profile. Roster-wide video totals and aggregate video statistics remain visible to authorized coaches while you are an active team member, even when detailed sharing is disabled. You may leave a team to end that membership and its associated coach access.
       </p>
       <p className="mb-4">
         Coaches and organization administrators have read-only access to your data. They cannot modify your profile, statistics, or account information. Opting out of coach sharing or leaving a team does not delete your private data — your stats, history, and account information remain in your account and are unaffected.

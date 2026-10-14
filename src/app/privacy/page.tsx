@@ -1,3 +1,4 @@
+// Describes Puck Buddy data collection, service providers, retention and deletion choices.
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -10,7 +11,7 @@ export default function PrivacyPolicy() {
   return (
     <div className="container mx-auto p-10">
       <h1 className="text-3xl font-bold mb-4">Privacy Policy for Buddy Tech LLC</h1>
-      <p className="mb-4">Last Updated: March 30, 2026</p>
+      <p className="mb-4">Last Updated: October 14, 2026</p>
 
       <h2 className="text-2xl font-bold mt-6 mb-2">1. INTRODUCTION</h2>
       <p className="mb-4">
@@ -29,7 +30,7 @@ export default function PrivacyPolicy() {
 
       <h3 className="text-xl font-bold mt-4 mb-2">Device & Diagnostics Data</h3>
       <p className="mb-4">
-        Device information such as your mobile device ID number, model, and manufacturer, version of your operating system, phone number, country, and location. We also collect diagnostic and crash data (including your user ID and email) to help us troubleshoot and improve the App&apos;s stability.
+        Device and app information includes device model, operating system, app version, update identity and network/service diagnostics. Our updated crash reporting uses an account identifier without intentionally including your email address, screenshots or practice-video content. We filter sensitive values before reporting; provider logs and older releases may have different retained data. We do not request your phone number or precise device location for hockey analysis.
       </p>
 
       <h3 className="text-xl font-bold mt-4 mb-2">Usage & Analytics Data</h3>
@@ -49,7 +50,7 @@ export default function PrivacyPolicy() {
 
       <h3 className="text-xl font-bold mt-4 mb-2">Payment Data</h3>
       <p className="mb-4">
-        We may collect data necessary to process your payment if you make purchases. While the initial transaction is processed by the Apple App Store, we use RevenueCat to manage subscription purchases, subscription history, renewal status, and product IDs. RevenueCat securely stores this information and syncs it with our databases to manage your access to premium features.
+        We may collect data necessary to process your payment if you make purchases. While transactions are processed by Google Play or the Apple App Store, we use RevenueCat to manage subscription purchases, subscription history, renewal status, and product IDs. RevenueCat securely stores this information and syncs it with our databases to manage your access to premium features.
       </p>
 
       <h2 className="text-2xl font-bold mt-6 mb-2">3. HOW WE USE YOUR INFORMATION</h2>
@@ -87,7 +88,7 @@ export default function PrivacyPolicy() {
         We may share your information with third parties that perform services for us or on our behalf. Specifically, we utilize the following third-party SDKs and services:
       </p>
       <ul className="list-disc list-inside mb-4">
-        <li><strong>Sentry:</strong> Collects crash logs and diagnostic data linked to your user ID and email to help us identify and fix bugs.</li>
+        <li><strong>Sentry:</strong> Collects crash logs, sampled performance and diagnostic data with an account identifier to help us identify and fix bugs. The updated app removes direct email identifiers and disables screenshot capture in these reports.</li>
         <li><strong>RevenueCat:</strong> Manages subscription purchases, history, and user entitlements.</li>
         <li><strong>Google Firebase:</strong> Used for data storage (Firestore, Cloud Storage), analytics tracking (Firebase Analytics), and user authentication.</li>
         <li><strong>Mailchimp:</strong> Used for email marketing and communications, such as updates triggered by your video milestones.</li>
@@ -111,13 +112,13 @@ export default function PrivacyPolicy() {
 
       <h2 className="text-2xl font-bold mt-6 mb-2">6. DATA RETENTION AND DELETION</h2>
       <p className="mb-4">
-        <strong>Video Content:</strong> When you upload a video for analysis, the raw video file is stored securely in our cloud storage. After processing is complete (typically within one hour), the video file is permanently deleted by our automated workers. The temporary processing document associated with the job is retained for 7 days before being automatically purged. A lightweight, text-based result summary of the analysis is retained permanently in your user profile to track your progress over time.
+        <strong>Video Content:</strong> Uploaded videos are stored in cloud storage for analysis and current-result playback. The current clip may remain available after analysis; a later upload can replace it. Past Results does not provide a library of playable old clips. Working job records are subject to scheduled cleanup after seven days. Media cleanup and account deletion can remove stored clips; we do not promise deletion within one hour of analysis.
       </p>
       <p className="mb-4">
-        <strong>Analysis Results Retention:</strong> Analysis results, including scorecards, chat logs, and coaching feedback provided in the App, are retained for the lifetime of your account or until you delete your account. You may request deletion of your analysis history at any time by contacting us or deleting your account through the App.
+        <strong>Analysis Results Retention:</strong> Past Results scorecards and feedback are subject to a one-year retention policy and scheduled cleanup. Other profile statistics and account-linked conversations may remain until you delete your account or request deletion. Retention and cleanup timing can differ between record types and third-party providers.
       </p>
       <p className="mb-4">
-        <strong>Account Deletion:</strong> When you delete your account, all associated data including analysis results, statistics, chat history, and any stored preferences are permanently removed from our systems.
+        <strong>Account Deletion:</strong> You can request account and associated-data deletion from Profile in the app or through the instructions at buddyllc.app/delete-account. The cleanup process removes your app profile, private results, statistics, preferences, account-linked conversations and owned media. Limited billing, promotion-redemption, security and fraud-prevention records may be retained for recordkeeping and to prevent duplicate benefits. Third-party providers apply their own retention policies. Cancel any store-managed subscription separately.
       </p>
 
       <h2 className="text-2xl font-bold mt-6 mb-2">7. AI/ML PROCESSING DISCLOSURE</h2>
@@ -131,7 +132,7 @@ export default function PrivacyPolicy() {
         <li>Provide insights and recommendations for improvement</li>
       </ul>
       <p className="mb-4">
-        This processing occurs automatically when you upload content. Your video content is processed solely for the purpose of providing you with analysis and feedback. As stated in Section 6, the raw video files are automatically deleted shortly after processing is complete.
+        This processing occurs automatically when you upload content. Your video content is processed solely for the purpose of providing you with analysis and feedback. Video retention and deletion are described in Section 6; analysis completion does not imply immediate deletion of the current playback clip.
       </p>
 
       <h2 className="text-2xl font-bold mt-6 mb-2">8. PUBLIC SCOREBOARD</h2>
@@ -159,7 +160,7 @@ export default function PrivacyPolicy() {
         This sharing is entirely voluntary. You must actively join a team by entering an invite code to begin sharing your data with coaches. No data is shared with any coach or organization unless you take this action.
       </p>
       <p className="mb-4">
-        You may control what is visible to coaches at any time through the &quot;Coach Sharing&quot; settings in your profile. These settings allow you to toggle the visibility of your statistics and profile information independently. You may also leave a team at any time, which immediately stops sharing your data with that team&apos;s coaches and administrators.
+        You may control detailed player-page and journal visibility through the &quot;Coach Sharing&quot; settings in your profile. Roster-wide video totals and aggregate video statistics remain visible to authorized coaches while you are an active team member, even when detailed sharing is disabled. You may leave a team to end that membership and its associated coach access.
       </p>
       <p className="mb-4">
         Coaches and organization administrators have read-only access to your data. They cannot modify your profile, statistics, or account information. Opting out of coach sharing or leaving a team does not delete your private data — your stats, history, and account information remain in your account and are unaffected.

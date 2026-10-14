@@ -2,9 +2,8 @@
 
 These five assets were rendered from actual Android 61 captures and visually
 checked. The screenshots show results, coaching feedback, progress/badges and
-Games, in that order. The feature graphic and original four-image selection were saved in the Play
-main-listing draft. The refined feedback replacement is uploaded; final restoration
-of the four-image sequence is pending browser access. The current live listing has not been republished.
+Games, in that order. The feature graphic and all four final screenshots are saved in the Play
+main-listing draft. Save confirmation and a reload verified the final selection. The current live listing has not been republished.
 
 The renderer is `scripts/generate-play-store-refresh.mjs`. Run it from the website
 root with a private capture directory and a separate output directory. Private
@@ -24,7 +23,7 @@ copy (1712/4000). `listing-en-US.json` preserves the exact text.
 The refined feedback asset is `02-feedback-v2.png`; retain the original asset only
 as historical source evidence. The new caption matches the written-feedback screen.
 
-During the final replacement, Chrome stopped returning visible screenshots. The
-last confirmed saved selection has results, Games and refined feedback (three
-images). Restore progress and verify results → feedback → progress → Games before
-review submission. The complete four-image kit is available locally.
+After Mac access resumed, the final four-image order was restored and saved:
+results → refined feedback → progress → Games. Reload verified that sequence,
+the feature graphic and the exact listing copy. No review submission or public
+publishing action was taken.

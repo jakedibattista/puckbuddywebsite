@@ -14,10 +14,24 @@ records are distinguished from app-account data deletion. No new retention perio
 legal certification or processing-provider approval is claimed.
 
 Build passed. Lint has zero errors and two pre-existing hook warnings in the unrelated
-v2-walkthrough page. Publication is pending a protected preview check and review of
-these factual disclosures. Do not update Play's public deletion URL until the route
-exists at the production hostname. Existing refunds and billing terms are unchanged.
+v2-walkthrough page. The protected preview was checked and the operator approved publication, including
+the previously tested security dependency updates. Existing refunds and billing terms
+are unchanged.
 
 The app's confirmed audience is players ages 6+ and adults. Google generative-AI
 provider terms need written resolution before declaring youth-provider compliance;
 this website change does not resolve that release gate.
+
+## Approved production publication
+
+On October 14, the approved source candidate 45fae62 was rebuilt using Vercel's
+production environment and published as puckbuddy-website-cyrq4dm7j-buddy-tech.vercel.app
+(deployment dpl_7BfjWpzyaWcXxeBnBro7i4RpUn2g). Vercel reports Ready and buddyllc.app
+now aliases this deployment. Both /delete-account and /privacy return HTTP 200
+without authentication. Public content checks confirm the deletion instructions,
+October 14 privacy date, one-year results retention and roster aggregate disclosure.
+The previous production deployment pz2onssv3 remains the rollback reference.
+
+Play's deletion URL was changed to https://buddyllc.app/delete-account and saved
+as a Data safety draft. Play confirmed that the changes were saved. This does not
+submit the full Data safety form for review or publish the Android application.

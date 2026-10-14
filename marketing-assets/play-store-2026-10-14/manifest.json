@@ -1,0 +1,34 @@
+{
+  "source": "verified Android 61 screen captures",
+  "files": [
+    {
+      "file": "01-results.png",
+      "width": 1080,
+      "height": 1920,
+      "capture": "results.png"
+    },
+    {
+      "file": "02-feedback.png",
+      "width": 1080,
+      "height": 1920,
+      "capture": "feedback.png"
+    },
+    {
+      "file": "03-progress.png",
+      "width": 1080,
+      "height": 1920,
+      "capture": "stats.png"
+    },
+    {
+      "file": "04-games.png",
+      "width": 1080,
+      "height": 1920,
+      "capture": "games.png"
+    },
+    {
+      "file": "feature-graphic.png",
+      "width": 1024,
+      "height": 500
+    }
+  ]
+}

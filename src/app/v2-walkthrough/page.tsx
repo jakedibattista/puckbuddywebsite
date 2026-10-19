@@ -19,7 +19,7 @@ const DEFAULT_SLIDES: Slide[] = [
       "/v2-walkthrough/ScreenRecording_06-01-2026 15-47-27_1.mov"
     ],
     title: "AI Coaching & Drill Selection",
-    description: "Welcome to Puck Buddy 2.0. Select whether you are a Player or Goalie, choose from a wide variety of standard drills (like Butterfly Slide), and choose your master AI Coach. Then, upload your practice film directly from your iPhone. Our custom computer vision models analyze your movement, positioning, and technique in real-time to prepare a comprehensive scorecard.",
+    description: "Welcome to Puck Buddy 2.0. Select whether you are a Player or Goalie, choose from a wide variety of standard drills (like Butterfly Slide), and choose your master AI Coach. Then, upload your practice film directly from your iPhone. After upload, our computer vision models analyze your movement, positioning, and technique to prepare a comprehensive scorecard.",
   },
   {
     id: 2,

@@ -7,7 +7,7 @@ Regenerate with `python3 scripts/check-repository.py --write-index` after adding
 
 | File | Responsibility |
 | --- | --- |
-| [.github/workflows/quality.yml](<../.github/workflows/quality.yml>) | Validate the website on the owner-managed runner without paid compute or storage. |
+| [.github/workflows/quality.yml](<../.github/workflows/quality.yml>) | Validate this public website on free standard GitHub compute without artifact or cache storage. |
 | [eslint.config.mjs](<../eslint.config.mjs>) | Configures source linting for the website and its Node-based asset tools. |
 | [next.config.ts](<../next.config.ts>) | Sets the repository build root and allowed remote image host for Next.js. |
 | [playwright.config.ts](<../playwright.config.ts>) | Starts the isolated local browser fixture used to verify download and partner navigation. |

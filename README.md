@@ -1,5 +1,7 @@
 Puck Buddy marketing website (Next.js App Router).
 
+See the [Puck Buddy engineering map](https://github.com/jakedibattista/puck-buddy/blob/main/docs/ecosystem.md) for repository ownership, naming and the complete analysis lifecycle. Source integration and production deployment are separate states.
+
 **Live site:** [buddysports.app](https://buddysports.app) · **Repo:** [github.com/jakedibattista/puckbuddywebsite](https://github.com/jakedibattista/puckbuddywebsite) · **Vercel:** `buddy-tech/puckbuddy-website`
 
 ## Site structure
@@ -9,6 +11,7 @@ Puck Buddy marketing website (Next.js App Router).
 | `/` | `src/app/page.tsx` | Homepage — two-column hero with `HomeHeroVisual`, product CTAs |
 | `/puckbuddy` | `src/app/puckbuddy/page.tsx` | Hero video carousel, `HowItWorks`, pricing, download strip |
 | `/lacrosse` | `src/app/lacrosse/page.tsx` | External Lax Buddy / Scout links with Beta labels |
+| `/support` | `src/app/support/page.tsx` | Upload help, store subscription links, restore purchases and account deletion requests |
 | OG image | `src/app/opengraph-image.tsx` | Generated 1200×630 social preview at `/opengraph-image` |
 
 **Shared components** (`src/app/components/`):

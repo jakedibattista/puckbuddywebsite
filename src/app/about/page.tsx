@@ -111,10 +111,10 @@ export default function About() {
             <ScrollAnimation delay={0.1}>
               <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
                 <p>
-                  Puck Buddy uses a sophisticated dual-layer AI architecture. First, we use on-device MediaPipe pose estimation to track 33 anatomical landmarks in real-time. Second, those movements are analyzed by a suite of 10+ specialized Gemini coaching agents, trained on decades of elite hockey knowledge to provide instant, actionable feedback.
+                  Puck Buddy combines computer vision and AI-assisted coaching to review uploaded hockey drill videos. Videos are processed on our servers to produce drill-specific technique scores, movement metrics and feedback you can use in practice. Results and processing time depend on the drill and the quality of the video.
                 </p>
                 <p>
-                  Our tech stack is built with safety as a core requirement. Pose tracking runs on your device, and videos you upload for analysis are used only to generate your feedback — raw video is deleted after processing and never sold or shared. Our agents are specifically constrained to hockey coaching, ensuring a focused and secure environment for personal development.
+                  You choose which practice clips to upload and can manage coach sharing from your profile. Our cloud services and processing providers help deliver analysis and coaching. See our privacy policy for how videos, saved results and account data are handled, or contact support with a question or deletion request.
                 </p>
               </div>
             </ScrollAnimation>
@@ -122,12 +122,12 @@ export default function About() {
             <div className="grid md:grid-cols-3 gap-6 mt-12">
               {[
                 {
-                  title: "Privacy & Performance",
-                  desc: "Pose tracking runs on-device, and uploaded videos are deleted after analysis. Your training footage is used to coach you — never sold, shared, or kept longer than needed.",
+                  title: "Video-based analysis",
+                  desc: "Upload a supported drill and follow its filming instructions. Server-side processing turns the clip into technique metrics and coaching feedback.",
                 },
                 {
-                  title: "Specialized Agents",
-                  desc: "Our suite of 10+ Gemini agents is purpose-built for hockey development. These agents provide safe, expert guidance focused exclusively on skill growth and performance.",
+                  title: "Drill-specific feedback",
+                  desc: "Review feedback for shooting, skating and goalie movement. AI feedback can be imperfect and supports the work you do with your coach.",
                 },
                 {
                   title: "Data-Driven Growth",

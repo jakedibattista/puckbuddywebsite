@@ -7,9 +7,9 @@ import Navigation from "./components/Navigation";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-const homeTitle = "Puck Buddy — Film a Hockey Shot, Get AI Coaching in 60 Seconds";
+const homeTitle = "Puck Buddy — Hockey Video Feedback and Training";
 const homeDescription =
-  "Puck Buddy turns any phone into an AI hockey coach. Film a shot, get scored mechanics and clear coaching feedback in about a minute. 4.7★ on the App Store. By Buddy Tech — AI coaching for youth sports.";
+  "Review shooting, skating and goalie drills with AI feedback. Track your hockey practice and training progress with Puck Buddy by Buddy Tech LLC.";
 
 export const metadata: Metadata = {
   title: homeTitle,
@@ -129,7 +129,7 @@ export default function RootLayout({
                       </Link>
                     </dt>
                     <dd className="mt-1">
-                      Upload a shooting video and our computer vision model breaks down your mechanics, scores key movements, and returns coaching feedback in about a minute.{" "}
+                      Upload a supported drill video to review technique scores and coaching feedback. Processing time varies with the clip and connection.{" "}
                       <Link href="/puckbuddy#how-it-works" className="underline underline-offset-2 hover:text-white">
                         See how it works
                       </Link>
@@ -172,6 +172,9 @@ export default function RootLayout({
               <p className="text-white/60 text-sm mb-4">&copy; 2026 Buddy Tech. All rights reserved.</p>
               
               <div className="flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-4 text-sm text-white/60">
+                <Link href="/support" className="hover:text-white transition-colors duration-200">
+                  Support
+                </Link>
                 <Link href="/terms" className="hover:text-white transition-colors duration-200">
                   Terms of Service
                 </Link>

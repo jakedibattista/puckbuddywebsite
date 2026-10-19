@@ -1,7 +1,7 @@
 "use client";
 // Presents the video walkthrough with local playback and slide controls.
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface Slide {
@@ -52,7 +52,6 @@ export default function WalkthroughPage() {
   const [currentIdx, setCurrentIdx] = useState(0);
   const [currentVideoIdx, setCurrentVideoIdx] = useState(0); // Tracks sequential video index on current slide
   const [isPlaying, setIsPlaying] = useState(true);
-  const [isMuted] = useState(true);
 
   const [isEditing, setIsEditing] = useState(false);
   const [editTitle, setEditTitle] = useState("");
@@ -86,15 +85,33 @@ export default function WalkthroughPage() {
     localStorage.setItem("puckbuddy_v2_slides_v3", JSON.stringify(newSlides));
   };
 
-  // Handle slide or video changes
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.load();
-      if (isPlaying) {
-        videoRef.current.play().catch(() => setIsPlaying(false));
-      }
+  const handlePlayPause = useCallback(() => setIsPlaying(playing => !playing), []);
+  const handleNext = useCallback(() => {
+    setCurrentVideoIdx(0);
+    setCurrentIdx(previous => (previous + 1) % slides.length);
+  }, [slides.length]);
+  const handlePrev = useCallback(() => {
+    setCurrentVideoIdx(0);
+    setCurrentIdx(previous => (previous - 1 + slides.length) % slides.length);
+  }, [slides.length]);
+  const toggleFullscreen = useCallback(() => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(() => {});
+    } else {
+      document.exitFullscreen().catch(() => {});
     }
-  }, [currentIdx, currentVideoIdx]);
+  }, []);
+
+  // A source change reloads media; toggling playback must retain the playhead.
+  useEffect(() => {
+    videoRef.current?.load();
+  }, [currentVideoSrc]);
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (isPlaying) video.play().catch(() => setIsPlaying(false));
+    else video.pause();
+  }, [currentVideoSrc, isPlaying]);
 
   // Keyboard shortcuts
   useEffect(() => {
@@ -124,28 +141,7 @@ export default function WalkthroughPage() {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [currentIdx, currentVideoIdx, isPlaying, isMuted, isEditing]);
-
-  const handlePlayPause = () => {
-    if (!videoRef.current) return;
-    if (isPlaying) {
-      videoRef.current.pause();
-      setIsPlaying(false);
-    } else {
-      videoRef.current.play().catch(() => {});
-      setIsPlaying(true);
-    }
-  };
-
-  const handleNext = () => {
-    setCurrentVideoIdx(0);
-    setCurrentIdx((prev) => (prev + 1) % slides.length);
-  };
-
-  const handlePrev = () => {
-    setCurrentVideoIdx(0);
-    setCurrentIdx((prev) => (prev - 1 + slides.length) % slides.length);
-  };
+  }, [isEditing, handleNext, handlePrev, handlePlayPause, toggleFullscreen]);
 
   const handleVideoEnded = () => {
     // If there is another video in the sequence for this slide, play it!
@@ -154,14 +150,6 @@ export default function WalkthroughPage() {
       setIsPlaying(true);
     } else {
       setIsPlaying(false);
-    }
-  };
-
-  const toggleFullscreen = () => {
-    if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen().catch(() => {});
-    } else {
-      document.exitFullscreen().catch(() => {});
     }
   };
 
@@ -212,8 +200,9 @@ export default function WalkthroughPage() {
               >
                 <h3 className="text-sm font-bold text-gray-400 uppercase tracking-wider">Edit Slide Text</h3>
                 <div className="space-y-2">
-                  <label className="text-xs text-gray-400 block font-semibold">Slide Title</label>
+                  <label htmlFor="slide-title" className="text-xs text-gray-400 block font-semibold">Slide Title</label>
                   <input
+                    id="slide-title"
                     type="text"
                     value={editTitle}
                     onChange={(e) => setEditTitle(e.target.value)}
@@ -221,8 +210,9 @@ export default function WalkthroughPage() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs text-gray-400 block font-semibold">Slide Description</label>
+                  <label htmlFor="slide-description" className="text-xs text-gray-400 block font-semibold">Slide Description</label>
                   <textarea
+                    id="slide-description"
                     value={editDesc}
                     onChange={(e) => setEditDesc(e.target.value)}
                     rows={4}

@@ -7,6 +7,7 @@ Regenerate with `python3 scripts/check-repository.py --write-index` after adding
 
 | File | Responsibility |
 | --- | --- |
+| [.github/workflows/quality.yml](<../.github/workflows/quality.yml>) | Validate the website on the owner-managed runner without paid compute or storage. |
 | [eslint.config.mjs](<../eslint.config.mjs>) | Configures source linting for the website and its Node-based asset tools. |
 | [next.config.ts](<../next.config.ts>) | Sets the repository build root and allowed remote image host for Next.js. |
 | [playwright.config.ts](<../playwright.config.ts>) | Starts the isolated local browser fixture used to verify download and partner navigation. |
@@ -72,4 +73,5 @@ Regenerate with `python3 scripts/check-repository.py --write-index` after adding
 | [test/download.test.tsx](<../test/download.test.tsx>) | Checks store destinations, hydration-safe links and download analytics behavior. |
 | [test/partner.test.tsx](<../test/partner.test.tsx>) | Checks required partner fields and email draft encoding without sending an inquiry. |
 | [test/sticky-cta.test.tsx](<../test/sticky-cta.test.tsx>) | Checks visibility and destination behavior of the mobile download controls. |
-| [vitest.config.ts](<../vitest.config.ts>) | Configures DOM-based unit tests for conversion links, partner inquiries and sticky download controls. |
+| [test/walkthrough.test.tsx](<../test/walkthrough.test.tsx>) | Exercises walkthrough playback and navigation through the public controls. |
+| [vitest.config.mjs](<../vitest.config.mjs>) | Configures DOM-based unit tests for conversion links, partner inquiries and sticky download controls. |

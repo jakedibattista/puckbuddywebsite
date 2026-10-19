@@ -1,3 +1,4 @@
+// Sets lacrosse page metadata while leaving shared navigation to the root layout.
 import type { Metadata } from "next";
 
 const title = "Lax Buddy & Scout — AI Lacrosse Coaching and Scouting Tools";

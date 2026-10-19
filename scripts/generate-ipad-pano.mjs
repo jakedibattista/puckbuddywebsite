@@ -1,3 +1,4 @@
+// Builds the iPad panoramic marketing composition from local image inputs.
 import fs from "node:fs/promises";
 import path from "node:path";
 import sharp from "sharp";

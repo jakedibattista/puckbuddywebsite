@@ -1,3 +1,4 @@
+// Captures the second-generation Apple screenshot export pages with Puppeteer.
 import puppeteer from 'puppeteer';
 import path from 'node:path';
 import fs from 'node:fs/promises';

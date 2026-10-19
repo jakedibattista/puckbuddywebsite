@@ -1,4 +1,5 @@
 "use client";
+// Collects partner details and opens the validated inquiry as an email draft.
 import { useState } from "react";
 import { track } from "@vercel/analytics";
 import { CONTACT_EMAIL } from "../lib/constants";

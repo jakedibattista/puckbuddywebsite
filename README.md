@@ -4,6 +4,8 @@ See the [Puck Buddy engineering map](https://github.com/jakedibattista/puck-budd
 
 **Live site:** [buddysports.app](https://buddysports.app) · **Repo:** [github.com/jakedibattista/puckbuddywebsite](https://github.com/jakedibattista/puckbuddywebsite) · **Vercel:** `buddy-tech/puckbuddy-website`
 
+Start with [documentation navigation](docs/README.md) and [file responsibilities](docs/source-index.md) when changing code.
+
 ## Site structure
 
 | Path | File | Notes |
@@ -26,9 +28,10 @@ See the [Puck Buddy engineering map](https://github.com/jakedibattista/puck-budd
 
 ## Getting Started
 
-First, run the development server:
+Install the locked dependencies, then run the development server:
 
 ```bash
+npm ci
 npm run dev
 # or
 yarn dev

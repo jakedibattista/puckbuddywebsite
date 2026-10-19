@@ -1,3 +1,4 @@
+// Lists canonical public pages for crawlers; export utilities are maintained separately.
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {

@@ -1,3 +1,4 @@
+// Renders bold Apple store artwork from the configured product image inputs.
 import fs from "node:fs/promises";
 import path from "node:path";
 import sharp from "sharp";

@@ -1,3 +1,4 @@
+// Captures phone artwork from the Google Play screenshot export page.
 import puppeteer from 'puppeteer';
 import path from 'node:path';
 import fs from 'node:fs/promises';

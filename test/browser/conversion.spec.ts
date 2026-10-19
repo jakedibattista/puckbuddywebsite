@@ -1,3 +1,4 @@
+// Verifies download and inquiry navigation in a local browser without sending external requests.
 import { test, expect } from '@playwright/test';
 test.beforeEach(async ({ page }) => {
   // Exercise local pages without sending telemetry or opening external services.

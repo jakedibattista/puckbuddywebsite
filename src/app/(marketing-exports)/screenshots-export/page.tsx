@@ -1,4 +1,5 @@
 "use client";
+// Renders the screenshots export artwork capture surface; this is an export utility, not an app screen.
 
 import Image from "next/image";
 

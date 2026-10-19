@@ -1,4 +1,5 @@
 "use client";
+// Builds platform-aware download links while keeping click analytics in one component.
 
 import type { ComponentPropsWithoutRef, MouseEvent, ReactNode } from "react";
 import { track } from "@vercel/analytics";

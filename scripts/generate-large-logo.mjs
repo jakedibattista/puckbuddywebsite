@@ -1,3 +1,4 @@
+// Resizes the maintained logo image for large marketing exports.
 import sharp from 'sharp';
 import path from 'path';
 import { fileURLToPath } from 'url';

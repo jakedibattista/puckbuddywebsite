@@ -1,3 +1,4 @@
+// Sets partner page metadata while leaving shared navigation to the root layout.
 import type { Metadata } from "next";
 
 const title = "Partner with Buddy Tech — Team Plans, White-Label Apps & Sports AI API";

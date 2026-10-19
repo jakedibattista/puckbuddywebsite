@@ -1,4 +1,5 @@
 "use client";
+// Explains the company and its hockey product with current cross-store download guidance.
 
 import Image from "next/image";
 import { motion } from "framer-motion";

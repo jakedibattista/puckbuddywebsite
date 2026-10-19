@@ -1,3 +1,4 @@
+// Displays the configured App Store rating as a shared marketing badge.
 import { APP_STORE_RATING } from "../lib/constants";
 
 type RatingBadgeProps = {

@@ -1,3 +1,4 @@
+// Checks required partner fields and email draft encoding without sending an inquiry.
 import React from 'react';
 import { afterEach, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';

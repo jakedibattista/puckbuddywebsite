@@ -1,4 +1,5 @@
 "use client";
+// Explains the three-step analysis workflow and presents the shared download choices.
 
 import Image from "next/image";
 import ScrollAnimation from "./ScrollAnimation";

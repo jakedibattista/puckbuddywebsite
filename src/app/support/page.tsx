@@ -1,3 +1,4 @@
+// Explains upload help, store billing, restore purchases and verified account deletion support.
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CONTACT_EMAIL } from "../lib/constants";

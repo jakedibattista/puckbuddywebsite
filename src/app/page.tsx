@@ -1,4 +1,5 @@
 "use client";
+// Presents the Buddy Sports homepage and routes visitors to its supported products.
 
 import Image from "next/image";
 import Link from "next/link";

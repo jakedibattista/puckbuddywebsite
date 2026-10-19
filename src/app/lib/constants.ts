@@ -1,3 +1,4 @@
+// Owns shared product links, contact destinations and displayed marketing constants.
 export const CALENDLY_URL = "https://calendly.com/jake-buddyllc/30min";
 export const CONTACT_EMAIL = "jake@buddyllc.app";
 

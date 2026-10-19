@@ -1,4 +1,5 @@
 "use client";
+// Shows the homepage scorecard video with a static reduced-motion fallback.
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";

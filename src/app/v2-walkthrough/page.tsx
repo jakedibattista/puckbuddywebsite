@@ -1,4 +1,5 @@
 "use client";
+// Presents the video walkthrough with local playback and slide controls.
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";

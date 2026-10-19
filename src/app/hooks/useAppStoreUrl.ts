@@ -1,4 +1,5 @@
 "use client";
+// Resolves the store destination after hydration while preserving a stable initial link.
 
 import { useSyncExternalStore } from "react";
 

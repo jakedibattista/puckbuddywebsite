@@ -1,3 +1,4 @@
+// Captures tablet artwork using the configured Google Play export layout.
 import puppeteer from 'puppeteer';
 import path from 'node:path';
 import fs from 'node:fs/promises';

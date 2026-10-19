@@ -1,3 +1,4 @@
+// Configures DOM-based unit tests for conversion links, partner inquiries and sticky download controls.
 import { defineConfig } from 'vitest/config';
 export default defineConfig({
   oxc: { jsx: { runtime: 'automatic' } },

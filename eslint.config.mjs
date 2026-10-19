@@ -1,3 +1,4 @@
+// Configures source linting for the website and its Node-based asset tools.
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import { FlatCompat } from "@eslint/eslintrc";

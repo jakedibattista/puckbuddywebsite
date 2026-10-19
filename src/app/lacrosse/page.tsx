@@ -1,4 +1,5 @@
 "use client";
+// Lists external lacrosse products with their existing beta labels and destination links.
 
 import ScrollAnimation from "../components/ScrollAnimation";
 import MobileStickyCTA from "../components/MobileStickyCTA";

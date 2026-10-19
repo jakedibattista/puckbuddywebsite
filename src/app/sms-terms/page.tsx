@@ -1,3 +1,4 @@
+// Publishes the terms governing the existing SMS messaging program.
 export default function SMSTerms() {
   return (
     <div className="container mx-auto p-10">

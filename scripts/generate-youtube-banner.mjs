@@ -1,3 +1,4 @@
+// Captures the YouTube banner export page at its configured output dimensions.
 import puppeteer from 'puppeteer';
 import path from 'node:path';
 import fs from 'node:fs/promises';

@@ -70,3 +70,6 @@ next-env.d.ts
 venv/
 __pycache__/
 *.pyc
+
+# Next.js generates active route validators under .next/types
+/types/

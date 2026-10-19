@@ -1,4 +1,5 @@
 "use client";
+// Provides shared desktop and mobile navigation between public product pages.
 
 import { useState } from "react";
 import Link from "next/link";

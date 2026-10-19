@@ -1,4 +1,5 @@
 "use client";
+// Displays the Apple and Google store badges using shared destination constants.
 
 import Image from "next/image";
 import { track } from "@vercel/analytics";

@@ -1,3 +1,4 @@
+// Sets puckbuddy page metadata while leaving shared navigation to the root layout.
 import type { Metadata } from "next";
 
 const title = "Puck Buddy — AI Hockey Shot Analysis & Coaching App";

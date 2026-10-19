@@ -1,4 +1,5 @@
 "use client";
+// Presents the interactive product walkthrough used by the demo surface.
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";

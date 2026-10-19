@@ -1,3 +1,4 @@
+// Captures the Google Play feature-graphic export page with Puppeteer.
 import puppeteer from 'puppeteer';
 import path from 'node:path';
 import fs from 'node:fs/promises';

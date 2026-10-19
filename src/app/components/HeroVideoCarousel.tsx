@@ -1,4 +1,5 @@
 "use client";
+// Cycles hero videos and respects user playback and reduced-motion preferences.
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";

@@ -1,4 +1,5 @@
 "use client";
+// Presents the interactive hockey product demonstration.
 
 import { motion } from "framer-motion";
 import InteractiveDemo from "../components/InteractiveDemo";

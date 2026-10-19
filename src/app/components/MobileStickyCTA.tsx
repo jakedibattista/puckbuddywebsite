@@ -1,4 +1,5 @@
 "use client";
+// Shows mobile download controls with platform routing and conversion tracking.
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";

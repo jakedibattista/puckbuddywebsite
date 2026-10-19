@@ -1,4 +1,5 @@
 "use client";
+// Presents the team partnership inquiry flow and opens an email draft.
 
 import { useState, useRef } from "react";
 import ContactForm from "../components/ContactForm";

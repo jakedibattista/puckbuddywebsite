@@ -1,3 +1,4 @@
+// Sets about page metadata while leaving shared navigation to the root layout.
 import type { Metadata } from "next";
 
 const title = "About Buddy Tech — The Team Behind Puck Buddy";

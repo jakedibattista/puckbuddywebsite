@@ -1,3 +1,4 @@
+// Starts the isolated local browser fixture used to verify download and partner navigation.
 import { defineConfig } from '@playwright/test';
 export default defineConfig({
   testDir: './test/browser', fullyParallel: false,

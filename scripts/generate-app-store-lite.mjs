@@ -1,3 +1,4 @@
+// Renders the lightweight Apple store screenshot composition variant.
 import fs from "node:fs/promises";
 import path from "node:path";
 import sharp from "sharp";

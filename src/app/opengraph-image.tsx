@@ -1,3 +1,4 @@
+// Renders the social preview image used when the public website is shared.
 import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";

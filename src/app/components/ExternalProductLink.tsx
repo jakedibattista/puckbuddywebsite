@@ -1,3 +1,4 @@
+// Renders external product links with a clear new-tab cue.
 import type { ReactNode } from "react";
 
 type ExternalProductLinkProps = {

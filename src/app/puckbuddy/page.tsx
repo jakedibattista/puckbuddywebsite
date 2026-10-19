@@ -1,4 +1,5 @@
 "use client";
+// Presents hockey analysis features, pricing and Apple/Google download choices.
 
 import Image from "next/image";
 import ScrollAnimation from "../components/ScrollAnimation";

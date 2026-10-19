@@ -1,3 +1,4 @@
+// Builds Apple store image assets from the maintained local marketing inputs.
 import fs from "node:fs/promises";
 import path from "node:path";
 import sharp from "sharp";

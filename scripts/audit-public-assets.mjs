@@ -1,3 +1,4 @@
+// Finds public assets referenced by runtime code and generation tools before proposing removal.
 import fs from "node:fs";
 import path from "node:path";
 

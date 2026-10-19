@@ -1,4 +1,5 @@
 "use client";
+// Applies reusable viewport-entry animation to marketing sections.
 
 import { motion } from "framer-motion";
 import { ReactNode } from "react";

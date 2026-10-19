@@ -13,7 +13,8 @@
     "assets:audit:scripts": "node scripts/audit-public-assets.mjs --scope=scripts",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "test:browser": "playwright test"
+    "test:browser": "playwright test",
+    "check:repository": "python3 scripts/check-repository.py && python3 -m unittest discover -s scripts -p test_repository_conventions.py"
   },
   "dependencies": {
     "@vercel/analytics": "^1.6.1",

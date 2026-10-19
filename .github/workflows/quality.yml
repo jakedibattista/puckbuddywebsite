@@ -1,4 +1,4 @@
-# Validate the website on the owner-managed runner without paid compute or storage.
+# Validate this public website on free standard GitHub compute without artifact or cache storage.
 name: Quality
 on:
   pull_request:
@@ -12,7 +12,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   quality:
-    runs-on: [self-hosted, Linux, ARM64, puckbuddy-website]
+    runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4

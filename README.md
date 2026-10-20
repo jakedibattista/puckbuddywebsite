@@ -99,8 +99,10 @@ Journal-to-Scoreboard hotspot's owning screen. Graph and mounted-component tests
 cover those routes. `HeroVideoCarousel` cancels superseded/unmounted transitions
 and permits returning to the current clip before an animation finishes.
 
-Coverage currently measures 17.78% of configured lines and 25.54% of branches
-(October 19 checkpoint; 53 unit tests). Combining duplicate video effects removed
+At the October 19 checkpoint, coverage measured 17.78% of configured lines and
+25.54% of branches (53 unit tests). The [October 20 release receipt](docs/2026-10-20-vercel-release.md)
+records the later 79-test suite and inquiry-path coverage without claiming full-site
+coverage. Combining duplicate video effects removed
 covered code: the uncovered line count stayed at 883, while uncovered statements
 and branches each fell by one. The large untested remainder still needs behavioral
 coverage. CI runs `test:coverage`, with maximum uncovered-item counts

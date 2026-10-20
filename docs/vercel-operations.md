@@ -3,6 +3,10 @@
 BuddySports is a public marketing and inquiry site. Keep Firebase athlete data and
 mobile entitlement provisioning outside this project.
 
+Use the [shared platform guide](https://github.com/jakedibattista/puck-buddy/blob/main/docs/vercel-platform.md)
+for both websites and the account review. The [October 20 release receipt](2026-10-20-vercel-release.md)
+records tested commits, deployment and live verification separately from this contract.
+
 ## Partner receipt and notification contract
 
 `POST /api/partner-inquiries` accepts same-origin JSON with a version-4 UUID,

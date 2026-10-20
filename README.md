@@ -97,9 +97,11 @@ Journal-to-Scoreboard hotspot's owning screen. Graph and mounted-component tests
 cover those routes. `HeroVideoCarousel` cancels superseded/unmounted transitions
 and permits returning to the current clip before an animation finishes.
 
-Coverage currently measures 18.08% of configured lines and 26.08% of branches
-(October 19 checkpoint; 53 unit tests). The large untested remainder still needs
-behavioral coverage. CI runs `test:coverage`, with maximum uncovered-item counts
+Coverage currently measures 17.78% of configured lines and 25.54% of branches
+(October 19 checkpoint; 53 unit tests). Combining duplicate video effects removed
+covered code: the uncovered line count stayed at 883, while uncovered statements
+and branches each fell by one. The large untested remainder still needs behavioral
+coverage. CI runs `test:coverage`, with maximum uncovered-item counts
 in [Vitest configuration](vitest.config.mjs) and stricter floors for conversion
 telemetry, the demo catalog, store-link handling and the hero carousel. Review
 measured evidence before changing these budgets; do not increase a ceiling or

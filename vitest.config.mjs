@@ -11,7 +11,7 @@ export default defineConfig({
       reporter: ['text', 'json', 'json-summary'],
       thresholds: {
         // Negative thresholds cap uncovered items without hiding untested files.
-        lines: -883, statements: -926, functions: -175, branches: -272,
+        lines: -883, statements: -925, functions: -175, branches: -271,
         'src/app/lib/conversionAnalytics.ts': { 100: true },
         'src/app/lib/interactiveDemoCatalog.ts': { 100: true },
         'src/app/components/SmartAppLink.tsx': { 100: true },

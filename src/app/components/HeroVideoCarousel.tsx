@@ -1,5 +1,6 @@
 "use client";
 // Cycles hero previews while respecting the latest manual selection and reduced-motion preferences.
+// Playback and the end listener share one video-element lifecycle.
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
@@ -72,20 +73,12 @@ export default function HeroVideoCarousel() {
     };
 
     video.addEventListener("ended", handleEnded);
-    return () => video.removeEventListener("ended", handleEnded);
-  }, [currentIndex, goToNext, shouldReduceMotion]);
-
-  useEffect(() => {
-    if (shouldReduceMotion) return;
-
-    const video = videoRef.current;
-    if (!video) return;
-
     video.load();
     video.play().catch(() => {
       // Autoplay may be blocked
     });
-  }, [currentIndex, shouldReduceMotion]);
+    return () => video.removeEventListener("ended", handleEnded);
+  }, [currentIndex, goToNext, shouldReduceMotion]);
 
   const current = VIDEOS[currentIndex];
 

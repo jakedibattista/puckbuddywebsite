@@ -37,7 +37,7 @@ Regenerate with `python3 scripts/check-repository.py --write-index` after adding
 | [src/app/about/page.tsx](<../src/app/about/page.tsx>) | Explains the company and its hockey product with current cross-store download guidance. |
 | [src/app/components/ContactForm.tsx](<../src/app/components/ContactForm.tsx>) | Collects required partner contact details and opens an email draft after browser form validation. |
 | [src/app/components/ExternalProductLink.tsx](<../src/app/components/ExternalProductLink.tsx>) | Renders external product links with a clear new-tab cue. |
-| [src/app/components/HeroVideoCarousel.tsx](<../src/app/components/HeroVideoCarousel.tsx>) | Cycles hero previews while respecting the latest manual selection and reduced-motion preferences. |
+| [src/app/components/HeroVideoCarousel.tsx](<../src/app/components/HeroVideoCarousel.tsx>) | Cycles hero previews while respecting the latest manual selection and reduced-motion preferences. Playback and the end listener share one video-element lifecycle. |
 | [src/app/components/HomeHeroVisual.tsx](<../src/app/components/HomeHeroVisual.tsx>) | Shows the homepage scorecard video with a static reduced-motion fallback. |
 | [src/app/components/HowItWorks.tsx](<../src/app/components/HowItWorks.tsx>) | Explains the three-step analysis workflow and presents the shared download choices. |
 | [src/app/components/InteractiveDemo.tsx](<../src/app/components/InteractiveDemo.tsx>) | Renders screenshot-demo navigation and hints using the separate asset/hotspot catalog. |

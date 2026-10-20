@@ -111,3 +111,28 @@ debt. The rating test checks consistent use of the configured value; it does not
 independently verify the current App Store rating. Browser inquiry responses are
 local fixtures and external requests are blocked; this audit creates no customer
 inquiry, store purchase or backend acceptance evidence.
+
+
+## Later asset-audit review
+
+The read-only media audit now inventories nested images and videos, honors the
+selected source scope and fails explicitly on unreadable inputs. Its CLI delegates
+to `scripts/lib/public-asset-audit.mjs`; the [tool guide](../scripts/README.md)
+defines supported file types, reference heuristics and exit codes. No media was
+removed or added. Three CLI regressions failed against the earlier command.
+
+The updated local suite passes 121 tests. The audit core reaches 100% executable
+line/statement/function/branch coverage; actual child-process CLI checks also
+verify exit codes and file preservation. Whole-site executable-line coverage is
+33.97% and branch coverage is 58.45%. Global uncovered ceilings tighten to
+787/821/155/194 lines/statements/functions/branches, and the core has a new 100%
+per-file floor. The same one-off analyzer now finds ten high-CRAP functions among
+280 measured functions, with no analyzer errors. This remains separate from a
+website complexity CI gate.
+
+The physical local inventory has 40 supported media files with references; 34 are
+tracked and six are ignored local walkthrough recordings. Those recordings stay
+local. A clean checkout has the tracked inventory; a reference scan does not prove
+that local recordings exist on a deployment. The result does not authorize
+cleanup or establish artwork/store-publication acceptance. The earlier deployment
+receipts above remain bound to their stated sources.

@@ -6,7 +6,8 @@ Start with [the README](../README.md) for setup, production routes and deploy co
 | --- | --- |
 | Public pages and shared shell | src/app/page.tsx, route folders, layout.tsx |
 | Download routing and conversion tracking | components/SmartAppLink.tsx, hooks/useAppStoreUrl.ts, lib/constants.ts |
-| Partner email draft | components/ContactForm.tsx, lib/partnerInquiry.ts |
+| Partner inquiries and private receipts | components/ContactForm.tsx, api/partner-inquiries/, lib/partnerSubmission.ts, lib/partnerReceipt.ts |
+| Retained manual email draft encoder | lib/partnerInquiry.ts |
 | Screenshot demo catalog and navigation | lib/interactiveDemoCatalog.ts, components/InteractiveDemo.tsx |
 | Best-effort conversion telemetry | lib/conversionAnalytics.ts |
 | Shared visual behavior | components/, globals.css |

@@ -51,7 +51,7 @@ You can start editing the homepage in `src/app/page.tsx`. The page auto-updates 
 
 ## Deploy
 
-Production deploys from the `main` branch. Vercel aliases include `buddysports.app` and `buddyllc.app`.
+Production deploys from the `main` branch. `buddysports.app` is canonical. Vercel redirects `buddyllc.app` to matching primary-domain paths with HTTP 308, preserving query parameters. Production aliases wait for the `quality` GitHub check.
 
 ```bash
 vercel --prod
@@ -77,17 +77,19 @@ npm run assets:audit:fail
 
 ## Regression tests
 
-- `npm test`: store routing/hydration, telemetry failure isolation, partner draft handoff, demo graph/navigation, walkthrough playback, and carousel selection/cancellation/reduced motion.
+- `npm test`: store routing/hydration, telemetry failure isolation, partner receipt and notification retry handling, demo graph/navigation, walkthrough playback, and carousel selection/cancellation/reduced motion.
 - `npm run test:coverage`: coverage and regression budgets across all `src/**/*.{ts,tsx}` and `scripts/**/*.mjs`, including unexecuted files. Python tools are outside this JavaScript metric.
 - `npm run test:browser`: browser checks for download choices, partner form navigation and Android hydration. macOS uses installed Google Chrome; Linux CI uses Playwright Chromium (`npx playwright install --with-deps chromium`). The runner starts its own server on port 3417 and blocks external network requests; it does not submit or send inquiries.
 
-The partner form opens an email draft; it does not send email or confirm delivery.
-`lib/partnerInquiry.ts` only encodes the URL; native form constraints validate
-required contact fields and email syntax. `lib/conversionAnalytics.ts` owns
-best-effort telemetry so SDK failures cannot stop the user's action. The retained
-`partner_lead_submit` event represents a draft request, with `delivery=email_draft`;
-it is not evidence of sent or received mail. Its properties contain the selected
-tier and delivery mode, not the user's contact fields or message.
+The partner form POSTs to `/api/partner-inquiries`. It confirms receipt only after
+an immutable private Vercel Blob receipt and notification outbox item are stored.
+Retries reuse a UUID while the fields stay unchanged. Contact details are sent
+only to private storage and `jake@buddyllc.app`; the `partner_lead_received` event
+contains tier and delivery mode only. It means durable receipt, not inbox delivery.
+The historical `partner_lead_submit` event meant an email draft request and must
+not be combined with received leads. The manual email link remains available on
+failure. See [Vercel operations](docs/vercel-operations.md) for SMTP, cron, storage,
+rate limits, delivery evidence and deployment gates.
 
 `lib/interactiveDemoCatalog.ts` owns the demo's 10 fixed screenshot examples and
 25 navigation hotspots. `components/InteractiveDemo.tsx` renders them. The demo

@@ -13,6 +13,7 @@ const homeDescription =
   "Review shooting, skating and goalie drills with AI feedback. Track your hockey practice and training progress with Puck Buddy by Buddy Tech LLC.";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/" },
   title: homeTitle,
   description: homeDescription,
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://buddysports.app"),

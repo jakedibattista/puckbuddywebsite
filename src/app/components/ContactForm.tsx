@@ -1,9 +1,9 @@
 "use client";
-// Collects required partner contact details and opens an email draft after browser form validation.
-import { useState } from "react";
+// Collects required partner contact details and confirms server receipt while preserving inquiry details on errors.
+import { useRef, useState } from "react";
 import { trackConversion } from "../lib/conversionAnalytics";
 import { CONTACT_EMAIL } from "../lib/constants";
-import { buildPartnerInquiry, type Tier, tierLabels } from "../lib/partnerInquiry";
+import { type Tier, tierLabels } from "../lib/partnerInquiry";
 
 export default function ContactForm({ tier, setTier }: { tier: Tier; setTier: (t: Tier) => void }) {
   const [name, setName] = useState("");
@@ -11,12 +11,31 @@ export default function ContactForm({ tier, setTier }: { tier: Tier; setTier: (t
   const [org, setOrg] = useState("");
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
+  const [reference, setReference] = useState("");
+  const attempt = useRef({ payload: "", id: "" });
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    trackConversion("partner_lead_submit", { tier, delivery: "email_draft" });
-    window.location.href = buildPartnerInquiry({ tier, name, email, org, message });
-    setSubmitted(true);
+    if (sending) return;
+    const payload = JSON.stringify({ tier, name, email, org, message });
+    if (attempt.current.payload !== payload) attempt.current = { payload, id: crypto.randomUUID() };
+    setSending(true);
+    setError("");
+    try {
+      const response = await fetch("/api/partner-inquiries", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...JSON.parse(payload), id: attempt.current.id }),
+      });
+      const result = await response.json();
+      if (!response.ok || result.received !== true || result.reference !== attempt.current.id) throw new Error("Receipt unavailable");
+      setReference(result.reference);
+      setSubmitted(true);
+      trackConversion("partner_lead_received", { tier, delivery: "private_receipt" });
+    } catch {
+      setError("We could not confirm receipt. Your details are still here. Please retry or email us directly.");
+    } finally { setSending(false); }
   }
 
   if (submitted) {
@@ -27,26 +46,26 @@ export default function ContactForm({ tier, setTier }: { tier: Tier; setTier: (t
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h3 className="text-2xl font-bold text-gray-900 mb-2">Your email client should open!</h3>
+        <h3 className="text-2xl font-bold text-gray-900 mb-2">Your inquiry has been received.</h3>
         <p className="text-gray-600 max-w-sm mx-auto">
-          If it didn&apos;t, email us directly at{" "}
+          Reference: {reference}. For follow-up, email{" "}
           <a href={`mailto:${CONTACT_EMAIL}`} className="text-blue-600 font-medium hover:underline">
             {CONTACT_EMAIL}
           </a>
           . We typically respond within one business day.
         </p>
         <button
-          onClick={() => setSubmitted(false)}
+          onClick={() => { setSubmitted(false); attempt.current = { payload: "", id: "" }; }}
           className="mt-6 text-sm text-gray-500 hover:text-gray-700 underline"
         >
-          Prepare another draft
+          Send another inquiry
         </button>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
+    <form aria-busy={sending} onSubmit={handleSubmit} className="space-y-5">
       <div>
         <label className="block text-sm font-semibold text-gray-700 mb-2">
           I&apos;m interested in&hellip;
@@ -75,7 +94,7 @@ export default function ContactForm({ tier, setTier }: { tier: Tier; setTier: (t
             Name <span className="text-red-400">*</span>
           </label>
           <input
-            id="name"
+            id="name" maxLength={120}
             type="text"
             required
             value={name}
@@ -89,7 +108,7 @@ export default function ContactForm({ tier, setTier }: { tier: Tier; setTier: (t
             Email <span className="text-red-400">*</span>
           </label>
           <input
-            id="email"
+            id="email" maxLength={254}
             type="email"
             required
             value={email}
@@ -105,7 +124,7 @@ export default function ContactForm({ tier, setTier }: { tier: Tier; setTier: (t
           Organization / Platform
         </label>
         <input
-          id="org"
+          id="org" maxLength={200}
           type="text"
           value={org}
           onChange={(e) => setOrg(e.target.value)}
@@ -119,7 +138,7 @@ export default function ContactForm({ tier, setTier }: { tier: Tier; setTier: (t
           Tell us more <span className="text-red-400">*</span>
         </label>
         <textarea
-          id="message"
+          id="message" maxLength={4000}
           required
           rows={4}
           value={message}
@@ -135,11 +154,14 @@ export default function ContactForm({ tier, setTier }: { tier: Tier; setTier: (t
         />
       </div>
 
+      {error && <p role="alert" className="text-sm text-red-700">{error} <a href={`mailto:${CONTACT_EMAIL}`} className="underline">{CONTACT_EMAIL}</a></p>}
+      <p className="text-xs text-gray-500">We use your contact details to respond to this inquiry. <a href="/privacy" className="underline">Privacy policy</a></p>
       <button
         type="submit"
+        disabled={sending}
         className="w-full rounded-full bg-gray-900 px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
       >
-        Open email draft
+        {sending ? "Sending…" : "Send inquiry"}
       </button>
     </form>
   );

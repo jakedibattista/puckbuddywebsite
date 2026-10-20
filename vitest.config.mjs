@@ -13,6 +13,9 @@ export default defineConfig({
         // Negative thresholds cap uncovered items without hiding untested files.
         lines: -883, statements: -925, functions: -175, branches: -271,
         'src/app/lib/conversionAnalytics.ts': { 100: true },
+        'src/app/lib/partnerSubmission.ts': { 100: true },
+        'src/app/lib/partnerReceipt.ts': { 100: true },
+        'src/app/api/partner-inquiries/**/*.ts': { 100: true },
         'src/app/lib/interactiveDemoCatalog.ts': { 100: true },
         'src/app/components/SmartAppLink.tsx': { 100: true },
         'src/app/components/HeroVideoCarousel.tsx': { lines: 100, functions: 100, statements: 96.1, branches: 92.8 },

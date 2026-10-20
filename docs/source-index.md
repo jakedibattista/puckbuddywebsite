@@ -56,6 +56,8 @@ Regenerate with `python3 scripts/check-repository.py --write-index` after adding
 | [src/app/demo/page.tsx](<../src/app/demo/page.tsx>) | Presents the interactive hockey product demonstration. |
 | [src/app/globals.css](<../src/app/globals.css>) | Defines the shared website palette, typography and utility styles. |
 | [src/app/hooks/useAppStoreUrl.ts](<../src/app/hooks/useAppStoreUrl.ts>) | Resolves the store destination after hydration while preserving a stable initial link. |
+| [src/app/hooks/usePreviewPlayback.ts](<../src/app/hooks/usePreviewPlayback.ts>) | Owns preview playback and end listeners for the lifetime of one rendered video. Detached previews stop even when an earlier autoplay request resolves after cleanup. |
+| [src/app/hooks/useReducedMotionPreference.ts](<../src/app/hooks/useReducedMotionPreference.ts>) | Subscribes marketing animations and previews to live accessibility preferences. Server rendering starts with static content so hydration never starts an unwanted video. |
 | [src/app/lacrosse/layout.tsx](<../src/app/lacrosse/layout.tsx>) | Sets lacrosse page metadata while leaving shared navigation to the root layout. |
 | [src/app/lacrosse/page.tsx](<../src/app/lacrosse/page.tsx>) | Lists external lacrosse products with their existing beta labels and destination links. |
 | [src/app/layout.tsx](<../src/app/layout.tsx>) | Owns shared metadata, site navigation, footer and the single analytics installation. |
@@ -90,9 +92,12 @@ Regenerate with `python3 scripts/check-repository.py --write-index` after adding
 | [test/demo-catalog.test.ts](<../test/demo-catalog.test.ts>) | Checks the demo graph has unique, usable hotspots and complete routes through its fixed examples. |
 | [test/download.test.tsx](<../test/download.test.tsx>) | Checks store destinations, hydration-safe links and download analytics behavior. |
 | [test/hero-carousel.test.tsx](<../test/hero-carousel.test.tsx>) | Checks video selection, cancellation and reduced-motion behavior with controlled playback and timers. |
+| [test/home-hero-visual.test.tsx](<../test/home-hero-visual.test.tsx>) | Checks homepage preview ownership, autoplay failure and reduced-motion transitions. |
 | [test/interactive-demo.test.tsx](<../test/interactive-demo.test.tsx>) | Exercises the screenshot demo's navigation graph through its public controls. |
+| [test/marketing-primitives.test.tsx](<../test/marketing-primitives.test.tsx>) | Checks store-link behavior, configured rating display and accessible animation preferences. |
 | [test/partner-receipt.test.ts](<../test/partner-receipt.test.ts>) | @vitest-environment node Exercises private receipt persistence, ambiguous-write retries, inbox delivery and authenticated retries. |
 | [test/partner.test.tsx](<../test/partner.test.tsx>) | Checks receipt confirmation, retry behavior and the retained manual email draft encoder. |
+| [test/reduced-motion-preference.test.tsx](<../test/reduced-motion-preference.test.tsx>) | Checks live media-query updates, listener cleanup and stable static server rendering. |
 | [test/sticky-cta.test.tsx](<../test/sticky-cta.test.tsx>) | Checks visibility and destination behavior of the mobile download controls. |
 | [test/walkthrough.test.tsx](<../test/walkthrough.test.tsx>) | Exercises walkthrough playback and navigation through the public controls. |
 | [vitest.config.mjs](<../vitest.config.mjs>) | Configures DOM behavior tests and coverage budgets for all configured JavaScript/TypeScript source. Existing uncovered counts are ceilings, not a claim that the retained debt is complete. |

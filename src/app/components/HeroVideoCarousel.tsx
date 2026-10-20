@@ -2,9 +2,10 @@
 // Cycles hero previews while respecting the latest manual selection and reduced-motion preferences.
 // Playback and the end listener share one video-element lifecycle.
 
+import { useReducedMotionPreference } from "../hooks/useReducedMotionPreference";
 import { useState, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
-import { useReducedMotion } from "framer-motion";
+import { usePreviewPlayback } from "../hooks/usePreviewPlayback";
 
 const VIDEOS = [
   {
@@ -30,7 +31,7 @@ const VIDEOS = [
 ] as const;
 
 export default function HeroVideoCarousel() {
-  const shouldReduceMotion = useReducedMotion();
+  const shouldReduceMotion = useReducedMotionPreference();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -61,24 +62,11 @@ export default function HeroVideoCarousel() {
     goToIndex((currentIndex + 1) % VIDEOS.length);
   }, [currentIndex, goToIndex]);
 
-  useEffect(() => {
-    if (shouldReduceMotion) return;
-
-    const video = videoRef.current;
-    if (!video) return;
-
-    const handleEnded = () => {
-      // A manual selection already owns the fade; the old clip must not override it.
-      if (transitionTimer.current === null) goToNext();
-    };
-
-    video.addEventListener("ended", handleEnded);
-    video.load();
-    video.play().catch(() => {
-      // Autoplay may be blocked
-    });
-    return () => video.removeEventListener("ended", handleEnded);
-  }, [currentIndex, goToNext, shouldReduceMotion]);
+  const handleEnded = useCallback(() => {
+    // A manual selection owns the fade until the new clip is selected.
+    if (transitionTimer.current === null) goToNext();
+  }, [goToNext]);
+  usePreviewPlayback(videoRef, !shouldReduceMotion, currentIndex, handleEnded, true);
 
   const current = VIDEOS[currentIndex];
 

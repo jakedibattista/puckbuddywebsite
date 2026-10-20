@@ -67,3 +67,21 @@ test('partner entrance animations stay inside the mobile viewport', async ({ pag
   await page.locator('#contact').scrollIntoViewIfNeeded();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
+
+test('homepage preview follows live reduced-motion changes without hydration errors', async ({ page }) => {
+  const errors: string[] = [];
+  page.on('pageerror', error => errors.push(error.message));
+  page.on('console', message => { if (message.type() === 'error' && /hydrat/i.test(message.text())) errors.push(message.text()); });
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/');
+  await expect(page.getByRole('img', { name: 'Puck Buddy scorecard showing AI shot analysis on a phone' })).toBeVisible();
+  await expect(page.getByLabel('Puck Buddy app scorecard preview')).toHaveCount(0);
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  const preview = page.getByLabel('Puck Buddy app scorecard preview');
+  await expect(preview).toBeVisible();
+  const detached = await preview.elementHandle();
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await expect(preview).toHaveCount(0);
+  expect(await detached!.evaluate(video => (video as HTMLVideoElement).paused)).toBe(true);
+  expect(errors).toEqual([]);
+});

@@ -77,3 +77,37 @@ marker write can produce a duplicate. The hourly cron is configured, but this
 receipt does not claim a separately observed scheduled retry execution.
 Preview has no production storage or mail credentials. Credentials were reused
 with explicit owner approval and were not printed or committed.
+
+## Later preview accessibility audit
+
+The later playback/preference changes have their own local receipt; the deployment
+IDs above describe the earlier release. Homepage and carousel previews now share
+one playback owner, which pauses replaced or detached videos and removes their end
+listeners. Rejected autoplay leaves the poster available. A late play completion
+cannot restart a detached preview or stop a newer effect on the same element.
+
+A Chrome regression exposed that the installed animation hook did not update
+components when the operating-system motion preference changed. The shared
+`useReducedMotionPreference` hook now subscribes to that preference for all eight
+website motion consumers. Server rendering uses static content, followed by the
+browser preference after hydration. Browsers without media-query support remain
+static. Tests check subscription cleanup, both preference transitions and the
+server snapshot, in addition to playback replacement and React StrictMode behavior.
+
+The updated local suite passes 104 tests and seven Chrome browser cases, including
+live homepage preference changes with no page/hydration errors. Whole-site coverage
+is 29.78% executable lines and 50.43% branches. HomeHeroVisual, HeroVideoCarousel,
+StoreBadges, RatingBadge and ScrollAnimation have 100% line/branch/function/statement
+coverage; the preference hook also has 100%. The playback hook has 100% lines,
+functions and statements, with 92.3% branches. Global uncovered ceilings tighten
+from 883/925/175/271 lines/statements/functions/branches to 851/890/164/228, with
+new component-specific floors; no previous floor is lowered.
+
+The same dashboard analyzer described above now finds 12 high-CRAP functions
+(272 measured functions, no analyzer errors); the four newly covered visual
+components no longer exceed 30. This remains a one-off measurement rather than a
+new website CI gate. Most page bodies and asset-generation tools remain coverage
+debt. The rating test checks consistent use of the configured value; it does not
+independently verify the current App Store rating. Browser inquiry responses are
+local fixtures and external requests are blocked; this audit creates no customer
+inquiry, store purchase or backend acceptance evidence.

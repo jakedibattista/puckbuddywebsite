@@ -1,11 +1,12 @@
 "use client";
 // Presents team partnership options and the confirmed inquiry flow within the viewport.
 
+import { useReducedMotionPreference } from "../hooks/useReducedMotionPreference";
 import { useState, useRef } from "react";
 import ContactForm from "../components/ContactForm";
 import type { Tier } from "../lib/partnerInquiry";
 import ScrollAnimation from "../components/ScrollAnimation";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { trackConversion } from "../lib/conversionAnalytics";
 import { CALENDLY_URL, APP_STORE_RATING } from "../lib/constants";
 
@@ -21,7 +22,7 @@ const PROOF_POINTS = [
 
 
 export default function PartnerPage() {
-  const shouldReduceMotion = useReducedMotion();
+  const shouldReduceMotion = useReducedMotionPreference();
   const [contactTier, setContactTier] = useState<Tier>("api");
   const contactRef = useRef<HTMLElement>(null);
 

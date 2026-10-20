@@ -3,7 +3,7 @@ import React from 'react';
 import { afterEach, beforeEach, expect, it, vi } from 'vitest';
 import { act, cleanup, fireEvent, render, screen } from '@testing-library/react';
 const motion = vi.hoisted(() => ({ reduced: false }));
-vi.mock('framer-motion', () => ({ useReducedMotion: () => motion.reduced }));
+vi.mock('../src/app/hooks/useReducedMotionPreference', () => ({ useReducedMotionPreference: () => motion.reduced }));
 vi.mock('next/image', () => ({ default: ({ src, alt }: { src: string; alt: string }) => React.createElement('img', { src, alt }) }));
 import HeroVideoCarousel from '../src/app/components/HeroVideoCarousel';
 const first = 'Scorecard feature showcase';
@@ -12,6 +12,7 @@ const third = 'Past shots history feature showcase';
 const fourth = 'AI chat feature showcase';
 beforeEach(() => {
   vi.useFakeTimers(); motion.reduced = false;
+  vi.spyOn(HTMLMediaElement.prototype, 'pause').mockImplementation(() => {});
   vi.spyOn(HTMLMediaElement.prototype, 'load').mockImplementation(() => {});
   vi.spyOn(HTMLMediaElement.prototype, 'play').mockResolvedValue();
 });
@@ -69,4 +70,21 @@ it('wraps automatic playback from the last preview to the first', () => {
   render(<HeroVideoCarousel />); choose(fourth); transition();
   fireEvent.ended(screen.getByLabelText(fourth)); transition();
   expect(screen.getByLabelText(first)).toBeTruthy();
+});
+
+it('pauses a replaced preview and removes its end listener', () => {
+  render(<HeroVideoCarousel />);
+  const previous = screen.getByLabelText(first);
+  const pause = vi.spyOn(previous as HTMLVideoElement, 'pause');
+  choose(second); transition();
+  expect(pause).toHaveBeenCalledOnce();
+  fireEvent.ended(previous); transition();
+  expect(screen.getByLabelText(second)).toBeTruthy();
+});
+it('pauses the active clip when reduced motion replaces it with a poster', () => {
+  const view = render(<HeroVideoCarousel />);
+  const pause = vi.spyOn(screen.getByLabelText(first) as HTMLVideoElement, 'pause');
+  motion.reduced = true; view.rerender(<HeroVideoCarousel />);
+  expect(pause).toHaveBeenCalledOnce();
+  expect(view.container.querySelector('video')).toBeNull();
 });

@@ -1,6 +1,7 @@
 "use client";
 // Presents hockey analysis features, pricing and Apple/Google download choices.
 
+import { useReducedMotionPreference } from "../hooks/useReducedMotionPreference";
 import Image from "next/image";
 import ScrollAnimation from "../components/ScrollAnimation";
 import InteractiveDemo from "../components/InteractiveDemo";
@@ -10,10 +11,10 @@ import SmartAppLink from "../components/SmartAppLink";
 import HowItWorks from "../components/HowItWorks";
 import StoreBadges from "../components/StoreBadges";
 import RatingBadge from "../components/RatingBadge";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function PuckBuddyPage() {
-  const shouldReduceMotion = useReducedMotion();
+  const shouldReduceMotion = useReducedMotionPreference();
 
   return (
     <div className="min-h-screen bg-white">

@@ -201,8 +201,8 @@ metadata and social-image consumers use their shared owner. The
 4.7 when checked on October 20. These tests inject alternate fixture values to
 expose duplication; they do not continuously verify provider data. The 5,000+
 label and advertised customer-sandbox availability remain evidence questions.
-A read-only count found ten retained completed job records; that is not an
-all-time historical total and cannot establish or disprove the displayed label.
+A read-only retained-job aggregate is not an all-time historical total and
+cannot establish or disprove the displayed label.
 Processing-time, experience and testimonial claims also need their own evidence;
 this batch does not certify every marketing statement.
 

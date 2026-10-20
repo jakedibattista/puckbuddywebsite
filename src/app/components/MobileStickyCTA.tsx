@@ -1,8 +1,9 @@
 "use client";
 // Shows mobile download controls with platform routing and conversion tracking.
 
+import { useReducedMotionPreference } from "../hooks/useReducedMotionPreference";
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { trackConversion } from "../lib/conversionAnalytics";
 import {
   appStoreLinkProps,
@@ -24,7 +25,7 @@ export default function MobileStickyCTA({
   scrollThreshold = 600,
 }: MobileStickyCTAProps = {}) {
   const [isVisible, setIsVisible] = useState(false);
-  const shouldReduceMotion = useReducedMotion();
+  const shouldReduceMotion = useReducedMotionPreference();
   const storeDestination = useAppStoreDestination();
 
   const destination: AppStoreDestination = href

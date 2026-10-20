@@ -1,16 +1,17 @@
 "use client";
 // Lists external lacrosse products with their existing beta labels and destination links.
 
+import { useReducedMotionPreference } from "../hooks/useReducedMotionPreference";
 import ScrollAnimation from "../components/ScrollAnimation";
 import MobileStickyCTA from "../components/MobileStickyCTA";
 import ExternalProductLink from "../components/ExternalProductLink";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 
 const LAX_BUDDY_URL = "https://lax-buddy-358616086489.us-east1.run.app/";
 const SCOUT_URL = "https://scout-three-peach.vercel.app/";
 
 export default function LacrossePage() {
-  const shouldReduceMotion = useReducedMotion();
+  const shouldReduceMotion = useReducedMotionPreference();
 
   const products = [
     {

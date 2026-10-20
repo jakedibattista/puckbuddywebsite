@@ -1,9 +1,9 @@
 "use client";
 // Applies reusable viewport-entry animation to marketing sections.
 
+import { useReducedMotionPreference } from "../hooks/useReducedMotionPreference";
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
-import { useReducedMotion } from "framer-motion";
 
 interface ScrollAnimationProps {
   children: ReactNode;
@@ -18,7 +18,7 @@ export default function ScrollAnimation({
   direction = "up",
   className = "",
 }: ScrollAnimationProps) {
-  const shouldReduceMotion = useReducedMotion();
+  const shouldReduceMotion = useReducedMotionPreference();
 
   const directionVariants = {
     up: { y: 60, opacity: 0 },

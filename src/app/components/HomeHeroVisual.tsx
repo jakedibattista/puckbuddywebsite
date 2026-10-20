@@ -1,27 +1,21 @@
 "use client";
 // Shows the homepage scorecard video with a static reduced-motion fallback.
 
-import { useEffect, useRef } from "react";
+import { useReducedMotionPreference } from "../hooks/useReducedMotionPreference";
+import { useRef } from "react";
 import Image from "next/image";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
+
+import { usePreviewPlayback } from "../hooks/usePreviewPlayback";
 
 const HERO_VIDEO = "/scorecard header.mp4";
 const HERO_POSTER = "/v2-scorecard.png";
 
 export default function HomeHeroVisual() {
-  const shouldReduceMotion = useReducedMotion();
+  const shouldReduceMotion = useReducedMotionPreference();
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  useEffect(() => {
-    if (shouldReduceMotion) return;
-
-    const video = videoRef.current;
-    if (!video) return;
-
-    video.play().catch(() => {
-      // Autoplay may be blocked until user interaction
-    });
-  }, [shouldReduceMotion]);
+  usePreviewPlayback(videoRef, !shouldReduceMotion);
 
   return (
     <motion.div

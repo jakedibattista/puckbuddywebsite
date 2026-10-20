@@ -1,9 +1,10 @@
 "use client";
 // Presents the Buddy Sports homepage and routes visitors to its supported products.
 
+import { useReducedMotionPreference } from "./hooks/useReducedMotionPreference";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { trackConversion } from "./lib/conversionAnalytics";
 import { Instrument_Serif } from "next/font/google";
 import ScrollAnimation from "./components/ScrollAnimation";
@@ -44,7 +45,7 @@ const PARTNER_OFFERS = [
 ] as const;
 
 export default function Home() {
-  const shouldReduceMotion = useReducedMotion();
+  const shouldReduceMotion = useReducedMotionPreference();
 
   return (
     <div className="min-h-screen bg-white">

@@ -5,5 +5,5 @@ export const CONTACT_EMAIL = "jake@buddyllc.app";
 /** US listing checked on 2026-10-20; refresh this shared value when updating marketing. */
 export const APP_STORE_RATING = "4.7";
 
-/** Existing marketing count label; not a live database total. */
+/** Owner-maintained lifetime estimate from manually tracked Firebase video jobs (2026-10-20). Older jobs are deleted; this is not a live database total. */
 export const ANALYZED_VIDEO_COUNT_LABEL = "5,000+";

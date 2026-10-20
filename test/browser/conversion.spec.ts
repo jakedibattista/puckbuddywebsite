@@ -12,7 +12,7 @@ test('download chooser and partner inquiry are reachable', async ({ page }) => {
   await page.getByRole('button', { name: 'Request a promo code' }).first().click();
   await expect(page.locator('#contact form')).toBeVisible();
   await expect(page.getByRole('button', { name: 'Partner Program', exact: true })).toBeVisible();
-  await expect(page.getByRole('button', { name: 'Open email draft', exact: true })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Send inquiry', exact: true })).toBeVisible();
   expect(await page.locator('form').evaluate(form => (form as HTMLFormElement).checkValidity())).toBe(false);
 });
 test('Android home links hydrate to Google Play without hydration errors', async ({ browser }) => {
@@ -43,4 +43,17 @@ test('the screenshot demo navigates from Journal to Scoreboard', async ({ page }
   await page.getByRole('button', { name: 'Journal', exact: true }).click();
   await page.getByRole('button', { name: 'Navigate to Scoreboard', exact: true }).click();
   await expect(page.getByRole('img', { name: 'Scoreboard', exact: true })).toBeVisible();
+});
+
+test('partner receipt confirms only after the server acknowledges storage', async ({ page }) => {
+  await page.route('**/api/partner-inquiries', async route => {
+    const payload = route.request().postDataJSON();
+    await route.fulfill({ status: 201, contentType: 'application/json', body: JSON.stringify({ received: true, reference: payload.id }) });
+  });
+  await page.goto('/partner#contact');
+  await page.getByLabel('Name', { exact: false }).fill('Browser Fixture');
+  await page.getByLabel('Email', { exact: false }).fill('fixture@example.test');
+  await page.getByLabel('Tell us more', { exact: false }).fill('Local browser receipt check');
+  await page.getByRole('button', { name: 'Send inquiry', exact: true }).click();
+  await expect(page.getByText('Your inquiry has been received.')).toBeVisible();
 });

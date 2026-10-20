@@ -11,7 +11,8 @@ export default defineConfig({
       reporter: ['text', 'json', 'json-summary'],
       thresholds: {
         // Negative thresholds cap uncovered items without hiding untested files.
-        lines: -787, statements: -821, functions: -155, branches: -194,
+        lines: -555, statements: -563, functions: -129, branches: -142,
+        'scripts/lib/artwork-*.mjs': { 100: true },
         'scripts/lib/public-asset-audit.mjs': { 100: true },
         'src/app/lib/conversionAnalytics.ts': { 100: true },
         'src/app/lib/partnerSubmission.ts': { 100: true },

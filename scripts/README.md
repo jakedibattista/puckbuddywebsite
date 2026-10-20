@@ -46,3 +46,46 @@ launch the actual command and verify exit codes and preservation of unused files
 Run `npm run test:coverage`, `npm run lint -- --max-warnings 0`, `npm run build` and
 `npm run assets:audit:fail` after changing the tool. Existing artwork generators
 keep their own inputs and browser-capture behavior.
+
+## Artwork captures
+
+The five `generate-app-store-v2.mjs`, `generate-play-store-screenshots.mjs`,
+`generate-play-store-tablets.mjs`, `generate-play-store-feature.mjs` and
+`generate-youtube-banner.mjs` commands share three owners:
+
+- `lib/artwork-plans.mjs` defines the existing routes, selectors, output names,
+  viewports and expected PNG dimensions.
+- `lib/artwork-server.mjs` probes the local export route, releases probe response
+  bodies and starts a temporary Next server only when needed. Requests time out
+  after two seconds; startup retries and process-group cleanup are bounded. It
+  never terminates a server it reused. Server ownership uses POSIX process groups;
+  these commands target macOS and Linux.
+- `lib/artwork-capture.mjs` waits for fonts/images, captures into a unique staging
+  directory, checks saved PNG headers/dimensions and moves verified captures to
+  their configured destination under `marketing-assets/`.
+
+Run a command from the repository root, for example:
+
+```bash
+node scripts/generate-play-store-feature.mjs
+```
+
+Puppeteer needs its installed browser. If its cache is unavailable, set
+`PUPPETEER_EXECUTABLE_PATH` to an installed Chrome executable; on macOS this can be
+`/Applications/Google Chrome.app/Contents/MacOS/Google Chrome`. No personal browser
+profile is used. The commands retain port 3000 and the established output paths.
+Programmatic callers can use `captureArtwork(plan, { root, outputRoot, port })` to
+verify into a separate temporary directory and port.
+
+Missing selectors, unsuccessful navigation, unloaded images, absent/malformed
+PNG files and dimension mismatches fail the command. Browser, owned-server and
+staging cleanup also run after failure. Capture and cleanup failures are retained
+together; a cleanup failure prevents the success message. Staging avoids accepting
+an older draft as a new result. Publication to final local filenames uses a rename
+per file; a failure during those renames may leave a partial batch and returns an
+error. The commands do not promise a transaction across all output files.
+
+Saved PNGs remain drafts. Capturing, reviewing, submitting and publicly releasing
+store artwork are separate states; the catalog's retained dimensions are not a
+claim about current store eligibility. The previous tablet command's incorrect
+`public/` success message is replaced by the actual saved paths.

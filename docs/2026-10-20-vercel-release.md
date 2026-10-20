@@ -136,3 +136,40 @@ local. A clean checkout has the tracked inventory; a reference scan does not pro
 that local recordings exist on a deployment. The result does not authorize
 cleanup or establish artwork/store-publication acceptance. The earlier deployment
 receipts above remain bound to their stated sources.
+
+
+## Later artwork-generator lifecycle audit
+
+The five HTML-based capture commands now share a plan catalog, server owner and
+capture engine. Routes, final output names, viewports and pixel dimensions remain
+as configured before the split. Missing selectors, failed/absent PNG writes and
+capture errors no longer print success or bypass browser cleanup. Fifteen new
+entrypoint regressions fail against the earlier scripts. The tablet command now
+reports its actual `marketing-assets/` destinations rather than `public/`.
+
+The [tool guide](../scripts/README.md#artwork-captures) owns setup, staging,
+per-file rename limits and cleanup semantics. Each plan captures into unique
+staging, validates saved PNG headers and dimensions, and reports completion only
+after cleanup. Existing servers remain outside its ownership. Readiness requests
+and startup/cleanup waits are bounded; probe bodies are released. No consumer
+marketing copy, team-access behavior or existing artwork draft was changed.
+
+Local acceptance passes 166 unit tests, types, zero-warning lint and repository/
+documentation checks. The three new helper modules have complete executable-line,
+statement, function and branch coverage. Whole-site line coverage is 47.24% and
+branch coverage 69.72%; global uncovered ceilings tighten to 555/563/129/142
+lines/statements/functions/branches with new 100% helper floors. The one-off
+analyzer records five remaining high-CRAP functions among 280 measured functions,
+with no analyzer errors. The remaining five are public page bodies; this does not
+establish complete website coverage or a new complexity CI gate.
+
+Real local Chrome runs exercised all five plans on port 3418 and produced 18 PNGs
+in a temporary output directory. Independent decoding checked every PNG and its
+pixel dimensions, and the manifest retains their hashes. Browser instrumentation
+blocked 12 external requests during this verification. The owned server was no
+longer reachable after each plan. Representative Apple and feature-graphic
+captures were visually inspected. An initial missing-browser attempt failed
+cleanly and released its server; retry used the installed Chrome executable.
+Those runtime observations are separate from the unit-test coverage figures.
+The existing local drafts remain untouched. These captures are verification
+artifacts, not saved store submissions or public releases.

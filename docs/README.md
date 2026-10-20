@@ -4,6 +4,7 @@
 
 | Document | Purpose |
 | --- | --- |
+| [Vercel operations](vercel-operations.md) | Receipt delivery, production configuration and release gates |
 | [Repository hygiene](repository-hygiene.md) | Dated reachability/asset review; original measurements stay historical |
 | [Security review](2026-10-10-security-audit.md) | Scoped review and deployment boundaries for the dependency patch |
 | [Tool instructions](../scripts/README.md) | Asset generation and reference audit commands |

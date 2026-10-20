@@ -1,5 +1,5 @@
 "use client";
-// Presents the team partnership inquiry flow and opens an email draft.
+// Presents team partnership options and the confirmed inquiry flow within the viewport.
 
 import { useState, useRef } from "react";
 import ContactForm from "../components/ContactForm";
@@ -33,7 +33,7 @@ export default function PartnerPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen overflow-x-clip bg-white">
       {/* Hero */}
       <section className="relative overflow-hidden bg-[radial-gradient(1200px_circle_at_20%_10%,rgba(37,99,235,0.28),transparent_55%),radial-gradient(900px_circle_at_80%_0%,rgba(139,92,246,0.18),transparent_55%),linear-gradient(to_bottom_right,#070A12,#0B1220,#070A12)] text-white py-20 sm:py-24 lg:py-32">
         <div

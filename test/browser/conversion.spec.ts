@@ -57,3 +57,13 @@ test('partner receipt confirms only after the server acknowledges storage', asyn
   await page.getByRole('button', { name: 'Send inquiry', exact: true }).click();
   await expect(page.getByText('Your inquiry has been received.')).toBeVisible();
 });
+
+test('partner entrance animations stay inside the mobile viewport', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/partner');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.locator('#offerings').scrollIntoViewIfNeeded();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.locator('#contact').scrollIntoViewIfNeeded();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+});

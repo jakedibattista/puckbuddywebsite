@@ -18,15 +18,18 @@ Regenerate with `python3 scripts/check-repository.py --write-index` after adding
 | [scripts/generate-app-store-bold.mjs](<../scripts/generate-app-store-bold.mjs>) | Renders bold Apple store artwork from the configured product image inputs. |
 | [scripts/generate-app-store-images.mjs](<../scripts/generate-app-store-images.mjs>) | Builds Apple store image assets from the maintained local marketing inputs. |
 | [scripts/generate-app-store-lite.mjs](<../scripts/generate-app-store-lite.mjs>) | Renders the lightweight Apple store screenshot composition variant. |
-| [scripts/generate-app-store-v2.mjs](<../scripts/generate-app-store-v2.mjs>) | Captures the second-generation Apple screenshot export pages with Puppeteer. |
+| [scripts/generate-app-store-v2.mjs](<../scripts/generate-app-store-v2.mjs>) | Runs the app-store-v2 local artwork capture plan with shared validation and cleanup. Output names and dimensions live in scripts/lib/artwork-plans.mjs. |
 | [scripts/generate-ipad-pano.mjs](<../scripts/generate-ipad-pano.mjs>) | Builds the iPad panoramic marketing composition from local image inputs. |
 | [scripts/generate-large-logo.mjs](<../scripts/generate-large-logo.mjs>) | Resizes the maintained logo image for large marketing exports. |
-| [scripts/generate-play-store-feature.mjs](<../scripts/generate-play-store-feature.mjs>) | Captures the Google Play feature-graphic export page with Puppeteer. |
+| [scripts/generate-play-store-feature.mjs](<../scripts/generate-play-store-feature.mjs>) | Runs the play-store-feature local artwork capture plan with shared validation and cleanup. Output names and dimensions live in scripts/lib/artwork-plans.mjs. |
 | [scripts/generate-play-store-refresh.mjs](<../scripts/generate-play-store-refresh.mjs>) | Renders store artwork around unchanged, verified Android captures without inventing app screens. |
-| [scripts/generate-play-store-screenshots.mjs](<../scripts/generate-play-store-screenshots.mjs>) | Captures phone artwork from the Google Play screenshot export page. |
-| [scripts/generate-play-store-tablets.mjs](<../scripts/generate-play-store-tablets.mjs>) | Captures tablet artwork using the configured Google Play export layout. |
+| [scripts/generate-play-store-screenshots.mjs](<../scripts/generate-play-store-screenshots.mjs>) | Runs the play-store-screenshots local artwork capture plan with shared validation and cleanup. Output names and dimensions live in scripts/lib/artwork-plans.mjs. |
+| [scripts/generate-play-store-tablets.mjs](<../scripts/generate-play-store-tablets.mjs>) | Runs the play-store-tablets local artwork capture plan with shared validation and cleanup. Output names and dimensions live in scripts/lib/artwork-plans.mjs. |
 | [scripts/generate-social-banners.mjs](<../scripts/generate-social-banners.mjs>) | Composes social profile banners from maintained logo and product inputs. |
-| [scripts/generate-youtube-banner.mjs](<../scripts/generate-youtube-banner.mjs>) | Captures the YouTube banner export page at its configured output dimensions. |
+| [scripts/generate-youtube-banner.mjs](<../scripts/generate-youtube-banner.mjs>) | Runs the youtube-banner local artwork capture plan with shared validation and cleanup. Output names and dimensions live in scripts/lib/artwork-plans.mjs. |
+| [scripts/lib/artwork-capture.mjs](<../scripts/lib/artwork-capture.mjs>) | Captures configured artwork into staging, verifies saved PNG dimensions and publishes only completed captures. Browser, staging and owned-server cleanup run on both success and failure; generated files are local drafts. |
+| [scripts/lib/artwork-plans.mjs](<../scripts/lib/artwork-plans.mjs>) | Defines export routes, filenames and pixel dimensions for the existing artwork commands. This catalog describes local captures; it does not certify current store submission requirements. |
+| [scripts/lib/artwork-server.mjs](<../scripts/lib/artwork-server.mjs>) | Owns only the temporary Next.js process group started by an artwork capture. Probes are bounded; an existing server is reused and never terminated by this owner. |
 | [scripts/lib/public-asset-audit.mjs](<../scripts/lib/public-asset-audit.mjs>) | Inventories regular public image/video files and their conservative literal references. Collection, report formatting and CLI policy stay separate; no operation writes or removes assets. |
 | [scripts/test_repository_conventions.py](<../scripts/test_repository_conventions.py>) | Prove the navigation checker rejects missing explanations and preserves directives. |
 | [src/app/(marketing-exports)/layout.tsx](<../src/app/(marketing-exports)/layout.tsx>) | Keeps publicly routable artwork utilities out of search results without changing their URLs. |
@@ -87,6 +90,8 @@ Regenerate with `python3 scripts/check-repository.py --write-index` after adding
 | [src/app/terms/page.tsx](<../src/app/terms/page.tsx>) | Publishes the terms of service and page metadata. |
 | [src/app/v2-walkthrough/layout.tsx](<../src/app/v2-walkthrough/layout.tsx>) | Gives the v2-walkthrough page its canonical public URL without changing the shared shell. |
 | [src/app/v2-walkthrough/page.tsx](<../src/app/v2-walkthrough/page.tsx>) | Presents the video walkthrough with local playback and slide controls. |
+| [test/artwork-generators.test.ts](<../test/artwork-generators.test.ts>) | Exercises all artwork entrypoints with fake browser/provider boundaries and no real filesystem writes. Missing targets, failed capture and absent output must fail the command and release its browser. |
+| [test/artwork-server.test.ts](<../test/artwork-server.test.ts>) | Checks temporary-server ownership, bounded startup and process-group cleanup with fake children. |
 | [test/browser/conversion.spec.ts](<../test/browser/conversion.spec.ts>) | Verifies download and inquiry navigation in a local browser without sending external requests. |
 | [test/canonical-pages.test.tsx](<../test/canonical-pages.test.tsx>) | Checks that public pages name their own canonical route and preserve the shared site shell. |
 | [test/conversion-analytics.test.ts](<../test/conversion-analytics.test.ts>) | Checks best-effort telemetry forwarding and synchronous SDK failures without external delivery. |

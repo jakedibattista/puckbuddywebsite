@@ -199,10 +199,13 @@ The shared rating remains 4.7 and the analyzed-video label remains 5,000+; page,
 metadata and social-image consumers use their shared owner. The
 [US Apple listing](https://apps.apple.com/us/app/puck-buddy/id6752230304) returned
 4.7 when checked on October 20. These tests inject alternate fixture values to
-expose duplication; they do not continuously verify provider data. The 5,000+
-label and advertised customer-sandbox availability remain evidence questions.
-A read-only retained-job aggregate is not an all-time historical total and
-cannot establish or disprove the displayed label.
+expose duplication; they do not continuously verify provider data. On October 20,
+the owner identified manual tracking of Firebase video jobs as the source of the
+5,000+ lifetime estimate. Older jobs are deleted, so a read-only retained-job
+aggregate cannot reproduce, establish or disprove that lifetime figure. The shared
+constant remains an owner-maintained estimate rather than a live counter; no
+exported lifetime ledger was supplied for independent reconciliation. Advertised
+customer-sandbox availability remains unconfirmed.
 Processing-time, experience and testimonial claims also need their own evidence;
 this batch does not certify every marketing statement.
 

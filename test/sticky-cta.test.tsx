@@ -32,12 +32,12 @@ it('reflects an already restored scroll position on mount', () => {
 it('keeps the sticky button out of server HTML until browser scroll state is known', () => {
   expect(renderToString(<MobileStickyCTA />)).not.toContain('<a');
 });
-it('identifies an explicit destination as a chooser click', () => {
+it('tracks an explicit navigation destination separately from store downloads', () => {
   render(<MobileStickyCTA href="/partner" />); scroll(601);
   const link = screen.getByRole('link');
   link.addEventListener('click', event => event.preventDefault());
   fireEvent.click(link);
-  expect(track).toHaveBeenCalledExactlyOnceWith('store_badge_click', { store: 'chooser', location: 'mobile_sticky_cta' });
+  expect(track).toHaveBeenCalledExactlyOnceWith('navigation_cta_click', { target: 'same_tab', location: 'mobile_sticky_cta' });
 });
 it('recomputes visibility when the threshold changes', () => {
   scroll(150); const view = render(<MobileStickyCTA scrollThreshold={200} />);

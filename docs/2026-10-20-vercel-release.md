@@ -88,8 +88,8 @@ cannot restart a detached preview or stop a newer effect on the same element.
 
 A Chrome regression exposed that the installed animation hook did not update
 components when the operating-system motion preference changed. The shared
-`useReducedMotionPreference` hook now subscribes to that preference for all eight
-website motion consumers. Server rendering uses static content, followed by the
+`useReducedMotionPreference` hook now subscribes to that preference for the eight
+existing reduced-motion-hook call sites. Server rendering uses static content, followed by the
 browser preference after hydration. Browsers without media-query support remain
 static. Tests check subscription cleanup, both preference transitions and the
 server snapshot, in addition to playback replacement and React StrictMode behavior.
@@ -173,3 +173,47 @@ cleanly and released its server; retry used the installed Chrome executable.
 Those runtime observations are separate from the unit-test coverage figures.
 The existing local drafts remain untouched. These captures are verification
 artifacts, not saved store submissions or public releases.
+
+
+## Later public-page composition audit
+
+The page suite renders Home, About, PuckBuddy, Partner and Lacrosse with their real
+shared components. It checks platform-aware downloads, retained pricing/team
+inquiry destinations, scheduling links, bounded telemetry and selection-to-receipt
+routing. Requests and external navigation are controlled fixtures; no inquiry,
+booking or purchase is sent to a real provider.
+
+Nine initial regressions fail against the prior source: the partner page promises
+planned completion webhooks, pending inquiry scrolls ignore reduced motion or
+survive replacement/unmount, About hero animation ignores the preference, and
+rating literals diverge from an injected shared configuration. The API capability
+text now agrees with the backend's
+[documented polling contract](https://github.com/jakedibattista/modelforpuckbuddy/blob/38e70f5/docs/API_REFERENCE.md).
+Inquiry scrolls follow the latest tier/preference and unmount cleanup. A separate
+failing control exposed the inquiry-type group's missing accessible selection
+state; its fieldset/legend and pressed buttons now expose that state. Two further
+page controls caught lacrosse navigation being counted as a store click. Custom
+mobile navigation now uses its own event without changing actual store events.
+
+The shared rating remains 4.7 and the analyzed-video label remains 5,000+; page,
+metadata and social-image consumers use their shared owner. The
+[US Apple listing](https://apps.apple.com/us/app/puck-buddy/id6752230304) returned
+4.7 when checked on October 20. These tests inject alternate fixture values to
+expose duplication; they do not continuously verify provider data. The 5,000+
+label and advertised customer-sandbox availability remain evidence questions.
+A read-only retained-job aggregate is not an all-time historical total and
+cannot establish or disprove the displayed label.
+Processing-time, experience and testimonial claims also need their own evidence;
+this batch does not certify every marketing statement.
+
+Local acceptance passes 195 unit tests and eight Chrome cases, including a new
+controlled inquiry case that verifies immediate reduced-motion scrolling,
+accessible tier selection and the final submitted tier after a user override.
+All five measured page bodies, product metadata/layout, social-image renderer,
+ContactForm and MobileStickyCTA reach complete line/statement/function/branch
+coverage with new 100% floors. Whole-site executable-line coverage is 54.04% and
+branch coverage is 87.93%; global uncovered ceilings tighten to
+488/495/95/59 lines/statements/functions/branches. The same one-off analyzer finds
+no high-CRAP functions among 282 measured functions, with no analyzer errors.
+Uncovered source remains; this score does not certify complete coverage,
+accessibility conformance, external product health or release acceptance.

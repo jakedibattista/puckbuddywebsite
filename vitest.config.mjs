@@ -11,7 +11,16 @@ export default defineConfig({
       reporter: ['text', 'json', 'json-summary'],
       thresholds: {
         // Negative thresholds cap uncovered items without hiding untested files.
-        lines: -555, statements: -563, functions: -129, branches: -142,
+        lines: -488, statements: -495, functions: -95, branches: -59,
+        'src/app/page.tsx': { 100: true },
+        'src/app/about/page.tsx': { 100: true },
+        'src/app/puckbuddy/page.tsx': { 100: true },
+        'src/app/partner/page.tsx': { 100: true },
+        'src/app/lacrosse/page.tsx': { 100: true },
+        'src/app/opengraph-image.tsx': { 100: true },
+        'src/app/puckbuddy/layout.tsx': { 100: true },
+        'src/app/components/ContactForm.tsx': { 100: true },
+        'src/app/components/MobileStickyCTA.tsx': { 100: true },
         'scripts/lib/artwork-*.mjs': { 100: true },
         'scripts/lib/public-asset-audit.mjs': { 100: true },
         'src/app/lib/conversionAnalytics.ts': { 100: true },

@@ -2,35 +2,39 @@
 // Presents team partnership options and the confirmed inquiry flow within the viewport.
 
 import { useReducedMotionPreference } from "../hooks/useReducedMotionPreference";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import ContactForm from "../components/ContactForm";
 import type { Tier } from "../lib/partnerInquiry";
 import ScrollAnimation from "../components/ScrollAnimation";
 import { motion } from "framer-motion";
 import { trackConversion } from "../lib/conversionAnalytics";
-import { CALENDLY_URL, APP_STORE_RATING } from "../lib/constants";
+import { CALENDLY_URL, APP_STORE_RATING, ANALYZED_VIDEO_COUNT_LABEL } from "../lib/constants";
 
 const PROOF_POINTS = [
   { value: "Live in both stores", label: "Puck Buddy ships on iOS and Android today" },
   { value: `${APP_STORE_RATING}★ rated`, label: "Real users, real App Store reviews" },
-  { value: "5,000+ videos", label: "Analyzed by the same engine you'd build on" },
+  { value: `${ANALYZED_VIDEO_COUNT_LABEL} videos`, label: "Analyzed by the same engine you'd build on" },
   { value: "Days, not months", label: "From kickoff to working integration" },
 ] as const;
-
-
-
-
 
 export default function PartnerPage() {
   const shouldReduceMotion = useReducedMotionPreference();
   const [contactTier, setContactTier] = useState<Tier>("api");
   const contactRef = useRef<HTMLElement>(null);
+  const [pendingScroll, setPendingScroll] = useState(false);
+
+  useEffect(() => {
+    if (!pendingScroll) return;
+    const timer = setTimeout(() => {
+      setPendingScroll(false);
+      contactRef.current?.scrollIntoView({ behavior: shouldReduceMotion ? "auto" : "smooth", block: "start" });
+    }, 50);
+    return () => clearTimeout(timer);
+  }, [pendingScroll, contactTier, shouldReduceMotion]);
 
   function openContact(tier: Tier) {
     setContactTier(tier);
-    setTimeout(() => {
-      contactRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 50);
+    setPendingScroll(true);
   }
 
   return (
@@ -143,7 +147,7 @@ export default function PartnerPage() {
                     "Structured JSON scorecards & coaching feedback",
                     "Multi-shot detection and rep counting",
                     "Sport-specific analysis agents (hockey, lacrosse, more coming)",
-                    "Webhooks for async result delivery",
+                    "Async job status and structured results",
                     "Sandbox environment for testing",
                   ].map((f) => (
                     <li key={f} className="text-sm text-gray-700">

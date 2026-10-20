@@ -85,3 +85,31 @@ test('homepage preview follows live reduced-motion changes without hydration err
   expect(await detached!.evaluate(video => (video as HTMLVideoElement).paused)).toBe(true);
   expect(errors).toEqual([]);
 });
+
+test('partner inquiry selection exposes its state and honors reduced-motion scrolling', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.addInitScript(() => {
+    const original = HTMLElement.prototype.scrollIntoView;
+    HTMLElement.prototype.scrollIntoView = function (options) {
+      (window as unknown as { inquiryScrolls: unknown[] }).inquiryScrolls ??= [];
+      (window as unknown as { inquiryScrolls: unknown[] }).inquiryScrolls.push(options);
+      original.call(this, options);
+    };
+  });
+  await page.route('**/api/partner-inquiries', async route => {
+    const body = route.request().postDataJSON(); expect(body.tier).toBe('custom');
+    await route.fulfill({ status: 201, contentType: 'application/json', body: JSON.stringify({ received: true, reference: body.id }) });
+  });
+  await page.goto('/partner'); await page.getByRole('button', { name: 'Request a promo code' }).click();
+  const group = page.getByRole('group', { name: /interested in/ });
+  await expect(group.getByRole('button', { name: 'Partner Program' })).toHaveAttribute('aria-pressed', 'true');
+  await expect.poll(() => page.evaluate(() => (window as unknown as { inquiryScrolls?: unknown[] }).inquiryScrolls)).toContainEqual({ behavior: 'auto', block: 'start' });
+  await group.getByRole('button', { name: 'Custom Development' }).click();
+  await expect(group.getByRole('button', { name: 'Custom Development' })).toHaveAttribute('aria-pressed', 'true');
+  await expect(group.getByRole('button', { name: 'Partner Program' })).toHaveAttribute('aria-pressed', 'false');
+  await page.getByLabel('Name', { exact: false }).fill('Browser Fixture');
+  await page.getByLabel('Email', { exact: false }).fill('fixture@example.test');
+  await page.getByLabel('Tell us more', { exact: false }).fill('Controlled tier override');
+  await page.getByRole('button', { name: 'Send inquiry' }).click();
+  await expect(page.getByText('Your inquiry has been received.')).toBeVisible();
+});

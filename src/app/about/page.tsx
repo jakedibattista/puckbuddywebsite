@@ -1,6 +1,7 @@
 "use client";
 // Explains the company and its hockey product with current cross-store download guidance.
 
+import { useReducedMotionPreference } from "../hooks/useReducedMotionPreference";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import ScrollAnimation from "../components/ScrollAnimation";
@@ -8,6 +9,7 @@ import SmartAppLink from "../components/SmartAppLink";
 import { useAppStoreDestination } from "../hooks/useAppStoreUrl";
 
 export default function About() {
+  const shouldReduceMotion = useReducedMotionPreference();
   const downloadDestination = useAppStoreDestination();
   const downloadLabel =
     downloadDestination.platform === "android"
@@ -40,9 +42,9 @@ export default function About() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div
-              initial={{ opacity: 0, y: 12 }}
+              initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: [0.21, 1.11, 0.81, 0.99] }}
+              transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.5, ease: [0.21, 1.11, 0.81, 0.99] }}
               className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold tracking-wide text-white/90 backdrop-blur mb-6"
             >
               <span className="inline-flex h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_0_6px_rgba(16,185,129,0.12)]" />
@@ -50,9 +52,9 @@ export default function About() {
             </motion.div>
 
             <motion.h1
-              initial={{ opacity: 0, y: 18 }}
+              initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.05, ease: [0.21, 1.11, 0.81, 0.99] }}
+              transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.55, delay: 0.05, ease: [0.21, 1.11, 0.81, 0.99] }}
               className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.05] tracking-tight mb-6"
             >
               About{" "}
@@ -60,9 +62,9 @@ export default function About() {
             </motion.h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 18 }}
+              initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.12, ease: [0.21, 1.11, 0.81, 0.99] }}
+              transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.55, delay: 0.12, ease: [0.21, 1.11, 0.81, 0.99] }}
               className="text-lg md:text-xl text-white/75 leading-relaxed max-w-2xl mx-auto"
             >
               We&apos;re on a mission to make pro-level coaching accessible to every athlete.

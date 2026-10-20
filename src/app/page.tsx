@@ -13,7 +13,7 @@ import HomeHeroVisual from "./components/HomeHeroVisual";
 import HowItWorks from "./components/HowItWorks";
 import StoreBadges from "./components/StoreBadges";
 import RatingBadge from "./components/RatingBadge";
-import { CALENDLY_URL } from "./lib/constants";
+import { CALENDLY_URL, APP_STORE_RATING, ANALYZED_VIDEO_COUNT_LABEL } from "./lib/constants";
 
 const editorialSerif = Instrument_Serif({
   subsets: ["latin"],
@@ -23,8 +23,8 @@ const editorialSerif = Instrument_Serif({
 });
 
 const PROOF_POINTS = [
-  { value: "4.7★", label: "App Store rating" },
-  { value: "5,000+", label: "Videos analyzed" },
+  { value: `${APP_STORE_RATING}★`, label: "App Store rating" },
+  { value: ANALYZED_VIDEO_COUNT_LABEL, label: "Videos analyzed" },
   { value: "~60 sec", label: "From upload to feedback" },
   { value: "iOS + Android", label: "Works on any phone" },
 ] as const;

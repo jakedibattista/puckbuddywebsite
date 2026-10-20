@@ -2,6 +2,7 @@
 // Presents hockey analysis features, pricing and Apple/Google download choices.
 
 import { useReducedMotionPreference } from "../hooks/useReducedMotionPreference";
+import { ANALYZED_VIDEO_COUNT_LABEL } from "../lib/constants";
 import Image from "next/image";
 import ScrollAnimation from "../components/ScrollAnimation";
 import InteractiveDemo from "../components/InteractiveDemo";
@@ -219,7 +220,7 @@ export default function PuckBuddyPage() {
             <div className="grid gap-6 md:grid-cols-3">
               {[
                 {
-                  value: "5,000+",
+                  value: ANALYZED_VIDEO_COUNT_LABEL,
                   label: "Videos analyzed",
                   desc: "Feedback generated from real player reps, not generic advice.",
                 },

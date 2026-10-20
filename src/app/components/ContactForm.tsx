@@ -66,15 +66,16 @@ export default function ContactForm({ tier, setTier }: { tier: Tier; setTier: (t
 
   return (
     <form aria-busy={sending} onSubmit={handleSubmit} className="space-y-5">
-      <div>
-        <label className="block text-sm font-semibold text-gray-700 mb-2">
+      <fieldset className="m-0 min-w-0 border-0 p-0">
+        <legend className="block text-sm font-semibold text-gray-700 mb-2">
           I&apos;m interested in&hellip;
-        </label>
+        </legend>
         <div className="grid grid-cols-3 gap-2">
           {(["api", "custom", "partner"] as Tier[]).map((t) => (
             <button
               key={t}
               type="button"
+              aria-pressed={tier === t}
               onClick={() => setTier(t)}
               className={`rounded-xl border px-3 py-2.5 text-xs font-semibold transition-all text-center ${
                 tier === t
@@ -86,7 +87,7 @@ export default function ContactForm({ tier, setTier }: { tier: Tier; setTier: (t
             </button>
           ))}
         </div>
-      </div>
+      </fieldset>
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div>

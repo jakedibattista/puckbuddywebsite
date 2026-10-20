@@ -48,7 +48,7 @@ Regenerate with `python3 scripts/check-repository.py --write-index` after adding
 | [src/app/components/HomeHeroVisual.tsx](<../src/app/components/HomeHeroVisual.tsx>) | Shows the homepage scorecard video with a static reduced-motion fallback. |
 | [src/app/components/HowItWorks.tsx](<../src/app/components/HowItWorks.tsx>) | Explains the three-step analysis workflow and presents the shared download choices. |
 | [src/app/components/InteractiveDemo.tsx](<../src/app/components/InteractiveDemo.tsx>) | Renders screenshot-demo navigation and hints using the separate asset/hotspot catalog. |
-| [src/app/components/MobileStickyCTA.tsx](<../src/app/components/MobileStickyCTA.tsx>) | Shows mobile download controls with platform routing and conversion tracking. |
+| [src/app/components/MobileStickyCTA.tsx](<../src/app/components/MobileStickyCTA.tsx>) | Shows platform-aware downloads or caller-supplied navigation with separate bounded tracking. |
 | [src/app/components/Navigation.tsx](<../src/app/components/Navigation.tsx>) | Provides shared desktop and mobile navigation between public product pages. |
 | [src/app/components/RatingBadge.tsx](<../src/app/components/RatingBadge.tsx>) | Displays the configured App Store rating as a shared marketing badge. |
 | [src/app/components/ScrollAnimation.tsx](<../src/app/components/ScrollAnimation.tsx>) | Applies reusable viewport-entry animation to marketing sections. |
@@ -104,6 +104,7 @@ Regenerate with `python3 scripts/check-repository.py --write-index` after adding
 | [test/partner-receipt.test.ts](<../test/partner-receipt.test.ts>) | @vitest-environment node Exercises private receipt persistence, ambiguous-write retries, inbox delivery and authenticated retries. |
 | [test/partner.test.tsx](<../test/partner.test.tsx>) | Checks receipt confirmation, retry behavior and the retained manual email draft encoder. |
 | [test/public-asset-audit.test.ts](<../test/public-asset-audit.test.ts>) | Exercises the asset audit against temporary projects and its real read-only CLI. |
+| [test/public-pages.test.tsx](<../test/public-pages.test.tsx>) | Exercises real marketing-page composition and inquiry routing with external navigation and submission mocked. Page tests verify destinations and user actions; child motion/media visuals are simulated. |
 | [test/reduced-motion-preference.test.tsx](<../test/reduced-motion-preference.test.tsx>) | Checks live media-query updates, listener cleanup and stable static server rendering. |
 | [test/sticky-cta.test.tsx](<../test/sticky-cta.test.tsx>) | Checks visibility and destination behavior of the mobile download controls. |
 | [test/walkthrough.test.tsx](<../test/walkthrough.test.tsx>) | Exercises walkthrough playback and navigation through the public controls. |

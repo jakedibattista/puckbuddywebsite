@@ -1,4 +1,5 @@
 // Renders the social preview image used when the public website is shared.
+import { APP_STORE_RATING } from "./lib/constants";
 import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
@@ -69,7 +70,7 @@ export default async function OpenGraphImage() {
             Get pro-level coaching in 60 seconds.
           </div>
           <div style={{ marginTop: 28, fontSize: 22, opacity: 0.65, maxWidth: 520, lineHeight: 1.4 }}>
-            Puck Buddy — the AI hockey coach. Rated 4.7 on the App Store.
+            {`Puck Buddy — the AI hockey coach. Rated ${APP_STORE_RATING} on the App Store.`}
           </div>
           <div style={{ marginTop: 36, fontSize: 18, opacity: 0.45 }}>
             buddysports.app

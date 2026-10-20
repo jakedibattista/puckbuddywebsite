@@ -14,7 +14,7 @@ Start with [the README](../README.md) for setup, production routes and deploy co
 | Live reduced-motion preference | hooks/useReducedMotionPreference.ts; shared by motion consumers, with static server rendering |
 | Preview playback lifetime and autoplay failure | hooks/usePreviewPlayback.ts; HomeHeroVisual and HeroVideoCarousel keep their own content/selection state |
 | Artwork capture surfaces | src/app/(marketing-exports)/; publicly routable utility pages, separate from consumer navigation |
-| Asset generation and reference audits | scripts/ and [tool instructions](../scripts/README.md) |
+| Asset generation and reference audits | scripts/; the audit CLI delegates to scripts/lib/public-asset-audit.mjs; see [tool instructions](../scripts/README.md) |
 | Unit and browser behavior | test/ and root Vitest/Playwright configuration |
 
 The [source index](source-index.md) maps each supported first-party source/test/tool/config file to its purpose introduction. PascalCase component filenames, use* hooks and existing script names stay established here. Next.js page/layout/metadata names are framework entrypoints; parent folders identify the feature. Do not rename URLs, asset inputs or store destinations for cosmetic consistency.

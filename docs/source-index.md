@@ -12,7 +12,7 @@ Regenerate with `python3 scripts/check-repository.py --write-index` after adding
 | [next.config.ts](<../next.config.ts>) | Sets the repository build root and allowed remote image host for Next.js. |
 | [playwright.config.ts](<../playwright.config.ts>) | Starts the isolated local browser fixture used to verify download and partner navigation. |
 | [postcss.config.mjs](<../postcss.config.mjs>) | Loads Tailwind through PostCSS when compiling the website stylesheet. |
-| [scripts/audit-public-assets.mjs](<../scripts/audit-public-assets.mjs>) | Finds public assets referenced by runtime code and generation tools before proposing removal. |
+| [scripts/audit-public-assets.mjs](<../scripts/audit-public-assets.mjs>) | Runs the read-only public-media reference audit from the current project directory. Collection and report policy live in scripts/lib/public-asset-audit.mjs. |
 | [scripts/build-v2-walkthrough.mjs](<../scripts/build-v2-walkthrough.mjs>) | One-off: compose iPhone screen recordings into 16:9 YouTube/Loom slides. Run from puckbuddy-website: node scripts/build-v2-walkthrough.mjs / |
 | [scripts/check-repository.py](<../scripts/check-repository.py>) | Check file introductions and the generated source navigation index. Only source-controlled or new non-ignored files participate. Generated output, assets and formats that cannot carry comments are described in the guide instead. |
 | [scripts/generate-app-store-bold.mjs](<../scripts/generate-app-store-bold.mjs>) | Renders bold Apple store artwork from the configured product image inputs. |
@@ -27,6 +27,7 @@ Regenerate with `python3 scripts/check-repository.py --write-index` after adding
 | [scripts/generate-play-store-tablets.mjs](<../scripts/generate-play-store-tablets.mjs>) | Captures tablet artwork using the configured Google Play export layout. |
 | [scripts/generate-social-banners.mjs](<../scripts/generate-social-banners.mjs>) | Composes social profile banners from maintained logo and product inputs. |
 | [scripts/generate-youtube-banner.mjs](<../scripts/generate-youtube-banner.mjs>) | Captures the YouTube banner export page at its configured output dimensions. |
+| [scripts/lib/public-asset-audit.mjs](<../scripts/lib/public-asset-audit.mjs>) | Inventories regular public image/video files and their conservative literal references. Collection, report formatting and CLI policy stay separate; no operation writes or removes assets. |
 | [scripts/test_repository_conventions.py](<../scripts/test_repository_conventions.py>) | Prove the navigation checker rejects missing explanations and preserves directives. |
 | [src/app/(marketing-exports)/layout.tsx](<../src/app/(marketing-exports)/layout.tsx>) | Keeps publicly routable artwork utilities out of search results without changing their URLs. |
 | [src/app/(marketing-exports)/play-store-feature/page.tsx](<../src/app/(marketing-exports)/play-store-feature/page.tsx>) | Renders the play store feature artwork capture surface; this is an export utility, not an app screen. |
@@ -97,6 +98,7 @@ Regenerate with `python3 scripts/check-repository.py --write-index` after adding
 | [test/marketing-primitives.test.tsx](<../test/marketing-primitives.test.tsx>) | Checks store-link behavior, configured rating display and accessible animation preferences. |
 | [test/partner-receipt.test.ts](<../test/partner-receipt.test.ts>) | @vitest-environment node Exercises private receipt persistence, ambiguous-write retries, inbox delivery and authenticated retries. |
 | [test/partner.test.tsx](<../test/partner.test.tsx>) | Checks receipt confirmation, retry behavior and the retained manual email draft encoder. |
+| [test/public-asset-audit.test.ts](<../test/public-asset-audit.test.ts>) | Exercises the asset audit against temporary projects and its real read-only CLI. |
 | [test/reduced-motion-preference.test.tsx](<../test/reduced-motion-preference.test.tsx>) | Checks live media-query updates, listener cleanup and stable static server rendering. |
 | [test/sticky-cta.test.tsx](<../test/sticky-cta.test.tsx>) | Checks visibility and destination behavior of the mobile download controls. |
 | [test/walkthrough.test.tsx](<../test/walkthrough.test.tsx>) | Exercises walkthrough playback and navigation through the public controls. |

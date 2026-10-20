@@ -1,7 +1,7 @@
 "use client";
-// Collects partner details and opens the validated inquiry as an email draft.
+// Collects required partner contact details and opens an email draft after browser form validation.
 import { useState } from "react";
-import { track } from "@vercel/analytics";
+import { trackConversion } from "../lib/conversionAnalytics";
 import { CONTACT_EMAIL } from "../lib/constants";
 import { buildPartnerInquiry, type Tier, tierLabels } from "../lib/partnerInquiry";
 
@@ -14,7 +14,7 @@ export default function ContactForm({ tier, setTier }: { tier: Tier; setTier: (t
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    track("partner_lead_submit", { tier });
+    trackConversion("partner_lead_submit", { tier, delivery: "email_draft" });
     window.location.href = buildPartnerInquiry({ tier, name, email, org, message });
     setSubmitted(true);
   }
@@ -39,7 +39,7 @@ export default function ContactForm({ tier, setTier }: { tier: Tier; setTier: (t
           onClick={() => setSubmitted(false)}
           className="mt-6 text-sm text-gray-500 hover:text-gray-700 underline"
         >
-          Send another message
+          Prepare another draft
         </button>
       </div>
     );
@@ -139,7 +139,7 @@ export default function ContactForm({ tier, setTier }: { tier: Tier; setTier: (t
         type="submit"
         className="w-full rounded-full bg-gray-900 px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
       >
-        Send message
+        Open email draft
       </button>
     </form>
   );

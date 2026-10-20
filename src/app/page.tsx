@@ -4,7 +4,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
-import { track } from "@vercel/analytics";
+import { trackConversion } from "./lib/conversionAnalytics";
 import { Instrument_Serif } from "next/font/google";
 import ScrollAnimation from "./components/ScrollAnimation";
 import MobileStickyCTA from "./components/MobileStickyCTA";
@@ -264,14 +264,14 @@ export default function Home() {
                   href={CALENDLY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => track("partner_cta_click", { cta: "calendly", location: "home_b2b" })}
+                  onClick={() => trackConversion("partner_cta_click", { cta: "calendly", location: "home_b2b" })}
                   className="inline-flex items-center justify-center rounded-full bg-gray-900 px-8 py-3.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
                 >
                   Book a 30-min call
                 </a>
                 <Link
                   href="/partner"
-                  onClick={() => track("partner_cta_click", { cta: "partner_page", location: "home_b2b" })}
+                  onClick={() => trackConversion("partner_cta_click", { cta: "partner_page", location: "home_b2b" })}
                   className="inline-flex items-center justify-center rounded-full border border-gray-200 bg-white px-8 py-3.5 text-sm font-semibold text-gray-900 shadow-sm transition-all hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2"
                 >
                   Explore partnerships

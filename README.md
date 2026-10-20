@@ -77,11 +77,34 @@ npm run assets:audit:fail
 
 ## Regression tests
 
-- `npm test`: store destination routing, hydration-safe initial links, click analytics, partner inquiry encoding and required fields.
-- `npm run test:coverage`: whole-source coverage, including currently untested scripts.
-- `npm run test:browser`: local Chrome smoke tests for download choices, partner form navigation and Android hydration. Requires installed Google Chrome. The runner starts its own server on port 3417 and blocks external network requests; it does not submit or send inquiries.
+- `npm test`: store routing/hydration, telemetry failure isolation, partner draft handoff, demo graph/navigation, walkthrough playback, and carousel selection/cancellation/reduced motion.
+- `npm run test:coverage`: coverage and regression budgets across all `src/**/*.{ts,tsx}` and `scripts/**/*.mjs`, including unexecuted files. Python tools are outside this JavaScript metric.
+- `npm run test:browser`: browser checks for download choices, partner form navigation and Android hydration. macOS uses installed Google Chrome; Linux CI uses Playwright Chromium (`npx playwright install --with-deps chromium`). The runner starts its own server on port 3417 and blocks external network requests; it does not submit or send inquiries.
 
 The partner form opens an email draft; it does not send email or confirm delivery.
+`lib/partnerInquiry.ts` only encodes the URL; native form constraints validate
+required contact fields and email syntax. `lib/conversionAnalytics.ts` owns
+best-effort telemetry so SDK failures cannot stop the user's action. The retained
+`partner_lead_submit` event represents a draft request, with `delivery=email_draft`;
+it is not evidence of sent or received mail. Its properties contain the selected
+tier and delivery mode, not the user's contact fields or message.
+
+`lib/interactiveDemoCatalog.ts` owns the demo's 10 fixed screenshot examples and
+25 navigation hotspots. `components/InteractiveDemo.tsx` renders them. The demo
+runs no uploads or model requests. Catalog extraction preserved all assets,
+coordinates and destinations from `8fc2444`, apart from correcting the
+Journal-to-Scoreboard hotspot's owning screen. Graph and mounted-component tests
+cover those routes. `HeroVideoCarousel` cancels superseded/unmounted transitions
+and permits returning to the current clip before an animation finishes.
+
+Coverage currently measures 18.08% of configured lines and 26.08% of branches
+(October 19 checkpoint; 53 unit tests). The large untested remainder still needs
+behavioral coverage. CI runs `test:coverage`, with maximum uncovered-item counts
+in [Vitest configuration](vitest.config.mjs) and stricter floors for conversion
+telemetry, the demo catalog, store-link handling and the hero carousel. Review
+measured evidence before changing these budgets; do not increase a ceiling or
+lower a floor to hide a regression. A local negative control confirms that
+skipping the behavior tests fails these coverage checks.
 
 ## Workspace layout and maintenance
 

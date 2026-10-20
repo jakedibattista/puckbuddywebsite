@@ -23,7 +23,7 @@ jobs:
       - run: npm run check:repository
       - run: npm run lint -- --max-warnings 0
       - run: npx tsc --noEmit
-      - run: npm test
+      - run: npm run test:coverage
       - run: npm run assets:audit:fail
       - run: npm run build
       - run: npx playwright install --with-deps chromium

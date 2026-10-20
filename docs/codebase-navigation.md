@@ -7,6 +7,8 @@ Start with [the README](../README.md) for setup, production routes and deploy co
 | Public pages and shared shell | src/app/page.tsx, route folders, layout.tsx |
 | Download routing and conversion tracking | components/SmartAppLink.tsx, hooks/useAppStoreUrl.ts, lib/constants.ts |
 | Partner email draft | components/ContactForm.tsx, lib/partnerInquiry.ts |
+| Screenshot demo catalog and navigation | lib/interactiveDemoCatalog.ts, components/InteractiveDemo.tsx |
+| Best-effort conversion telemetry | lib/conversionAnalytics.ts |
 | Shared visual behavior | components/, globals.css |
 | Artwork capture surfaces | src/app/(marketing-exports)/; publicly routable utility pages, separate from consumer navigation |
 | Asset generation and reference audits | scripts/ and [tool instructions](../scripts/README.md) |

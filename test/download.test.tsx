@@ -33,3 +33,10 @@ describe('download destination contract', () => {
     expect(track).toHaveBeenCalledWith('store_badge_click', { store: 'android', location: 'hero' });
   });
 });
+it('keeps the consumer click handler working when conversion telemetry fails', () => {
+  vi.mocked(track).mockImplementationOnce(() => { throw new Error('Telemetry unavailable'); });
+  const click = vi.fn((event: React.MouseEvent) => event.preventDefault());
+  render(<SmartAppLink onClick={click}>Download</SmartAppLink>);
+  fireEvent.click(screen.getByRole('link'));
+  expect(click).toHaveBeenCalledOnce();
+});

@@ -2,7 +2,7 @@
 // Builds platform-aware download links while keeping click analytics in one component.
 
 import type { ComponentPropsWithoutRef, MouseEvent, ReactNode } from "react";
-import { track } from "@vercel/analytics";
+import { trackConversion } from "../lib/conversionAnalytics";
 import {
   appStoreAriaLabel,
   appStoreLinkProps,
@@ -25,7 +25,7 @@ export default function SmartAppLink({
   const destination = useAppStoreDestination();
 
   function handleClick(event: MouseEvent<HTMLAnchorElement>) {
-    track("store_badge_click", { store: destination.platform, location: context });
+    trackConversion("store_badge_click", { store: destination.platform, location: context });
     onClick?.(event);
   }
 

@@ -3,7 +3,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { track } from "@vercel/analytics";
+import { trackConversion } from "../lib/conversionAnalytics";
 import {
   appStoreLinkProps,
   useAppStoreDestination,
@@ -55,7 +55,7 @@ export default function MobileStickyCTA({
             <a
               href={destination.href}
               onClick={() =>
-                track("store_badge_click", {
+                trackConversion("store_badge_click", {
                   store: destination.platform,
                   location: "mobile_sticky_cta",
                 })

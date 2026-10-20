@@ -35,12 +35,12 @@ Regenerate with `python3 scripts/check-repository.py --write-index` after adding
 | [src/app/(marketing-exports)/youtube-banner/page.tsx](<../src/app/(marketing-exports)/youtube-banner/page.tsx>) | Renders the youtube banner artwork capture surface; this is an export utility, not an app screen. |
 | [src/app/about/layout.tsx](<../src/app/about/layout.tsx>) | Sets about page metadata while leaving shared navigation to the root layout. |
 | [src/app/about/page.tsx](<../src/app/about/page.tsx>) | Explains the company and its hockey product with current cross-store download guidance. |
-| [src/app/components/ContactForm.tsx](<../src/app/components/ContactForm.tsx>) | Collects partner details and opens the validated inquiry as an email draft. |
+| [src/app/components/ContactForm.tsx](<../src/app/components/ContactForm.tsx>) | Collects required partner contact details and opens an email draft after browser form validation. |
 | [src/app/components/ExternalProductLink.tsx](<../src/app/components/ExternalProductLink.tsx>) | Renders external product links with a clear new-tab cue. |
-| [src/app/components/HeroVideoCarousel.tsx](<../src/app/components/HeroVideoCarousel.tsx>) | Cycles hero videos and respects user playback and reduced-motion preferences. |
+| [src/app/components/HeroVideoCarousel.tsx](<../src/app/components/HeroVideoCarousel.tsx>) | Cycles hero previews while respecting the latest manual selection and reduced-motion preferences. |
 | [src/app/components/HomeHeroVisual.tsx](<../src/app/components/HomeHeroVisual.tsx>) | Shows the homepage scorecard video with a static reduced-motion fallback. |
 | [src/app/components/HowItWorks.tsx](<../src/app/components/HowItWorks.tsx>) | Explains the three-step analysis workflow and presents the shared download choices. |
-| [src/app/components/InteractiveDemo.tsx](<../src/app/components/InteractiveDemo.tsx>) | Presents the interactive product walkthrough used by the demo surface. |
+| [src/app/components/InteractiveDemo.tsx](<../src/app/components/InteractiveDemo.tsx>) | Renders screenshot-demo navigation and hints using the separate asset/hotspot catalog. |
 | [src/app/components/MobileStickyCTA.tsx](<../src/app/components/MobileStickyCTA.tsx>) | Shows mobile download controls with platform routing and conversion tracking. |
 | [src/app/components/Navigation.tsx](<../src/app/components/Navigation.tsx>) | Provides shared desktop and mobile navigation between public product pages. |
 | [src/app/components/RatingBadge.tsx](<../src/app/components/RatingBadge.tsx>) | Displays the configured App Store rating as a shared marketing badge. |
@@ -55,7 +55,9 @@ Regenerate with `python3 scripts/check-repository.py --write-index` after adding
 | [src/app/lacrosse/page.tsx](<../src/app/lacrosse/page.tsx>) | Lists external lacrosse products with their existing beta labels and destination links. |
 | [src/app/layout.tsx](<../src/app/layout.tsx>) | Owns shared metadata, site navigation, footer and the single analytics installation. |
 | [src/app/lib/constants.ts](<../src/app/lib/constants.ts>) | Owns shared product links, contact destinations and displayed marketing constants. |
-| [src/app/lib/partnerInquiry.ts](<../src/app/lib/partnerInquiry.ts>) | Validates partner inquiry fields and builds an email draft without sending mail. |
+| [src/app/lib/conversionAnalytics.ts](<../src/app/lib/conversionAnalytics.ts>) | Records conversion telemetry without letting an SDK failure interrupt the user's action. Callers supply bounded event properties; this helper neither submits inquiries nor opens destinations. |
+| [src/app/lib/interactiveDemoCatalog.ts](<../src/app/lib/interactiveDemoCatalog.ts>) | Defines screenshot assets and navigation hotspots for the illustrative product demo. The demo uses fixed examples and does not upload media or run live analysis. |
+| [src/app/lib/partnerInquiry.ts](<../src/app/lib/partnerInquiry.ts>) | Encodes partner inquiry fields into an email draft URL without sending mail. |
 | [src/app/opengraph-image.tsx](<../src/app/opengraph-image.tsx>) | Renders the social preview image used when the public website is shared. |
 | [src/app/page.tsx](<../src/app/page.tsx>) | Presents the Buddy Sports homepage and routes visitors to its supported products. |
 | [src/app/partner/layout.tsx](<../src/app/partner/layout.tsx>) | Sets partner page metadata while leaving shared navigation to the root layout. |
@@ -70,8 +72,12 @@ Regenerate with `python3 scripts/check-repository.py --write-index` after adding
 | [src/app/terms/page.tsx](<../src/app/terms/page.tsx>) | Publishes the terms of service and page metadata. |
 | [src/app/v2-walkthrough/page.tsx](<../src/app/v2-walkthrough/page.tsx>) | Presents the video walkthrough with local playback and slide controls. |
 | [test/browser/conversion.spec.ts](<../test/browser/conversion.spec.ts>) | Verifies download and inquiry navigation in a local browser without sending external requests. |
+| [test/conversion-analytics.test.ts](<../test/conversion-analytics.test.ts>) | Checks best-effort telemetry forwarding and synchronous SDK failures without external delivery. |
+| [test/demo-catalog.test.ts](<../test/demo-catalog.test.ts>) | Checks the demo graph has unique, usable hotspots and complete routes through its fixed examples. |
 | [test/download.test.tsx](<../test/download.test.tsx>) | Checks store destinations, hydration-safe links and download analytics behavior. |
+| [test/hero-carousel.test.tsx](<../test/hero-carousel.test.tsx>) | Checks video selection, cancellation and reduced-motion behavior with controlled playback and timers. |
+| [test/interactive-demo.test.tsx](<../test/interactive-demo.test.tsx>) | Exercises the screenshot demo's navigation graph through its public controls. |
 | [test/partner.test.tsx](<../test/partner.test.tsx>) | Checks required partner fields and email draft encoding without sending an inquiry. |
 | [test/sticky-cta.test.tsx](<../test/sticky-cta.test.tsx>) | Checks visibility and destination behavior of the mobile download controls. |
 | [test/walkthrough.test.tsx](<../test/walkthrough.test.tsx>) | Exercises walkthrough playback and navigation through the public controls. |
-| [vitest.config.mjs](<../vitest.config.mjs>) | Configures DOM-based unit tests for conversion links, partner inquiries and sticky download controls. |
+| [vitest.config.mjs](<../vitest.config.mjs>) | Configures DOM behavior tests and coverage budgets for all configured JavaScript/TypeScript source. Existing uncovered counts are ceilings, not a claim that the retained debt is complete. |

@@ -6,7 +6,7 @@ import ContactForm from "../components/ContactForm";
 import type { Tier } from "../lib/partnerInquiry";
 import ScrollAnimation from "../components/ScrollAnimation";
 import { motion, useReducedMotion } from "framer-motion";
-import { track } from "@vercel/analytics";
+import { trackConversion } from "../lib/conversionAnalytics";
 import { CALENDLY_URL, APP_STORE_RATING } from "../lib/constants";
 
 const PROOF_POINTS = [
@@ -77,7 +77,7 @@ export default function PartnerPage() {
               href={CALENDLY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => track("partner_cta_click", { cta: "calendly", location: "partner_hero" })}
+              onClick={() => trackConversion("partner_cta_click", { cta: "calendly", location: "partner_hero" })}
               className="inline-flex items-center justify-center rounded-full bg-white text-gray-900 px-7 py-3 text-sm font-semibold shadow-sm transition-all hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
             >
               Book a 30-min call
@@ -187,7 +187,7 @@ export default function PartnerPage() {
                   href={CALENDLY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => track("partner_cta_click", { cta: "calendly", location: "custom_dev_card" })}
+                  onClick={() => trackConversion("partner_cta_click", { cta: "calendly", location: "custom_dev_card" })}
                   className="mt-auto inline-flex items-center justify-center rounded-full bg-gray-900 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all hover:bg-gray-700 focus:outline-none"
                 >
                   Book a discovery call
@@ -380,7 +380,7 @@ export default function PartnerPage() {
                     href={CALENDLY_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    onClick={() => track("partner_cta_click", { cta: "calendly", location: "contact_section" })}
+                    onClick={() => trackConversion("partner_cta_click", { cta: "calendly", location: "contact_section" })}
                     className="font-medium text-blue-700 underline underline-offset-2 hover:text-blue-800"
                   >
                     Book a 30-minute call

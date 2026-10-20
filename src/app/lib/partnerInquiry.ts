@@ -1,4 +1,4 @@
-// Validates partner inquiry fields and builds an email draft without sending mail.
+// Encodes partner inquiry fields into an email draft URL without sending mail.
 import { CONTACT_EMAIL } from './constants';
 export type Tier = 'api' | 'custom' | 'partner';
 export const tierLabels: Record<Tier, string> = { api: 'API Integration', custom: 'Custom Development', partner: 'Partner Program' };

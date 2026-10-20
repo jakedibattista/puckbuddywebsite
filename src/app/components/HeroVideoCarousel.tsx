@@ -1,5 +1,5 @@
 "use client";
-// Cycles hero videos and respects user playback and reduced-motion preferences.
+// Cycles hero previews while respecting the latest manual selection and reduced-motion preferences.
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
@@ -33,11 +33,24 @@ export default function HeroVideoCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const transitionTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => () => {
+    if (transitionTimer.current !== null) clearTimeout(transitionTimer.current);
+  }, []);
 
   const goToIndex = useCallback((index: number) => {
-    if (index === currentIndex) return;
+    if (transitionTimer.current !== null) {
+      clearTimeout(transitionTimer.current);
+      transitionTimer.current = null;
+    }
+    if (index === currentIndex) {
+      setIsTransitioning(false);
+      return;
+    }
     setIsTransitioning(true);
-    setTimeout(() => {
+    transitionTimer.current = setTimeout(() => {
+      transitionTimer.current = null;
       setCurrentIndex(index);
       setIsTransitioning(false);
     }, 300);
@@ -54,7 +67,8 @@ export default function HeroVideoCarousel() {
     if (!video) return;
 
     const handleEnded = () => {
-      goToNext();
+      // A manual selection already owns the fade; the old clip must not override it.
+      if (transitionTimer.current === null) goToNext();
     };
 
     video.addEventListener("ended", handleEnded);

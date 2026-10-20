@@ -2,7 +2,7 @@
 // Displays the Apple and Google store badges using shared destination constants.
 
 import Image from "next/image";
-import { track } from "@vercel/analytics";
+import { trackConversion } from "../lib/conversionAnalytics";
 import { APP_STORE_URL, PLAY_STORE_URL } from "../hooks/useAppStoreUrl";
 
 type StoreBadgesProps = {
@@ -34,7 +34,7 @@ export default function StoreBadges({
         href={APP_STORE_URL}
         target="_blank"
         rel="noopener noreferrer"
-        onClick={() => track("store_badge_click", { store: "app_store", location })}
+        onClick={() => trackConversion("store_badge_click", { store: "app_store", location })}
         className={`inline-flex h-[54px] w-[180px] items-center justify-center transition-transform hover:scale-105 sm:h-[60px] sm:w-[200px] ${focusRing}`}
       >
         <Image
@@ -51,7 +51,7 @@ export default function StoreBadges({
         href={PLAY_STORE_URL}
         target="_blank"
         rel="noopener noreferrer"
-        onClick={() => track("store_badge_click", { store: "play_store", location })}
+        onClick={() => trackConversion("store_badge_click", { store: "play_store", location })}
         className={`inline-flex h-[54px] w-[180px] items-center justify-center overflow-hidden rounded-[10px] border bg-black shadow-[0_6px_18px_rgba(0,0,0,0.25)] transition-transform hover:scale-105 sm:h-[60px] sm:w-[200px] ${playBorder} ${focusRing}`}
       >
         <div className="flex items-center gap-2 px-3 sm:px-4">

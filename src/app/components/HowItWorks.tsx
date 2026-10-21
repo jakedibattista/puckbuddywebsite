@@ -16,7 +16,7 @@ const STEPS = [
   {
     title: "Get your scorecard",
     description:
-      "Computer vision scores key mechanics and highlights what to fix — usually in about a minute.",
+      "Computer vision scores key mechanics and highlights areas to work on in your next rep.",
     image: "/v2-scorecard.png",
     alt: "Puck Buddy scorecard with shot analysis metrics",
   },

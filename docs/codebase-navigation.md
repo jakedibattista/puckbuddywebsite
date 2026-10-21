@@ -20,7 +20,7 @@ Start with [the README](../README.md) for setup, production routes and deploy co
 
 The [source index](source-index.md) maps each supported first-party source/test/tool/config file to its purpose introduction. PascalCase component filenames, use* hooks and existing script names stay established here. Next.js page/layout/metadata names are framework entrypoints; parent folders identify the feature. Do not rename URLs, asset inputs or store destinations for cosmetic consistency.
 
-Use one Analytics component in the root layout. Public marketing values live in lib/constants.ts; HTTP contracts live in the model repository. Update the shared owner rather than copying data into every page. Legal text and dated store artwork have their own review/history; saving an asset is not submitting it to a store.
+Use one Analytics component in the root layout. The [marketing claims record](marketing-claims.md) owns attribution and evidence rules. Public marketing values live in lib/constants.ts; HTTP contracts live in the model repository. Update the shared owner rather than copying data into every page. Legal text and dated store artwork have their own review/history; saving an asset is not submitting it to a store.
 
 Run python3 scripts/check-repository.py and python3 -m unittest discover -s scripts -p test_repository_conventions.py. After reviewing a file addition or changed introduction, regenerate with --write-index. The checker validates navigation, not semantic truth; review the explanation against source. Run npm test, npm run lint and npm run build for integration, plus the local browser suite for conversion changes.
 

@@ -220,3 +220,22 @@ branch coverage is 87.93%; global uncovered ceilings tighten to
 no high-CRAP functions among 282 measured functions, with no analyzer errors.
 Uncovered source remains; this score does not certify complete coverage,
 accessibility conformance, external product health or release acceptance.
+
+
+## October 21 marketing-copy correction
+
+The [maintained claims record](marketing-claims.md) now owns provenance and
+restoration criteria. Current homepage, product and partner text identifies the
+configured analyzed-video total as an owner estimate. Specific turnaround and
+career-duration/audience claims, named testimonials with five-star decorations,
+and the advertised customer sandbox have been removed from current page text.
+Product/search metadata and the social-image renderer no longer promise a time
+to completion. Contributor roles, product navigation and team access channels
+remain intact. Historical text above describes the earlier source.
+
+Local validation passes all 195 existing unit cases, zero-warning lint, TypeScript,
+asset reference audit and production build. Whole-site coverage is 54.00% lines
+and 87.93% branches; deletion of covered page content changes the denominator.
+The existing uncovered ceilings and per-page complete-coverage requirements pass
+without relaxation. All eight Chrome browser cases also pass. Source-specific CI and public deployment
+acceptance remain separate; these local checks are not a public deployment receipt.

@@ -13,7 +13,7 @@ import { CALENDLY_URL, APP_STORE_RATING, ANALYZED_VIDEO_COUNT_LABEL } from "../l
 const PROOF_POINTS = [
   { value: "Live in both stores", label: "Puck Buddy ships on iOS and Android today" },
   { value: `${APP_STORE_RATING}★ rated`, label: "Real users, real App Store reviews" },
-  { value: `${ANALYZED_VIDEO_COUNT_LABEL} videos`, label: "Analyzed by the same engine you'd build on" },
+  { value: `${ANALYZED_VIDEO_COUNT_LABEL} videos`, label: "Analyzed — owner-maintained lifetime estimate" },
   { value: "Days, not months", label: "From kickoff to working integration" },
 ] as const;
 
@@ -148,7 +148,7 @@ export default function PartnerPage() {
                     "Multi-shot detection and rep counting",
                     "Sport-specific analysis agents (hockey, lacrosse, more coming)",
                     "Async job status and structured results",
-                    "Sandbox environment for testing",
+                    "Discuss integration testing with our team",
                   ].map((f) => (
                     <li key={f} className="text-sm text-gray-700">
                       {f}
@@ -331,22 +331,6 @@ export default function PartnerPage() {
                 </ScrollAnimation>
               ))}
             </div>
-
-            <ScrollAnimation delay={0.15}>
-              <figure className="mb-10 rounded-3xl border border-black/5 bg-white p-8 shadow-sm">
-                <p className="text-amber-500" aria-hidden>
-                  ★★★★★
-                </p>
-                <blockquote className="mt-4 text-xl md:text-2xl font-semibold text-gray-900 leading-snug">
-                  &ldquo;This tool has been great for our academy. It helps give
-                  every kid personalized coaching and improve on and off the
-                  ice.&rdquo;
-                </blockquote>
-                <figcaption className="mt-4 text-sm text-gray-600">
-                  <span className="font-semibold text-gray-900">Ryan B.</span> · Hockey director
-                </figcaption>
-              </figure>
-            </ScrollAnimation>
 
             <ScrollAnimation delay={0.2}>
               <button

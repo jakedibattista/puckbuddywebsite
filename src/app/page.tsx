@@ -1,5 +1,5 @@
 "use client";
-// Presents the Buddy Sports homepage and routes visitors to its supported products.
+// Presents the Buddy Sports homepage with attributed product statistics and supported product routes.
 
 import { useReducedMotionPreference } from "./hooks/useReducedMotionPreference";
 import Image from "next/image";
@@ -24,9 +24,9 @@ const editorialSerif = Instrument_Serif({
 
 const PROOF_POINTS = [
   { value: `${APP_STORE_RATING}★`, label: "App Store rating" },
-  { value: ANALYZED_VIDEO_COUNT_LABEL, label: "Videos analyzed" },
-  { value: "~60 sec", label: "From upload to feedback" },
-  { value: "iOS + Android", label: "Works on any phone" },
+  { value: ANALYZED_VIDEO_COUNT_LABEL, label: "Videos analyzed (owner estimate)" },
+  { value: "Video → feedback", label: "Scorecards and coaching" },
+  { value: "iOS + Android", label: "Available on both stores" },
 ] as const;
 
 const PARTNER_OFFERS = [
@@ -84,8 +84,8 @@ export default function Home() {
                 transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.6, delay: 0.05, ease: [0.21, 1.11, 0.81, 0.99] }}
                 className="text-5xl font-bold leading-[1.02] tracking-[-0.035em] text-balance sm:text-6xl md:text-7xl lg:text-[4.25rem] xl:text-[5rem]"
               >
-                Film the shot. Get pro-level coaching{" "}
-                <span className="text-emerald-200">in 60 seconds.</span>
+                Film the shot. Get AI coaching{" "}
+                <span className="text-emerald-200">for your next rep.</span>
               </motion.h1>
 
               <motion.p
@@ -158,7 +158,7 @@ export default function Home() {
       {/* ──────────────── How it works ──────────────── */}
       <HowItWorks />
 
-      {/* ──────────────── Coaches + testimonial ──────────────── */}
+      {/* ──────────────── Coaching contributors ──────────────── */}
       <section className="relative overflow-hidden bg-[radial-gradient(1100px_circle_at_10%_10%,rgba(37,99,235,0.22),transparent_55%),radial-gradient(900px_circle_at_90%_20%,rgba(34,197,94,0.16),transparent_55%),linear-gradient(to_bottom_right,#070A12,#0B1220,#070A12)] py-16 text-white sm:py-24 lg:py-28">
         <div
           aria-hidden
@@ -194,23 +194,10 @@ export default function Home() {
                   </span>
                 </h2>
                 <p className="mt-6 text-lg leading-relaxed text-white/75">
-                  Coach Seth Michelson brings 20+ years of rink-tested youth
-                  coaching. Cofounder Andrew Rowe played 15+ years of pro hockey
-                  after starting his career with the Philadelphia Flyers. Their
-                  expertise shaped what the AI looks for in every rep — and how
-                  it turns analysis into feedback players actually use.
+                  Coach Seth Michelson and cofounder Andrew Rowe bring coaching
+                  and player perspectives to Puck Buddy. Their input helps shape
+                  what the AI looks for in a rep and how it presents feedback.
                 </p>
-
-                <figure className="mt-8 rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur">
-                  <blockquote className="text-lg font-medium leading-snug text-white sm:text-xl">
-                    &ldquo;I&apos;ve been using Puck Buddy with my son and
-                    it&apos;s been a great addition to his hockey
-                    education.&rdquo;
-                  </blockquote>
-                  <figcaption className="mt-3 text-sm text-white/55">
-                    — Michael P., hockey parent
-                  </figcaption>
-                </figure>
 
                 <Link
                   href="/puckbuddy"
@@ -399,7 +386,7 @@ export default function Home() {
             </ScrollAnimation>
             <ScrollAnimation delay={0.1}>
               <p className="mt-5 text-lg leading-relaxed text-gray-600">
-                Download Puck Buddy and see the first scorecard in about a minute.
+                Download Puck Buddy to turn a practice clip into a scorecard and coaching feedback.
               </p>
             </ScrollAnimation>
             <ScrollAnimation delay={0.2}>

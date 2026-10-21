@@ -72,13 +72,13 @@ Regenerate with `python3 scripts/check-repository.py --write-index` after adding
 | [src/app/lib/partnerReceipt.ts](<../src/app/lib/partnerReceipt.ts>) | Stores immutable private inquiry receipts and a retryable notification outbox in Vercel Blob. Contact details stay in private storage and the configured inbox, never analytics or logs. |
 | [src/app/lib/partnerSubmission.ts](<../src/app/lib/partnerSubmission.ts>) | Validates bounded partner inquiry payloads before storage or email delivery. |
 | [src/app/opengraph-image.tsx](<../src/app/opengraph-image.tsx>) | Renders the social preview image used when the public website is shared. |
-| [src/app/page.tsx](<../src/app/page.tsx>) | Presents the Buddy Sports homepage and routes visitors to its supported products. |
+| [src/app/page.tsx](<../src/app/page.tsx>) | Presents the Buddy Sports homepage with attributed product statistics and supported product routes. |
 | [src/app/partner/layout.tsx](<../src/app/partner/layout.tsx>) | Sets partner page metadata while leaving shared navigation to the root layout. |
 | [src/app/partner/page.tsx](<../src/app/partner/page.tsx>) | Presents team partnership options and the confirmed inquiry flow within the viewport. |
 | [src/app/privacy/layout.tsx](<../src/app/privacy/layout.tsx>) | Gives the privacy page its canonical public URL without changing the shared shell. |
 | [src/app/privacy/page.tsx](<../src/app/privacy/page.tsx>) | Describes Puck Buddy data collection, service providers, retention and deletion choices. |
 | [src/app/puckbuddy/layout.tsx](<../src/app/puckbuddy/layout.tsx>) | Sets puckbuddy page metadata while leaving shared navigation to the root layout. |
-| [src/app/puckbuddy/page.tsx](<../src/app/puckbuddy/page.tsx>) | Presents hockey analysis features, pricing and Apple/Google download choices. |
+| [src/app/puckbuddy/page.tsx](<../src/app/puckbuddy/page.tsx>) | Presents hockey analysis features, attributed product statistics, pricing and store download choices. |
 | [src/app/refund/layout.tsx](<../src/app/refund/layout.tsx>) | Gives the refund page its canonical public URL without changing the shared shell. |
 | [src/app/refund/page.tsx](<../src/app/refund/page.tsx>) | Publishes the refund policy page and its page metadata. |
 | [src/app/sitemap.ts](<../src/app/sitemap.ts>) | Lists canonical public pages for crawlers; export utilities are maintained separately. |

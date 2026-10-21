@@ -1,5 +1,5 @@
 "use client";
-// Presents hockey analysis features, pricing and Apple/Google download choices.
+// Presents hockey analysis features, attributed product statistics, pricing and store download choices.
 
 import { useReducedMotionPreference } from "../hooks/useReducedMotionPreference";
 import { ANALYZED_VIDEO_COUNT_LABEL } from "../lib/constants";
@@ -188,10 +188,8 @@ export default function PuckBuddyPage() {
               <div className="space-y-6">
                 <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Built with Real Coaches and Players</h2>
                 <p className="text-lg text-white/75 leading-relaxed">
-                  Puck Buddy is built with the expertise of Coach Seth Michelson, Charleston, SC&apos;s go-to youth
-                  hockey coach, and cofounder Andrew Rowe, who brings 15+ years of professional hockey experience.
-                  Their combined experience shaped how the model was trained, what it looks for in a rep, and how it
-                  turns analysis into feedback that players can actually use.
+                  Coach Seth Michelson and cofounder Andrew Rowe contribute coaching and player perspectives
+                  to Puck Buddy. Their input helps shape the analysis and feedback players see after a rep.
                 </p>
                 <p className="text-lg text-white/70 leading-relaxed">
                   The result is feedback that feels clear, practical, and grounded in real coaching.
@@ -202,17 +200,17 @@ export default function PuckBuddyPage() {
         </div>
       </section>
 
-      {/* Proof / Trust Section */}
+      {/* Product workflow and attributed usage estimate */}
       <section className="py-12 sm:py-16 lg:py-24 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto">
             <ScrollAnimation>
               <div className="max-w-3xl mx-auto text-center mb-12">
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                  Built for performance, tested in the real world
+                  From practice clip to coaching feedback
                 </h2>
                 <p className="text-lg text-gray-600">
-                  We’re early, but we’re not guessing. The product is grounded in real coaching and validated by real reps.
+                  Upload a clip, review your scorecard, and use the feedback to plan your next rep.
                 </p>
               </div>
             </ScrollAnimation>
@@ -222,17 +220,17 @@ export default function PuckBuddyPage() {
                 {
                   value: ANALYZED_VIDEO_COUNT_LABEL,
                   label: "Videos analyzed",
-                  desc: "Feedback generated from real player reps, not generic advice.",
+                  desc: "Owner-maintained lifetime estimate from manually tracked Firebase jobs.",
                 },
                 {
-                  value: "20 years",
-                  label: "Coaching + AI experience",
-                  desc: "Rink-tested coaching meets smart AI and an app that is easy to use.",
+                  value: "Scorecards",
+                  label: "Review your mechanics",
+                  desc: "See drill-specific metrics alongside coaching feedback.",
                 },
                 {
-                  value: "~60 sec",
-                  label: "Turnaround",
-                  desc: "Fast enough to stay in the flow between reps.",
+                  value: "Rep by rep",
+                  label: "Track your practice",
+                  desc: "Compare saved results as you work on your technique.",
                 },
               ].map((stat, index) => (
                 <ScrollAnimation key={stat.label} delay={index * 0.08}>
@@ -245,44 +243,7 @@ export default function PuckBuddyPage() {
               ))}
             </div>
 
-            <div className="mt-10 grid gap-6 md:grid-cols-3">
-              {[
-                {
-                  quote:
-                    "My shot was good, but it told me exactly what to improve. I worked on it, and now my shot is so much faster than before. One of the best training apps out there.",
-                  name: "Ryan C.",
-                  role: "Puck Buddy player",
-                },
-                {
-                  quote:
-                    "I've been using Puck Buddy with my son and it's been a great addition to his hockey education.",
-                  name: "Michael P.",
-                  role: "Hockey parent",
-                },
-                {
-                  quote:
-                    "This tool has been great for our academy. It helps give every kid personalized coaching and improve on and off the ice.",
-                  name: "Ryan B.",
-                  role: "Hockey director",
-                },
-              ].map((testimonial, index) => (
-                <ScrollAnimation key={testimonial.name} delay={0.3 + index * 0.08}>
-                  <figure className="flex h-full flex-col rounded-3xl border border-black/5 bg-gradient-to-br from-gray-50 to-white p-7 shadow-sm">
-                    <p className="text-amber-500" aria-hidden>
-                      ★★★★★
-                    </p>
-                    <blockquote className="mt-4 flex-grow text-base font-medium leading-relaxed text-gray-900">
-                      &ldquo;{testimonial.quote}&rdquo;
-                    </blockquote>
-                    <figcaption className="mt-4 text-sm text-gray-600">
-                      <span className="font-semibold text-gray-900">{testimonial.name}</span>
-                      {" · "}
-                      {testimonial.role}
-                    </figcaption>
-                  </figure>
-                </ScrollAnimation>
-              ))}
-            </div>
+
           </div>
         </div>
       </section>

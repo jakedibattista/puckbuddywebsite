@@ -185,7 +185,7 @@ export default function About() {
                   <h3 className="text-xl font-bold text-gray-900">Jake DiBattista</h3>
                   <p className="text-sm font-medium text-blue-700 mb-3">CEO & Lead Engineer</p>
                   <p className="text-sm text-gray-600 leading-relaxed">
-                    Staff AI Engineer and Google Cloud Next 2025 keynote speaker. After winning the Vertex AI Hackathon with MLB, Jake saw the opportunity to bring elite AI coaching to youth sports. With 6+ years building AI products at scale, including generative AI systems reaching 600K+ users, he&apos;s the technical force behind Puck Buddy.
+                    Jake leads the engineering behind Puck Buddy, connecting video analysis, scorecards, and AI coaching feedback. His focus is making those tools useful during everyday practice.
                   </p>
                 </div>
               </ScrollAnimation>
@@ -206,7 +206,7 @@ export default function About() {
                   <h3 className="text-xl font-bold text-gray-900">Andrew Rowe</h3>
                   <p className="text-sm font-medium text-blue-700 mb-3">Chief Operating Officer</p>
                   <p className="text-sm text-gray-600 leading-relaxed">
-                    Former pro hockey player with 15+ years across the AHL, ECHL, SHL, Swiss NL, and DEL. After a full-ride at Michigan State and starting his pro career with the Philadelphia Flyers, Andrew now channels that competitive drive into Puck Buddy, building the tool he wishes he had 25 years ago. His mission is to empower the next generation with accessible, elite-level coaching.
+                    Andrew brings a player&apos;s perspective to Puck Buddy as a cofounder. He helps connect the product&apos;s training tools with the needs of hockey players.
                   </p>
                 </div>
               </ScrollAnimation>
@@ -227,7 +227,7 @@ export default function About() {
                   <h3 className="text-xl font-bold text-gray-900">Coach Seth Michelson</h3>
                   <p className="text-sm font-medium text-blue-700 mb-3">Co-Founder & Head of Sales</p>
                   <p className="text-sm text-gray-600 leading-relaxed">
-                    Charleston Stingrays coach with 20+ years of rink-tested expertise. Seth infused Puck Buddy with real coaching wisdom. His mission is to make every kid feel like they have a coach with them, even when practicing alone. He brings that same passion to building partnerships with rinks, clubs, and coaches across the country.
+                    Seth contributes hockey coaching guidance to Puck Buddy. His focus is clear, practical feedback that players can use during practice.
                   </p>
                 </div>
               </ScrollAnimation>

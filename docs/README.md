@@ -4,6 +4,7 @@
 
 | Document | Purpose |
 | --- | --- |
+| [Marketing claims](marketing-claims.md) | Maintained claim provenance, estimates and evidence required for publication |
 | [Vercel operations](vercel-operations.md) | Receipt delivery, production configuration and release gates |
 | [October 20 Vercel release](2026-10-20-vercel-release.md) | Tested revisions, public release and verification limits |
 | [Shared Vercel platform guide](https://github.com/jakedibattista/puck-buddy/blob/main/docs/vercel-platform.md) | Both sites, contract owners and account review |

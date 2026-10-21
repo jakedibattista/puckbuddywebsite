@@ -5,7 +5,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
 export const alt =
-  "Puck Buddy — Film a hockey shot, get AI coaching in 60 seconds.";
+  "Puck Buddy — Film a hockey shot and get AI coaching feedback.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -67,7 +67,7 @@ export default async function OpenGraphImage() {
               maxWidth: 620,
             }}
           >
-            Get pro-level coaching in 60 seconds.
+            Turn practice clips into AI coaching feedback.
           </div>
           <div style={{ marginTop: 28, fontSize: 22, opacity: 0.65, maxWidth: 520, lineHeight: 1.4 }}>
             {`Puck Buddy — the AI hockey coach. Rated ${APP_STORE_RATING} on the App Store.`}

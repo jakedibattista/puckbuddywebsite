@@ -62,7 +62,7 @@ export default function HomeHeroVisual() {
         </div>
       </motion.div>
       <p className="mt-4 text-center text-xs text-white/45">
-        Puck Buddy · AI shot analysis in ~1 min
+        Puck Buddy · AI shot analysis and coaching
       </p>
     </motion.div>
   );

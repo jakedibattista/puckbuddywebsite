@@ -14,7 +14,7 @@ const PROOF_POINTS = [
   { value: "Live in both stores", label: "Puck Buddy ships on iOS and Android today" },
   { value: `${APP_STORE_RATING}★ rated`, label: "Real users, real App Store reviews" },
   { value: `${ANALYZED_VIDEO_COUNT_LABEL} videos`, label: "Analyzed — owner-maintained lifetime estimate" },
-  { value: "Days, not months", label: "From kickoff to working integration" },
+  { value: "Integration support", label: "Plan testing and rollout with our team" },
 ] as const;
 
 export default function PartnerPage() {
@@ -246,7 +246,7 @@ export default function PartnerPage() {
                     API integration
                   </p>
                   <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                    Production-ready AI analysis in your app in days, not months.
+                    Connect hockey video analysis with your platform.
                   </h2>
                   <p className="text-gray-600 leading-relaxed mb-6">
                     Our backend handles the hard parts: video ingestion, frame extraction,
@@ -311,7 +311,7 @@ export default function PartnerPage() {
                 </h2>
                 <p className="text-lg text-gray-600">
                   We issue you a custom code. Your athletes redeem it in the Puck Buddy app and get
-                  instant access to video analysis, scorecards, and AI coaching chat.
+                  access to video analysis, scorecards, and AI coaching chat.
                 </p>
               </div>
             </ScrollAnimation>

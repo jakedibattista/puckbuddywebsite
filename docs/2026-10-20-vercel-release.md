@@ -239,3 +239,24 @@ and 87.93% branches; deletion of covered page content changes the denominator.
 The existing uncovered ceilings and per-page complete-coverage requirements pass
 without relaxation. All eight Chrome browser cases also pass. Source-specific CI and public deployment
 acceptance remain separate; these local checks are not a public deployment receipt.
+
+
+### Production acceptance and final timing-copy follow-up
+
+[PR 12](https://github.com/jakedibattista/puckbuddywebsite/pull/12) merged as
+`8136b37`. Its [main CI](https://github.com/jakedibattista/puckbuddywebsite/actions/runs/39599109214)
+passed, and GitHub's Vercel Production deployment status reports success for that
+exact revision. Cache-bypassed HTTPS reads of `/`, `/puckbuddy`, `/partner` and
+`/about` returned 200 with the revised copy, estimate attribution on the three
+statistics consumers, and no named testimonials, old 60-second headline or
+sandbox promise. The search fetcher still returned older cached pages; those
+cached responses did not establish the current deployment's contents.
+
+A final source sweep found two additional timing claims: the homepage visual's
+~1-minute caption and the partner page's days-to-integration promise. This
+follow-up removes those too. The contributor bios and named testimonial removals
+are already live at `8136b37`; this follow-up needs its own checks and deployment.
+
+The timing-copy follow-up passes 195 unit and eight Chrome browser cases, the
+production build, TypeScript, zero-warning lint and the unchanged coverage gates.
+The asset reference audit and repository/documentation checks also pass.

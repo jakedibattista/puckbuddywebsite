@@ -22,7 +22,7 @@
     "@vercel/speed-insights": "^1.2.0",
     "framer-motion": "^12.23.24",
     "geist": "^1.7.2",
-    "next": "15.5.27",
+    "next": "15.5.28",
     "nodemailer": "^10.1.7",
     "react": "19.2.8",
     "react-dom": "19.2.8"
@@ -39,7 +39,7 @@
     "@types/react-dom": "^19",
     "@vitest/coverage-v8": "^4.1.11",
     "eslint": "^9",
-    "eslint-config-next": "15.5.27",
+    "eslint-config-next": "15.5.28",
     "jsdom": "^29.1.1",
     "puppeteer": "^24.37.5",
     "sharp": "^0.35.5",

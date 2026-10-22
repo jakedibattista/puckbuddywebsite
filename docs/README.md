@@ -9,6 +9,7 @@
 | [October 20 Vercel release](2026-10-20-vercel-release.md) | Tested revisions, public release and verification limits |
 | [Shared Vercel platform guide](https://github.com/jakedibattista/puck-buddy/blob/main/docs/vercel-platform.md) | Both sites, contract owners and account review |
 | [Repository hygiene](repository-hygiene.md) | Dated reachability/asset review; original measurements stay historical |
+| [October 22 framework security update](2026-10-22-next-security-update.md) | Patched framework versions, dependency scope and source/release verification |
 | [Security review](2026-10-10-security-audit.md) | Scoped review and deployment boundaries for the dependency patch |
 | [Tool instructions](../scripts/README.md) | Asset generation and reference audit commands |
 | [Engineering map](https://github.com/jakedibattista/puck-buddy/blob/main/docs/ecosystem.md) | Shared repository boundaries, identities and contract owners |

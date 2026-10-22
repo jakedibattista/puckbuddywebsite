@@ -89,3 +89,32 @@ Saved PNGs remain drafts. Capturing, reviewing, submitting and publicly releasin
 store artwork are separate states; the catalog's retained dimensions are not a
 claim about current store eligibility. The previous tablet command's incorrect
 `public/` success message is replaced by the actual saved paths.
+
+## Walkthrough video builder
+
+Run `node scripts/build-v2-walkthrough.mjs` from this repository with ffmpeg and
+ffprobe on PATH. The command keeps the six established recording filenames and
+`../videos/v2-walkthrough/slides/01-walkthrough.mp4` through `06-walkthrough.mp4`,
+plus `../videos/v2-walkthrough/v2-walkthrough-full.mp4`. It accepts each recording
+in the parent directory or the established `videos/v2-walkthrough/source/`
+folder. Both copies being present is ambiguous and stops preflight. Missing,
+unreadable and non-file inputs also stop before rendering. Sources stay in place;
+the builder no longer organizes or overwrites recordings as a side effect.
+
+`lib/walkthrough-build.mjs` owns input preflight, unique staging, publication and
+cleanup. `lib/walkthrough-render.mjs` owns the established template, crop/overlay,
+silent H.264 encoding, concat list and output probing. Subprocess arguments are
+passed directly without a shell. The crop still expects the original 1170×2532
+portrait capture format; arbitrary input-video compatibility remains outside
+this command's contract.
+
+All six clips and their concatenation must pass nonempty-file, 1920×1080,
+H.264/yuv420p, no-audio and positive-duration checks before any existing export is
+replaced. Each final output uses an individual rename; a publication failure can
+leave a partial batch and fails the command. Cleanup failures also fail completion,
+with both errors retained if rendering already failed. This is not an atomic
+transaction across all seven outputs. Generated videos remain local drafts.
+
+Tests use disposable files and controlled renderer/process responses. A separate
+local synthetic-media check verifies real ffmpeg/ffprobe execution and byte-for-byte
+template parity; it does not inspect or certify the original owner recordings.

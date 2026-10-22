@@ -12,7 +12,7 @@ const designs = (): Design[] => ['one','two'].map(name => ({ name, width:16, hei
 beforeEach(async () => { root=await fs.mkdtemp(path.join(os.tmpdir(),'social-exports-'));for (const name of ['one','two']) for(const extension of ['svg','png']) await fs.writeFile(path.join(root,`${name}.${extension}`),'old draft'); });
 afterEach(async () => { vi.restoreAllMocks();await fs.rm(root,{recursive:true,force:true}); });
 async function preserved() {
-  for(const name of ['one','two'])for(const extension of ['svg','png'])expect(await fs.readFile(path.join(root,`${name}.${extension}`),'utf8')).toBe('old draft');
+  for(const name of ['one','two'])for(const extension of ['svg','png']){const file=path.join(root,`${name}.${extension}`);expect(await fs.access(file).then(()=>true,()=>false)).toBe(true);expect(await fs.readFile(file,'utf8')).toBe('old draft');}
   expect((await fs.readdir(root)).filter(name=>name.startsWith('.image-exports-'))).toEqual([]);
 }
 it('renders and decodes every staged PNG before publishing the acknowledged SVG/PNG paths',async()=>{
@@ -96,4 +96,21 @@ it('rejects an absent SVG before acquiring output files',async()=>{
 });
 it('preserves old drafts when a raster renderer rejects',async()=>{
   const failure=Error('render failed');const outcome=await writeRasterExports([{name:'one',width:16,height:20,render:async()=>{throw failure;}}],root).catch((error:Error)=>error);expect(outcome).toBe(failure);await preserved();
+});
+
+it.each(['../outside','nested/path','',42])('rejects unsafe or invalid output directory %s before acquisition',async directory=>{
+  const acquire=vi.spyOn(fs,'mkdir');const outcome=await writeRasterExports([{name:'one',directory:directory as string,width:16,height:20,render:async()=>Buffer.from('unused')}],root).catch((e:Error)=>e);expect(outcome).toBeInstanceOf(Error);expect(acquire).not.toHaveBeenCalled();await preserved();
+});
+it('validates both device groups before any publication and acknowledges exact nested destinations',async()=>{
+  const bytes=await sharp({create:{width:16,height:20,channels:4,background:'#123456'}}).png().toBuffer();let rendered=0;
+  const rename=fs.rename.bind(fs);vi.spyOn(fs,'rename').mockImplementation(async(from,to)=>{expect(rendered).toBe(2);await rename(from,to);});
+  const jobs=['iphone','ipad'].map((directory,i)=>({directory,name:['one','two'][i],width:16,height:20,render:async()=>{rendered++;return bytes;}}));
+  expect(await writeRasterExports(jobs,root)).toEqual([path.join(root,'iphone/one.png'),path.join(root,'ipad/two.png')]);await preserved();
+});
+it('preserves both device groups when the last render or destination preparation fails',async()=>{
+  const bytes=await sharp({create:{width:16,height:20,channels:4,background:'#123456'}}).png().toBuffer();const failure=Error('second device denied');
+  const jobs=['iphone','ipad'].map((directory,i)=>({directory,name:['one','two'][i],width:16,height:20,render:async()=>bytes}));
+  jobs[1].render=async()=>{throw failure;};expect(await writeRasterExports(jobs,root).catch((e:Error)=>e)).toBe(failure);await preserved();
+  jobs[1].render=async()=>bytes;const mkdir=fs.mkdir.bind(fs);vi.spyOn(fs,'mkdir').mockImplementation(async(...args:Parameters<typeof fs.mkdir>)=>{if(String(args[0]).endsWith('/ipad'))throw failure;return mkdir(...args);});const rename=vi.spyOn(fs,'rename');
+  expect(await writeRasterExports(jobs,root).catch((e:Error)=>e)).toBe(failure);expect(rename).not.toHaveBeenCalled();await preserved();
 });

@@ -20,6 +20,7 @@ Start with [the README](../README.md) for setup, production routes and deploy co
 | Walkthrough video exports | scripts/build-v2-walkthrough.mjs delegates nonmoving input preflight/staging to lib/walkthrough-build.mjs and template/encoding/output probing to lib/walkthrough-render.mjs. See the tool guide for per-file publication and original recording format. |
 | Social-banner layouts and local exports | scripts/lib/social-banner-designs.mjs owns established SVG layouts/shared copy; image-exports.mjs owns staging, shared PNG validation and per-file publication. generate-social-banners.mjs is the command entrypoint. |
 | Light/bold Apple screenshot drafts | scripts/lib/store-screenshot-designs.mjs owns shared catalog/geometry and style SVGs; store-screenshot-render.mjs owns PNG composition; store-screenshots.mjs reads source buffers and delegates to the shared image-exports lifecycle. Existing images/bold commands are compatibility entrypoints. |
+| Lite Apple screenshot drafts | scripts/lib/lite-screenshot-designs.mjs owns source/crop/device contracts; lite-screenshot-render.mjs returns standalone/panorama PNGs; lite-screenshots.mjs reads all sources and stages both device sets through image-exports.mjs. |
 | Asset generation and reference audits | scripts/; the audit CLI delegates to scripts/lib/public-asset-audit.mjs; see [tool instructions](../scripts/README.md) |
 | Unit and browser behavior | test/ and root Vitest/Playwright configuration |
 

@@ -170,3 +170,29 @@ final rename. Publication remains per file and can leave a partial batch if a
 later rename fails. The outputs remain local drafts; dimensions are established
 project values, not a claim of current store eligibility. Other legacy generators
 and previously uploaded artwork retain separate review and acceptance.
+
+## Lite Apple screenshot drafts
+
+`node scripts/generate-app-store-lite.mjs` keeps the existing eight iPhone and eight
+iPad PNG names in `marketing-assets/app-store-iphone-lite/` and
+`marketing-assets/app-store-ipad-lite/`. It prints acknowledged paths only after
+completion and returns failure for missing inputs or render/publication errors.
+The former `catch(console.error)` could report an error with a successful exit.
+
+`lib/lite-screenshot-designs.mjs` owns the seven source names, established crops,
+headings and device geometry. `lib/lite-screenshot-render.mjs` owns framing,
+standalone composition, rotated panorama rendering and its left/right split.
+`lib/lite-screenshots.mjs` reads each unique source once before output acquisition,
+then submits both device sets to one `writeRasterExports` lifecycle. The shared
+publisher supports an optional validated single-component output directory per
+job; existing flat output plans retain their destinations.
+
+All sixteen saved PNGs pass header/dimension and pixel-decode checks before any
+final rename. Both destination directories are prepared before publication.
+Missing/unreadable sources, a failed last render or destination preparation leave
+previous final images intact. Renames remain individual operations and a later
+rename failure may leave a partial batch; cleanup failures also prevent success.
+Sources stay in place. `generateLiteScreenshots({root, outputRoot})` supports an
+explicit disposable review root, containing the two established device directories.
+Synthetic pixel comparisons protect layout/encoding parity; genuine captures,
+content review, current store eligibility and submission remain separate gates.

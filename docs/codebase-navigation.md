@@ -17,6 +17,7 @@ Start with [the README](../README.md) for setup, production routes and deploy co
 | Shared public navigation | components/Navigation.tsx owns desktop links, the named mobile region, Escape/focus restoration and live reduced-motion transitions. Download telemetry stays in SmartAppLink. |
 | Artwork capture surfaces | src/app/(marketing-exports)/; publicly routable utility pages, separate from consumer navigation |
 | Artwork capture plans and resource lifetime | scripts/lib/artwork-plans.mjs, artwork-server.mjs and artwork-capture.mjs; the five capture commands are thin entrypoints |
+| Walkthrough video exports | scripts/build-v2-walkthrough.mjs delegates nonmoving input preflight/staging to lib/walkthrough-build.mjs and template/encoding/output probing to lib/walkthrough-render.mjs. See the tool guide for per-file publication and original recording format. |
 | Asset generation and reference audits | scripts/; the audit CLI delegates to scripts/lib/public-asset-audit.mjs; see [tool instructions](../scripts/README.md) |
 | Unit and browser behavior | test/ and root Vitest/Playwright configuration |
 

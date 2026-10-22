@@ -11,7 +11,12 @@ export default defineConfig({
       reporter: ['text', 'json', 'json-summary'],
       thresholds: {
         // Negative thresholds cap uncovered items without hiding untested files.
-        lines: -488, statements: -495, functions: -95, branches: -59,
+        lines: -451, statements: -457, functions: -78, branches: -30,
+        'src/app/components/Navigation.tsx': { 100: true },
+        'src/app/v2-walkthrough/page.tsx': { 100: true },
+        'src/app/lib/walkthroughSlides.ts': { 100: true },
+        'src/app/hooks/useWalkthroughSlides.ts': { 100: true },
+        'src/app/hooks/useWalkthroughPlayback.ts': { 100: true },
         'src/app/page.tsx': { 100: true },
         'src/app/about/page.tsx': { 100: true },
         'src/app/puckbuddy/page.tsx': { 100: true },

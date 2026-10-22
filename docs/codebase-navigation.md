@@ -13,6 +13,8 @@ Start with [the README](../README.md) for setup, production routes and deploy co
 | Shared visual behavior | components/, globals.css |
 | Live reduced-motion preference | hooks/useReducedMotionPreference.ts; shared by motion consumers, with static server rendering |
 | Preview playback lifetime and autoplay failure | hooks/usePreviewPlayback.ts; HomeHeroVisual and HeroVideoCarousel keep their own content/selection state |
+| Walkthrough catalog, local text and playback | lib/walkthroughSlides.ts owns configured slides and text recovery; hooks/useWalkthroughSlides.ts owns browser storage, notices and acknowledged saves; hooks/useWalkthroughPlayback.ts owns media/source attempts. v2-walkthrough/page.tsx composes editing, selection and keyboard/fullscreen controls. |
+| Shared public navigation | components/Navigation.tsx owns desktop links, the named mobile region, Escape/focus restoration and live reduced-motion transitions. Download telemetry stays in SmartAppLink. |
 | Artwork capture surfaces | src/app/(marketing-exports)/; publicly routable utility pages, separate from consumer navigation |
 | Artwork capture plans and resource lifetime | scripts/lib/artwork-plans.mjs, artwork-server.mjs and artwork-capture.mjs; the five capture commands are thin entrypoints |
 | Asset generation and reference audits | scripts/; the audit CLI delegates to scripts/lib/public-asset-audit.mjs; see [tool instructions](../scripts/README.md) |
@@ -44,3 +46,26 @@ mobile destination uses `navigation_cta_click` with bounded `target` and `locati
 properties. Its target means `new_tab` or `same_tab`, not a store or hostname;
 raw URLs and labels are not sent by that handler. Historical custom-link events
 remain in their old category; the source change does not rewrite analytics data.
+
+Walkthrough text keeps the existing `puckbuddy_v2_slides_v3` browser key and full
+legacy cache shape. Restoration admits valid title/description strings by catalog
+position/ID, independently preserves valid companion text and keeps configured
+media authoritative. Missing/invalid rows use defaults; malformed raw bytes are
+not deleted on read. Only an explicit successful Save/Reset adopts edited slides.
+Storage failure leaves the editor/draft open with a notice. The catalog guarantees
+the page's fixed slide/media bounds; selection resets clip indices and repeated
+end events cannot advance one clip twice. Shortcuts leave modified keys and
+interactive/editable controls alone. Fullscreen failure is reported, not thrown.
+
+Walkthrough videos use a separate element for each source. Source cleanup pauses
+it; late play failures cannot change newer playback and late completion cannot
+restart detached media. Pause/resume retains the playhead. The
+[October 22 receipt](2026-10-22-walkthrough-navigation.md) records local unit,
+browser and selected-fault acceptance. `test/fixtures/walkthrough-media.json`
+contains a tiny generated black-video fixture, with provenance/hash, used only to
+fulfill local browser requests. It is not a customer recording or a replacement
+for acceptance with the actual walkthrough recordings.
+
+Local coverage, fault controls and captures remain in ignored `quality-results/`.
+Keep raw failure receipts separate from accepted checks. None of those outputs
+belongs in the source index or TypeScript source inventory.

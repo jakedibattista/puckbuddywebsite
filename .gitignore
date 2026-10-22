@@ -73,3 +73,6 @@ __pycache__/
 
 # Next.js generates active route validators under .next/types
 /types/
+
+# Local quality receipts and fault-control workspaces are regenerated, not source.
+/quality-results/

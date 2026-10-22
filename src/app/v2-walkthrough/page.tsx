@@ -1,54 +1,15 @@
 "use client";
-// Presents the video walkthrough with local playback and slide controls.
+// Composes walkthrough controls with guarded browser text persistence and source-bound playback.
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
-interface Slide {
-  id: number;
-  videoSrcs: string[]; // Support playing multiple videos sequentially on a single slide
-  title: string;
-  description: string;
-}
-
-const DEFAULT_SLIDES: Slide[] = [
-  {
-    id: 1,
-    videoSrcs: [
-      "/v2-walkthrough/ScreenRecording_06-01-2026 15-43-48_1.mov",
-      "/v2-walkthrough/ScreenRecording_06-01-2026 15-47-27_1.mov"
-    ],
-    title: "AI Coaching & Drill Selection",
-    description: "Welcome to Puck Buddy 2.0. Select whether you are a Player or Goalie, choose from a wide variety of standard drills (like Butterfly Slide), and choose your master AI Coach. Then, upload your practice film directly from your iPhone. After upload, our computer vision models analyze your movement, positioning, and technique to prepare a comprehensive scorecard.",
-  },
-  {
-    id: 2,
-    videoSrcs: ["/v2-walkthrough/ScreenRecording_06-01-2026 16-04-28_1.mp4"],
-    title: "Master Coach Report Card",
-    description: "Get detailed, actionable feedback from your selected AI Coach. See your overall score, key metrics, and specific areas of strength and improvement with professional coaching insights.",
-  },
-  {
-    id: 3,
-    videoSrcs: ["/v2-walkthrough/ScreenRecording_06-01-2026 16-05-02_1.mov"],
-    title: "Interactive Hockey Chat",
-    description: "Have a live, natural conversation with your AI Coach. Ask specific questions about your session, get tips on how to fix errors, and receive tailored hockey advice anytime.",
-  },
-  {
-    id: 4,
-    videoSrcs: ["/v2-walkthrough/ScreenRecording_06-01-2026 16-06-11_1.mov"],
-    title: "Detailed Performance Stats",
-    description: "Track your progress over time with rich, visual statistics. Monitor your high scores, drill completion rates, and skill development across multiple practice sessions.",
-  },
-  {
-    id: 5,
-    videoSrcs: ["/v2-walkthrough/ScreenRecording_06-01-2026 16-07-27_1.mp4"],
-    title: "Leaderboard & Community",
-    description: "Compete with friends and teammates on the community scoreboard. Compare your scores, share your progress, and push each other to stop being average and train the right way.",
-  },
-];
+import { DEFAULT_SLIDES } from "../lib/walkthroughSlides";
+import { useWalkthroughSlides } from "../hooks/useWalkthroughSlides";
+import { useWalkthroughPlayback } from "../hooks/useWalkthroughPlayback";
 
 export default function WalkthroughPage() {
-  const [slides, setSlides] = useState<Slide[]>(DEFAULT_SLIDES);
+  const { slides, saveSlides, notice, clearNotice } = useWalkthroughSlides();
+  const [fullscreenNotice, setFullscreenNotice] = useState<string | null>(null);
   const [currentIdx, setCurrentIdx] = useState(0);
   const [currentVideoIdx, setCurrentVideoIdx] = useState(0); // Tracks sequential video index on current slide
   const [isPlaying, setIsPlaying] = useState(true);
@@ -58,32 +19,8 @@ export default function WalkthroughPage() {
   const [editDesc, setEditDesc] = useState("");
 
   const videoRef = useRef<HTMLVideoElement>(null);
-  const currentSlide = slides[currentIdx] || DEFAULT_SLIDES[0];
-  const currentVideoSrc = currentSlide.videoSrcs[currentVideoIdx] || currentSlide.videoSrcs[0];
-
-  // Load custom slides text from localStorage if available (with structure safety checks)
-  useEffect(() => {
-    const saved = localStorage.getItem("puckbuddy_v2_slides_v3");
-    if (saved) {
-      try {
-        const parsed = JSON.parse(saved) as Slide[];
-        // Ensure the parsed data has the correct structure (videoSrcs array)
-        if (parsed.length === DEFAULT_SLIDES.length && parsed[0].videoSrcs) {
-          setSlides(parsed);
-        } else {
-          localStorage.removeItem("puckbuddy_v2_slides_v3");
-        }
-      } catch (e) {
-        console.error("Failed to parse saved slides", e);
-      }
-    }
-  }, []);
-
-  // Save slides text to localStorage
-  const saveSlides = (newSlides: Slide[]) => {
-    setSlides(newSlides);
-    localStorage.setItem("puckbuddy_v2_slides_v3", JSON.stringify(newSlides));
-  };
+  const currentSlide = slides[currentIdx];
+  const currentVideoSrc = currentSlide.videoSrcs[currentVideoIdx];
 
   const handlePlayPause = useCallback(() => setIsPlaying(playing => !playing), []);
   const handleNext = useCallback(() => {
@@ -94,29 +31,29 @@ export default function WalkthroughPage() {
     setCurrentVideoIdx(0);
     setCurrentIdx(previous => (previous - 1 + slides.length) % slides.length);
   }, [slides.length]);
-  const toggleFullscreen = useCallback(() => {
-    if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen().catch(() => {});
-    } else {
-      document.exitFullscreen().catch(() => {});
+  const toggleFullscreen = useCallback(async () => {
+    const target = document.fullscreenElement ? document : document.documentElement;
+    const toggle = document.fullscreenElement ? document.exitFullscreen : document.documentElement.requestFullscreen;
+    if (typeof toggle !== "function") {
+      setFullscreenNotice("Fullscreen is unavailable in this browser.");
+      return;
+    }
+    try {
+      await toggle.call(target);
+      setFullscreenNotice(null);
+    } catch {
+      setFullscreenNotice("Fullscreen could not change. You can keep using the walkthrough.");
     }
   }, []);
 
-  // A source change reloads media; toggling playback must retain the playhead.
-  useEffect(() => {
-    videoRef.current?.load();
-  }, [currentVideoSrc]);
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    if (isPlaying) video.play().catch(() => setIsPlaying(false));
-    else video.pause();
-  }, [currentVideoSrc, isPlaying]);
+  const onPlaybackBlocked = useCallback(() => setIsPlaying(false), []);
+  useWalkthroughPlayback(videoRef, currentVideoSrc, isPlaying, onPlaybackBlocked);
 
   // Keyboard shortcuts
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (isEditing) return; // Don't trigger shortcuts if editing text
+      if (isEditing || e.defaultPrevented || e.ctrlKey || e.metaKey || e.altKey) return;
+      if (e.target instanceof Element && e.target.closest("input, textarea, select, button, a, [contenteditable]:not([contenteditable='false'])")) return;
 
       switch (e.key) {
         case "ArrowRight":
@@ -134,7 +71,7 @@ export default function WalkthroughPage() {
         case "f":
         case "F":
           e.preventDefault();
-          toggleFullscreen();
+          void toggleFullscreen();
           break;
       }
     };
@@ -146,7 +83,7 @@ export default function WalkthroughPage() {
   const handleVideoEnded = () => {
     // If there is another video in the sequence for this slide, play it!
     if (currentVideoIdx < currentSlide.videoSrcs.length - 1) {
-      setCurrentVideoIdx((prev) => prev + 1);
+      setCurrentVideoIdx(previous => previous === currentVideoIdx ? previous + 1 : previous);
       setIsPlaying(true);
     } else {
       setIsPlaying(false);
@@ -154,6 +91,7 @@ export default function WalkthroughPage() {
   };
 
   const startEditing = () => {
+    clearNotice();
     setEditTitle(currentSlide.title);
     setEditDesc(currentSlide.description);
     setIsEditing(true);
@@ -163,8 +101,7 @@ export default function WalkthroughPage() {
     const updated = slides.map((s, idx) =>
       idx === currentIdx ? { ...s, title: editTitle, description: editDesc } : s
     );
-    saveSlides(updated);
-    setIsEditing(false);
+    if (saveSlides(updated)) setIsEditing(false);
   };
 
   const resetToDefault = () => {
@@ -172,8 +109,7 @@ export default function WalkthroughPage() {
       const updated = slides.map((s, idx) =>
         idx === currentIdx ? { ...s, title: DEFAULT_SLIDES[idx].title, description: DEFAULT_SLIDES[idx].description } : s
       );
-      saveSlides(updated);
-      setIsEditing(false);
+      if (saveSlides(updated)) setIsEditing(false);
     }
   };
 
@@ -189,6 +125,8 @@ export default function WalkthroughPage() {
         
         {/* Left Column: Slide Text & Info */}
         <div className="lg:col-span-6 space-y-8 flex flex-col justify-center">
+          {notice && <p role="alert" className="text-sm text-amber-200">{notice}</p>}
+          {fullscreenNotice && <p role="status" className="text-sm text-gray-300">{fullscreenNotice}</p>}
           <AnimatePresence mode="wait">
             {isEditing ? (
               <motion.div
@@ -233,7 +171,7 @@ export default function WalkthroughPage() {
                     Reset Default
                   </button>
                   <button
-                    onClick={() => setIsEditing(false)}
+                    onClick={() => { setIsEditing(false); clearNotice(); }}
                     className="bg-white/5 hover:bg-white/10 text-gray-300 text-xs font-bold px-4 py-2 rounded-lg transition"
                   >
                     Cancel
@@ -348,9 +286,9 @@ export default function WalkthroughPage() {
               {/* Video Container (Crops top 5.53% to hide original status bar) */}
               <div className="relative w-full h-full overflow-hidden">
                 <video
+                  key={currentVideoSrc}
                   ref={videoRef}
                   onEnded={handleVideoEnded}
-                  autoPlay
                   muted
                   playsInline
                   className="absolute w-full h-[106%] object-cover"

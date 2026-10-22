@@ -1,6 +1,6 @@
 # Public marketing claims
 
-Updated October 21, 2026. This is the maintained source for claim provenance and
+Updated October 22, 2026. This is the maintained source for claim provenance and
 publication rules. Dated receipts describe earlier copy; they are not proof of
 current performance or customer approval.
 
@@ -29,3 +29,9 @@ The maintained social-banner generator also avoids instant-result and unverified
 rink-testing copy. Its generated files remain local drafts; previously exported
 social images, old store artwork and uploaded social assets require their own
 review. Generator-source corrections do not establish replacement or publication.
+
+
+The light/bold Apple screenshot generators also replace “Get Instant” with
+“Review Your.” This corrects maintained templates only. Legacy lite/iPad generators,
+existing saved captures and uploaded store artwork retain separate acceptance;
+this source change does not claim those assets were replaced or submitted.

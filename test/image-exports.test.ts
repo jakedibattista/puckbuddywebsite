@@ -5,7 +5,7 @@ import os from 'node:os';
 import path from 'node:path';
 import sharp from 'sharp';
 import { afterEach, beforeEach, expect, it, vi } from 'vitest';
-import { verifyPng, writeSvgExports } from '../scripts/lib/image-exports.mjs';
+import { verifyPng, writeSvgExports, writeRasterExports } from '../scripts/lib/image-exports.mjs';
 type Design = Parameters<typeof writeSvgExports>[0][number];
 let root: string;
 const designs = (): Design[] => ['one','two'].map(name => ({ name, width:16, height:20, svg:'<svg xmlns="http://www.w3.org/2000/svg" width="16" height="20"><rect width="16" height="20" fill="#123456"/></svg>' }));
@@ -79,4 +79,21 @@ it.each(['short','signature','chunk','width','height'])('rejects a PNG with inva
   const bytes=Buffer.alloc(24);Buffer.from([137,80,78,71,13,10,26,10]).copy(bytes);bytes.write('IHDR',12);bytes.writeUInt32BE(16,16);bytes.writeUInt32BE(20,20);
   if(fault==='signature')bytes[0]=0;if(fault==='chunk')bytes.write('IDAT',12);if(fault==='width')bytes.writeUInt32BE(17,16);if(fault==='height')bytes.writeUInt32BE(21,20);
   expect(()=>verifyPng(fault==='short'?bytes.subarray(0,8):bytes,{width:16,height:20})).toThrow(/PNG header|dimensions/);
+});
+
+it('publishes raster-only PNGs without replacing existing SVG drafts',async()=>{
+  const bytes=await sharp({create:{width:16,height:20,channels:4,background:'#123456'}}).png().toBuffer();const render=vi.fn(async()=>bytes);
+  expect(await writeRasterExports([{name:'one',width:16,height:20,render}],root)).toEqual([path.join(root,'one.png')]);expect(render).toHaveBeenCalledOnce();
+  expect(await fs.readFile(path.join(root,'one.svg'),'utf8')).toBe('old draft');expect(await fs.readFile(path.join(root,'one.png'))).toEqual(bytes);
+});
+it.each(['missing render','nonstring SVG','empty SVG'])('rejects malformed raster planning: %s',async fault=>{
+  const job={name:'one',width:16,height:20,render:async()=>Buffer.from('unused'),svg:undefined as string|undefined};
+  if(fault==='missing render')Reflect.deleteProperty(job,'render');if(fault==='nonstring SVG')job.svg=42 as unknown as string;if(fault==='empty SVG')job.svg=' ';
+  const acquire=vi.spyOn(fs,'mkdir');const outcome=await writeRasterExports([job],root).catch((error:Error)=>error);expect(outcome).toBeInstanceOf(Error);expect(acquire).not.toHaveBeenCalled();await preserved();
+});
+it('rejects an absent SVG before acquiring output files',async()=>{
+  const plan=designs();Reflect.deleteProperty(plan[0],'svg');const acquire=vi.spyOn(fs,'mkdir');const outcome=await writeSvgExports(plan,root).catch((error:Error)=>error);expect(outcome).toBeInstanceOf(Error);expect(acquire).not.toHaveBeenCalled();await preserved();
+});
+it('preserves old drafts when a raster renderer rejects',async()=>{
+  const failure=Error('render failed');const outcome=await writeRasterExports([{name:'one',width:16,height:20,render:async()=>{throw failure;}}],root).catch((error:Error)=>error);expect(outcome).toBe(failure);await preserved();
 });

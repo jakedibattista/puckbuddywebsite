@@ -5,13 +5,7 @@ import path from 'node:path';
 import fs from 'node:fs/promises';
 import { artworkPlans } from './artwork-plans.mjs';
 import { createArtworkServer } from './artwork-server.mjs';
-
-/** @param {Buffer} bytes @param {{width:number,height:number}} image */
-function verifyPng(bytes, image) {
-  const signature = Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]);
-  if (bytes.length < 24 || !bytes.subarray(0, 8).equals(signature) || bytes.toString('ascii', 12, 16) !== 'IHDR') throw new Error('Capture did not produce a PNG header.');
-  if (bytes.readUInt32BE(16) !== image.width || bytes.readUInt32BE(20) !== image.height) throw new Error(`Artwork dimensions do not match ${image.width}x${image.height}.`);
-}
+import { verifyPng } from './image-exports.mjs';
 
 async function captureJob(browser, job, base, staging, index) {
   const page = await browser.newPage();

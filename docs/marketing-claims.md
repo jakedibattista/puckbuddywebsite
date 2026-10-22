@@ -23,3 +23,9 @@ This review covers current page text, metadata and generated social-image text.
 It does not certify old store artwork, archived screenshots or app-store listings.
 Changed source must pass website checks and be deployed before it can describe the
 public site's observed state.
+
+
+The maintained social-banner generator also avoids instant-result and unverified
+rink-testing copy. Its generated files remain local drafts; previously exported
+social images, old store artwork and uploaded social assets require their own
+review. Generator-source corrections do not establish replacement or publication.

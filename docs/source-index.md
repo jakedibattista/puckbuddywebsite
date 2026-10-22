@@ -49,7 +49,7 @@ Regenerate with `python3 scripts/check-repository.py --write-index` after adding
 | [src/app/components/HowItWorks.tsx](<../src/app/components/HowItWorks.tsx>) | Explains the three-step analysis workflow and presents the shared download choices. |
 | [src/app/components/InteractiveDemo.tsx](<../src/app/components/InteractiveDemo.tsx>) | Renders screenshot-demo navigation and hints using the separate asset/hotspot catalog. |
 | [src/app/components/MobileStickyCTA.tsx](<../src/app/components/MobileStickyCTA.tsx>) | Shows platform-aware downloads or caller-supplied navigation with separate bounded tracking. |
-| [src/app/components/Navigation.tsx](<../src/app/components/Navigation.tsx>) | Provides shared desktop and mobile navigation between public product pages. |
+| [src/app/components/Navigation.tsx](<../src/app/components/Navigation.tsx>) | Provides shared public navigation with keyboard dismissal and live reduced-motion support. |
 | [src/app/components/RatingBadge.tsx](<../src/app/components/RatingBadge.tsx>) | Displays the configured App Store rating as a shared marketing badge. |
 | [src/app/components/ScrollAnimation.tsx](<../src/app/components/ScrollAnimation.tsx>) | Applies reusable viewport-entry animation to marketing sections. |
 | [src/app/components/SmartAppLink.tsx](<../src/app/components/SmartAppLink.tsx>) | Builds platform-aware download links while keeping click analytics in one component. |
@@ -62,6 +62,8 @@ Regenerate with `python3 scripts/check-repository.py --write-index` after adding
 | [src/app/hooks/useAppStoreUrl.ts](<../src/app/hooks/useAppStoreUrl.ts>) | Resolves the store destination after hydration while preserving a stable initial link. |
 | [src/app/hooks/usePreviewPlayback.ts](<../src/app/hooks/usePreviewPlayback.ts>) | Owns preview playback and end listeners for the lifetime of one rendered video. Detached previews stop even when an earlier autoplay request resolves after cleanup. |
 | [src/app/hooks/useReducedMotionPreference.ts](<../src/app/hooks/useReducedMotionPreference.ts>) | Subscribes marketing animations and previews to live accessibility preferences. Server rendering starts with static content so hydration never starts an unwanted video. |
+| [src/app/hooks/useWalkthroughPlayback.ts](<../src/app/hooks/useWalkthroughPlayback.ts>) | Owns walkthrough source loading and playback attempts without resetting pause/resume time. Retired attempts cannot publish failure into newer playback; detached media always pauses. |
+| [src/app/hooks/useWalkthroughSlides.ts](<../src/app/hooks/useWalkthroughSlides.ts>) | Owns browser-local walkthrough text and preserves drafts when storage is unavailable. The legacy cache shape stays readable; successful storage precedes adopting edited slides. |
 | [src/app/lacrosse/layout.tsx](<../src/app/lacrosse/layout.tsx>) | Sets lacrosse page metadata while leaving shared navigation to the root layout. |
 | [src/app/lacrosse/page.tsx](<../src/app/lacrosse/page.tsx>) | Lists external lacrosse products with their existing beta labels and destination links. |
 | [src/app/layout.tsx](<../src/app/layout.tsx>) | Owns shared metadata, site navigation, footer and the single analytics installation. |
@@ -71,6 +73,7 @@ Regenerate with `python3 scripts/check-repository.py --write-index` after adding
 | [src/app/lib/partnerInquiry.ts](<../src/app/lib/partnerInquiry.ts>) | Encodes partner inquiry fields into an email draft URL without sending mail. |
 | [src/app/lib/partnerReceipt.ts](<../src/app/lib/partnerReceipt.ts>) | Stores immutable private inquiry receipts and a retryable notification outbox in Vercel Blob. Contact details stay in private storage and the configured inbox, never analytics or logs. |
 | [src/app/lib/partnerSubmission.ts](<../src/app/lib/partnerSubmission.ts>) | Validates bounded partner inquiry payloads before storage or email delivery. |
+| [src/app/lib/walkthroughSlides.ts](<../src/app/lib/walkthroughSlides.ts>) | Owns the walkthrough catalog and recovers saved text without trusting cached media metadata. Valid text remains usable when other cache entries are malformed; original cache bytes are not deleted. |
 | [src/app/opengraph-image.tsx](<../src/app/opengraph-image.tsx>) | Renders the social preview image used when the public website is shared. |
 | [src/app/page.tsx](<../src/app/page.tsx>) | Presents the Buddy Sports homepage with attributed product statistics and supported product routes. |
 | [src/app/partner/layout.tsx](<../src/app/partner/layout.tsx>) | Sets partner page metadata while leaving shared navigation to the root layout. |
@@ -89,10 +92,11 @@ Regenerate with `python3 scripts/check-repository.py --write-index` after adding
 | [src/app/terms/layout.tsx](<../src/app/terms/layout.tsx>) | Gives the terms page its canonical public URL without changing the shared shell. |
 | [src/app/terms/page.tsx](<../src/app/terms/page.tsx>) | Publishes the terms of service and page metadata. |
 | [src/app/v2-walkthrough/layout.tsx](<../src/app/v2-walkthrough/layout.tsx>) | Gives the v2-walkthrough page its canonical public URL without changing the shared shell. |
-| [src/app/v2-walkthrough/page.tsx](<../src/app/v2-walkthrough/page.tsx>) | Presents the video walkthrough with local playback and slide controls. |
+| [src/app/v2-walkthrough/page.tsx](<../src/app/v2-walkthrough/page.tsx>) | Composes walkthrough controls with guarded browser text persistence and source-bound playback. |
 | [test/artwork-generators.test.ts](<../test/artwork-generators.test.ts>) | Exercises all artwork entrypoints with fake browser/provider boundaries and no real filesystem writes. Missing targets, failed capture and absent output must fail the command and release its browser. |
 | [test/artwork-server.test.ts](<../test/artwork-server.test.ts>) | Checks temporary-server ownership, bounded startup and process-group cleanup with fake children. |
 | [test/browser/conversion.spec.ts](<../test/browser/conversion.spec.ts>) | Verifies download and inquiry navigation in a local browser without sending external requests. |
+| [test/browser/walkthrough-navigation.spec.ts](<../test/browser/walkthrough-navigation.spec.ts>) | Exercises mobile navigation and walkthrough recovery in Chrome with synthetic local media. External requests are blocked; the playable fixture contains no customer recording or provider data. |
 | [test/canonical-pages.test.tsx](<../test/canonical-pages.test.tsx>) | Checks that public pages name their own canonical route and preserve the shared site shell. |
 | [test/conversion-analytics.test.ts](<../test/conversion-analytics.test.ts>) | Checks best-effort telemetry forwarding and synchronous SDK failures without external delivery. |
 | [test/demo-catalog.test.ts](<../test/demo-catalog.test.ts>) | Checks the demo graph has unique, usable hotspots and complete routes through its fixed examples. |
@@ -101,11 +105,14 @@ Regenerate with `python3 scripts/check-repository.py --write-index` after adding
 | [test/home-hero-visual.test.tsx](<../test/home-hero-visual.test.tsx>) | Checks homepage preview ownership, autoplay failure and reduced-motion transitions. |
 | [test/interactive-demo.test.tsx](<../test/interactive-demo.test.tsx>) | Exercises the screenshot demo's navigation graph through its public controls. |
 | [test/marketing-primitives.test.tsx](<../test/marketing-primitives.test.tsx>) | Checks store-link behavior, configured rating display and accessible animation preferences. |
+| [test/navigation.test.tsx](<../test/navigation.test.tsx>) | Verifies real navigation destinations, mobile dismissal and live reduced-motion behavior. External navigation and telemetry are controlled; no store or provider request is sent. |
 | [test/partner-receipt.test.ts](<../test/partner-receipt.test.ts>) | @vitest-environment node Exercises private receipt persistence, ambiguous-write retries, inbox delivery and authenticated retries. |
 | [test/partner.test.tsx](<../test/partner.test.tsx>) | Checks receipt confirmation, retry behavior and the retained manual email draft encoder. |
 | [test/public-asset-audit.test.ts](<../test/public-asset-audit.test.ts>) | Exercises the asset audit against temporary projects and its real read-only CLI. |
 | [test/public-pages.test.tsx](<../test/public-pages.test.tsx>) | Exercises real marketing-page composition and inquiry routing with external navigation and submission mocked. Page tests verify destinations and user actions; child motion/media visuals are simulated. |
 | [test/reduced-motion-preference.test.tsx](<../test/reduced-motion-preference.test.tsx>) | Checks live media-query updates, listener cleanup and stable static server rendering. |
 | [test/sticky-cta.test.tsx](<../test/sticky-cta.test.tsx>) | Checks visibility and destination behavior of the mobile download controls. |
-| [test/walkthrough.test.tsx](<../test/walkthrough.test.tsx>) | Exercises walkthrough playback and navigation through the public controls. |
+| [test/walkthrough-playback.test.tsx](<../test/walkthrough-playback.test.tsx>) | Checks absent media, replacement ownership and StrictMode replay for the walkthrough playback hook. |
+| [test/walkthrough-slides.test.ts](<../test/walkthrough-slides.test.ts>) | Protects saved walkthrough text recovery without allowing cached IDs or media to replace the catalog. |
+| [test/walkthrough.test.tsx](<../test/walkthrough.test.tsx>) | Exercises walkthrough playback, browser text persistence and keyboard controls through the public UI. |
 | [vitest.config.mjs](<../vitest.config.mjs>) | Configures DOM behavior tests and coverage budgets for all configured JavaScript/TypeScript source. Existing uncovered counts are ceilings, not a claim that the retained debt is complete. |

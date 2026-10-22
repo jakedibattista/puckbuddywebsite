@@ -1,26 +1,22 @@
 "use client";
-// Provides shared desktop and mobile navigation between public product pages.
+// Provides shared public navigation with keyboard dismissal and live reduced-motion support.
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import SmartAppLink from "./SmartAppLink";
+import { useReducedMotionPreference } from "../hooks/useReducedMotionPreference";
 
 type NavLink = {
   id: string;
   label: string;
   href: string;
-  badge?: string;
+  badge?: "New";
   submenu?: { href: string; label: string }[];
 };
 
-function getBadgeClassName(badge: string) {
-  if (badge === "New") {
-    return "ml-2 text-xs px-2 py-0.5 rounded-full font-semibold bg-green-100 text-green-800";
-  }
-  return "ml-2 text-xs px-2 py-0.5 rounded-full font-semibold bg-gray-100 text-gray-600";
-}
+const badgeClassName = "ml-2 text-xs px-2 py-0.5 rounded-full font-semibold bg-green-100 text-green-800";
 
 const navLinks: NavLink[] = [
   {
@@ -39,11 +35,24 @@ const navLinks: NavLink[] = [
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const menuButton = useRef<HTMLButtonElement>(null);
+  const reducedMotion = useReducedMotionPreference();
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      event.preventDefault();
+      setIsMobileMenuOpen(false);
+      menuButton.current?.focus();
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [isMobileMenuOpen]);
 
   return (
     <header className="sticky top-0 z-50 border-b border-blue-100/50 bg-white/95 backdrop-blur-xl supports-[backdrop-filter]:bg-white/90 shadow-sm">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <nav className="flex items-center justify-between h-16">
+        <nav aria-label="Primary navigation" className="flex items-center justify-between h-16">
           {/* Logo and Company Name - Left Side */}
           <Link
             href="/"
@@ -72,7 +81,7 @@ export default function Navigation() {
                   <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-blue-600 transition-all duration-300 group-hover:w-full" aria-hidden />
                   <div
                     className="absolute left-0 top-full z-[60] min-w-[11rem] pt-2 opacity-0 invisible transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100"
-                    role="menu"
+                    role="group"
                     aria-label={`${link.label} sections`}
                   >
                     <div className="rounded-xl border border-gray-100 bg-white py-1 shadow-lg ring-1 ring-black/5">
@@ -80,7 +89,6 @@ export default function Navigation() {
                         <Link
                           key={item.href}
                           href={item.href}
-                          role="menuitem"
                           className="block px-4 py-2.5 text-sm text-gray-700 transition-colors hover:bg-gray-50 hover:text-gray-900"
                         >
                           {item.label}
@@ -99,7 +107,7 @@ export default function Navigation() {
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
                   {link.badge && (
                     <span
-                      className={getBadgeClassName(link.badge)}
+                      className={badgeClassName}
                     >
                       {link.badge}
                     </span>
@@ -117,9 +125,11 @@ export default function Navigation() {
 
           {/* Mobile Menu Button */}
           <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            ref={menuButton}
+            onClick={() => setIsMobileMenuOpen(open => !open)}
             className="md:hidden p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
             aria-label="Toggle mobile menu"
+            aria-controls="mobile-navigation"
             aria-expanded={isMobileMenuOpen}
           >
             <svg
@@ -143,20 +153,22 @@ export default function Navigation() {
         {/* Mobile Navigation Menu */}
         <AnimatePresence>
           {isMobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
+            <motion.nav
+              id="mobile-navigation"
+              aria-label="Mobile navigation"
+              initial={reducedMotion ? false : { opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: reducedMotion ? 0 : 0.2 }}
               className="md:hidden border-t border-gray-200 overflow-hidden"
             >
               <div className="flex flex-col space-y-1 py-4">
                 {navLinks.map((link, index) => (
                   <motion.div
                     key={link.id}
-                    initial={{ opacity: 0, x: -20 }}
+                    initial={reducedMotion ? false : { opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.08 }}
+                    transition={{ delay: reducedMotion ? 0 : index * 0.08, duration: reducedMotion ? 0 : 0.3 }}
                   >
                     <Link
                       href={link.href}
@@ -166,7 +178,7 @@ export default function Navigation() {
                       {link.label}
                       {link.badge && (
                         <span
-                          className={getBadgeClassName(link.badge)}
+                          className={badgeClassName}
                         >
                           {link.badge}
                         </span>
@@ -185,9 +197,9 @@ export default function Navigation() {
                   </motion.div>
                 ))}
                 <motion.div
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={reducedMotion ? false : { opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: navLinks.length * 0.08 }}
+                  transition={{ delay: reducedMotion ? 0 : navLinks.length * 0.08, duration: reducedMotion ? 0 : 0.3 }}
                   className="px-3 pt-2"
                 >
                   <SmartAppLink
@@ -199,7 +211,7 @@ export default function Navigation() {
                   </SmartAppLink>
                 </motion.div>
               </div>
-            </motion.div>
+            </motion.nav>
           )}
         </AnimatePresence>
       </div>

@@ -12,7 +12,7 @@ export function verifyPng(bytes, image) {
 }
 
 
-/** @typedef {{name:string,width:number,height:number,render:()=>Promise<Buffer>,svg?:string}} RasterExport */
+/** @typedef {{name:string,directory?:string,width:number,height:number,render:()=>Promise<Buffer>,svg?:string}} RasterExport */
 /** @param {RasterExport[]} designs @param {string} outputRoot */
 export async function writeRasterExports(designs, outputRoot) {
   const names = new Set();
@@ -20,6 +20,7 @@ export async function writeRasterExports(designs, outputRoot) {
   for (const design of designs) {
     if (typeof design.name !== "string" || !/^[a-z0-9][a-z0-9_-]*$/i.test(design.name) || names.has(design.name) ||
         typeof design.render !== "function" ||
+        (design.directory !== undefined && (typeof design.directory !== "string" || !/^[a-z0-9][a-z0-9_-]*$/i.test(design.directory))) ||
         (design.svg !== undefined && (typeof design.svg !== "string" || !design.svg.trim())) ||
         !Number.isInteger(design.width) || design.width <= 0 ||
         !Number.isInteger(design.height) || design.height <= 0) {
@@ -36,17 +37,20 @@ export async function writeRasterExports(designs, outputRoot) {
       if (design.svg !== undefined) {
         const svgFile = path.join(staging, `${design.name}.svg`);
         await fs.writeFile(svgFile, design.svg, "utf8");
-        files.push(svgFile);
+        files.push({ staged: svgFile, directory: design.directory });
       }
       const pngFile = path.join(staging, `${design.name}.png`);
       await fs.writeFile(pngFile, await design.render());
       const bytes = await fs.readFile(pngFile);
       verifyPng(bytes, design);
       await sharp(bytes).stats();
-      files.push(pngFile);
+      files.push({ staged: pngFile, directory: design.directory });
     }
-    const outputs = files.map(file => path.join(outputRoot, path.basename(file)));
-    for (const [index, file] of files.entries()) await fs.rename(file, outputs[index]);
+    const outputs = files.map(file => path.join(outputRoot, file.directory ?? "", path.basename(file.staged)));
+    for (const directory of new Set(files.map(file => file.directory).filter(Boolean))) {
+      await fs.mkdir(path.join(outputRoot, directory), { recursive: true });
+    }
+    for (const [index, file] of files.entries()) await fs.rename(file.staged, outputs[index]);
     return outputs;
   } catch (error) { failure = error; throw error; }
   finally {

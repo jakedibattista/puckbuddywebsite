@@ -11,7 +11,7 @@ export default defineConfig({
       reporter: ['text', 'json', 'json-summary'],
       thresholds: {
         // Negative thresholds cap uncovered items without hiding untested files.
-        lines: -244, statements: -248, functions: -46, branches: -26,
+        lines: -146, statements: -150, functions: -33, branches: -16,
         'src/app/components/Navigation.tsx': { 100: true },
         'src/app/v2-walkthrough/page.tsx': { 100: true },
         'src/app/lib/walkthroughSlides.ts': { 100: true },
@@ -29,6 +29,8 @@ export default defineConfig({
         'scripts/lib/artwork-*.mjs': { 100: true },
         'scripts/lib/image-exports.mjs': { 100: true },
         'scripts/lib/store-*.mjs': { 100: true },
+        'scripts/lib/lite-*.mjs': { 100: true },
+        'scripts/generate-app-store-lite.mjs': { 100: true },
         'scripts/generate-app-store-images.mjs': { 100: true },
         'scripts/generate-app-store-bold.mjs': { 100: true },
         'scripts/lib/social-banner-designs.mjs': { 100: true },

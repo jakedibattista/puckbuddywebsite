@@ -11,7 +11,7 @@ Start with [the README](../README.md) for setup, production routes and deploy co
 | Screenshot demo catalog and navigation | lib/interactiveDemoCatalog.ts, components/InteractiveDemo.tsx |
 | Best-effort conversion telemetry | lib/conversionAnalytics.ts |
 | Shared visual behavior | components/, globals.css |
-| Live reduced-motion preference | hooks/useReducedMotionPreference.ts; shared by motion consumers, with static server rendering |
+| Live reduced-motion preference | hooks/useReducedMotionPreference.ts selects complete modern or legacy listener pairs, with static server/unsupported snapshots; shared by motion consumers. The animation dependency's separate browser requirements still apply. |
 | Preview playback lifetime and autoplay failure | hooks/usePreviewPlayback.ts; HomeHeroVisual and HeroVideoCarousel keep their own content/selection state |
 | Walkthrough catalog, local text and playback | lib/walkthroughSlides.ts owns configured slides and text recovery; hooks/useWalkthroughSlides.ts owns browser storage, notices and acknowledged saves; hooks/useWalkthroughPlayback.ts owns media/source attempts. v2-walkthrough/page.tsx composes editing, selection and keyboard/fullscreen controls. |
 | Shared public navigation | components/Navigation.tsx owns desktop links, the named mobile region, Escape/focus restoration and live reduced-motion transitions. Download telemetry stays in SmartAppLink. |
@@ -69,3 +69,12 @@ for acceptance with the actual walkthrough recordings.
 Local coverage, fault controls and captures remain in ignored `quality-results/`.
 Keep raw failure receipts separate from accepted checks. None of those outputs
 belongs in the source index or TypeScript source inventory.
+
+The motion-preference hook registers only when both registration and removal
+methods are available, preferring the modern pair. The same captured query and
+listener are released on cleanup. Without an observable query it keeps static
+content. Its legacy API controls cover that hook boundary. The pinned Framer
+Motion code separately calls modern `addEventListener`; a global legacy-only
+browser fixture fails in that library. Framework-wide legacy browser acceptance
+remains open. The browser regression isolates the hook's exact query while
+framework queries retain native methods; it does not certify an older browser.

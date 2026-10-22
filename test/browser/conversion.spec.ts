@@ -113,3 +113,21 @@ test('partner inquiry selection exposes its state and honors reduced-motion scro
   await page.getByRole('button', { name: 'Send inquiry' }).click();
   await expect(page.getByText('Your inquiry has been received.')).toBeVisible();
 });
+
+test('the shared hook updates through its legacy-query boundary while framework queries keep native APIs', async ({ page }) => {
+  const errors: string[] = []; page.on('pageerror', error => errors.push(error.message));
+  await page.addInitScript(() => {
+    const matchMedia = window.matchMedia.bind(window);
+    window.matchMedia = (query: string) => {
+      const media = matchMedia(query);
+      // Framer Motion has a separate query and requires modern EventTarget methods.
+      // This fixture isolates our hook's legacy boundary, not a full legacy browser.
+      if (query === '(prefers-reduced-motion: reduce)') Object.defineProperties(media, { addEventListener: { value: undefined }, removeEventListener: { value: undefined } });
+      return media;
+    };
+  });
+  await page.emulateMedia({ reducedMotion: 'reduce' }); await page.goto('/');
+  await expect(page.getByRole('img', { name: 'Puck Buddy scorecard showing AI shot analysis on a phone' })).toBeVisible();
+  await page.emulateMedia({ reducedMotion: 'no-preference' }); const video = page.getByLabel('Puck Buddy app scorecard preview'); await expect(video).toBeVisible(); const previous = await video.elementHandle();
+  await page.emulateMedia({ reducedMotion: 'reduce' }); await expect(video).toHaveCount(0); expect(await previous!.evaluate(element => (element as HTMLVideoElement).paused)).toBe(true); expect(errors).toEqual([]);
+});

@@ -10,7 +10,7 @@ Regenerate with `python3 scripts/check-repository.py --write-index` after adding
 | [.github/workflows/quality.yml](<../.github/workflows/quality.yml>) | Validate this public website on free standard GitHub compute without artifact or cache storage. |
 | [eslint.config.mjs](<../eslint.config.mjs>) | Configures source linting for the website and its Node-based asset tools. |
 | [next.config.ts](<../next.config.ts>) | Sets the repository build root and allowed remote image host for Next.js. |
-| [playwright.config.ts](<../playwright.config.ts>) | Starts the isolated local browser fixture used to verify download and partner navigation. |
+| [playwright.config.ts](<../playwright.config.ts>) | Runs browser checks on a dedicated port; build and development still share Next output and must run sequentially. |
 | [postcss.config.mjs](<../postcss.config.mjs>) | Loads Tailwind through PostCSS when compiling the website stylesheet. |
 | [scripts/audit-public-assets.mjs](<../scripts/audit-public-assets.mjs>) | Runs the read-only public-media reference audit from the current project directory. Collection and report policy live in scripts/lib/public-asset-audit.mjs. |
 | [scripts/build-v2-walkthrough.mjs](<../scripts/build-v2-walkthrough.mjs>) | Builds local walkthrough exports through preflight, staged rendering and media validation. Source recordings stay in place; completion is reported only after publication and staging cleanup. |

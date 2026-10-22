@@ -82,3 +82,8 @@ Motion code separately calls modern `addEventListener`; a global legacy-only
 browser fixture fails in that library. Framework-wide legacy browser acceptance
 remains open. The browser regression isolates the hook's exact query while
 framework queries retain native methods; it does not certify an older browser.
+
+Build/development/browser processes share Next output within a checkout. Follow
+the README's sequential validation commands, stop a running dev server first and
+use separate checkouts for parallel runs. The browser fixture's dedicated port
+isolates HTTP traffic, not `.next/`, generated route types or `next-env.d.ts`.

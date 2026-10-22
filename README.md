@@ -33,17 +33,30 @@ Install the locked dependencies, then run the development server:
 ```bash
 npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the homepage in `src/app/page.tsx`. The page auto-updates as you edit the file.
+
+## Local validation and shared build output
+
+Use the committed npm lockfile. Stop any development server before running the
+production build or browser suite in this checkout. Next development, production
+builds and the browser fixture share `.next/`, generated route types and
+`next-env.d.ts`; different HTTP ports do not isolate those files.
+
+Run these commands one at a time, after lint, type checks and unit tests:
+
+```bash
+npm run build
+npm run test:browser
+```
+
+The browser suite starts its own server on `127.0.0.1:3417` and refuses to reuse
+an existing server. The Quality workflow runs build and browser steps sequentially.
+Use separate checkouts for parallel Next processes. Browser success verifies the
+local website fixture, not deployed app/backend behavior or submitted store assets.
 
 ## Environment variables (Vercel)
 

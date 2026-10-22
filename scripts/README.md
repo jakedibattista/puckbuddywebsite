@@ -145,3 +145,28 @@ Publication uses individual renames and can leave a partial batch if a later ren
 fails. Cleanup failures prevent completion, retaining earlier failures when present.
 An abruptly killed process is not guaranteed to clean staging. These local drafts
 require content review before upload; saved files are not publication evidence.
+
+## Light and bold Apple screenshot drafts
+
+`node scripts/generate-app-store-images.mjs` and
+`node scripts/generate-app-store-bold.mjs` keep their existing five `public/v2-*`
+inputs and PNG names. Outputs belong in `marketing-assets/app-store/` and
+`marketing-assets/app-store-bold/`, respectively. Completion prints actual saved
+paths. A missing input, failed render, invalid PNG or publication/cleanup failure
+returns command failure; per-image exceptions are no longer swallowed.
+
+`lib/store-screenshot-designs.mjs` owns one source catalog, shared 1284×2778 geometry,
+shared text layout and the two existing style templates. The scorecard heading uses
+“Review Your / AI Feedback” instead of the unsupported instant-result promise.
+`lib/store-screenshot-render.mjs` preserves crop/resize/mask/frame/text composition
+and returns PNG bytes without file writes. `lib/store-screenshots.mjs` captures all
+five input buffers before output acquisition. `lib/image-exports.mjs` publishes
+raster-only jobs through the same staged validation/lifecycle as SVG/PNG pairs.
+
+Programmatic `generateStoreScreenshots(style, {root, outputRoot})` supports an
+explicit review directory; styles are `light` and `bold`. Sources stay in place.
+All PNGs must pass saved-header/dimension checks and pixel decoding before any
+final rename. Publication remains per file and can leave a partial batch if a
+later rename fails. The outputs remain local drafts; dimensions are established
+project values, not a claim of current store eligibility. Other legacy generators
+and previously uploaded artwork retain separate review and acceptance.

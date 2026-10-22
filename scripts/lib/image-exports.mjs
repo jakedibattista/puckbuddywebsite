@@ -1,4 +1,4 @@
-// Shares PNG header/dimension validation and stages complete SVG/PNG export batches before per-file publication.
+// Shares PNG validation and complete staged publication for rendered screenshots and SVG exports.
 // Rendering and cleanup failures propagate; individual renames do not form an atomic batch transaction.
 import fs from "node:fs/promises";
 import path from "node:path";
@@ -12,13 +12,15 @@ export function verifyPng(bytes, image) {
 }
 
 
-/** @param {{name:string,svg:string,width:number,height:number}[]} designs @param {string} outputRoot */
-export async function writeSvgExports(designs, outputRoot) {
+/** @typedef {{name:string,width:number,height:number,render:()=>Promise<Buffer>,svg?:string}} RasterExport */
+/** @param {RasterExport[]} designs @param {string} outputRoot */
+export async function writeRasterExports(designs, outputRoot) {
   const names = new Set();
   if (!designs.length) throw new Error("No image designs supplied.");
   for (const design of designs) {
     if (typeof design.name !== "string" || !/^[a-z0-9][a-z0-9_-]*$/i.test(design.name) || names.has(design.name) ||
-        typeof design.svg !== "string" || !design.svg.trim() ||
+        typeof design.render !== "function" ||
+        (design.svg !== undefined && (typeof design.svg !== "string" || !design.svg.trim())) ||
         !Number.isInteger(design.width) || design.width <= 0 ||
         !Number.isInteger(design.height) || design.height <= 0) {
       throw new Error("Invalid or duplicate image design.");
@@ -31,17 +33,17 @@ export async function writeSvgExports(designs, outputRoot) {
   try {
     const files = [];
     for (const design of designs) {
-      const svgFile = path.join(staging, `${design.name}.svg`);
+      if (design.svg !== undefined) {
+        const svgFile = path.join(staging, `${design.name}.svg`);
+        await fs.writeFile(svgFile, design.svg, "utf8");
+        files.push(svgFile);
+      }
       const pngFile = path.join(staging, `${design.name}.png`);
-      await fs.writeFile(svgFile, design.svg, "utf8");
-      await sharp(Buffer.from(design.svg), { density: 300 })
-        .resize(design.width, design.height)
-        .png({ compressionLevel: 9, adaptiveFiltering: true })
-        .toFile(pngFile);
+      await fs.writeFile(pngFile, await design.render());
       const bytes = await fs.readFile(pngFile);
       verifyPng(bytes, design);
       await sharp(bytes).stats();
-      files.push(svgFile, pngFile);
+      files.push(pngFile);
     }
     const outputs = files.map(file => path.join(outputRoot, path.basename(file)));
     for (const [index, file] of files.entries()) await fs.rename(file, outputs[index]);
@@ -54,4 +56,18 @@ export async function writeSvgExports(designs, outputRoot) {
       throw cleanup;
     }
   }
+}
+
+/** @param {{name:string,svg:string,width:number,height:number}[]} designs @param {string} outputRoot */
+export async function writeSvgExports(designs, outputRoot) {
+  if (designs.some(design => typeof design.svg !== "string" || !design.svg.trim())) {
+    throw new Error("Invalid SVG design.");
+  }
+  return writeRasterExports(designs.map(design => ({
+    ...design,
+    render: async () => sharp(Buffer.from(design.svg), { density: 300 })
+      .resize(design.width, design.height)
+      .png({ compressionLevel: 9, adaptiveFiltering: true })
+      .toBuffer(),
+  })), outputRoot);
 }

@@ -18,6 +18,7 @@ Start with [the README](../README.md) for setup, production routes and deploy co
 | Artwork capture surfaces | src/app/(marketing-exports)/; publicly routable utility pages, separate from consumer navigation |
 | Artwork capture plans and resource lifetime | scripts/lib/artwork-plans.mjs, artwork-server.mjs and artwork-capture.mjs; the five capture commands are thin entrypoints |
 | Walkthrough video exports | scripts/build-v2-walkthrough.mjs delegates nonmoving input preflight/staging to lib/walkthrough-build.mjs and template/encoding/output probing to lib/walkthrough-render.mjs. See the tool guide for per-file publication and original recording format. |
+| Social-banner layouts and local exports | scripts/lib/social-banner-designs.mjs owns established SVG layouts/shared copy; image-exports.mjs owns staging, shared PNG validation and per-file publication. generate-social-banners.mjs is the command entrypoint. |
 | Asset generation and reference audits | scripts/; the audit CLI delegates to scripts/lib/public-asset-audit.mjs; see [tool instructions](../scripts/README.md) |
 | Unit and browser behavior | test/ and root Vitest/Playwright configuration |
 

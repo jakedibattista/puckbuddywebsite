@@ -11,7 +11,7 @@ export default defineConfig({
       reporter: ['text', 'json', 'json-summary'],
       thresholds: {
         // Negative thresholds cap uncovered items without hiding untested files.
-        lines: -371, statements: -375, functions: -67, branches: -30,
+        lines: -338, statements: -342, functions: -58, branches: -30,
         'src/app/components/Navigation.tsx': { 100: true },
         'src/app/v2-walkthrough/page.tsx': { 100: true },
         'src/app/lib/walkthroughSlides.ts': { 100: true },
@@ -27,6 +27,9 @@ export default defineConfig({
         'src/app/components/ContactForm.tsx': { 100: true },
         'src/app/components/MobileStickyCTA.tsx': { 100: true },
         'scripts/lib/artwork-*.mjs': { 100: true },
+        'scripts/lib/image-exports.mjs': { 100: true },
+        'scripts/lib/social-banner-designs.mjs': { 100: true },
+        'scripts/generate-social-banners.mjs': { 100: true },
         'scripts/build-v2-walkthrough.mjs': { 100: true },
         'scripts/lib/walkthrough-*.mjs': { 100: true },
         'scripts/lib/public-asset-audit.mjs': { 100: true },

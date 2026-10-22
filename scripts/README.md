@@ -61,7 +61,7 @@ The five `generate-app-store-v2.mjs`, `generate-play-store-screenshots.mjs`,
   never terminates a server it reused. Server ownership uses POSIX process groups;
   these commands target macOS and Linux.
 - `lib/artwork-capture.mjs` waits for fonts/images, captures into a unique staging
-  directory, checks saved PNG headers/dimensions and moves verified captures to
+  directory, checks saved PNG headers/dimensions through `lib/image-exports.mjs` and moves verified captures to
   their configured destination under `marketing-assets/`.
 
 Run a command from the repository root, for example:
@@ -118,3 +118,30 @@ transaction across all seven outputs. Generated videos remain local drafts.
 Tests use disposable files and controlled renderer/process responses. A separate
 local synthetic-media check verifies real ffmpeg/ffprobe execution and byte-for-byte
 template parity; it does not inspect or certify the original owner recordings.
+
+
+## Social-banner drafts
+
+Run `node scripts/generate-social-banners.mjs` from the repository root. The command
+reports six actual saved paths in `marketing-assets/social/`: SVG and PNG pairs for
+`youtube-banner` (2560×1440), `facebook-cover` (1640×624) and `og-image` (1200×630).
+It no longer reports the unrelated `public/social/` directory.
+
+`lib/social-banner-designs.mjs` owns the established layouts and shared copy. The
+source no longer promises instant results or describes unverified rink testing.
+The rest of each SVG layout remains unchanged. Existing exported artwork is dated
+material; updating generator source does not retroactively replace those files or
+publish anything to a social account.
+
+`lib/image-exports.mjs` owns shared PNG header/dimension validation, also used by the
+browser artwork capture owner. Its `writeSvgExports(designs, outputRoot)` validates
+plan names/dimensions before file acquisition, writes each SVG/PNG to unique staging,
+checks PNG headers/dimensions and decodes pixel data before any final file changes.
+Sharp retains the existing density, resize and PNG-encoding options. Programmatic
+callers can choose a disposable output directory for review.
+
+A render, write, read, decode or validation failure preserves previous final files.
+Publication uses individual renames and can leave a partial batch if a later rename
+fails. Cleanup failures prevent completion, retaining earlier failures when present.
+An abruptly killed process is not guaranteed to clean staging. These local drafts
+require content review before upload; saved files are not publication evidence.

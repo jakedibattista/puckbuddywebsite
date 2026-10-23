@@ -24,14 +24,5 @@ It does not certify old store artwork, archived screenshots or app-store listing
 Changed source must pass website checks and be deployed before it can describe the
 public site's observed state.
 
-
-The maintained social-banner generator also avoids instant-result and unverified
-rink-testing copy. Its generated files remain local drafts; previously exported
-social images, old store artwork and uploaded social assets require their own
-review. Generator-source corrections do not establish replacement or publication.
-
-
-The light/bold Apple screenshot generators also replace “Get Instant” with
-“Review Your.” This corrects maintained templates only. Legacy lite/iPad generators,
-existing saved captures and uploaded store artwork retain separate acceptance;
-this source change does not claim those assets were replaced or submitted.
+Standalone artwork generators were retired on October 23, 2026. Existing artwork
+and uploaded store/social assets keep their original review and publication status.

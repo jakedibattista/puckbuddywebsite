@@ -16,12 +16,7 @@ Start with [the README](../README.md) for setup, production routes and deploy co
 | Walkthrough catalog, local text and playback | lib/walkthroughSlides.ts owns configured slides and text recovery; hooks/useWalkthroughSlides.ts owns browser storage, notices and acknowledged saves; hooks/useWalkthroughPlayback.ts owns media/source attempts. v2-walkthrough/page.tsx composes editing, selection and keyboard/fullscreen controls. |
 | Shared public navigation | components/Navigation.tsx owns desktop links, the named mobile region, Escape/focus restoration and live reduced-motion transitions. Download telemetry stays in SmartAppLink. |
 | Artwork capture surfaces | src/app/(marketing-exports)/; publicly routable utility pages, separate from consumer navigation |
-| Artwork capture plans and resource lifetime | scripts/lib/artwork-plans.mjs, artwork-server.mjs and artwork-capture.mjs; the five capture commands are thin entrypoints |
-| Walkthrough video exports | scripts/build-v2-walkthrough.mjs delegates nonmoving input preflight/staging to lib/walkthrough-build.mjs and template/encoding/output probing to lib/walkthrough-render.mjs. See the tool guide for per-file publication and original recording format. |
-| Social-banner layouts and local exports | scripts/lib/social-banner-designs.mjs owns established SVG layouts/shared copy; image-exports.mjs owns staging, shared PNG validation and per-file publication. generate-social-banners.mjs is the command entrypoint. |
-| Light/bold Apple screenshot drafts | scripts/lib/store-screenshot-designs.mjs owns shared catalog/geometry and style SVGs; store-screenshot-render.mjs owns PNG composition; store-screenshots.mjs reads source buffers and delegates to the shared image-exports lifecycle. Existing images/bold commands are compatibility entrypoints. |
-| Lite Apple screenshot drafts | scripts/lib/lite-screenshot-designs.mjs owns source/crop/device contracts; lite-screenshot-render.mjs returns standalone/panorama PNGs; lite-screenshots.mjs reads all sources and stages both device sets through image-exports.mjs. |
-| Asset generation and reference audits | scripts/; the audit CLI delegates to scripts/lib/public-asset-audit.mjs; see [tool instructions](../scripts/README.md) |
+| Public-media reference audit | scripts/audit-public-assets.mjs and scripts/lib/public-asset-audit.mjs; see [tool instructions](../scripts/README.md) |
 | Unit and browser behavior | test/ and root Vitest/Playwright configuration |
 
 The [source index](source-index.md) maps each supported first-party source/test/tool/config file to its purpose introduction. PascalCase component filenames, use* hooks and existing script names stay established here. Next.js page/layout/metadata names are framework entrypoints; parent folders identify the feature. Do not rename URLs, asset inputs or store destinations for cosmetic consistency.
@@ -30,7 +25,7 @@ Use one Analytics component in the root layout. The [marketing claims record](ma
 
 Run python3 scripts/check-repository.py and python3 -m unittest discover -s scripts -p test_repository_conventions.py. After reviewing a file addition or changed introduction, regenerate with --write-index. The checker validates navigation, not semantic truth; review the explanation against source. Run npm test, npm run lint and npm run build for integration, plus the local browser suite for conversion changes.
 
-Generated Next.js types belong under .next and are rebuilt by Next. Local Python environments, node_modules, test output and captured build artifacts are not source. The formerly tracked venv tree was removed from the Git index while preserving local files; recreate Python tooling from requirements.txt as documented rather than committing an installation.
+Generated Next.js types belong under .next and are rebuilt by Next. Local Python environments, node_modules, test output and captured build artifacts are not source. The formerly tracked venv tree was removed from the Git index while preserving local files; local environments are not committed source.
 
 Preview playback belongs to the currently rendered video. The shared hook pauses it and removes its end listener on replacement, reduced-motion changes or unmount. A late autoplay completion must not restart a detached element or stop a newer playback effect on the same element. Autoplay rejection leaves the poster visible. Component tests cover these transitions; the local Chrome suite also switches the homepage motion preference while the page stays open. These checks do not call app/backend services, redeem codes or submit real inquiries.
 
@@ -87,3 +82,17 @@ Build/development/browser processes share Next output within a checkout. Follow
 the README's sequential validation commands, stop a running dev server first and
 use separate checkouts for parallel runs. The browser fixture's dedicated port
 isolates HTTP traffic, not `.next/`, generated route types or `next-env.d.ts`.
+
+## Retired export tools
+
+Standalone artwork and video generators, their private libraries and generator-only
+tests were removed on October 23, 2026. The original captures, listing manifests,
+walkthrough recordings, public routes and current website regression tests remain.
+Puppeteer, direct Sharp tooling and the unused Pillow manifest are no longer
+website development requirements; Next.js retains its own image dependencies.
+Historical generator measurements remain scoped to their original revisions.
+
+Six images used only by the retired generators were removed from `public/` after
+byte-for-byte comparison with the retained originals in the local parent workspace
+`cross-store-support/public/`. Their committed originals also remain in Git history.
+The website asset audit now covers the retained consumer pages and export routes.

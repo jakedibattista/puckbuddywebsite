@@ -2,6 +2,25 @@
 
 Keep tools repeatable and keep generated artwork separate from source.
 
+## Manual artwork inventory
+
+The following commands are manual production aids, not website request handlers.
+The October 23, 2026 tracked-source review found no imports, npm commands or CI
+invocations of these entrypoints. That does not prove they have no human or
+external callers. Keep their existing paths and retained source assets; absence
+from the website runtime alone does not justify deleting a release artifact.
+
+| Command | Responsibility and retained consumer | Maintenance priority |
+| --- | --- | --- |
+| `generate-play-store-refresh.mjs` | Wraps real Android captures supplied by the operator. The [October 14 listing receipt](../marketing-assets/play-store-2026-10-14/README.md) names this renderer. It also reads `public/logo-1024.png`. | Retained manual listing tool. Verify supplied captures, output and cleanup when changing or running it. |
+| `generate-large-logo.mjs` | Resizes `public/BlackLogo.svg` into `public/logo-1024.png`, which the Play refresh tool consumes. | Retained manual prerequisite. Its output has a real downstream consumer even though no build automatically runs the generator. |
+| `generate-ipad-pano.mjs` | Produces the older iPad composition from local `v2-*` images under `marketing-assets/app-store-ipad/`. No tracked command, current guide or runtime caller invokes it. | Legacy manual composition. The maintained [Lite screenshot workflow](#lite-apple-screenshot-drafts) is documented below. Review operator use before retiring this older command; keep source captures. |
+
+These three commands were inspected without running them or overwriting artwork.
+No additional automated coverage was added for this inventory. Core public routes,
+forms, authentication links and conversion behavior take priority over expanding
+tests for occasional export tools. Existing tool checks remain in place.
+
 ## Public-media reference audit
 
 `audit-public-assets.mjs` is the CLI entrypoint. Collection, report formatting and

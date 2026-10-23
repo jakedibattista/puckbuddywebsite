@@ -5,11 +5,8 @@ checked. The screenshots show results, coaching feedback, progress/badges and
 Games, in that order. The feature graphic and all four final screenshots are saved in the Play
 main-listing draft. Save confirmation and a reload verified the final selection. The current live listing has not been republished.
 
-The renderer is `scripts/generate-play-store-refresh.mjs`. Run it from the website
-root with a private capture directory and a separate output directory. Private
-capture provenance is retained outside Git. It wraps actual screens rather than
-inventing product interfaces. Past Results contains scorecards and feedback, not
-old playable videos; the feedback image shows written coaching notes. Example scores and shot-speed estimates are not accuracy guarantees.
+The one-off renderer was retired on October 23, 2026. Original source captures,
+listing exports and this dated receipt remain; no store listing was changed.
 
 This asset commit does not redeploy buddyllc.app. The approved published website
 source remains 45fae62. App public release, provider/youth compliance, declarations

@@ -130,9 +130,9 @@ skipping the behavior tests fails these coverage checks.
 This Git repository starts at `puckbuddy-website/` inside the local `Puckbuddy-Vercel/` workspace. The parent directory is not a Git repository and is not Vercel's source root. Parent folders such as `IMAGES/`, `prototype/`, `videos/` and `Download-on-the-App-Store/` are local marketing source archives. They are not published by pushing this repository.
 
 - `src/app/`: routes, components, hooks and library code.
-- `public/`: runtime assets plus inputs used by the marketing-generation scripts.
-- `scripts/`: asset audits and marketing asset generation; `requirements.txt` supplies Pillow for Python scripts. Puppeteer is a dev dependency of this repository, so scripts no longer depend on parent-workspace packages. If browser download was skipped during install, run `npx puppeteer browsers install chrome` before generating assets.
+- `public/`: website assets and captures used by retained public export routes.
+- `scripts/`: read-only asset audit and repository-convention checks. One-off artwork/video generators and their dedicated tests have been retired; original captures and listing evidence remain.
 - `test/`: unit and browser tests.
 - Root configuration: Next.js, TypeScript, ESLint, PostCSS, Vitest and Playwright. Keep these discoverable by their tools.
 
-[Repository hygiene review](docs/repository-hygiene.md) records dependency checks, retained assets and deployment boundaries.
+[Codebase navigation](docs/codebase-navigation.md) records current ownership and retained compatibility boundaries.

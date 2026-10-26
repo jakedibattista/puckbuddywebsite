@@ -112,18 +112,19 @@ Journal-to-Scoreboard hotspot's owning screen. Graph and mounted-component tests
 cover those routes. `HeroVideoCarousel` cancels superseded/unmounted transitions
 and permits returning to the current clip before an animation finishes.
 
-At the October 19 checkpoint, coverage measured 17.78% of configured lines and
-25.54% of branches (53 unit tests). The [October 20 release receipt](docs/2026-10-20-vercel-release.md)
-records the later 79-test suite and inquiry-path coverage without claiming full-site
-coverage. Combining duplicate video effects removed
-covered code: the uncovered line count stayed at 883, while uncovered statements
-and branches each fell by one. The large untested remainder still needs behavioral
-coverage. CI runs `test:coverage`, with maximum uncovered-item counts
-in [Vitest configuration](vitest.config.mjs) and stricter floors for conversion
-telemetry, the demo catalog, store-link handling and the hero carousel. Review
-measured evidence before changing these budgets; do not increase a ceiling or
-lower a floor to hide a regression. A local negative control confirms that
-skipping the behavior tests fails these coverage checks.
+The October 26 recheck of source `349380a` passes 209 unit tests, all thirteen
+browser cases, type checking, zero-warning lint, production build, asset audit and
+repository conventions. Coverage is 92.07% of configured lines and 98.97% of
+branches. The shared function-complexity measurement finds 213 functions and zero
+at CRAP ≥30. CRAP combines complexity and uncovered code; it is not a defect count.
+These are fresh local checks, separate from hosted CI and production deployment.
+
+The retained maximum-uncovered-item budgets in [Vitest configuration](vitest.config.mjs)
+and stricter feature floors remain unchanged. Remaining unexecuted behavior is
+still visible in coverage; browser checks do not send real inquiries. No exhaustive
+mutation-test claim is made for this website. Earlier counts in the
+[October 20 receipt](docs/2026-10-20-vercel-release.md) remain dated evidence for its
+source and scope, including the since-retired standalone artwork tooling.
 
 ## Workspace layout and maintenance
 

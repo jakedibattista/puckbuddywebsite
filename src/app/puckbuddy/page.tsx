@@ -1,8 +1,9 @@
 "use client";
-// Presents hockey analysis features, attributed product statistics, pricing and store download choices.
+// Presents hockey analysis features, attributed product statistics, pricing, coach-demo booking and store download choices.
 
 import { useReducedMotionPreference } from "../hooks/useReducedMotionPreference";
-import { ANALYZED_VIDEO_COUNT_LABEL } from "../lib/constants";
+import { trackConversion } from "../lib/conversionAnalytics";
+import { ANALYZED_VIDEO_COUNT_LABEL, COACH_DEMO_BOOKING_URL } from "../lib/constants";
 import Image from "next/image";
 import ScrollAnimation from "../components/ScrollAnimation";
 import InteractiveDemo from "../components/InteractiveDemo";
@@ -96,6 +97,16 @@ export default function PuckBuddyPage() {
                 priority
                 className="relative z-20 mt-5 sm:mt-6"
               />
+              <a
+                href={COACH_DEMO_BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackConversion("coach_demo_booking_click", { location: "puckbuddy_hero", booking: "coach_15min" })}
+                className="relative z-20 mt-5 inline-flex min-h-11 items-center rounded-full border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+              >
+                Book a 15-minute coach demo
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
             </motion.div>
           </div>
         </div>

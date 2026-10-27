@@ -8,6 +8,10 @@ test('download chooser and partner inquiry are reachable', async ({ page }) => {
   await page.goto('/puckbuddy');
   await expect(page.locator('a[href*="apps.apple.com"]').first()).toBeVisible();
   await expect(page.locator('a[href*="play.google.com"]').first()).toBeVisible();
+  const booking = page.getByRole('link', { name: /Book a 15-minute coach demo/ });
+  await expect(booking).toBeVisible();
+  await expect(booking).toHaveAttribute('href', 'https://calendar.app.google/v3qDFvqQPWRLbKWB9');
+  await expect(booking).toHaveAttribute('target', '_blank');
   await page.goto('/partner');
   await page.getByRole('button', { name: 'Request a promo code' }).first().click();
   await expect(page.locator('#contact form')).toBeVisible();

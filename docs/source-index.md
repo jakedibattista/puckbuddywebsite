@@ -65,7 +65,7 @@ Regenerate with `python3 scripts/check-repository.py --write-index` after adding
 | [src/app/privacy/layout.tsx](<../src/app/privacy/layout.tsx>) | Gives the privacy page its canonical public URL without changing the shared shell. |
 | [src/app/privacy/page.tsx](<../src/app/privacy/page.tsx>) | Describes Puck Buddy data collection, service providers, retention and deletion choices. |
 | [src/app/puckbuddy/layout.tsx](<../src/app/puckbuddy/layout.tsx>) | Sets puckbuddy page metadata while leaving shared navigation to the root layout. |
-| [src/app/puckbuddy/page.tsx](<../src/app/puckbuddy/page.tsx>) | Presents hockey analysis features, attributed product statistics, pricing and store download choices. |
+| [src/app/puckbuddy/page.tsx](<../src/app/puckbuddy/page.tsx>) | Presents hockey analysis features, attributed product statistics, pricing, coach-demo booking and store download choices. |
 | [src/app/refund/layout.tsx](<../src/app/refund/layout.tsx>) | Gives the refund page its canonical public URL without changing the shared shell. |
 | [src/app/refund/page.tsx](<../src/app/refund/page.tsx>) | Publishes the refund policy page and its page metadata. |
 | [src/app/sitemap.ts](<../src/app/sitemap.ts>) | Lists canonical public pages for crawlers; export utilities are maintained separately. |

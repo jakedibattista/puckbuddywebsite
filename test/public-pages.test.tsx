@@ -22,7 +22,7 @@ import About from '../src/app/about/page';
 import PuckBuddyPage from '../src/app/puckbuddy/page';
 import LacrossePage from '../src/app/lacrosse/page';
 import { APP_STORE_URL, PLAY_STORE_URL } from '../src/app/hooks/useAppStoreUrl';
-import { CALENDLY_URL, APP_STORE_RATING, ANALYZED_VIDEO_COUNT_LABEL } from '../src/app/lib/constants';
+import { COACH_DEMO_BOOKING_URL, CALENDLY_URL, APP_STORE_RATING, ANALYZED_VIDEO_COUNT_LABEL } from '../src/app/lib/constants';
 const blockNavigation = (event: Event) => { if ((event.target as Element).closest('a')) event.preventDefault(); };
 beforeEach(() => {
   vi.useFakeTimers(); io.motion = []; io.reduced = true; io.track.mockReset(); io.scroll.mockReset();
@@ -147,4 +147,18 @@ it('exposes the selected inquiry type as an accessible pressed choice', () => {
   fireEvent.click(within(group).getByRole('button', { name: 'Custom Development' }));
   expect(within(group).getByRole('button', { name: 'Custom Development', pressed: true })).toBeTruthy();
   expect(within(group).getByRole('button', { name: 'Partner Program', pressed: false })).toBeTruthy();
+});
+
+it('opens the separate coach demo with bounded click telemetry even if analytics fails', () => {
+  render(<PuckBuddyPage />);
+  const link = screen.getByRole('link', { name: /Book a 15-minute coach demo/ });
+  expect(link.getAttribute('href')).toBe(COACH_DEMO_BOOKING_URL);
+  expect(link.getAttribute('target')).toBe('_blank');
+  expect(link.getAttribute('rel')).toBe('noopener noreferrer');
+  fireEvent.click(link);
+  expect(io.track).toHaveBeenCalledExactlyOnceWith('coach_demo_booking_click', { location: 'puckbuddy_hero', booking: 'coach_15min' });
+  io.track.mockImplementationOnce(() => { throw Error('Analytics unavailable'); });
+  expect(() => fireEvent.click(link)).not.toThrow();
+  expect(link.getAttribute('href')).toBe(COACH_DEMO_BOOKING_URL);
+  expect(fetch).not.toHaveBeenCalled();
 });

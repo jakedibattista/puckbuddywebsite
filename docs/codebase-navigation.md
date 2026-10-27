@@ -96,3 +96,14 @@ Six images used only by the retired generators were removed from `public/` after
 byte-for-byte comparison with the retained originals in the local parent workspace
 `cross-store-support/public/`. Their committed originals also remain in Git history.
 The website asset audit now covers the retained consumer pages and export routes.
+
+## Coach demo booking measurement
+
+The Puck Buddy hero links to the separate 15-minute coach option through
+`COACH_DEMO_BOOKING_URL`. It records `coach_demo_booking_click` with two bounded
+properties: `location=puckbuddy_hero` and `booking=coach_15min`. It sends no email,
+name, raw URL or calendar details. A click means interest in booking, not a
+completed meeting, trial or sale. Confirm bookings from Calendar evidence.
+Existing Calendly links and the original 30-minute booking option are preserved.
+Custom events use the existing Pro analytics installation and normal event usage;
+this change enables no paid add-on. Events blocked by privacy tools remain missing.

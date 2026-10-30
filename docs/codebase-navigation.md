@@ -27,7 +27,7 @@ Run python3 scripts/check-repository.py and python3 -m unittest discover -s scri
 
 Generated Next.js types belong under .next and are rebuilt by Next. Local Python environments, node_modules, test output and captured build artifacts are not source. The formerly tracked venv tree was removed from the Git index while preserving local files; local environments are not committed source.
 
-The home and Puck Buddy hero previews use the shared optimized scorecard video; the original asset remains available for existing references. The home heading uses ordinary wrapping to reduce font-swap layout movement.
+The home and Puck Buddy hero previews use the shared optimized scorecard video; the original asset is retained in Git history and the public address remains unchanged. The home heading uses ordinary wrapping to reduce font-swap layout movement.
 
 Preview playback belongs to the currently rendered video. The shared hook pauses it and removes its end listener on replacement, reduced-motion changes or unmount. A late autoplay completion must not restart a detached element or stop a newer playback effect on the same element. Autoplay rejection leaves the poster visible. Component tests cover these transitions; the local Chrome suite also switches the homepage motion preference while the page stays open. These checks do not call app/backend services, redeem codes or submit real inquiries.
 

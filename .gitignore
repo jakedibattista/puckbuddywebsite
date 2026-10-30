@@ -50,7 +50,6 @@ next-env.d.ts
 
 # Exception: hero section videos (small, optimized for web)
 !public/*header.mp4
-!public/scorecard-hero-optimized.mp4
 
 # backup/original image files (keep resized versions in public/)
 *.PNG

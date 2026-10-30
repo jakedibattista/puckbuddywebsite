@@ -21,7 +21,7 @@ it('starts a muted looping inline preview and pauses it on unmount', () => {
   const video = screen.getByLabelText('Puck Buddy app scorecard preview') as HTMLVideoElement;
   expect(video.muted).toBe(true); expect(video.loop).toBe(true); expect(video.playsInline).toBe(true);
   expect(video.poster).toContain('/v2-scorecard.png');
-  expect(video.querySelector('source')?.getAttribute('src')).toBe('/scorecard-hero-optimized.mp4');
+  expect(video.querySelector('source')?.getAttribute('src')).toBe('/scorecard header.mp4');
   expect(video.play).toHaveBeenCalledOnce(); view.unmount();
   expect(video.pause).toHaveBeenCalledOnce();
 });

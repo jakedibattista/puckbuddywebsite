@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 
 import { usePreviewPlayback } from "../hooks/usePreviewPlayback";
 
-const HERO_VIDEO = "/scorecard header.mp4";
+const HERO_VIDEO = "/scorecard-hero-optimized.mp4";
 const HERO_POSTER = "/v2-scorecard.png";
 
 export default function HomeHeroVisual() {

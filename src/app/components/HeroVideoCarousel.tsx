@@ -9,7 +9,7 @@ import { usePreviewPlayback } from "../hooks/usePreviewPlayback";
 
 const VIDEOS = [
   {
-    src: "/scorecard header.mp4",
+    src: "/scorecard-hero-optimized.mp4",
     alt: "Scorecard feature showcase",
     poster: "/v2-scorecard.png",
   },

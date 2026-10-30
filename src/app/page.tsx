@@ -82,7 +82,7 @@ export default function Home() {
                 initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.6, delay: 0.05, ease: [0.21, 1.11, 0.81, 0.99] }}
-                className="text-5xl font-bold leading-[1.02] tracking-[-0.035em] text-balance sm:text-6xl md:text-7xl lg:text-[4.25rem] xl:text-[5rem]"
+                className="text-5xl font-bold leading-[1.02] tracking-[-0.035em] sm:text-6xl md:text-7xl lg:text-[4.25rem] xl:text-[5rem]"
               >
                 Film the shot. Get AI coaching{" "}
                 <span className="text-emerald-200">for your next rep.</span>
